@@ -13,7 +13,7 @@ export default class Item{
         //integer
         this.price = price;
 
-        //string
+        //an array
         this.color = color;
 
         //an array like - ['beads','pearl','macrame']
@@ -22,6 +22,7 @@ export default class Item{
         //url as a string
         this.image = image;
 
+        //string from an option's array one of the follow ['available','almost out of stock','out of stock']
         this.status = status;
     }
 
