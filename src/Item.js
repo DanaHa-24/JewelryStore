@@ -1,6 +1,6 @@
 export default class Item{
     
-    constructor(typePrefix, id, name, price, color, type, image, status){
+    constructor(typePrefix, id, name, price, color, type, image, amount, status){
         //integer - prefix for each jewelry types
         this.typePrefix = typePrefix;
     
@@ -21,6 +21,9 @@ export default class Item{
 
         //url as a string
         this.image = image;
+
+        //int - how many I have from it
+        this.amount = amount;
 
         //string from an option's array one of the follow ['available','almost out of stock','out of stock']
         this.status = status;
@@ -72,6 +75,14 @@ export default class Item{
 
     setImage(image) {
         this.image = image;
+    }
+
+    getAmount() {
+        return this.amount;
+    }
+
+    setAmount(amount) {
+        this.amount = amount;
     }
 
     getStatus() {
