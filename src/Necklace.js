@@ -1,18 +1,18 @@
 import Item from "./Item";
 
 export default class Necklace extends Item{
-    constructor(id, name, price, color, type, image, length, status) {
+    constructor(id, name, price, color, type, image, style, status) {
         super('typePrefix', id, name, price, color, type, image, status);
         
-        //an array - like ['S','M','L'] 
-        this.length = length;
+        //an array - like ['....','נופל','צוק'ר'] 
+        this.style = style;
     }
 
-    getLength() {
-        return this.length;
+    getStyle() {
+        return this.style;
     }
 
-    setLength(length) {
-        this.length = length;
+    setStyle(style) {
+        this.style = style;
     }
 }
