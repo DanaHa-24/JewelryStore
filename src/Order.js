@@ -1,5 +1,5 @@
 export default class Order{
-    constructor(orderNum, orderItems, numOfItems, sum, state, userMail){
+    constructor(orderNum, orderItems, numOfItems, sum, state, userMail, promoCode){
         //integer - uniqe number
         this.orderNum = orderNum;
 
@@ -18,6 +18,9 @@ export default class Order{
 
         //string - to connect each order to it's buyer
         this.userMail = userMail;
+
+        //string - promotion code for discount
+        this.promoCode = promoCode;
     }
 
     getOrderNum() {
@@ -66,5 +69,13 @@ export default class Order{
 
     setUserMail(userMail) {
         this.userMail = userMail;
+    }
+
+    getPromoCode() {
+        return this.promoCode;
+    }
+
+    setPromoCode(promoCode) {
+        this.promoCode = promoCode;
     }
 }
