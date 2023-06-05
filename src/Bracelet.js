@@ -2,7 +2,7 @@ import Item from "./Item";
 
 export default class Bracelet extends Item{
     
-    constructor(id, name, price, color, type, image, amount, status, size, sold) {
+    constructor(id, name, price, color, type, image, amount, status, size) {
         super('3', id, name, price, color, type, image, amount, status);
         
         //an array - like ['S','M','L'] 
