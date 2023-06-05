@@ -1,6 +1,9 @@
 
 export default class Address{
-    constructor(city, street, houseNum, apartmentNum, postalCode){
+    constructor(name, city, street, houseNum, apartmentNum, postalCode){
+        //string - nickname for the specific address
+        this.name = name;
+
         //string
         this.city = city;
 
@@ -15,6 +18,13 @@ export default class Address{
 
         //integer
         this.postalCode = postalCode;
+    }
+    getName() {
+        return this.name;
+    }
+
+    setName(name) {
+        this.name = name;
     }
 
     getCity() {
