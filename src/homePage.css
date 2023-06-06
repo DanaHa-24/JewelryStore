@@ -1,0 +1,43 @@
+#header{
+    padding: 0 20px; 
+    background-color:rgb(150, 250, 250);
+}
+
+#headerCategories{
+    margin: auto;
+}
+
+#headerLinks{
+    align-items: center;
+}
+
+#searchButton{
+    top: 8px; 
+    border-radius: 8px 0 0 8px;
+}
+
+#searchInput{
+    top: 8px; 
+    border-radius: 0 8px 8px 0;
+}
+
+#footerDiv{
+    background-color:black;
+    padding:  0 150px;
+    margin-top: 40px;
+}
+
+#footerDiv h5,
+#footerDiv a:hover{
+    color: white !important;
+}
+
+#footerWebIconList{
+    display: flex;
+    list-style: none;
+    justify-content: end;
+}
+
+#footerWebIconList > li{
+    margin-left: 12px;
+}
