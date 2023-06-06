@@ -1,0 +1,611 @@
+[
+    {
+        "id" : "1000",
+        "name" : "טבעת לברדורייט",
+        "price" : 80,
+        "size" : ["flexible"],
+        "color" : ["green","blue"],
+        "type" : ["stone"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1001",
+        "name" : "טבעת אמטיסט",
+        "price" : 80,
+        "size" : ["flexible"],
+        "color" : ["purple"],
+        "type" : ["stone"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1002",
+        "name" : "טבעת בלו סנד",
+        "price" : 80,
+        "size" : ["flexible"],
+        "color" : ["black","blue"],
+        "type" : ["stone"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1003",
+        "name" : "טבעת מלכיט",
+        "price" : 80,
+        "size" : ["flexible"],
+        "color" : ["green"],
+        "type" : ["stone"],
+        "status" : "available"
+    },
+    {
+        "id" : "1004",
+        "name" : "טבעת טייגר איי",
+        "price" : 80,
+        "size" : ["flexible"],
+        "color" : ["brown"],
+        "type" : ["stone"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1005",
+        "name" : "טבעת טייגר איי",
+        "price" : 120,
+        "size" : ["flexible"],
+        "color" : ["brown"],
+        "type" : ["stone"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1006",
+        "name" : "טבעת מונסטון",
+        "price" : 80,
+        "size" : ["flexible"],
+        "color" : ["white"],
+        "type" : ["stone"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1007",
+        "name" : "טבעת מונסטון",
+        "price" : 120,
+        "size" : ["flexible"],
+        "color" : ["white"],
+        "type" : ["stone"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1100",
+        "name" : "טבעת לב",
+        "price" : 60,
+        "size" : ["5","6","7","8"],
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1200",
+        "name" : "טבעת פנינים",
+        "price" : 40,
+        "size" : ["5","6","7","8"],
+        "color" : ["blue"],
+        "type" : ["pearl"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1201",
+        "name" : "טבעת פנינים",
+        "price" : 40,
+        "size" : ["5","6","7","8"],
+        "color" : ["green"],
+        "type" : ["pearl"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1203",
+        "name" : "טבעת פנינים",
+        "price" : 40,
+        "size" : ["5","6","7","8"],
+        "color" : ["purple"],
+        "type" : ["pearl"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1202",
+        "name" : "טבעת פנינים",
+        "price" : 40,
+        "size" : ["5","6","7","8"],
+        "color" : ["white","silver"],
+        "type" : ["pearl"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "1204",
+        "name" : "טבעת פנינים",
+        "price" : 40,
+        "size" : ["5","6","7","8"],
+        "color" : ["white"],
+        "type" : ["pearl"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "2000",
+        "name" : "שרשרת פרחים",
+        "price" : 100,
+        "color" : ["white","yellow"],
+        "type" : ["beads"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2001",
+        "name" : "שרשרת פרחים",
+        "price" : 100,
+        "color" : ["white","silver"],
+        "type" : ["beads"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2007",
+        "name" : "שרשרת פרחים עם חרוזים תכלת",
+        "price" : 100,
+        "color" : ["white","blue"],
+        "type" : ["beads"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2005",
+        "name" : "שרשרת גלשן",
+        "price" : 50,
+        "color" : ["blue","brown"],
+        "type" : ["beads"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2004",
+        "name" : "שרשרת עוגן",
+        "price" : 50,
+        "color" : ["black"],
+        "type" : ["beads"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2002",
+        "name" : "שרשרת צב",
+        "price" : 60,
+        "color" : ["white"],
+        "type" : ["beads","silver"],
+        "status" : "available",
+        "style" :[],
+        "amount" : 1
+    },
+    {
+        "id" : "2003",
+        "name" : "שרשרת פיל",
+        "price" : 160,
+        "color" : ["white"],
+        "type" : ["beads","silver"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2100",
+        "name" : "שרשרת פנינים",
+        "price" : 120,
+        "color" : ["blue"],
+        "type" : ["pearl","beads"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2101",
+        "name" : "שרשרת פנינים",
+        "price" : 120,
+        "color" : ["pink","white"],
+        "type" : ["pearl","beads"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2102",
+        "name" : "שרשרת פנינים",
+        "price" : 120,
+        "color" : ["green"],
+        "type" : ["pearl"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2103",
+        "name" : "שרשרת פנינים",
+        "price" : 90,
+        "color" : ["blue","green","purple"],
+        "type" : ["pearl","beads"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2107",
+        "name" : "שרשרת פנינים",
+        "price" : 120,
+        "color" : ["silver"],
+        "type" : ["pearl"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2108",
+        "name" : "שרשרת פנינים",
+        "price" : 120,
+        "color" : ["silver"],
+        "type" : ["pearl"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2109",
+        "name" : "שרשרת פנינים",
+        "price" : 80,
+        "color" : ["blue"],
+        "type" : ["pearl"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2110",
+        "name" : "שרשרת פנינים",
+        "price" : 80,
+        "color" : ["green"],
+        "type" : ["pearl","beads"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2105",
+        "name" : "שרשרת פנינים",
+        "price" : 80,
+        "color" : ["purple"],
+        "type" : ["pearl","beads"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2219",
+        "name" : "שרשרת כסף פנינה ירוק",
+        "price" : 70,
+        "color" : ["green"],
+        "type" : ["silver","pearl"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2200",
+        "name" : "שרשרת פרח",
+        "price" : 70,
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2201",
+        "name" : "שרשרת אבן טייגר איי",
+        "price" : 80,
+        "color" : ["brown"],
+        "type" : ["silver","stone"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2202",
+        "name" : "שרשרת אבן אמטיסט",
+        "price" : 80,
+        "color" : ["purple"],
+        "type" : ["silver","stone"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2203",
+        "name" : "שרשרת אבן בלו סנד",
+        "price" : 80,
+        "color" : ["black","blue"],
+        "type" : ["silver","stone"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2205",
+        "name" : "שרשרת משולש",
+        "price" : 70,
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2226",
+        "name" : "שרשרת לב גדול",
+        "price" : 100,
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2206",
+        "name" : "שרשרת פס",
+        "price" : 110,
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2208",
+        "name" : "שרשרת מטבע",
+        "price" : 70,
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2214",
+        "name" : "שרשרת כסף ארוכה",
+        "price" : 120,
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : ["falling"],
+        "amount" : 1
+    },
+    {
+        "id" : "2213",
+        "name" : "שרשרת כסף עיגולים ארוכה",
+        "price" : 120,
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : ["falling"],
+        "amount" : 1
+    },
+    {
+        "id" : "2215",
+        "name" : "שרשרת כסף עיגולים כוכב",
+        "price" : 70,
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2218",
+        "name" : "שרשרת כסף פנינה סגול",
+        "price" : 70,
+        "color" : ["purple"],
+        "type" : ["silver","pearl"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2220",
+        "name" : "שרשרת אבן אופל",
+        "price" : 80,
+        "color" : ["white"],
+        "type" : ["silver","stone"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2223",
+        "name" : "שרשרת אבן שחורה",
+        "price" : 80,
+        "color" : ["white","black"],
+        "type" : ["silver","stone"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2220",
+        "name" : "שרשרת עיגולים עם פנינה",
+        "price" : 90,
+        "color" : ["white"],
+        "type" : ["silver","pearl"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2221",
+        "name" : "שרשרת אבן אמטיסט",
+        "price" : 80,
+        "color" : ["purple"],
+        "type" : ["silver","stone"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2226",
+        "name" : "שרשרת לב קטן",
+        "price" : 70,
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "2300",
+        "name" : "שרשרת מקרמה חום",
+        "price" : 170,
+        "color" : ["brown"],
+        "type" : ["macrame"],
+        "status" : "available",
+        "style" : ["Choker"],
+        "amount" : 1
+    },
+    {
+        "id" : "2304",
+        "name" : "שרשרת חוט מקרמה חום עם תליון",
+        "price" : 35,
+        "color" : ["brown"],
+        "type" : ["macrame"],
+        "status" : "available",
+        "style" : [],
+        "amount" : 1
+    },
+    {
+        "id" : "3102",
+        "name" : "צמיד לבבות",
+        "price" : 60,
+        "size" : ["S","M","L"],
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "amount" : 1
+    },
+    {
+        "id" : "4000",
+        "name" : "עגילי כסף נופלים",
+        "price" : 80,
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" :["falling"],
+        "amount" : 1
+    },
+    {
+        "id" : "4001",
+        "name" : "עגילי פנינה נופלים",
+        "price" : 80,
+        "color" : ["silver"],
+        "type" : ["silver","pearl"],
+        "status" : "available",
+        "style" : ["falling"],
+        "amount" : 1
+    },
+    {
+        "id" : "4002",
+        "name" : "עגילי פנינים נופלים",
+        "price" : 110,
+        "color" : ["silver"],
+        "type" : ["silver","pearl"],
+        "status" : "available",
+        "style" : ["falling"],
+        "amount" : 1
+    },
+    {
+        "id" : "4007",
+        "name" : "סט עגילים",
+        "price" : 100,
+        "color" : ["silver","gray"],
+        "type" : ["silver","pearl"],
+        "status" : "available",
+        "style" : ["set"],
+        "amount" : 1
+    },
+    {
+        "id" : "4006",
+        "name" : "עגילי חישוק",
+        "price" : 90,
+        "color" : ["silver","black"],
+        "type" : ["silver","pearl"],
+        "status" : "available",
+        "style" : ["hoop"],
+        "amount" : 1
+    },
+    {
+        "id" : "4005",
+        "name" : "סט עגילים",
+        "price" : 100,
+        "color" : ["silver","green"],
+        "type" : ["silver","pearl"],
+        "status" : "available",
+        "style" : ["set"],
+        "amount" : 1
+    },
+    {
+        "id" : "4004",
+        "name" : "עגילים נופלים",
+        "price" : 70,
+        "color" : ["silver","green"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : ["falling"],
+        "amount" : 1
+    },
+    {
+        "id" : "4003",
+        "name" : "עגילים נופלים כוכב",
+        "price" : 80,
+        "color" : ["silver","green"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : ["falling"],
+        "amount" : 1
+    },
+    {
+        "id" : "4013",
+        "name" : "עגילי חישוק פנינה",
+        "price" : 90,
+        "color" : ["silver"],
+        "type" : ["silver","pearl"],
+        "status" : "available",
+        "style" : ["hoop"],
+        "amount" : 1
+    },
+    {
+        "id" : "4010",
+        "name" : "עגילי לב",
+        "price" : 80,
+        "color" : ["silver"],
+        "type" : ["silver"],
+        "status" : "available",
+        "style" : ["tight"],
+        "amount" : 1
+    }
+]
