@@ -7,23 +7,37 @@
     margin: auto;
 }
 
+#headerCategories a:hover{
+    border: 2px solid black;
+}
+
 #headerLinks{
     align-items: center;
 }
 
+#searchInput,
 #searchButton{
-    top: 8px; 
-    border-radius: 8px 0 0 8px;
+    border: none;
 }
 
 #searchInput{
     top: 8px; 
     border-radius: 0 8px 8px 0;
+    margin-right: 6px;
+}
+
+#searchButton{
+    top: 8px;
+    border-radius: 8px 0 0 8px;
+}
+
+#searchButton:hover{
+    background-color: grey;
 }
 
 #footerDiv{
     background-color:black;
-    padding:  0 150px;
+    padding: 0 150px;
     margin-top: 40px;
 }
 
