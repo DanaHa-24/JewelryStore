@@ -5,6 +5,8 @@
 
 #headerCategories{
     margin: auto;
+    font-size: large;
+    font-weight: 600;
 }
 
 #headerCategories a:hover{

@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="homePage.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-light sticky-top" id="header">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" id="header">
             <div class="collapse navbar-collapse">
-            <a class="navbar-brand" href="#">LOGO</a>
+            <a class="navbar-brand" href="#">
+                <canvas id="myCanvas"></canvas>
+            </a>
             <ul id="headerCategories" class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#">צמידים</a>
@@ -55,6 +57,10 @@
             </ul>
         </div>
     </nav>
+
+    
+
+    
 
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa deserunt possimus, modi aspernatur distinctio sequi delectus, maiores expedita tempora repellendus cumque iusto obcaecati laboriosam optio voluptate ab quibusdam rerum dolorem.
     Modi perferendis distinctio atque quae ex officia optio dicta! Minus, nihil. Possimus quas assumenda quos impedit facere quaerat itaque repellendus necessitatibus blanditiis quidem, molestiae, fugiat porro aliquid doloribus nobis ducimus!
@@ -168,5 +174,28 @@
             </div>  
         </footer>
     </div>
+    <script>
+        let canvas = document.getElementById('myCanvas');
+        let context = canvas.getContext('2d');
+
+        let image = new Image();
+        image.src = '../images/BU.jpeg';
+
+        image.onload = function() {
+            canvas.width = image.width / 8;;            
+            canvas.height = image.height / 8;
+
+            let scaleFactor = Math.min(canvas.width / image.width, canvas.height / image.height);
+
+            let scaledWidth = image.width * scaleFactor;
+            let scaledHeight = image.height * scaleFactor;
+
+            let x = (canvas.width - scaledWidth) / 2;
+            let y = (canvas.height - scaledHeight) / 2;
+
+            context.imageSmoothingEnabled = true;
+            context.drawImage(image, x, y, scaledWidth, scaledHeight);
+        };
+    </script>
     </body>
 </html>
