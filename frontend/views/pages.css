@@ -1,0 +1,36 @@
+.accordion-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    direction: rtl; /* Set right-to-left direction */
+    max-width: 1000px; /* Set a maximum width for the rows */
+    margin: 0 auto; /* Center the rows horizontally */
+}
+
+.accordion-header {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.accordion-header .icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: transparent; /* Remove the background color */
+    margin-right: 10px; /* Increase the margin for space */
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.accordion-content {
+    padding: 10px;
+    display: none;
+    margin-right: 30px;
+    line-height: 1; /* Adjust line height for readability */
+}
+  
+.accordion-content p {
+    margin-bottom: 10px; /* Add spacing between paragraphs */
+}
+  
