@@ -13,6 +13,10 @@ h6 {
 
 }
 
+.qa-page-header {
+    text-align: center;
+}
+
 .accordion-item {
     border-radius: 5px;
     margin-bottom: 0px;
@@ -63,6 +67,54 @@ h6 {
 .content-row {
     margin-bottom: 5px;
 }
-  
+
+
+/* Exchange and Returns Page*/
+.info-container {
+    width: 1000px;
+    align-items: center;
+    margin: 20px auto;
+    direction: rtl;
+}
+.content-exchange-return{
+    margin: 20px auto;
+    direction: rtl;
+    text-align: right;
+}
+
+.er-page-header{
+    text-align: center;
+}
+
+.center-container {
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoER-item {
+    direction: rtl;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.infoER-header {
+    font-weight: bold;
+    direction: rtl;
+}
+
+.info-content {
+    display: none;
+    direction: rtl;
+    margin-top: 10px;
+}
+
+.content-row {
+    margin: 5px 0;
+    direction: rtl;
+}
+
+
   
   

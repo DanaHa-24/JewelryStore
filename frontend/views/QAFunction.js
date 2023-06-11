@@ -1,3 +1,4 @@
+// Need to seperate between data and functions 
 // import data for Q&A page
 const accordionDataOrders = [
     { title: 'איך לבצע הזמנה מהאתר?', 
@@ -76,24 +77,27 @@ const accordionDataMaterials = [
     }
 ];
 
+// Neccessary part
+
 const qaArraay = [accordionDataOrders, accordionDataShipments, accordionDataReturns, accordionDataPayments, accordionDataMaterials];
 const qaSections = ['הזמנות מהאתר', 'משלוחים', 'החזרות וזיכויים', 'תשלומים', 'חומרים ואחריות'];
 
   
 function createAccordion(){
-    // 1) Creating a div for the entire content with the id "qa-accordions"
+    // Creating a div for the entire content
     const accordionsContainer = $('<div>').attr('id', 'qa-accordions');
-    $('body').append(accordionsContainer);
+    const pageAccordionHeader = $('<h3>').text('Q & A').addClass('qa-page-header');
+    $('body').append(pageAccordionHeader).append(accordionsContainer);
 
-    // 2) Iterating over both arrays and performing the required actions
+    // Iterating over both arrays and performing the required actions
     for (let i = 0; i < qaSections.length; i++) {
         const section = qaSections[i];
         const dataArray = qaArraay[i];
 
-        // 2.1) Creating the section title
+        // Creating the section title
         const sectionTitle = $('<h6>').text(section);
 
-        // 2.2) Creating the accordion container
+        // Creating the accordion container
         const accordionContainer = $('<div>').addClass('accordion-container');
 
         // Iterating over the data array to create the accordion items
@@ -140,6 +144,6 @@ function createAccordion(){
 
 }  
 
-// Call the function to create accordion items
+// Call the function to create the accordion
 createAccordion();
   
