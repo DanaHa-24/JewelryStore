@@ -17,7 +17,7 @@ const dataExchangesAndReturns = [
 ];
 
 function exchangeAndReturns() {
-    const infoContainer = $('<div>').addClass('info-container');
+    const infoContainer = $('<div>').addClass('er-info-container');
     const contentContainer = $('<div>').addClass('content-exchange-return');
     const headerContainer = $('<h3>').text('החלפות / החזרות').addClass('er-page-header');
     $('body').append(headerContainer).append(infoContainer);
