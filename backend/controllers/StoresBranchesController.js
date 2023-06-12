@@ -1,5 +1,6 @@
 const Branch = require('../models/StoresBranchSchema');
 
+// Get Store's branches
 exports.getBranches = async (req, res) => {
   try {
     const branches = await Branch.find().select('address');
@@ -11,7 +12,7 @@ exports.getBranches = async (req, res) => {
 };
 
 
-// Create a new branch
+// Create a new store branch
 exports.createBranch = async (req, res) => {
     try {
       const { address } = req.body;
