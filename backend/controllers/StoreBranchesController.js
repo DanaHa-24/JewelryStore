@@ -1,4 +1,4 @@
-const Branch = require('../models/StoresBranchSchema');
+const Branch = require('../models/StoreBranchSchema');
 
 // Get Store's branches
 exports.getBranches = async (req, res) => {

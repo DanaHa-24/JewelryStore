@@ -1,31 +1,32 @@
-function initMap() {
-  const storesMap = $('<div>').addClass('map');
-  $('body').append(storesMap);
-  // Create a map centered at a specific location
-  let map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 37.7749, lng: -122.4194},
-    zoom: 12
-  });
+const infoContainer = $('<div>').addClass('stores-info-container');
+const contentContainer = $('<div>').addClass('content-stores-map');
+const headerContainer = $('<h3>').text('החנויות שלנו').addClass('stores-page-header');
+$('body').append(headerContainer).append(infoContainer);
+const storesMap = $('<div>').addClass('map').attr("id","map");
+$('body').append(storesMap);
+  
+const apiKey = 'pk.eyJ1IjoiZGFuYTE1NCIsImEiOiJjbGlzdDd0c2wwNGNlM2xqcmtpdWZwaWxzIn0.UF_fsHnkjhdbiymKtgBcmg';
+const mymap = L.map('map').setView([31.954870, 34.810266], 14);
 
-  // Retrieve addresses from your database
-  let addresses = ['Address 1', 'Address 2', 'Address 3'];
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: apiKey
+}).addTo(mymap);
 
-  // Loop through the addresses
-  for (let i = 0; i < addresses.length; i++) {
-    // Geocode the address to get latitude and longitude
-    let geocoder = new google.maps.Geocoder();
-    geocoder.geocode({address: addresses[i]}, function(results, status) {
-      if (status === 'OK') {
-        // Create a marker for each location
-        new google.maps.Marker({
-          position: results[0].geometry.location,
-          map: map
-        });
-      } else {
-        console.log('Geocode was not successful for the following reason: ' + status);
-      }
-    });
-  }
-}
+// Adding Marker
 
-initMap();
+const marker = L.marker([31.960921, 34.789294]).addTo(mymap);
+
+// Add popup message
+let template = `
+
+<h6>הסטודיו שלנו</h6>
+<div style="text-align:center">
+    <img width="150" height="150"src="../images/BU.jpeg"/>
+</div>
+`
+marker.bindPopup(template);
+

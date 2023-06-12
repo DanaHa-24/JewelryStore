@@ -1,1 +1,1 @@
-const Branch = require('../models/StoresBranchSchema');
+const Branch = require('../models/StoreBranchSchema');
