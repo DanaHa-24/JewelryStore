@@ -1,6 +1,6 @@
 const path = require('path');
 const mongoose = require('mongoose');
-const Config = require(path.resolve(__dirname, '../models/config'));
+const ConfigSchema = require(path.resolve(__dirname, '../models/Config'));
 
 const apiKey = 'AIzaSyAFPjN915UN-TjyyPKtfMiELLNhZYrhm7U';
 
@@ -9,9 +9,9 @@ mongoose.connect('mongodb://localhost:27017/BU-db', {
   useUnifiedTopology: true,
 });
 
-const config = new Config({ apiKey });
+const Config = new ConfigSchema({ apiKey });
 
-config.save()
+Config.save()
   .then(() => {
     console.log('API key saved successfully');
     mongoose.connection.close();
