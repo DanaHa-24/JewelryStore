@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const config = new mongoose.Schema({
+const configSchema = new mongoose.Schema({
   apiKey: {
     type: String,
     required: true
