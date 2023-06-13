@@ -4,14 +4,14 @@ const ConfigSchema = require(path.resolve(__dirname, '../models/ConfigSchema'));
 
 const apiKey = 'AIzaSyAFPjN915UN-TjyyPKtfMiELLNhZYrhm7U';
 
-mongoose.connect('mongodb://localhost:27017/BU-db', {
+mongoose.connect('mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-const Config = new ConfigSchema({ apiKey });
+const config = new ConfigSchema({ apiKey , name: 'GOOGLE_MAPS_API_KEY'});
 
-Config.save()
+config.save()
   .then(() => {
     console.log('API key saved successfully');
     mongoose.connection.close();
