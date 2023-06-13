@@ -2,6 +2,12 @@ const express = require('express');
 const router = express.Router();
 const branchController = require('../controllers/StoreBranchesController');
 
+
+// Define the route handler for fetching store branches on Google map
+router.get('/', branchController.getAllStoreBranches);
+
+  
+
 // Create a new branch
 router.post('/', branchController.createBranch);
 

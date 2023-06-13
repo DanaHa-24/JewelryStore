@@ -23,13 +23,14 @@ mongoose.connect(uri, options)
     console.error('Error connecting to MongoDB Atlas:', error);
   });
 
-
   app.use(cors());
   app.use(express.json());
 
   app.get('/api/config/api-key', configController.getApiKey);
   app.use('/api/config', require('./routes/ConfigRoute'));
-  app.use('/api/branches', branchRoutes);
+  //app.use('/api/branches', branchRoutes);
+  app.use('/api/storeBranches', branchRoutes);
+  
 
 app.listen(5000, () => {
     console.log('Backend server is running ');

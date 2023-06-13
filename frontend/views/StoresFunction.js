@@ -1,19 +1,10 @@
 const headerContainer = $('<h3>').text('החנויות שלנו').addClass('stores-page-header');
 const mapContainer = $('<div>').attr("id","map-container");
 const mapElement = $('<div>').attr("id","map");
-
+let locations = []; // Initialize locations as an empty array
 $('body').append(headerContainer);
 $('body').append(mapContainer);
 $('#map-container').append(mapElement);
-
-function initMap() {
-  let mapOptions = {
-    center: new google.maps.LatLng('31.954870', '34.810266'),
-    zoom: 12
-  };
-  let map = new google.maps.Map(document.getElementById('map'), mapOptions);
-}
-
 
 $(document).ready(function() {
   // Make an AJAX request to retrieve the API key from the backend
@@ -21,9 +12,7 @@ $(document).ready(function() {
     url: 'http://localhost:5000/api/config/api-key',
     method: 'GET',
     success: function(response) {
-      console.log('API key response:', response);
       const apiKey = response.apiKey;
-      console.log(typeof initMap)
       loadGoogleMapsScript(apiKey);
     },
     error: function(error) {
@@ -40,9 +29,47 @@ function loadGoogleMapsScript(apiKey) {
   script.async = true;
   
   script.onload = function() {
-    initMap();
+    fetchStoreBranches(apiKey);
   };
 
   // Append the script to the document body
   document.body.appendChild(script);
+}
+
+function fetchStoreBranches(apiKey) {
+  // Make an AJAX request to retrieve the store branch data from the backend
+  $.ajax({
+    url: 'http://localhost:5000/api/storeBranches',
+    method: 'GET',
+    success: function(response) {
+      locations = response;
+
+      // Call initMap with the API key and store branch locations
+      initMap(apiKey, locations);
+    },
+    error: function(error) {
+      console.error('Error retrieving store branches:', error);
+    }
+  });
+}
+
+function initMap(apiKey, locations) {
+  let mapOptions = {
+    center: new google.maps.LatLng(31.954870, 34.810266),
+    zoom: 12
+  };
+  let map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  // Create markers for each location
+  if (locations) {
+    locations.forEach((location) => {
+      const marker = new google.maps.Marker({
+        position: { lat: location.latitude, lng: location.longitude },
+        map: map,
+        title: location.name
+      });
+    });
+  }
+  else{
+    console.log("No locations found");
+  }
 }

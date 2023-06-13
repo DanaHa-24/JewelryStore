@@ -1,22 +1,33 @@
-const Branch = require('../models/StoreBranchesSchema');
+const StoreBranchesSchema = require('../models/StoreBranchesSchema');
 
-// Get Store's branches
-exports.getBranches = async (req, res) => {
+// Get Store's branches - maybe not neccessary
+// exports.getBranches = async (req, res) => {
+//   try {
+//     const branches = await Branch.find().select('address');
+//     res.json(branches);
+//   } catch (error) {
+//     console.error('Error fetching branches:', error);
+//     res.status(500).json({ error: 'Failed to fetch branches' });
+//   }
+// };
+
+// Get all Store's branches
+exports.getAllStoreBranches = async (req, res) => {
   try {
-    const branches = await Branch.find().select('address');
-    res.json(branches);
+    const storeBranches = await StoreBranchesSchema.find();
+    res.status(200).json(storeBranches);
   } catch (error) {
-    console.error('Error fetching branches:', error);
-    res.status(500).json({ error: 'Failed to fetch branches' });
+    res.status(500).json({ message: 'Error retrieving store branches', error });
   }
 };
+
 
 
 // Create a new store branch
 exports.createBranch = async (req, res) => {
     try {
       const { address } = req.body;
-      const branch = new Branch({ address });
+      const branch = new StoreBranchesSchema({ address });
       await branch.save();
       res.json({ message: 'Branch created successfully', branch });
     } catch (error) {
@@ -30,7 +41,7 @@ exports.createBranch = async (req, res) => {
     try {
       const { id } = req.params;
       const { address } = req.body;
-      const branch = await Branch.findByIdAndUpdate(id, { address }, { new: true });
+      const branch = await StoreBranchesSchema.findByIdAndUpdate(id, { address }, { new: true });
       if (!branch) {
         return res.status(404).json({ error: 'Branch not found' });
       }
@@ -45,7 +56,7 @@ exports.createBranch = async (req, res) => {
   exports.deleteBranch = async (req, res) => {
     try {
       const { id } = req.params;
-      const branch = await Branch.findByIdAndDelete(id);
+      const branch = await StoreBranchesSchema.findByIdAndDelete(id);
       if (!branch) {
         return res.status(404).json({ error: 'Branch not found' });
       }
@@ -59,7 +70,7 @@ exports.createBranch = async (req, res) => {
   // List all branches
   exports.listBranches = async (req, res) => {
     try {
-      const branches = await Branch.find().select('address');
+      const branches = await StoreBranchesSchema.find().select('address');
       res.json(branches);
     } catch (error) {
       console.error('Error fetching branches:', error);
@@ -71,7 +82,7 @@ exports.createBranch = async (req, res) => {
   exports.searchBranches = async (req, res) => {
     try {
       const { query } = req.query;
-      const branches = await Branch.find({ address: { $regex: query, $options: 'i' } }).select('address');
+      const branches = await StoreBranchesSchema.find({ address: { $regex: query, $options: 'i' } }).select('address');
       res.json(branches);
     } catch (error) {
       console.error('Error searching branches:', error);
