@@ -5,9 +5,9 @@ const config = new mongoose.Schema({
     type: String,
     required: true
   },
-  createAt: { type: Date, default: Date.now } 
+  createAt: { type: Date, default: Date.now },   
 });
 
-const Config = mongoose.model('Config', config);
+const Config = mongoose.model('Config', configSchema, 'ConfigSchema');
 
 module.exports = Config;

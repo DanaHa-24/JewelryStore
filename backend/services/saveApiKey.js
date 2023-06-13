@@ -1,6 +1,6 @@
 const path = require('path');
 const mongoose = require('mongoose');
-const ConfigSchema = require(path.resolve(__dirname, '../models/Config'));
+const ConfigSchema = require(path.resolve(__dirname, '../models/ConfigSchema'));
 
 const apiKey = 'AIzaSyAFPjN915UN-TjyyPKtfMiELLNhZYrhm7U';
 

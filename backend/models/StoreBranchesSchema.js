@@ -6,6 +6,6 @@ const storeBranchesSchema = new mongoose.Schema({
     latitude: { type: Number, required: true}
 });
 
-const StoreBranches = mongoose.model('StoreBranches', storeBranchesSchema);
+const StoreBranches = mongoose.model('StoreBranches', storeBranchesSchema, 'StoreBranchesSchema');
 
 module.exports = StoreBranches;
