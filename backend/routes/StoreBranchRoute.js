@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const branchController = require('../controllers/StoreBranchController');
+const branchController = require('../controllers/StoreBranchesController');
 
 // Create a new branch
 router.post('/', branchController.createBranch);

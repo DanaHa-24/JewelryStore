@@ -1,32 +1,28 @@
-const infoContainer = $('<div>').addClass('stores-info-container');
-const contentContainer = $('<div>').addClass('content-stores-map');
 const headerContainer = $('<h3>').text('החנויות שלנו').addClass('stores-page-header');
-$('body').append(headerContainer).append(infoContainer);
-const storesMap = $('<div>').addClass('map').attr("id","map");
-$('body').append(storesMap);
-  
-const apiKey = 'pk.eyJ1IjoiZGFuYTE1NCIsImEiOiJjbGlzdDd0c2wwNGNlM2xqcmtpdWZwaWxzIn0.UF_fsHnkjhdbiymKtgBcmg';
-const mymap = L.map('map').setView([31.954870, 34.810266], 14);
+const mapContainer = $('<div>').attr("id","map-container");
+const mapElement = $('<div>').attr("id","map");
 
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: apiKey
-}).addTo(mymap);
+$('body').append(headerContainer);
+$('body').append(mapContainer);
+$('#map-container').append(mapElement);
 
-// Adding Marker
 
-const marker = L.marker([31.960921, 34.789294]).addTo(mymap);
 
-// Add popup message
-let template = `
+function loadGoogleMapsScript() {
+  const script = document.createElement('script');
+  script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAFPjN915UN-TjyyPKtfMiELLNhZYrhm7U&callback=initMap`;
+  script.defer = true;
+  document.body.appendChild(script);
+}
 
-<h6>הסטודיו שלנו</h6>
-<div style="text-align:center">
-    <img width="150" height="150"src="../images/BU.jpeg"/>
-</div>
-`
-marker.bindPopup(template);
+function initMap() {
+  let mapOptions = {
+    center: new google.maps.LatLng('31.954870', '34.810266'),
+    zoom: 12
+  };
+  let map = new google.maps.Map(document.getElementById('map'), mapOptions);
+}
 
+$(document).ready(function() {
+  loadGoogleMapsScript();
+});
