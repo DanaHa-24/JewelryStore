@@ -9,6 +9,6 @@ const addressSchema = new mongoose.Schema({
     postalCode: { type: Number, require: true },
 });
 
-const Address = mongoose.model('Address', addressSchema);
+const Address = mongoose.model('Address', addressSchema, 'AdressSchema');
 
 module.exports = Address;

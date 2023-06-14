@@ -44,6 +44,6 @@ itemSchema.pre('save', async function (next) {
     next();
 });
 
-const Item = mongoose.model('Item', itemSchema);
+const Item = mongoose.model('Item', itemSchema, 'ItemSchema');
 
 module.exports = Item;

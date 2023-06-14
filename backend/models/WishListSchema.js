@@ -6,6 +6,6 @@ const wishlistSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now }
 });
 
-const WishList = mongoose.model('WishList', wishlistSchema);
+const WishList = mongoose.model('WishList', wishlistSchema, 'WishListSchema');
 
 module.exports = WishList;
