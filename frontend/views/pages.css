@@ -1,0 +1,213 @@
+/*  General */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+#qa-accordions {
+    margin: 20px auto;
+    direction: rtl;
+    width: 1000px;
+    text-align: center;
+}
+
+h6 {
+    margin-top: 20px;
+    color: #333;
+    direction: rtl;
+
+}
+
+.qa-page-header {
+    text-align: center;
+}
+
+.accordion-item {
+    border-radius: 5px;
+    margin-bottom: 0px;
+    direction: rtl;
+    border: 1px solid #ccc;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.toggle-button {
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+}
+
+.icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.accordion-content {
+    display: none;
+    text-align: right;
+    margin-right: 45px;
+    padding: 10px;
+    background-color: #fff;
+    direction: rtl;
+}
+
+.content-container {
+    margin-top: 10px;
+}
+
+.content-row {
+    margin-bottom: 5px;
+}
+
+
+/* Exchange and Returns Page*/
+.er-info-container {
+    width: 1000px;
+    align-items: center;
+    margin: 20px auto;
+    direction: rtl;
+}
+.content-exchange-return{
+    margin: 20px auto;
+    direction: rtl;
+    text-align: right;
+}
+
+.er-page-header{
+    text-align: center;
+}
+
+.center-container {
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoER-item {
+    direction: rtl;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.infoER-header {
+    font-weight: bold;
+    direction: rtl;
+}
+
+.info-content {
+    display: none;
+    direction: rtl;
+    margin-top: 10px;
+}
+
+.content-row {
+    margin: 5px 0;
+    direction: rtl;
+}
+
+/* Stores page */
+.stores-page-header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    top: 100px;
+}
+
+.stores-info-container {
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
+    height: 80vh;
+    width: 80vw;
+}
+
+#map-container {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Profile Page */
+.profile {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.profile-page-navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #f1f1f1;
+    padding: 10px;
+    z-index: 9999;
+}
+
+.profile-page-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.profile-page-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+.profile-page-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-decoration-line: underline;
+}
+
+.profile-page-navbar .tab {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.profile-page-navbar .profile-page-dots {
+    display: none;
+}
+
+.profile-page-options .tab {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.profile-page-options .profile-page-dots {
+    display: none;
+}
+
+#heart-profile{
+    right: 30px;
+}  
+
+  
+  
