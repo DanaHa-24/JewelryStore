@@ -77,41 +77,11 @@
     background-color: #c0c0c0;
 }
 
-#body{
-    margin: 20px auto;
-    display: grid;
-    grid-template-columns: repeat(3, 300px);
-    gap: 60px;
-    justify-content: center;
-}
-
-#body #cardFavorite{
-    background-color: white;
-    border: none;
-    width: fit-content;
-    height: fit-content;
-}
-
-#body .card-text{
-    line-height: 0.5;
-}
-
-#body .card-text:nth-child(2){
-    font-weight: bold;
-}
-
-#pageNumRow{
-    width: fit-content;
-    margin: 0 auto;
-}
-
 #footerDiv{
     background-color:black;
     padding: 0 150px;
     margin-top: 40px;
 }
-
-
 
 #footerDiv #footerCategories ul a{
     color: #aaa;

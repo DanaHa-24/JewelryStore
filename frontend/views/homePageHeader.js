@@ -54,7 +54,7 @@ const searchLi = $("<li>").append(searchDiv);
 headerLinks.append(searchLi);
 
 const image = new Image();
-image.src = "../frontend/images/BU.png";
+image.src = "../images/BU.png";
 
 image.onload = function() {
     canvas[0].width = image.width / 3;            
