@@ -51,26 +51,58 @@
 
 #headerLinks{
     align-items: center;
+    width: fit-content;
 }
 
-#searchInput,
-#searchButton{
+#headerLinks .nav-link{
+    right: 10px;
+}
+
+#headerLinks #searchInput,
+#headerLinks #searchButton{
     border: none;
+    top: 8px; 
 }
 
-#searchInput{
-    top: 8px; 
+#headerLinks #searchInput{
     border-radius: 0 8px 8px 0;
     margin-right: 8px;
 }
 
-#searchButton{
-    top: 8px;
+#headerLinks #searchButton{
     border-radius: 8px 0 0 8px;
 }
 
-#searchButton:hover{
-    background-color: grey;
+#headerLinks #searchButton:hover{
+    background-color: #c0c0c0;
+}
+
+#body{
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    gap: 60px;
+    justify-content: center;
+}
+
+#body #cardFavorite{
+    background-color: white;
+    border: none;
+    width: fit-content;
+    height: fit-content;
+}
+
+#body .card-text{
+    line-height: 0.5;
+}
+
+#body .card-text:nth-child(2){
+    font-weight: bold;
+}
+
+#pageNumRow{
+    width: fit-content;
+    margin: 0 auto;
 }
 
 #footerDiv{
@@ -79,9 +111,24 @@
     margin-top: 40px;
 }
 
+
+
+#footerDiv #footerCategories ul a{
+    color: #aaa;
+}
+
 #footerDiv h5,
 #footerDiv a:hover{
     color: white !important;
+}
+
+#footerWebIconContainer{
+    width: fit-content;
+    height: fit-content;
+}
+
+#footerWebIconContainer ul{
+    margin: auto 0;
 }
 
 #footerWebIconList{
@@ -90,6 +137,15 @@
     justify-content: end;
 }
 
-#footerWebIconList > li{
+#footerWebIconList li{
     margin-left: 12px;
+}
+
+#footerWebIconList li a{
+    color: #aaa;
+    text-decoration: none;
+}
+
+#footerWebIconList li a::before{
+    font-size: 30px;
 }

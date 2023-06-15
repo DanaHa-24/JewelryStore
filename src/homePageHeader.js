@@ -8,8 +8,9 @@ const dropdownArray = {
 const navIcons = [
 { class: 'fas fa-shopping-cart' },
 { class: 'fas fa-heart' },
-{ class: 'fas fa-user' },
+{ class: 'fas fa-user' }
 ];
+
 const nav = $("<nav>").attr("id", "header").addClass("navbar navbar-expand-lg sticky-top");
 const canvas = $("<canvas>").attr("id", "myCanvas");
 const context = canvas[0].getContext('2d');
@@ -17,7 +18,6 @@ const canvasLink = $("<a>").attr("href", "#").addClass("navbar-brand").append(ca
 const navbarDiv = $("<div>").addClass("collapse navbar-collapse").append(canvasLink);
 
 $("body").append(nav.append(navbarDiv.append(canvasLink.append(canvas))));
-
 
 const headerCategories = $("<ul>").attr("id", "headerCategories").addClass("navbar-nav");
 $.each(dropdownArray, function(label, items){
