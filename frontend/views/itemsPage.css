@@ -57,7 +57,7 @@
 #jewelryCardsContainer{
     margin: 20px auto;
     display: grid;
-    grid-template-columns: repeat(4, 200px);
+    grid-template-columns: repeat(4, 250px);
     gap: 40px;
     justify-content: center;
     margin-top: 0;

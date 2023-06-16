@@ -1,9 +1,10 @@
-const content = [
-    { content: 'החלפות והחזרות' },
-    { content: 'שאלות ותשובות' },
-    { content: 'תקנון האתר' },
-    { content: 'מדריך מידות' },
-    { content: 'About me' }
+function showFooter(){
+    const content = [
+        { content: 'החלפות והחזרות' },
+        { content: 'שאלות ותשובות' },
+        { content: 'תקנון האתר' },
+        { content: 'מדריך מידות' },
+        { content: 'About me' }
     ];
 
     const socialLinks = {
@@ -33,3 +34,4 @@ const content = [
         let link = $('<a target="_blank" aria-label="' + name + '" title="' + name + '" data-type="click_navFooter" data-path="social:' + name + '" href="' + content + '" class="social-link footer-link fab fa-' + lowerCaseName + '" data-pre="ILink">');
         footerWebIconList.append($("<li>").append(link));
     });
+}
