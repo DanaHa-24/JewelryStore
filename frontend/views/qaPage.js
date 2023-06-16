@@ -2,7 +2,7 @@
 // import data for Q&A page
 const accordionDataOrders = [
     { title: 'איך לבצע הזמנה מהאתר?', 
-      content: ['בקלות! ניתן לבצע התחברות (בלחיצה על כפתור X למעלה) או לבצע רכישה ללא רישום, כאורח.', 'יש להזין את פרטי פרופיל המשתמש, מייל וסיסמא ולהתחיל להכניס את כל מה שאת/ה אוהב/ת לסל קניות.', 'בסיום יש לגשת לכפתור סיום הזמנה ולתשלום בקופה ובחירת אופן המשלוח.', 'במידה ויש לך קוד קופון יש להזינו בשדה "קוד קופון" - לפני שלב המעבר לתשלום.'] 
+      content: ['בקלות! ניתן לבצע התחברות או לבצע רכישה ללא רישום, כאורח.', 'יש להזין את פרטי פרופיל המשתמש, מייל וסיסמא ולהתחיל להכניס את כל מה שאת/ה אוהב/ת לסל קניות.', 'בסיום יש לגשת לכפתור סיום הזמנה ולתשלום בקופה ובחירת אופן המשלוח.', 'במידה ויש לך קוד קופון יש להזינו בשדה "קוד קופון" - לפני שלב המעבר לתשלום.'] 
     },
     { title: 'איך אוכל לבדוק מה מצב ההזמנה שלי?', 
       content: ['שאלה מצוינת! יש 2 דרכים לברר:', ' 1) להיכנס למשתמש שלך ותחת קטגוריית ההזמנות שלי יופיע שדה סטטוס.', '2) לפנות לצוות שירות הלקוחות שלנו במספר דרכי התקשרות : וואצאפ למספר 050-9008833 , שליחת הודעה באינסטגרם /   בפייסבוק שלנו.'] 
@@ -85,7 +85,7 @@ const qaSections = ['הזמנות מהאתר', 'משלוחים', 'החזרות �
   
 function createAccordion(){
     // Creating a div for the entire content
-    const accordionsContainer = $('<div>').attr('id', 'qa-accordions');
+    const accordionsContainer = $('<div>').attr('id', 'qa-page-accordions');
     const pageAccordionHeader = $('<h3>').text('Q & A').addClass('qa-page-header');
     $('body').append(pageAccordionHeader).append(accordionsContainer);
 
@@ -95,21 +95,21 @@ function createAccordion(){
         const dataArray = qaArraay[i];
 
         // Creating the section title
-        const sectionTitle = $('<h6>').text(section).addClass('section-title-qa');
+        const sectionTitle = $('<h6>').text(section).addClass('qa-page-section-title');
 
         // Creating the accordion container
-        const accordionContainer = $('<div>').addClass('accordion-container');
+        const accordionContainer = $('<div>').addClass('qa-page-accordion-container');
 
         // Iterating over the data array to create the accordion items
         dataArray.forEach(item => {
             // Creating accordion item elements
-            const accordionItem = $('<div>').addClass('accordion-item');
-            const accordionHeader = $('<div>').addClass('accordion-header');
-            const accordionContent = $('<div>').addClass('accordion-content');
+            const accordionItem = $('<div>').addClass('qa-page-accordion-item');
+            const accordionHeader = $('<div>').addClass('qa-page-accordion-header');
+            const accordionContent = $('<div>').addClass('qa-page-accordion-content');
 
             // Creating the +/- button for opening/closing the accordion
-            const icon = $('<span>').addClass('toggle-icon-qa').text('+');
-            const toggleButton = $('<button>').addClass('toggle-button-qa').append(icon);
+            const icon = $('<span>').addClass('qa-page-toggle-icon').text('+');
+            const toggleButton = $('<button>').addClass('qa-page-toggle-button').append(icon);
 
             // Adding click event listener to toggle the accordion
             toggleButton.on('click', function() {
@@ -121,12 +121,12 @@ function createAccordion(){
             });
 
             // Setting the item text as the accordion title
-            const title = $('<span>').text(item.title).addClass('accordion-question');
+            const title = $('<span>').text(item.title).addClass('qa-page-accordion-q');
 
             // Adding the content rows to the accordion
-            const contentContainer = $('<div>').addClass('content-container');
+            const contentContainer = $('<div>').addClass('qa-page-accordion-a');
             item.content.forEach(row => {
-                const contentRow = $('<p>').addClass('content-row').text(row);
+                const contentRow = $('<p>').addClass('qa-page-content-row').text(row);
                 contentContainer.append(contentRow);
             });
 
@@ -140,8 +140,6 @@ function createAccordion(){
         // Appending section title and accordion container to the main container
         accordionsContainer.append(sectionTitle, accordionContainer);
     }
-
-
 }  
 
 // Call the function to create the accordion

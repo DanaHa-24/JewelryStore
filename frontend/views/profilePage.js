@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 
     const info = $('<p>שמחים לראות אותך שוב</p>').addClass('profile-page-info');
-    const heart = $('<i class="far fa-heart" style="color: #fe39c9;"></i>').attr('id','heart-profile');
+    const heart = $('<i class="far fa-heart" style="color: #fe39c9;"></i>').attr('id','profile-page-heart');
     infoContainter.append(info,heart);
     profile.append(infoContainter);
     $('body').append(profile);
