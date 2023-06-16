@@ -1,6 +1,6 @@
 const headerContainer = $('<h3>').text('החנויות שלנו').addClass('stores-page-header');
 const mapContainer = $('<div>').attr("id","map-container");
-const mapElement = $('<div>').attr("id","map");
+const mapElement = $('<div>').attr("id","mapElement-stores");
 let locations = []; // Initialize locations as an empty array
 $('body').append(headerContainer);
 $('body').append(mapContainer);
@@ -62,11 +62,23 @@ function initMap(apiKey, locations) {
   // Create markers for each location
   if (locations) {
     locations.forEach((location) => {
+      const infowindow = new google.maps.InfoWindow({
+        content: `<div>${location.name}</div>`,
+        ariaLabel: location.name
+      });
       const marker = new google.maps.Marker({
         position: { lat: location.latitude, lng: location.longitude },
         map: map,
         title: location.name
       });
+
+      marker.addListener("click", () => {
+        infowindow.open({
+          anchor: marker,
+          map,
+        });
+      });
+
     });
   }
   else{

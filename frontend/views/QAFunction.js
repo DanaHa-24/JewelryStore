@@ -95,7 +95,7 @@ function createAccordion(){
         const dataArray = qaArraay[i];
 
         // Creating the section title
-        const sectionTitle = $('<h6>').text(section);
+        const sectionTitle = $('<h6>').text(section).addClass('section-title-qa');
 
         // Creating the accordion container
         const accordionContainer = $('<div>').addClass('accordion-container');
@@ -108,8 +108,8 @@ function createAccordion(){
             const accordionContent = $('<div>').addClass('accordion-content');
 
             // Creating the +/- button for opening/closing the accordion
-            const icon = $('<span>').addClass('icon').text('+');
-            const toggleButton = $('<button>').addClass('toggle-button').append(icon);
+            const icon = $('<span>').addClass('toggle-icon-qa').text('+');
+            const toggleButton = $('<button>').addClass('toggle-button-qa').append(icon);
 
             // Adding click event listener to toggle the accordion
             toggleButton.on('click', function() {
@@ -121,7 +121,7 @@ function createAccordion(){
             });
 
             // Setting the item text as the accordion title
-            const title = $('<span>').text(item.title);
+            const title = $('<span>').text(item.title).addClass('accordion-question');
 
             // Adding the content rows to the accordion
             const contentContainer = $('<div>').addClass('content-container');

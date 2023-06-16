@@ -26,6 +26,20 @@ $(document).ready(function() {
       }
     ];
   
+    // Create profile section
+    const profile = $('<div class="profile-header-container"></div>');
+    const infoContainter = $('<div>').addClass('profile-page-subtitle');
+    profile.append(($('<h1>החשבון שלי</h1>').addClass('profile-page-header')), infoContainter);
+
+
+    const info = $('<p>שמחים לראות אותך שוב</p>').addClass('profile-page-info');
+    const heart = $('<i class="far fa-heart" style="color: #fe39c9;"></i>').attr('id','heart-profile');
+    infoContainter.append(info,heart);
+    profile.append(infoContainter);
+    $('body').append(profile);
+    
+    
+    // Create profile navbar
     for (let i = 0; i < tabs.length; i++) {
       let tab = $('<li class="tab">' + tabs[i].text + '</li>');
       tab.data('content', tabs[i].content);
@@ -37,17 +51,7 @@ $(document).ready(function() {
     const dots = $('<div class="profile-page-dots">&#8230;</div>');
     navbar.append(dots);
     $('body').append(navbar);
-  
-    // Create profile section
-    const profile = $('<div class="profile"></div>');
-    profile.append($('<h1>החשבון שלי</h1>').addClass('profile-page-header'));
-    const info = $('<p>שמחים לראות אותך שוב</p>').addClass('profile-page-info');
-    const heart = $('<i class="far fa-heart" style="color: #fe39c9;"></i>').attr('id','heart-profile');
-    info.append(heart);
-    profile.append(info);
-    $('body').append(profile);
 
-  
     // Toggle navbar when the window is resized
     $(window).resize(function() {
       toggleNavbar();
@@ -78,6 +82,7 @@ $(document).ready(function() {
     $('.profile-page-navbar .tab').click(function() {
       let content = $(this).data('content');
       $('.profile-page-info').text(content);
+      $('#heart-profile').detach(); // Detach the heart element by its ID
     });
 });
 

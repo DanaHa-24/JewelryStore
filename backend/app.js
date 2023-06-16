@@ -32,7 +32,7 @@ mongoose.connect(uri, options)
   app.use('/api/storeBranches', branchRoutes);
   
 
-app.listen(5000, () => {
+app.listen(5001, () => {
     console.log('Backend server is running ');
 });
 

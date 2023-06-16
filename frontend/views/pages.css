@@ -3,6 +3,8 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+/* Q&A page */
 #qa-accordions {
     margin: 20px auto;
     direction: rtl;
@@ -10,7 +12,7 @@ html, body {
     text-align: center;
 }
 
-h6 {
+.section-title-qa {
     margin-top: 20px;
     color: #333;
     direction: rtl;
@@ -32,11 +34,11 @@ h6 {
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: #f2f2f2;
+    background-color: #F6F1F0;
     cursor: pointer;
 }
 
-.toggle-button {
+.toggle-button-qa {
     margin-right: 10px;
     border: none;
     background-color: transparent;
@@ -46,13 +48,15 @@ h6 {
     cursor: pointer;
 }
 
-.icon {
+.toggle-icon-qa {
     display: inline-block;
     width: 20px;
     height: 20px;
     line-height: 20px;
     text-align: center;
     border-radius: 50%;
+    font-weight: bold;
+    font-size: 26px;
 }
 
 .accordion-content {
@@ -70,6 +74,11 @@ h6 {
 
 .content-row {
     margin-bottom: 5px;
+}
+
+.accordion-question {
+    font-weight: bold;
+    font-size: 14px;
 }
 
 
@@ -134,7 +143,7 @@ h6 {
     align-items: center;
 }
 
-#map {
+#mapElement-stores {
     height: 80vh;
     width: 80vw;
 }
@@ -147,16 +156,25 @@ h6 {
 }
 
 /* Profile Page */
-.profile {
+.profile-header-container {
     margin-top: 40px;
     padding: 20px;
 }
 
+.profile-page-subtitle {
+    font-size: 16px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    direction: rtl;
+}
+
 .profile-page-navbar {
     position: fixed;
-    top: 0;
+    bottom: 300px;
     right: 0;
-    background-color: #f1f1f1;
     padding: 10px;
     z-index: 9999;
 }
@@ -167,13 +185,19 @@ h6 {
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
+    
+}
+  
+#heart-profile {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
 }
 
 .profile-page-options {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f2f2f2;
     padding: 10px;
 }
 
@@ -192,22 +216,18 @@ h6 {
     cursor: pointer;
 }
 
-.profile-page-navbar .profile-page-dots {
+.profile-page-navbar .profile-page-dots .profile-page-options {
     display: none;
 }
 
 .profile-page-options .tab {
     margin-bottom: 10px;
     cursor: pointer;
+    border-bottom-style: solid;
+    border-color: #c1b5b5; 
 }
 
-.profile-page-options .profile-page-dots {
-    display: none;
-}
 
-#heart-profile{
-    right: 30px;
-}  
 
   
   
