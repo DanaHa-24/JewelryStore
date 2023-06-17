@@ -1,5 +1,5 @@
 const Item = require('../models/ItemSchema');
-const itemServices = require('../services/ItemServices');
+const itemServices = require('../services/ItemService');
 
 exports.createItem = async (req, res) => {
     try {
