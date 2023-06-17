@@ -1,6 +1,8 @@
 const User = require('../models/UserSchema');
-const { updateNumOfOrders } = require('../services/UserServices');
+const UserService = require('../services/UserService');
+const { updateNumOfOrders } = require('../services/UserService');
 
+// Update num of orders in user
 async function saveUser(req, res) {
   try {
     const user = new User(req.body);
@@ -15,6 +17,17 @@ async function saveUser(req, res) {
   }
 }
 
+// Get logged-in user details
+const getMyUser = async (req, res) => {
+  try {
+    const user = await UserService.getUser(req.userId);
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to get user details' });
+  }
+};
+
 module.exports = { 
+                    getMyUser,
                     saveUser
                  };
