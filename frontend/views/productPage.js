@@ -27,7 +27,7 @@ $(document).ready(function() {
     detailsColumn.append(descriptionHeading);
     detailsColumn.append($('<p>').addClass('text-muted').text(productDescription[0]));
     detailsColumn.append($('<button>').addClass('btn btn-secondary btn-lg').text('הוסף לרשימת המשאלות'));
-    detailsColumn.append($('<button>').addClass('btn btn-primary btn-lg').text('הוסף לעגלת הקניות'));
+    detailsColumn.append($('<button>').addClass('btn btn-primary btn-lg ml-4').text('הוסף לעגלת הקניות'));
 
     // Add a common class to both buttons
     detailsColumn.find('button').addClass('custom-button');
