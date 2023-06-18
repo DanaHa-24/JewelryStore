@@ -1,21 +1,26 @@
 const User = require('../models/UserSchema');
 const UserService = require('../services/UserService');
-const { updateNumOfOrders } = require('../services/UserService');
+// const { updateNumOfOrders } = require('../services/UserService');
 
-// Update num of orders in user
-async function saveUser(req, res) {
-  try {
-    const user = new User(req.body);
-    await user.save();
+// // Update num of orders in user
+// async function saveUser(req, res) {
+//   try {
+//     console.log('Inside getMyUSer');
+//     const user = new User(req.body);
+//     console.log('User data:', user); // Add this line
+//     await user.save();
 
-    // Call the updateNumOfOrders function
-    await updateNumOfOrders(user);
+//     // Call the updateNumOfOrders function
+//     await updateNumOfOrders(user);
 
-    res.status(200).json({ message: 'User saved successfully.' });
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to save user.' });
-  }
-}
+//     res.status(200).json({ message: 'User saved successfully.' });
+//   } catch (error) {
+//     console.error('Error:', error); // Add this lin
+//     console.error('Failed to save user:', error);
+//     res.status(500).json({ error: 'Failed to save user.' });
+//   }
+// }
+
 
 // Get logged-in user details
 const getMyUser = async (req, res) => {
