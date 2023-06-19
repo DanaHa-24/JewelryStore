@@ -1,9 +1,10 @@
-const content = [
-    { content: 'החלפות והחזרות' },
-    { content: 'שאלות ותשובות' },
-    { content: 'תקנון האתר' },
-    { content: 'מדריך מידות' },
-    { content: 'About me' }
+function showFooter(){
+    const content = [
+        { content: 'החלפות והחזרות' },
+        { content: 'שאלות ותשובות' },
+        { content: 'תקנון האתר' },
+        { content: 'מדריך מידות' },
+        { content: 'About me' }
     ];
 
     const socialLinks = {
@@ -11,9 +12,9 @@ const content = [
         "Instagram" : "https://instagram.com/bujewelry_?igshid=MjEwN2IyYWYwYw"
     }
 
-    const footerDiv = $("<div>").attr("id", "footerDiv");
-    const footer = $("<footer>").attr("id", "footer").addClass("row py-4");
-    const footerCategories = $("<div>").attr("id", "footerCategories").addClass("col")
+    const footerDiv = $("<div>").attr("id", "home-page-footer-div");
+    const footer = $("<footer>").attr("id", "home-page-footer").addClass("row py-4");
+    const footerCategories = $("<div>").attr("id", "home-page-footer-categories").addClass("col")
     const footerContentList = $("<ul>").addClass("nav flex-col gap-5");
 
     $("body").append(footerDiv.append(footer.append(footerCategories.append(footerContentList))));
@@ -24,12 +25,13 @@ const content = [
         footerContentList.append(listItem.append(link));
     });
 
-    const footerWebIconContainer = $("<div>").attr("id", "footerWebIconContainer");
-    const footerWebIconList = $("<ul>").attr("id", "footerWebIconList").addClass("social-links pl3-sm");
-    footer.append(footerWebIconContainer.append(footerWebIconList));
+    const footerIconContainer = $("<div>").attr("id", "home-page-footer-icon-container");
+    const footerIconList = $("<ul>").attr("id", "home-page-footer-icon-list").addClass("social-links pl3-sm");
+    footer.append(footerIconContainer.append(footerIconList));
 
     $.each(socialLinks, function(name, content){
         let lowerCaseName = name.toLowerCase();
-        let link = $('<a target="_blank" aria-label="' + name + '" title="' + name + '" data-type="click_navFooter" data-path="social:' + name + '" href="' + content + '" class="social-link footer-link fab fa-' + lowerCaseName + '" data-pre="ILink">');
-        footerWebIconList.append($("<li>").append(link));
+        let link = $('<a>').attr('target', '_blank').attr('aria-label', name).attr('title', name).attr('data-type', 'click_navFooter').attr('data-path', 'social:' + name).attr('href', content).addClass('social-link footer-link fab fa-' + lowerCaseName).attr('data-pre', 'ILink');
+        footerIconList.append($("<li>").append(link));
     });
+}
