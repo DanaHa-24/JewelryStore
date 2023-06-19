@@ -4,9 +4,15 @@ html, body {
     padding: 0;
 }
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Q&A page */
 #qa-page-accordions {
-    margin: 20px auto;
+    margin: 0px auto;
     direction: rtl;
     width: 1000px;
     text-align: center;
@@ -14,12 +20,21 @@ html, body {
 
 .qa-page-header {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-decoration-line: underline;
+    margin-top: 60px;
+    margin-bottom: 20px;
 }
 
 .qa-page-section-title {
     margin-top: 20px;
     color: #333;
     direction: rtl;
+    text-align: justify;
 }
 
 /*.qa-page-accordion-container {
@@ -85,10 +100,11 @@ html, body {
 }
 
 /* Exchange and Returns Page*/
+
 .er-page-info-container {
     width: 1000px;
     align-items: center;
-    margin: 20px auto;
+    margin: -10px auto;
     direction: rtl;
 }
 .er-page-content {
@@ -99,6 +115,14 @@ html, body {
 
 .er-page-header{
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-decoration-line: underline;
+    margin-top: 60px;
+    margin-bottom: 20px;
 }
 
 .center-container {
@@ -130,23 +154,24 @@ html, body {
 }
 
 /* Stores Page */
+
 .stores-page-header {
     display: flex;
     position: relative;
     justify-content: center;
-    top: 100px;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-decoration-line: underline;
+    margin-top: 60px;
+    margin-bottom: 20px;
 }
 
 #stores-page-map {
-    height: 80vh;
-    width: 80vw;
-}
-
-#stores-page-container {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    height: 500px;
+    width: 600px;
+    left: 80px;
+    margin-top: 20px;
 }
 
 .store-page-marker-label {
@@ -160,8 +185,9 @@ html, body {
 }
 
 /* Profile Page */
+
 .profile-header-container {
-    margin-top: 40px;
+    margin-top: 0px;
     padding: 20px;
 }
 
@@ -211,6 +237,8 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     text-decoration-line: underline;
+    margin-top: 60px;
+    margin-bottom: 20px;
 }
 
 .profile-page-navbar .tab {
@@ -234,13 +262,12 @@ html, body {
     background-color: #f2f2f2;
     width: 600px;
     height: 480px;
-    position: fixed;
     top: 60%;
     left: 45%;
-    transform: translate(-50%, -50%);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     padding: 20px;
+    margin: -10px auto;
     direction: rtl;
 }
   
@@ -516,3 +543,68 @@ html, body {
     width: 30px;
     height: 30px;
 }
+
+
+/* Cart Page */
+
+.cart-header-container {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.cart-page-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-decoration-line: underline;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.cart-page-container {
+    background-color: #f2f2f2;
+    width: 600px;
+    height: 480px;
+    top: 60%;
+    left: 45%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    padding: 20px;
+    margin: 20px auto;
+    direction: rtl;
+}
+
+/* Wishlist Page */
+
+.wishlist-header-container {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.wishlist-page-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-decoration-line: underline;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.wishlist-page-container {
+    background-color: #f2f2f2;
+    width: 600px;
+    height: 480px;
+    position: fixed;
+    top: 60%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    padding: 20px;
+    direction: rtl;
+}
+  
