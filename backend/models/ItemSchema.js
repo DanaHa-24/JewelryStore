@@ -15,7 +15,7 @@ const itemSchema = new mongoose.Schema({
     name: { type: String, required: true },
     price: { type: Number, required: true },
     image: { type: String },
-    type: { type: String, required: true, enum: ['Ring', 'Necklace', 'Bracelet', 'Earings']},
+    type: { type: String, required: true, enum: ['Ring', 'Necklace', 'Bracelet', 'Earring']},
     color: [{ type: String }],
     size: [{ type: String, enum: ['S','M','L','flexible','5','6','7','8']}],
     material: [{ type: String, enum: ['beads', 'silver', 'pearl', 'stone', 'macrame']}],
@@ -32,7 +32,7 @@ itemSchema.pre('save', async function (next) {
             Ring: '1',
             Necklace: '2',
             Bracelet: '3',
-            Earings: '4'
+            Earring: '4'
         };
 
         const itemTypePrefix = ItemType[this.type];

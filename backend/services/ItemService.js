@@ -5,7 +5,7 @@ exports.generateItemId = async (type) => {
         Ring: '1',
         Necklace: '2',
         Bracelet: '3',
-        Earings: '4',
+        Earring: '4',
     };
 
   const itemTypePrefix = ItemType[type];
