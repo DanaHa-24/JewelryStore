@@ -263,6 +263,272 @@ html, body {
     writing-mode: vertical-rl;
 }
 
+/* Home Page header*/
+#home-page-header{
+    padding: 0 20px;
+    background-color:rgb(200, 255, 255);
+}
+
+#home-page-image-container,
+#home-page-image-container img{
+    width: 100px;
+}
+
+#home-page-header-categories{
+    margin: auto;
+    font-size: large;
+    font-weight: 600;
+    width: 360px;
+}
+
+#home-page-header-categories li{
+    width: 90px;
+    height: 40px;
+    margin-top: 12px;
+    text-align: center; 
+}
+
+#home-page-header-categories .dropdown-content{
+    display: none;    
+    margin-top: 10px;    
+    position: absolute;
+    border: 2px solid #505050;
+    background-color: white;
+    min-width: 380px;
+    padding: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+}
+
+#home-page-header-categories .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: right;
+    font-size: larger;
+}
+
+#home-page-header-categories li .dropdown-content a:hover{
+    background-color: #e0e0e0;
+}
+
+#home-page-header-categories li:hover label{
+    border-bottom: 3px solid black;
+}
+
+#home-page-header-categories li:hover .dropdown-content{
+    display: block;
+}
+
+#home-page-header-links{
+    align-items: center;
+    width: fit-content;
+}
+
+#home-page-header-links .nav-link{
+    right: 10px;
+}
+
+#home-page-search-input,
+#home-page-search-button{
+    border: none;
+    top: 8px; 
+}
+
+#home-page-search-input{
+    border-radius: 0 8px 8px 0;
+    margin-right: 8px;
+}
+
+#home-page-search-button{
+    border-radius: 8px 0 0 8px;
+}
+
+#home-page-search-button:hover{
+    background-color: #c0c0c0;
+}
+
+/* Home Page footer*/
+
+#home-page-footer-div{
+    background-color:black;
+    padding: 0 150px;
+    margin-top: 40px;
+}
+
+#home-page-footer-categories ul a{
+    color: #aaa;
+}
+
+#home-page-footer-div h5,
+#home-page-footer-div a:hover{
+    color: white !important;
+}
+
+#home-page-footer-icon-container{
+    width: fit-content;
+    height: fit-content;
+}
+
+#home-page-footer-icon-container ul{
+    margin: auto 0;
+}
+
+#home-page-footer-icon-list{
+    display: flex;
+    list-style: none;
+    justify-content: end;
+}
+
+#home-page-footer-icon-list li{
+    margin-left: 12px;
+}
+
+#home-page-footer-icon-list li a{
+    color: #aaa;
+    text-decoration: none;
+}
+
+#home-page-footer-icon-list li a::before{
+    font-size: 30px;
+}
+
+/* Items Page */
+
+#categoriesBar {
+    background-color: #eee;
+    width: 100%;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
+    margin-bottom: 5px;
+    padding: 7px 70px;
+}
+
+#categoriesList {
+    margin: auto 0 auto auto;
+}
+
+#categoriesList .category-check-input{
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+}
+
+/* #categoriesList .category-label {
+    top: 16.8px;
+    position: absolute;
+    right: 37px;
+} */
+
+#categoriesList li,
+#sortingList li{
+    width: 90px;
+    height: 20px;
+}
+
+#categoriesList li button,
+#sortingList li button{
+    margin-top: -8px;
+}
+
+#categoriesList .dropdown-menu,
+#sortingList .dropdown-menu{
+    display: none;
+    margin-top: 30px;
+    position: absolute;
+    border: 2px solid #555;
+    background-color: white;
+    min-width: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+}
+
+#categoriesList .dropdown-menu a,
+#sortingList .dropdown-menu a {
+    padding: 12px 16px;
+    text-align: right;
+}
+
+#categoriesList .dropdown-menu a:hover,
+#sortingList .dropdown-menu a:hover{
+    background-color: #eee;
+}
+
+#categoriesList li button,
+#sortingList li button {
+    border: none;
+}
+
+#categoriesList button.is-active + .dropdown-menu,
+#sortingList button.is-active + .dropdown-menu {
+    display: block;
+}
+
+#jewelryCardsContainer{
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    gap: 40px;
+    justify-content: center;
+    margin-top: 0;
+}
+
+#jewelryCardsContainer .cardWrapper{
+    text-decoration: none;
+}
+
+#jewelryCardsContainer .cardWrapper:link,
+#jewelryCardsContainer .cardWrapper:visited {
+  list-style: none;
+}
+
+#jewelryCardsContainer .cardHollowHeart,
+#jewelryCardsContainer .cardFullHeart{
+    background-color: white;
+    color: red;
+    border: none;
+    padding: 0;
+    position: absolute;
+    margin: 4px;
+}
+
+#jewelryCardsContainer .cardHollowHeart::before,
+#jewelryCardsContainer .cardFullHeart::before{  
+    font-size: 30px;
+}
+
+#jewelryCardsContainer .card-body{
+    background-color: #eee;
+    padding: 0;
+}
+
+#jewelryCardsContainer #jewelName{
+    font-size: larger;
+    margin: 5px 10px;
+}
+
+#jewelryCardsContainer #jewelPrice{
+    font-weight: bold;
+    font-size: larger;
+    margin: 5px 10px;
+}
+
+#pageNumRow{
+    width: fit-content;
+    margin: auto;
+    font-size: x-large; 
+}
+
+#pageNumRow #pageNumLabel{
+    margin: 20px;
+    font-family: sans-serif;
+}
+
+#pageNumRow #previousPageButton,
+#pageNumRow #nextPageButton{
+    width: 30px;
+    height: 30px;
+}
 
   
   
