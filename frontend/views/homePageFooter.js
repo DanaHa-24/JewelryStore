@@ -16,7 +16,7 @@ const footer = $("<footer>").attr("id", "home-page-footer").addClass("row py-4")
 const footerCategories = $("<div>").attr("id", "home-page-footer-categories").addClass("col")
 const footerContentList = $("<ul>").addClass("nav flex-col gap-5");
 
-$("body").append(footerDiv.append(footer.append(footerCategories.append(footerContentList))));
+$("html").append(footerDiv.append(footer.append(footerCategories.append(footerContentList))));
 
 $.each(content, function(index, text){
     let link = $("<a>").attr("href", "#").text(text.content);
