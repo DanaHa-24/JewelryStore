@@ -263,7 +263,7 @@ pageNumRow.append(previousPage, pageNum, nextPage);
 $.each(sortingArray, function(category, items){
     let dropdown = $("<div>").addClass("dropdown row");
     let dropdownButton = $('<button class="btn dropdown-toggle dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">').text(category);
-    let dropdownContent = $('<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">');
+    let dropdownContent = $('<div>').addClass('dropdown-menu');
     $.each(items, function(index, item){
         let itemLink = $("<a>").attr("href", "#").addClass("dropdown-item").text(item);
         dropdownContent.append(itemLink);
@@ -273,12 +273,23 @@ $.each(sortingArray, function(category, items){
 });
 
 $.each(categoriesArray, function(category, items){
+    // <div class="form-check">
+    //     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    //     <label class="form-check-label" for="flexCheckDefault">
+    //         Default checkbox
+    //     </label>
+    // </div>
+
+
     let dropdown = $("<div>").addClass("dropdown row");
     let dropdownButton = $('<button class="btn dropdown-toggle dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">').text(category);
-    let dropdownContent = $('<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">');
+
+    let dropdownContent = $('<div>').addClass('dropdown-menu');
     $.each(items, function(index, item){
-        let itemLink = $("<a>").attr("href", "#").addClass("dropdown-item").text(item);
-        dropdownContent.append(itemLink);
+        let checkbox = $('<input>').attr("type", "checkbox").addClass("category-check-input");
+        let categoryLabel = $("<label>").addClass("category-label").text(item);
+        let itemLink = $("<a>").attr("href", "#").addClass("dropdown-item");
+        dropdownContent.append(itemLink.append(categoryLabel, checkbox));
     });
     dropdown.append(dropdownButton, dropdownContent);
     categoriesList.append($("<li>").append(dropdown));
