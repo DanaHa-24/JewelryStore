@@ -11,8 +11,8 @@ const navIcons = [
     { class: 'fas fa-user' }
 ];
 
-const header = $("<header>").attr("id", "home-page-header");
-const nav = $("<nav>").attr("id", "home-page-navbar").addClass("navbar navbar-expand-lg sticky-top");
+const header = $("<header>").attr("id", "home-page-header").addClass("sticky-top");
+const nav = $("<nav>").attr("id", "home-page-navbar").addClass("navbar navbar-expand-lg");
 const image = $("<img>").attr("src", "../images/BU.png");
 const navbarDiv = $("<div>").addClass("collapse navbar-collapse");
 const imageLink = $("<a>").attr("id", "#").attr("id", "home-page-image-container").addClass("navbar-brand");
