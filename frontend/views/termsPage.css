@@ -48,5 +48,17 @@ body {
     margin: 0;
   }
   
+  .checkpoint {
+    position: relative;
+    padding-right: 20px; 
+  }
+  
+  .checkpoint::after {
+    content: "•"; 
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgba(0, 0, 0, 0.658); /* Adjust the color as per your preference */
+  }
   
   
