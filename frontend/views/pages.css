@@ -149,6 +149,16 @@ html, body {
   transform: translate(-50%, -50%);
 }
 
+.store-page-marker-label {
+    text-align: center;
+}
+
+.gm-style-iw-d {
+    direction: rtl;
+    font-size: 18px;
+    font-style: oblique;
+}
+
 /* Profile Page */
 .profile-header-container {
     margin-top: 40px;
@@ -232,20 +242,26 @@ html, body {
     color: #333;
     padding: 20px;
     direction: rtl;
-  }
+}
   
-  .profile-page-container table {
+.profile-page-container table {
     width: 100%;
     border-collapse: collapse;
     direction: rtl;
-  }
-  
-  .profile-page-container table td {
+}
+
+.profile-page-container table td {
     padding: 10px;
     border: 1px solid #ccc;
     direction: rtl;
-  }
+}
 
+.profile-page-dots {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-right: -28px;
+    writing-mode: vertical-rl;
+}
 
 
   
