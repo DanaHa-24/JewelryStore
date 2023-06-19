@@ -2,16 +2,17 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const branchRoutes = require('./routes/StoreBranchesRoute');
+const itemRoutes = require('./routes/ItemRoute');
 const configController = require('./controllers/ConfigController');
 const addressRoutes = require('./routes/AddressRoute');
 const cartRoutes = require ('./routes/CartRoute');
 const orderRoutes = require('./routes/OrderRoute');
 const userRoutes = require('./routes/UserRoute');
 const wishlistRoutes = require('./routes/WishListRoute'); 
+const itemController = require('./controllers/ItemController');
 const cors = require('cors');
-
+console.log("hello")
 const uri = `mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority`;
-
 
 const options = {
   useNewUrlParser: true,
@@ -39,6 +40,9 @@ mongoose.connect(uri, options)
   app.get('/api/config/api-key', configController.getApiKey);
   app.use('/api/config', require('./routes/ConfigRoute'));
   app.use('/api/storeBranches', branchRoutes);
+  app.use('/Item', itemRoutes);
+  app.get('/Item', itemController.getFullSchema);
+
 
 app.listen(5000, () => {
     console.log('Backend server is running ');
