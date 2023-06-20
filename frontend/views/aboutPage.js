@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // Create container
-    const container = $('<div>').attr('id', 'container').addClass('container my-5');
+    const container = $('<div>').attr('id', 'container').addClass('container my-5 about-page-container');
 
     // Create row
     const row = $('<div>').addClass('row justify-content-center');

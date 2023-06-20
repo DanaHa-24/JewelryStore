@@ -15,14 +15,14 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  h1 {
+  .terms-page-h1 {
     font-size: 36px;
     color: #333;
     margin-bottom: 20px;
     text-align: center;
   }
   
-  h2 {
+  .terms-page-h2 {
     font-size: 24px;
     color: #000000e1;
     margin-top: 20px;
@@ -31,29 +31,17 @@ body {
     text-underline-position: below;
   }
   
-  p {
+  .terms-page-cp {
     font-size: 16px;
     color: #444;
     line-height: 1.5;
     margin-bottom: 15px;
     text-align: justify;
-  }
-  
-  div.center-text {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  div.center-text p {
-    margin: 0;
-  }
-  
-  .checkpoint {
     position: relative;
     padding-right: 20px; 
   }
   
-  .checkpoint::after {
+  .terms-page-cp::after {
     content: "•"; 
     position: absolute;
     top: 0;
