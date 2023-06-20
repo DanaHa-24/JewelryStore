@@ -1,4 +1,103 @@
-*{
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  canvas {
+    display: block;
+    margin: 20px auto;
+    background-color: #000;
+  }
+  
+#login-page-container {
+    direction: rtl;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+  }
+
+  #login-page-input{
+    height: 50px;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+    border: 1px solid#CACACA;
+    padding: 0 15px; 
+    outline: none;
+    margin-top: 15px;
+    position: relative;
+  }
+
+  #login-page-button{
+    height: 50px;
+    width: 60%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+    background-color: #cdbbff;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-right: 20%;
+  }
+
+  #login-page-button:hover{
+    background-color: #9081ba;
+}
+  
+#login-page-header {
+    font-size: 28px;
+    font-weight: 600;
+    color: rgb(44, 44, 44);
+    text-align: center
+  }
+
+#login-page-button-link {
+    text-align: center;
+    height: 30px;
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+#login-page-button-link:hover {
+    text-decoration: underline;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,7 +105,7 @@
     direction :rtl;
 }
 
-.container{
+#login-page-container{
     height: 100vh;
     width: 100%;
     background-color:rgb(255, 255, 255);
@@ -51,6 +150,7 @@ form{
     font-size: 16px;
     font-weight: 400;
     border-radius: 6px;
+    
 }
 
 .field input{
@@ -121,7 +221,7 @@ form{
     cursor: pointer;
 }
 .field button:hover{
-    background-color: #a889ff;
+    background-color: #9081ba;
 }
 
 .media-options a{
@@ -148,7 +248,7 @@ a.facebook{
     background-color: #232836;
     position: absolute;
     left: 50%;
-    top: 300px;
+    top: 40%;
     transform: translateX(-50%);
     width: 0.5px;
     height: 315px;
@@ -159,14 +259,14 @@ a.facebook{
   }
   
   .password-container input.password {
-    padding-right: 40px; /* Adjust the padding as needed */
+    padding-right: 40px;
     height: 50px;
   }
   
   .password-container .eye-icon {
     position: absolute;
-    right: 10px; /* Adjust the positioning as needed */
+    right: 10px; 
     top: 50%;
     transform: translateY(-50%);
   }
-  
+   */

@@ -6,7 +6,7 @@
     direction :rtl;
 }
 
-.container{
+#contact-page-container{
     height: 100vh;
     width: 100%;
     background-color:rgb(255, 255, 255);
@@ -14,34 +14,28 @@
     column-gap: 30px;
 }
 
-.form{
-    background: #FFF;
-    border-radius: 6px;
-    max-width: 430px;
-    width: 100%;
-    padding: 30px;
-}
-
-header{
+#contact-page-header{
     font-size: 28px;
     font-weight: 600;
     color: rgb(44, 44, 44);
 }
 
-form{
+#contact-page-form{
     margin-top: 30px;
 }
 
-.field{
+
+#contact-page-field{
     height: 50px;
     width: 300%;
     margin-top: 20px;
     border-radius: 6px;
 }
 
-.field input,
-.field button,
-.textarea{
+#contact-page-name-input,
+#contact-page-email-input,
+#contact-page-button,
+#contact-page-textarea{
     height: 100%;
     width: 100%;
     border: none;
@@ -50,19 +44,21 @@ form{
     border-radius: 6px;
 }
 
-.field input,
-.textarea{
+#contact-page-name-input,
+#contact-page-email-input,
+#contact-page-textarea{
     border: 1px solid#CACACA;
     padding: 0 15px; 
     outline: none;
 }
 
-.field input:focus{
+#contact-page-name-input:focus,
+#contact-page-email-input:focus{
     border-bottom-width: 2px;
 }
 
 
-.field button{
+#contact-page-button{
     margin-top: 70px;
     background-color: #cdbbff;
     color: #fff;
@@ -70,11 +66,11 @@ form{
     cursor: pointer;
 }
 
-.field button:hover{
+#contact-page-button:hover{
     background-color: #a889ff;
 }
 
-.textarea{
+#contact-page-textarea{
     height: 120px;
 }
   

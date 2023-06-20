@@ -1,11 +1,7 @@
-body {
-    background-color: #f8f8f8;
-    color: #333;
-    font-family: Arial, sans-serif;
-  }
   
-  .container {
+  #EP-page-container {
     max-width: 600px;
+    font-family: Arial, sans-serif;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
@@ -15,24 +11,24 @@ body {
     text-align: right;
   }
   
-  h1 {
+#EP-page-h1 {
     color: #ce99ff;
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
   }
   
-  p {
+ #EP-page-p {
     margin-bottom: 10px;
   }
   
-  .card {
+#EP-page-card {
     margin-top: 20px;
     border: none;
     box-shadow: 0 2px 4px #ce99ff;
   }
   
-  .card-header {
+#EP-page-card-header {
     background-color: #f8f8f8;
     border-bottom: 1px solid #ccc;
     padding: 10px 20px;
@@ -40,14 +36,10 @@ body {
     color: #333;
   }
   
-  .card-body {
+#EP-page-card-body {
     padding: 20px;
   }
-  
-  .card-body p {
-    margin-bottom: 5px;
-  }
-  
+   
   .mt-4 {
     margin-top: 20px;
   }
