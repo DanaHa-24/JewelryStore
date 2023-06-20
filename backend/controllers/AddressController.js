@@ -73,11 +73,11 @@ async function getMyAddresses(req, res) {
 }
 
 module.exports = {
-    createAddress,
-    deleteAddress,
-    updateAddress,
-    getAllAddresses,
-    searchAddresses,
-    getMyAddresses
-};
+                    createAddress,
+                    deleteAddress,
+                    updateAddress,
+                    getAllAddresses,
+                    searchAddresses,
+                    getMyAddresses
+                };
                 
