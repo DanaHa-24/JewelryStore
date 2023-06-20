@@ -2,7 +2,6 @@
 const headerContainer = $('<h3>').text('החנויות שלנו').addClass('stores-page-header');
 const mapContainer = $('<div>').attr("id","stores-page-container");
 const mapElement = $('<div>').attr("id","stores-page-map");
-const canvasLine = $('<canvas></canvas>').addClass("stores-page-canvas-line");
 const storesLocation = $('<aside>').addClass("stores-page-location-aside");
 
 let locations = [];
@@ -10,7 +9,6 @@ let locations = [];
 $('body').append(headerContainer);
 $('body').append(mapContainer);
 $('#stores-page-container').append(mapElement);
-$('#stores-page-container').append(canvasLine);
 $('#stores-page-container').append(storesLocation);
 
 $(document).ready(function() {
