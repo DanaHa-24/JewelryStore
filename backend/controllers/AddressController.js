@@ -63,7 +63,7 @@ async function searchAddresses(req, res) {
 // Get addresses for the authenticated user
 async function getMyAddresses(req, res) {
     try {
-      const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+      const userId = req.userId;
       const addresses = await AddressService.getUserAddresses(userId);
       res.json(addresses);
     } catch (error) {

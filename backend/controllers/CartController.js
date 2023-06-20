@@ -4,7 +4,7 @@ const CartService = require('../services/CartService');
 // Create or retrieve the cart for the authenticated user
 async function createOrRetrieveCart(req, res) {
     try {
-      const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+      const userId = req.userId;
       const cart = await CartService.createCart(userId);
       res.json(cart);
     } catch (error) {
@@ -16,7 +16,7 @@ async function createOrRetrieveCart(req, res) {
 // Delete the cart for the authenticated user
 async function deleteCart(req, res) {
     try {
-      const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+      const userId = req.userId;
       await CartService.deleteCart(userId);
       res.json({ message: 'Cart deleted successfully' });
     } catch (error) {
@@ -28,7 +28,7 @@ async function deleteCart(req, res) {
 // Add an item to the cart
 async function addToCart(req, res) {
     try {
-      const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+      const userId = req.userId;
       const { productId, quantity } = req.body;
   
       if (!productId || !quantity) {
@@ -47,7 +47,7 @@ async function addToCart(req, res) {
 // Delete an item from the cart
 async function deleteFromCart(req, res) {
     try {
-      const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+      const userId = req.userId; 
       const itemId = req.params.itemId;
   
       if (!itemId) {
@@ -66,7 +66,7 @@ async function deleteFromCart(req, res) {
 // Get all items in the cart
 async function getCartItems(req, res) {
     try {
-      const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+      const userId = req.userId;
       const items = await CartService.getCartItems(userId);
       res.json(items);
     } catch (error) {
@@ -78,7 +78,7 @@ async function getCartItems(req, res) {
 // Search for items in the cart by name
 async function searchCartItems(req, res) {
     try {
-      const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+      const userId = req.userId;
       const itemName = req.query.name;
   
       if (!itemName) {
