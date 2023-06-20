@@ -6,7 +6,7 @@ body {
     margin: 0;
   }
 
-  canvas {
+ #canvas-login-page{
     display: block;
     margin: 20px auto;
     background-color: #000;

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // // Create a canvas element
-    let canvas = $("<canvas>").attr("width", "200").attr("height", "1.5");
+    let canvas = $("<canvas>").attr("width", "200").attr("height", "1.5").attr("id","canvas-signin-page");
   
     // Create a signin form
     let signinForm = $("<div>").addClass("container").append(
