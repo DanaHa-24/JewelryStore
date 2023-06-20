@@ -11,7 +11,7 @@ const userRoutes = require('./routes/UserRoute');
 const wishlistRoutes = require('./routes/WishListRoute'); 
 const itemController = require('./controllers/ItemController');
 const cors = require('cors');
-console.log("hello")
+console.log("hello");
 const uri = `mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority`;
 
 const options = {
