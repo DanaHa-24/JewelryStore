@@ -167,14 +167,30 @@ body {
     margin-bottom: 20px;
 }
 
+#stores-page-container {
+    width: 100%;
+    height: 100%;
+    align-self: center;
+}
+
 #stores-page-map {
-    height: 500px;
-    width: 600px;
-    left: 80px;
+    height: 600px;
+    width: 720px;
+    left: 120px;
     margin-top: 20px;
 }
 
-.store-page-marker-label {
+.stores-page-canvas-line {
+    background-color: #333;
+    left: 1100px;
+    bottom: 550px;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 540px;
+    position: relative;
+}
+
+.stores-page-marker-label {
     text-align: center;
 }
 
@@ -183,6 +199,31 @@ body {
     font-size: 18px;
     font-style: oblique;
 }
+
+aside.stores-page-location-aside {
+    position: relative;
+    width: 150px;
+    margin: 0 auto 0;
+    bottom: 970px;
+    left: 550px;
+    height: 280px;
+}
+
+div.stores-page-location-info {
+    text-align: right;
+    margin-bottom: 20px;
+}
+  
+div.stores-page-location-name {
+    font-weight: bold;
+}
+  
+span.stores-page-city-location,
+span.stores-page-street-location {
+    display: block;
+    margin-top: 5px;
+}
+  
 
 /* Profile Page */
 

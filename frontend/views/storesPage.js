@@ -2,11 +2,16 @@
 const headerContainer = $('<h3>').text('החנויות שלנו').addClass('stores-page-header');
 const mapContainer = $('<div>').attr("id","stores-page-container");
 const mapElement = $('<div>').attr("id","stores-page-map");
+const canvasLine = $('<canvas></canvas>').addClass("stores-page-canvas-line");
+const storesLocation = $('<aside>').addClass("stores-page-location-aside");
+
 let locations = [];
 
 $('body').append(headerContainer);
 $('body').append(mapContainer);
 $('#stores-page-container').append(mapElement);
+$('#stores-page-container').append(canvasLine);
+$('#stores-page-container').append(storesLocation);
 
 $(document).ready(function() {
   // Make an AJAX request to retrieve the API key from the backend
@@ -83,14 +88,7 @@ function initMap(apiKey, locations) {
         position: { lat: location.latitude, lng: location.longitude },
         map: map,
         title: location.name,
-        icon: icon,
-        label: {
-          text: location.name,
-          color: 'white',
-          fontSize: '12px',
-          fontWeight: 'bold',
-          labelClass: 'store-page-marker-label'
-        }
+        icon: icon
       });
 
       marker.addListener("click", () => {
@@ -105,6 +103,15 @@ function initMap(apiKey, locations) {
         // Update the reference to the currently open info window
         currentInfoWindow = infowindow;
       });
+
+      let locationsDiv = $('<div>').addClass("stores-page-location-info");
+      let locationName = $('<div>').addClass("stores-page-location-name").text(location.name).css("font-weight", "bold");
+      let citySpan = $('<span>').addClass("stores-page-city-location").text(location.city);
+      let streetSpan = $('<span>').addClass("stores-page-street-location").text(location.street);
+
+      locationsDiv.append(locationName, citySpan, streetSpan);
+      $(".stores-page-location-aside").append(locationsDiv);
+
     });
   } else {
     console.log("No locations found");
