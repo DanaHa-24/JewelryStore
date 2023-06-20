@@ -1,5 +1,5 @@
 
-const headerContainer = $('<h3>').text('החנויות שלנו').addClass('stores-page-header');
+const headerContainer = $('<h1>').text('החנויות שלנו').addClass('stores-page-header');
 const mapContainer = $('<div>').attr("id","stores-page-container");
 const mapElement = $('<div>').attr("id","stores-page-map");
 const storesLocation = $('<aside>').addClass("stores-page-location-aside");

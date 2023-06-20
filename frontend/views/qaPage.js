@@ -11,7 +11,7 @@ const qaSections = ['הזמנות מהאתר', 'משלוחים', 'החזרות �
 function createAccordion(){
     // Creating a div for the entire content
     const accordionsContainer = $('<div>').attr('id', 'qa-page-accordions');
-    const pageAccordionHeader = $('<h3>').text('Q & A').addClass('qa-page-header');
+    const pageAccordionHeader = $('<h1>').text('Q & A').addClass('qa-page-header');
     $('body').append(pageAccordionHeader).append(accordionsContainer);
 
     // Iterating over both arrays and performing the required actions

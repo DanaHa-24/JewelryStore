@@ -3,7 +3,7 @@ import {dataExchangesAndReturns} from './constVars.js';
 function exchangeAndReturns() {
     const infoContainer = $('<div>').addClass('er-page-info-container');
     const contentContainer = $('<div>').addClass('er-page-content');
-    const headerContainer = $('<h3>').text('החלפות / החזרות').addClass('er-page-header');
+    const headerContainer = $('<h1>').text('החלפות / החזרות').addClass('er-page-header');
     $('body').append(headerContainer).append(infoContainer);
 
     infoContainer.append(contentContainer);
