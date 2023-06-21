@@ -39,7 +39,7 @@ $(document).ready(function() {
 
     // Create the "Back to Homepage" button
     let homeButton = $('<div class="text-center mt-4"><a href="#" class="btn">חזור לדף הבית</a></div>');
-
+    homeButton.find('a').attr("id","EP-page-btn");
     // Append all the created elements to the container div
     container.append(
       heading,

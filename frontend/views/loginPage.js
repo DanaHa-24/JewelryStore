@@ -25,39 +25,7 @@ $(document).ready(function() {
  $("body").append(canvas);
    
 
-  // // Create a sign-in form
-  // let signInForm = $("<div>").addClass("container").append(
-  //   $("<h2>").text("Sign In"),
-  //   $("<form>").addClass("row g-3").attr("id", "sign-in-form").append(
-  //     $("<div>").addClass("col-12").append(
-  //       $("<input>").addClass("form-control").attr("type", "text").attr("placeholder", "Username")
-  //     ),
-  //     $("<div>").addClass("col-12").append(
-  //       $("<input>").addClass("form-control").attr("type", "password").attr("placeholder", "Password")
-  //     ),
-  //     $("<div>").addClass("col-12").append(
-  //       $("<button>").addClass("btn btn-primary").text("Sign In")
-  //     )
-  //   )
-  // );
-
-  // // Append sign-in form to the body
-  // $("body").append(signInForm);
-
-  // // Hide the sign-in form initially
-  // signInForm.hide();
-
-  // // Toggle between login and sign-in forms when buttons are clicked
-  // loginForm.find("button").click(function() {
-  //   loginForm.hide();
-  //   signInForm.show();
-  // });
-
-  // signInForm.find("button").click(function() {
-  //   signInForm.hide();
-  //   loginForm.show();
-  // });
-
+  
   // Create a button to redirect to the sign-up page
   let signUpButton = $("<button>").addClass("btn btn-link").text("לא נרשמת עדיין? לחץ/י כאן להרשמה").attr("id","login-page-button-link").click(function() {
     window.location.href = "signupPage.html"; // Replace "signup.html" with the URL of your sign-up page

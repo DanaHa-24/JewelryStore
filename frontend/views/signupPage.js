@@ -28,9 +28,9 @@ $(document).ready(function() {
     $("body").append(canvas);
      
     // Create a button to redirect to the sign-up page
-    let signUpButton = $("<button>").addClass("btn btn-link").text("נרשמת כבר בעבר? לחץ/י כאן להתחברות").attr("id","signin-page-button-link").click(function() {
+    let signUpButton = $("<button>").addClass("btn btn-link").text("נרשמת כבר בעבר? לחץ/י כאן להתחברות").click(function() {
       window.location.href = "loginPage.html"; // Replace "signup.html" with the URL of your sign-up page
-    });
+    }).attr("id","signin-page-button-link");
   
     // Append the sign-up button to the body
     $("body").append(signUpButton);

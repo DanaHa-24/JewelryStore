@@ -44,7 +44,7 @@
     margin-top: 20px;
   }
   
-  .btn {
+ #EP-page-btn {
     background-color: #ce99ff;
     border: none;
     color: #fff;
@@ -54,6 +54,6 @@
     cursor: pointer;
   }
   
-  .btn:hover {
-    background-color: #ce99ff;
+  #EP-page-btn:hover {
+    background-color: #6d379e;
   }

@@ -7,7 +7,7 @@ $(document).ready(function() {
   const howToOrderArraay = ["רוצה להזמין טבעת אבל לא יודעת מה המידה שלך?",
    "אל דאגה! ישנן מספר שיטות לבדיקת מידת הטבעת שלך."];
   howToOrderArraay.forEach((item) => {
-    const infoItem = $('<p>').addClass('infoSG-item').text(item);
+    const infoItem = $('<p>').addClass('infoSG-item').text(item).attr("id","SG-page-p");
     sizeGuideContainer.append(infoItem);
   });
 
