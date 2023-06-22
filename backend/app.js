@@ -1,14 +1,15 @@
 const express = require("express");
 const app = express();
-
 const mongoose = require("mongoose");
-const branchRoutes = require('./routes/StoreBranchesRoute');
+const path = require("path");
+
 const itemRoutes = require('./routes/ItemRoute');
 const configController = require('./controllers/ConfigController');
 const addressRoutes = require('./routes/AddressRoute');
 const cartRoutes = require ('./routes/CartRoute');
 const configRoutes = require ('./routes/ConfigRoute');
 const orderRoutes = require('./routes/OrderRoute');
+const storeBranchesRoute = require('./routes/StoreBranchesRoute');
 const userRoutes = require('./routes/UserRoute');
 const wishlistRoutes = require('./routes/WishListRoute'); 
 const itemController = require('./controllers/ItemController');
@@ -31,23 +32,35 @@ mongoose.connect(uri, options)
     console.error('Error connecting to MongoDB Atlas:', error);
   });
 
-  app.use(cors());
-  app.use(express.json());
+app.use(cors());
+app.use(express.json());
 
-  app.use('/api/myaddresses', addressRoutes);
-  app.use('/api/mycart', cartRoutes);
-  app.use('/api/myorders', orderRoutes);
-  app.use('/api/myuser', userRoutes);
-  app.use('/api/mywishlist', wishlistRoutes);
-  app.get('/api/config/api-key', configController.getApiKey);
-  app.use('/api/config', configRoutes);
-  app.use('/api/storeBranches', branchRoutes);
-  app.use('/Item', itemRoutes);
-  app.get('/Item', itemController.getFullSchema);
+// Serve static files from the "frontend" directory
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// For not found page
+// app.get('*', (req, res) => {
+//   res.sendFile(__dirname + '/public/notFound.html')
+// })
+
+app.use('/map', storeBranchesRoute);
+app.use('/api/storeBranches', storeBranchesRoute);
+
+
+app.use('/api/myaddresses', addressRoutes);
+app.use('/api/mycart', cartRoutes);
+app.use('/api/myorders', orderRoutes);
+app.use('/api/myuser', userRoutes);
+app.use('/api/mywishlist', wishlistRoutes);
+app.get('/api/config/api-key', configController.getApiKey);
+app.use('/api/config', configRoutes);
+
+app.use('/Item', itemRoutes);
+app.get('/Item', itemController.getFullSchema);
 
 
 app.listen(5000, () => {
-    console.log('Backend server is running ');
+  console.log('Backend server is running ');
 });
 
 module.exports = app;
