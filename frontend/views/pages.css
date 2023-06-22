@@ -644,3 +644,62 @@ span.stores-page-street-location {
     direction: rtl;
 }
   
+
+/* About Page */
+
+.about-page-container {
+    background-color: #f8f9fa;
+}
+  
+/* Product Page */
+
+/* Terms Page */
+
+#terms-container {
+    direction: rtl;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px #333;
+}
+
+.terms-page-h1 {
+    direction: rtl;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.terms-page-h2 {
+    direction: rtl;
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-decoration-line: underline;
+    text-underline-position: below;
+}
+
+.terms-page-cp {
+    direction: rtl;    
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-align: justify;
+    position: relative;
+    padding-right: 20px; 
+}
+
+.terms-page-cp::after {
+    direction: rtl;
+    content: "•"; 
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #333; 
+}
+  
+  
