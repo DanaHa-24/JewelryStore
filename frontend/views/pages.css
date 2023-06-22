@@ -2,6 +2,9 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    
 }
 
 body {
@@ -326,7 +329,7 @@ span.stores-page-street-location {
 /* Home Page header*/
 #home-page-header{
     padding: 0 20px;
-    background-color:rgb(200, 255, 255);
+    background-color:#cdbbff;;
 }
 
 #home-page-image-container,
