@@ -1,9 +1,6 @@
 const Item = require('../models/ItemSchema');
 
-
-
-// Generate Id for new Item
-const generateItemId = async (type) => {
+exports.generateItemId = async (type) => {
     const ItemType = {
         Ring: '1',
         Necklace: '2',
@@ -18,7 +15,3 @@ const generateItemId = async (type) => {
 
   return itemTypePrefix + newId;
 };
-
-module.exports = {
-                    generateItemId,
-                }

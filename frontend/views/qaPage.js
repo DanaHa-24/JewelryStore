@@ -1,4 +1,4 @@
-import {accordionDataOrders, accordionDataShipments, accordionDataReturns, accordionDataPayments, accordionDataMaterials} from './constVars.js';
+import {accordionDataOrders, accordionDataShipments, accordionDataReturns, accordionDataPayments, accordionDataMaterials} from './data.js';
 // Need to seperate between data and functions 
 // import data for Q&A page
 

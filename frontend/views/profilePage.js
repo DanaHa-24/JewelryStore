@@ -3,7 +3,7 @@ $(document).ready(function() {
     const navbar = $('<div>').addClass('profile-page-navbar');
     const tabsList = $('<ul></ul>').addClass('profile-page-options');
   
-    const tabs = [
+    const profileTabs = [
       {
         text: 'ההזמנות שלי',
         content: 'הזמנות שלי',
@@ -25,7 +25,7 @@ $(document).ready(function() {
         action: handleMyWishList
       }
     ];
-  
+
     // Create profile section
     const profile = $('<div class="profile-header-container"></div>');
     const infoContainter = $('<div>').addClass('profile-page-subtitle');
@@ -45,11 +45,11 @@ $(document).ready(function() {
 
 
     // Create profile navbar
-    for (let i = 0; i < tabs.length; i++) {
-      let tab = $('<li class="tab">' + tabs[i].text + '</li>');
-      tab.data('content', tabs[i].content);
-      tab.on('click', tabs[i].action);
-      tabsList.append(tab);
+    for (let i = 0; i < profileTabs.length; i++) {
+      let tab = $('<li class="tab">' + profileTabs[i].text + '</li>');
+      tab.data('content', profileTabs[i].content);
+      tab.on('click', profileTabs[i].action);
+      tabsList.append(tab); // Append 'tab' instead of 'profileTabs'
     }
   
     navbar.append(tabsList);

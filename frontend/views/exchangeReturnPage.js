@@ -1,4 +1,4 @@
-import {dataExchangesAndReturns} from './constVars.js';
+import {dataExchangesAndReturns} from './data.js';
 
 function exchangeAndReturns() {
     const infoContainer = $('<div>').addClass('er-page-info-container');
