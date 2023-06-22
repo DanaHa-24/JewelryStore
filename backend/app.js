@@ -36,7 +36,10 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static files from the "frontend" directory
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, '../frontend/views')));
+// Serve static files from the "images" directory
+app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
+
 
 // For not found page
 // app.get('*', (req, res) => {

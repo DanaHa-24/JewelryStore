@@ -77,7 +77,7 @@ function initMap(apiKey, locations) {
       });
       
       const icon = {
-        url: "/frontend/images/BU-marker2.png", 
+        url: "/images/BU-marker2.png", 
         scaledSize: new google.maps.Size(60, 40),
         labelOrigin: new google.maps.Point(20, 50)
       };
