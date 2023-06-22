@@ -110,7 +110,7 @@
 //             items.forEach(function (item) {
 //                 let cardWrapper = $("<a>").attr("href", "#").addClass("cardWrapper");
 //                 let card = $("<div>").attr("id", "items-page" + item.id);
-//                 let cardimage = $("<img>").attr("src", item.image).addClass("card-img-top");
+//                 let cardImage = $("<img>").attr("src", item.image).addClass("card-img-top");
 //                 let cardBody = $("<div>").addClass("card-body");
 //                 let heart = $("<button>").addClass("far fa-heart cardHollowHeart");
 //                 let name = $("<h3>").attr("id", "items-page-jewel-name").text(item.name);
@@ -118,7 +118,7 @@
 //                 let numCards = cardsContainer.children().length;
                 
 //                 cardBody.append(name, price);
-//                 card.addClass("card").append(heart, cardimage, cardBody);
+//                 card.addClass("card").append(heart, cardImage, cardBody);
 //                 cardsContainer.append(cardWrapper.append(card));
 //                 $("body").append(categoriesBar, cardsContainer, pageNumRow);
                 
@@ -287,9 +287,9 @@ $.each(categoriesArray, function(category, items){
     let dropdownContent = $('<div>').addClass('dropdown-menu');
     $.each(items, function(index, item){
         let checkbox = $('<input>').attr("type", "checkbox").addClass("category-check-input");
-        let categoryLabel = $("<label>").addClass("category-label").text(item);
-        let itemLink = $("<a>").attr("href", "#").addClass("dropdown-item");
-        dropdownContent.append(itemLink.append(categoryLabel, checkbox));
+        // let categoryLabel = $("<label>").addClass("category-label");
+        let itemLink = $("<a>").attr("href", "#").addClass("dropdown-item").text(item);
+        dropdownContent.append(itemLink.append(checkbox));
     });
     dropdown.append(dropdownButton, dropdownContent);
     categoriesList.append($("<li>").append(dropdown));
@@ -300,7 +300,7 @@ categoriesBar.append(sortingList, categoriesList);
 for (let i = 0; i < 85; i++) {
     let cardWrapper = $("<a>").attr("href", "#").addClass("cardWrapper");
     let card = $("<div>");
-    let cardimage = $("<img>").attr("src", "../images/BU.png").addClass("card-img-top");
+    let cardImage = $("<img>").attr("src", "../images/BU.png").addClass("card-img-top");
     let cardBody = $("<div>").addClass("card-body");
     let heart = $("<button>").addClass("far fa-heart cardHollowHeart");
     let name = $("<h3>").attr("id", "items-page-jewel-name").text("שם התכשיט");    
@@ -308,7 +308,7 @@ for (let i = 0; i < 85; i++) {
     let numCards = cardsContainer.children().length;
     
     cardBody.append(name, price);
-    card.addClass("card").append(heart, cardimage, cardBody);
+    card.addClass("card").append(heart, cardImage, cardBody);
     cardsContainer.append(cardWrapper.append(card));
     $("body").append(categoriesBar, cardsContainer, pageNumRow);
 
