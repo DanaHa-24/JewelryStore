@@ -237,9 +237,6 @@ function handleMyDetails() {
   });
 }
 
-
-
-
 function handleMyWishList() {
   // Make an AJAX request to retrieve the user's wishlist from the backend
   $.ajax({
