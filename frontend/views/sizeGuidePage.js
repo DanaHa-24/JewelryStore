@@ -18,7 +18,7 @@ $(document).ready(function() {
     },
     {
       title: "שיטה 2- מדידת היקף האצבע",
-      content: "(השיטה הכי פחות מדויקת והכי פחות מומלצת. רלוונטית בעיקר כשאין ברשותך טבעת קיימת במידה שאת רוצה)<br><br>מה צריך?<br>*סרט מדידה / סרגל<br>*פיסת נייר דקה<br>*עט או עיפרון"
+      content: "(רלוונטית בעיקר כשאין ברשותך טבעת קיימת במידה שאת רוצה)<br><br>מה צריך?<br>*סרט מדידה / סרגל<br>*פיסת נייר דקה<br>*עט או עיפרון"
     }
   ];
 
@@ -91,8 +91,8 @@ $(document).ready(function() {
   const headerRow = $('<tr></tr>');
   headerRow.append('<th class="size" scope="col">מידה ישראלית</th>');
   headerRow.append('<th class="size" scope="col">מידה אמריקאית</th>');
-  headerRow.append('<th class="inner-diameter" scope="col">קוטר פנימי (ס"מ)</th>');
-  headerRow.append('<th class="outer-circumference" scope="col">היקף חיצוני (ס"מ)</th>');
+  headerRow.append('<th class="inner-diameter" scope="col">קוטר פנימי (מ"מ)</th>');
+  headerRow.append('<th class="outer-circumference" scope="col">היקף חיצוני (מ"מ)</th>');
 
   thead.append(headerRow);
   table.append(thead);
@@ -108,6 +108,36 @@ $(document).ready(function() {
 
   table.append(tbody);
   $('body').append(table);
+
+  let video = $('<video>', {
+    id: 'myVideo',
+    controls: true
+  });
+
+  let source = $('<source>', {
+    src: '/frontend/images/video.mp4',
+    type: 'video/mp4'
+  });
+
+  // Play the video
+  $('#playButton').click(function() {
+    video.play();
+  });
+
+  // Pause the video
+  $('#pauseButton').click(function() {
+    video.pause();
+  });
+  
+  video.append(source);
+
+  // Append the video element to a container or specific element on your page
+  $('body').append(video);
+
+  // Initialize Video.js with custom not supported message
+  videojs('myVideo', {
+    notSupportedMessage: 'Your browser does not support the video playback.'
+  });
 
 }); 
 
