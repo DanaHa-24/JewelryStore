@@ -653,6 +653,11 @@ span.stores-page-street-location {
   
 /* Product Page */
 
+.product-page-rtl{
+    direction: rtl;
+}
+
+
 /* Terms Page */
 
 #terms-container {
