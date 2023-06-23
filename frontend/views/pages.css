@@ -644,4 +644,57 @@ span.stores-page-street-location {
     padding: 20px;
     direction: rtl;
 }
+
+/* Page not found */
+.page-not-found-logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+}
+  
+.page-not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 80px;
+}
+  
+.page-not-found-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+.page-not-found-title {
+    font-size: 100px;
+}
+  
+.page-not-found-contentA,
+.page-not-found-contentB {
+    font-size: 24px;
+    font-weight: lighter;
+}
+
+.page-not-found-home-btn {
+    font-size: 18px;
+}
+
+  
+/* Media queries */
+@media (max-width: 768px) {
+.page-not-found-container {
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.page-not-found-text-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+}
   
