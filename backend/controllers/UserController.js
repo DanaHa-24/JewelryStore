@@ -2,6 +2,74 @@ const User = require('../models/UserSchema');
 const UserService = require('../services/UserService');
 const { updateNumOfOrders } = require('../services/UserService');
 
+// Create a new user
+async function createUser(req, res) {
+  try {
+      const { username, email, password, address, phoneNumber } = req.body;
+      const user = await userService.createUser(username, email, password, address, phoneNumber);
+      res.status(201).json(user);
+  } catch (error) {
+      res.status(500).json({ error: 'Failed to create the user.' });
+  }
+};
+
+// Get all users
+async function getAllUsers(req, res) {
+  try {
+      const users = await userService.getAllUsers();
+      res.json(users);
+  } catch (error) {
+      res.status(500).json({ error: 'Failed to fetch users.' });
+  }
+};
+
+// Get a user by ID
+async function getUserById(req, res) {
+  try {
+      const userId = req.params.id;
+      const user = await userService.getUserById(userId);
+      if (user) {
+          res.json(user);
+      } else {
+          res.status(404).json({ error: 'User not found.' });
+      }
+  } catch (error) {
+      res.status(500).json({ error: 'Failed to fetch the user.' });
+  }
+};
+
+// Update a user
+async function updateUser(req, res) {
+  try {
+      const userId = req.params.id;
+      const { username, email, password, address, phoneNumber } = req.body;
+      const updatedUser = await userService.updateUser(userId, username, email, password, address, phoneNumber);
+      if (updatedUser) {
+          res.json(updatedUser);
+      } else {
+          res.status(404).json({ error: 'User not found.' });
+      }
+  } catch (error) {
+      res.status(500).json({ error: 'Failed to update the user.' });
+  }
+};
+
+// Delete a user
+async function deleteUser(req, res) {
+  try {
+      const userId = req.params.id;
+
+      const deletedUser = await userService.deleteUser(userId);
+      if (deletedUser) {
+          res.json(deletedUser);
+      } else {
+          res.status(404).json({ error: 'User not found.' });
+      }
+  } catch (error) {
+      res.status(500).json({ error: 'Failed to delete the user.' });
+  }
+};
+
 // Update num of orders in user
 async function saveUser(req, res) {
   try {
@@ -23,7 +91,7 @@ async function saveUser(req, res) {
 
 
 // Get logged-in user details
-const getMyUser = async (req, res) => {
+async function getMyUser(req, res) {
   try {
     const user = await UserService.getUser(req.userId);
     res.json(user);
@@ -34,5 +102,10 @@ const getMyUser = async (req, res) => {
 
 module.exports = { 
                     getMyUser,
-                    saveUser
+                    saveUser,
+                    createUser,
+                    getAllUsers,
+                    getUserById,
+                    updateUser,
+                    deleteUser
                  };
