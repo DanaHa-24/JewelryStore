@@ -9,7 +9,7 @@ const content = [
         page: 'termsPage.html'
     },
     {   content: 'מדריך מידות',
-        page: ''
+        page: 'sizeGuidePage.html'
     },
     {   content: 'רשימת סניפים',
         page: 'storesPage.html'
