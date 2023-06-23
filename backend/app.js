@@ -41,10 +41,12 @@ app.use(express.static(path.join(__dirname, '../frontend/views')));
 app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
 
+
 // For not found page
-// app.get('*', (req, res) => {
-//   res.sendFile(__dirname + '/public/notFound.html')
-// })
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/views/pageNotFound.html'));
+});
+
 
 app.use('/map', storeBranchesRoute);
 app.use('/api/storeBranches', storeBranchesRoute);
