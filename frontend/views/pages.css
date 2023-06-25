@@ -327,10 +327,148 @@ span.stores-page-street-location {
     writing-mode: vertical-rl;
 }
 
-/* Home Page header*/
+/* Home Page */
+
+#home-page-categories-section{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    gap: 30px;
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+    
+}
+
+.home-page-card-wrapper {
+    text-decoration: none;
+    display: block;
+    position: relative;
+}
+
+.home-page-category-card{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+}
+
+.home-page-card-name {
+    color: white;
+    margin-top: auto;
+    text-shadow: 0 0 5px #333;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.home-page-category-card:hover .home-page-card-name {
+    transform: scale(1.4);
+    transition: transform 0.3s ease-in-out;
+}
+
+.home-page-slide{
+    width: fit-content;
+    margin: auto;
+}
+
+#home-page-dot-container{
+    width: fit-content;
+    margin: auto;
+}
+
+.home-page-image{
+    margin: auto;
+    height: 500px;
+    width: 800px;
+    vertical-align: middle;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+}
+
+#home-page-slideshow-container {
+    width: fit-content;
+    position: relative;
+    margin: auto;
+}
+
+#home-page-slideshow-content{
+    width: fit-content;
+}
+
+.home-page-prev-slide,
+.home-page-next-slide {
+    cursor: pointer;
+    position: absolute;
+    color: black;
+    top: 50%;
+    width: fit-content;
+    padding: 16px;
+    right: 0;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+    text-decoration: none;
+    text-shadow: 0 0 5px #333;
+}
+
+.home-page-prev-slide {
+    left: 0;
+    border-radius: 0 6px 6px 0;
+}
+
+.home-page-next-slide {
+    right: 0;
+    border-radius: 6px 0 0 6px;
+}
+
+.home-page-prev-slide:hover,
+.home-page-next-slide:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.home-page-dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.home-page-active,
+.home-page-dot:hover {
+    background-color: #717171;
+}
+
+.home-page-fade {
+    animation-name: home-page-fade;
+    animation-duration: 3.5s;
+}
+
+@keyframes home-page-fade {
+    from {opacity: .8} 
+    to {opacity: 1}
+}
+
+/* Home Page header */
+
 #home-page-header{
     padding: 0 20px;
-    background-color:rgb(239, 221, 213);;
+    /* background-color: #a190cf; */
+    background-color: rgb(239, 221, 213);
+}
+
+#home-page-navbar{
+    padding: 0;
 }
 
 #home-page-image-container,
@@ -340,31 +478,37 @@ span.stores-page-street-location {
 
 #home-page-header-categories{
     margin: auto;
+    height: 73px;
     font-weight: 600;
-    width: 360px;
+    width: 400px;
+    padding: 0;
+    list-style: none;
+    padding-top: 20px;
 }
 
 #home-page-header-categories li{
     width: 90px;
-    height: 40px;
-    margin-top: 12px;
-    text-align: center; 
+    height: 100%;
+    margin-top: 6px;
+    text-align: center;
 }
 
 #home-page-header-categories .dropdown-content{
     display: none;    
-    margin-top: 10px;    
-    position: absolute;
-    border: 2px solid #505050;
+    margin-top: 25px;
+    position: fixed;
+    left: 0;
+    border: 2px solid #555;
     background-color: white;
-    min-width: 150px;
+    min-width: 99.1vw;
     padding: 0;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    z-index: 3;
 }
 
 #home-page-header-categories .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 12px 28px;
     text-decoration: none;
     display: block;
     width: 100%;
@@ -372,7 +516,7 @@ span.stores-page-street-location {
 }
 
 #home-page-header-categories li .dropdown-content a:hover{
-    background-color: #e0e0e0;
+    background-color: #eee;
 }
 
 #home-page-header-categories li:hover label{
@@ -399,17 +543,16 @@ span.stores-page-street-location {
 }
 
 #home-page-search-input{
-    border-radius: 0 8px 8px 0;
-    margin-right: 8px;
+    border-radius: 8px 0 0 8px;
     width: 150px;
 }
 
 #home-page-search-button{
-    border-radius: 8px 0 0 8px;
+    border-radius: 0 8px 8px 0;
 }
 
 #home-page-search-button:hover{
-    background-color: #c0c0c0;
+    background-color: #ccc;
 }
 
 /* Home Page footer*/
@@ -420,11 +563,15 @@ span.stores-page-street-location {
     margin-top: 40px;
 }
 
-#home-page-footer-categories ul a{
+
+#home-page-footer-categories ul{
+    justify-content: right;
+}
+
+#home-page-footer-categories a{
     color: #aaa;
 }
 
-#home-page-footer-div h5,
 #home-page-footer-div a:hover{
     color: white !important;
 }
@@ -462,10 +609,12 @@ span.stores-page-street-location {
 #items-page-categories-bar {
     background-color: #eee;
     width: 100%;
+    top: 84px;
     border-top: 1px solid #555;
     border-bottom: 1px solid #555;
-    margin-bottom: 5px;
+    margin-bottom: 50px;
     padding: 7px 70px;
+    z-index: 2;
 }
 
 #items-page-categories-list {
@@ -497,12 +646,23 @@ span.stores-page-street-location {
 #items-page-categories-list .dropdown-menu a,
 #items-page-sorting-list .dropdown-menu a {
     padding: 12px 16px;
-    text-align: right;
+    text-align: right;   
+}
+
+#items-page-categories-list .dropdown-menu a{
+    padding-right: 22px;
 }
 
 #items-page-categories-list .dropdown-menu a:hover,
-#items-page-sorting-list .dropdown-menu a:hover{
+#items-page-sorting-list .dropdown-menu a:hover {
     background-color: #eee;
+}
+
+#items-page-categories-list .dropdown-menu a .category-check-input,
+#items-page-sorting-list .dropdown-menu a .category-check-input {
+    position: absolute;
+    right: 5px;
+    margin-top: 6px;
 }
 
 #items-page-categories-list li button,
@@ -530,7 +690,7 @@ span.stores-page-street-location {
 
 #items-page-jewelry-cards-container .cardWrapper:link,
 #items-page-jewelry-cards-container .cardWrapper:visited {
-  list-style: none;
+    list-style: none;
 }
 
 #items-page-jewelry-cards-container .cardHollowHeart,
@@ -570,7 +730,7 @@ span.stores-page-street-location {
     font-size: x-large; 
 }
 
-#items-page-num-label{
+#items-page-page-num-label{
     margin: 20px;
     font-family: sans-serif;
 }
@@ -579,8 +739,9 @@ span.stores-page-street-location {
 #items-page-next-page-button{
     width: 30px;
     height: 30px;
+    border: 0;
+    background-color: #fff;
 }
-
 
 /* Cart Page */
 
