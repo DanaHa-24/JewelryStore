@@ -1,8 +1,37 @@
 const dropdownArray = {
-    'צמידים': ['כל הצמידים' ,'חרוזים', 'פנינים', 'כסף', 'מקרמה'],
-    'טבעות': ['כל הטבעות' ,'חרוזים', 'פנינים', 'כסף', 'אבן'],
-    'עגילים': ['כל העגילים' ,'כסף'],
-    'שרשראות': ['כל שרשראות' ,'חרוזים', 'פנינים', 'כסף', 'מקרמה']
+    'Bracelet' : { 
+        'title' : 'צמידים', 
+        'materials' : [
+            {'beads' : 'חרוזים'}, 
+            {'pearl' : 'פנינים'}, 
+            {'silver' : 'כסף'}, 
+            {'macrame' : 'מקרמה'}
+        ]
+    },
+    'Ring' : { 
+        'title' : 'טבעות', 
+        'materials' : [
+            {'beads' : 'חרוזים'}, 
+            {'pearl' : 'פנינים'}, 
+            {'silver' : 'כסף'}, 
+            {'stone' : 'אבן'}
+        ]
+    },
+    'Earring' : { 
+        'title' : 'עגילים', 
+        'materials' : [
+            {'silver' : 'כסף'}
+        ]
+    },
+    'Necklace' : { 
+        'title' : 'שרשראות', 
+        'materials' : [
+            {'beads' : 'חרוזים'}, 
+            {'pearl' : 'פנינים'}, 
+            {'silver' : 'כסף'}, 
+            {'macrame' : 'מקרמה'}
+        ]
+    }
 };
 
 const navIcons = [
@@ -27,12 +56,12 @@ const navbarDiv = $("<div>").addClass("collapse navbar-collapse");
 $("body").append(header.append(nav.append(navbarDiv)));
 
 const headerLinks = $("<ul>").attr("id", "home-page-header-links").addClass("navbar-nav");
-
 const searchInput = $("<input>").addClass("form-control").attr("id", "home-page-search-input").attr("type", "text").attr("placeholder", "Search");
 const searchButton = $("<button>").addClass("btn").attr("id", "home-page-search-button").attr("type", "button");
-searchButton.append($("<i>").addClass("fas fa-search"));
 const searchDiv = $("<div>").addClass("input-group mb-3").append(searchInput, searchButton);
 const searchLi = $("<li>").append(searchDiv);
+
+searchButton.append($("<i>").addClass("fas fa-search"));
 headerLinks.append(searchLi);
 
 $.each(navIcons, function(index, link){
@@ -44,17 +73,17 @@ $.each(navIcons, function(index, link){
 });
 navbarDiv.append(headerLinks);
 
-
-
 const headerCategories = $("<ul>").attr("id", "home-page-header-categories").addClass("navbar");
 $.each(dropdownArray, function(label, items){
     let dropdown = $("<div>").addClass("dropdown");
-    let dropdownLabel = $("<label>").text(label);
+    let dropdownLabel = $("<label>").text(items.title);
     let dropdownContent = $("<div>").addClass("dropdown-content container");
     
-    $.each(items, function(index, item){
-        let itemLink = $("<a>").attr("href", "#").text(item);
-        dropdownContent.append(itemLink);
+    $.each(items.materials, function(index, item){
+        $.each(item, function(key, value) {
+            let itemLink = $("<a>").attr("href", `itemsPage.html?type=${label}&material=${key}`).text(value);
+            dropdownContent.append(itemLink);
+        });
     });
     dropdown.append(dropdownLabel, dropdownContent);
     headerCategories.append($("<li>").append(dropdown));
