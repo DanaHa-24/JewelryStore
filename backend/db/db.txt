@@ -1,6 +1,6 @@
 addressSeed.json - uploaded to MongoDB Atlas at 23/6
-usersSeed.json - uploaded to MongoDB Atlas at 
-ordersSeed.json - uploaded to MongoDB Atlas at
+usersSeed.json - uploaded to MongoDB Atlas at 25/6
+ordersSeed.json - uploaded to MongoDB Atlas at 25/6
 itemsSeed.json - uploaded to MongoDB Atlas at
 
 scrape.js - file for scraping more data (items) from Tao website.

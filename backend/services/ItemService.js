@@ -1,7 +1,5 @@
 const Item = require('../models/ItemSchema');
 
-
-
 // Generate Id for new Item
 const generateItemId = async (type) => {
     const ItemType = {

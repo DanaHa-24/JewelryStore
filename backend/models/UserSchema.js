@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     myWishList: { type: mongoose.Schema.Types.ObjectId, ref: 'WishList' },
     MyCart: { type: mongoose.Schema.Types.ObjectId, ref: 'Cart'},
     phoneNumber: { type: String, required: true },
-    role: { type: String, default: 'customer', enum: ['customer', 'admin', 'supplier'] },
+    role: { type: String, default: 'customer', enum: ['customer', 'admin'] },
     createdAt: { type: Date, default: Date.now }
 });
 
