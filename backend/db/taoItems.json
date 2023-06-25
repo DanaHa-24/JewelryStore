@@ -36,7 +36,7 @@
     "color": ["green","blue"],
     "size": [],
     "material": ["stone", "silver"],
-    "style": ["chocker"],
+    "style": ["choker"],
     "amountInStock": 10,
     "status": "available",
     "howManySold": 2
@@ -64,7 +64,7 @@
     "color": ["black", "white", "blue"],
     "size": [],
     "material": ["silver", "pearl"],
-    "style": ["chocker"],
+    "style": ["choker"],
     "amountInStock": 10,
     "status": "available",
     "howManySold": 2
@@ -148,13 +148,13 @@
     "color": ["red", "orange","white"],
     "size": [],
     "material": ["silver", "pearl"],
-    "style": ["chocker"],
+    "style": ["choker"],
     "amountInStock": 10,
     "status": "available",
     "howManySold": 0
   },
   {
-    "id": "46039",
+    "id": "46037",
     "name": "עגיל שיינה",
     "price": 59,
     "image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-121533421-768x1152.jpg",
@@ -168,7 +168,7 @@
     "howManySold": 0
   },
   {
-    "id": "46040",
+    "id": "46038",
     "name": "עגיל פיור",
     "price": 59,
     "image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-121533456-768x1152.jpg",
@@ -182,7 +182,7 @@
     "howManySold": 0
   },
   {
-    "id": "46041",
+    "id": "46039",
     "name": "עגילי בקה",
     "price": 189,
     "image": "https://shoptaostyle.com/wp-content/uploads/2022/10/1970-01-20-084827196.jpg",
@@ -196,7 +196,7 @@
     "howManySold": 0
   },
   {
-    "id": "46042",
+    "id": "46040",
     "name": "עגילי כריס",
     "price": 189,
     "image": "https://shoptaostyle.com/wp-content/uploads/2022/06/%D7%A2%D7%92%D7%99%D7%9C%D7%99-%D7%97%D7%99%D7%A9%D7%95%D7%A7-%D7%96%D7%94%D7%91-%D7%91%D7%99%D7%99%D7%A1%D7%99%D7%A7-%D7%A2%D7%93%D7%99%D7%A0%D7%99%D7%9D-2.jpg",
@@ -330,7 +330,7 @@
     "color": ["gold"],
     "size": [],
     "material": ["gold"],
-    "style": ["chocker"],
+    "style": ["choker"],
     "amountInStock": 10,
     "status": "available",
     "howManySold": 0
@@ -742,7 +742,7 @@
     "howManySold": 0
   },
   {
-    "id": "46038",
+    "id": "46036",
     "name": "עגילי סופי",
     "price": 149,
     "image": "https://shoptaostyle.com/wp-content/uploads/2023/03/IMG-20230223-WA0007-01.jpg",
@@ -1078,7 +1078,7 @@
     "howManySold": 0
   },
   {
-    "id": "46030",
+    "id": "46028",
     "name": "עגילי לאבה",
     "price": 79,
     "image": "https://shoptaostyle.com/wp-content/uploads/2022/11/1970-01-20-121007483-768x1152.jpg",
@@ -1176,7 +1176,7 @@
     "howManySold": 0
   },
   {
-    "id": "46031",
+    "id": "46029",
     "name": "עגילי ולרי",
     "price": 159,
     "image": "https://shoptaostyle.com/wp-content/uploads/2022/10/1970-01-20-120846892-768x1152.jpg",
@@ -1190,7 +1190,7 @@
     "howManySold": 0
   },
   {
-    "id": "46032",
+    "id": "46030",
     "name": "עגילי באטרפליי",
     "price": 59,
     "image": "https://shoptaostyle.com/wp-content/uploads/2022/10/1970-01-20-085947977.jpg",
@@ -1260,7 +1260,7 @@
     "howManySold": 0
   },
   {
-    "id": "46033",
+    "id": "46031",
     "name": "עגילי אושן מיקס",
     "price": 79,
     "image": "https://shoptaostyle.com/wp-content/uploads/2022/10/1970-01-20-120721259-768x1152.jpg",
@@ -1274,7 +1274,7 @@
     "howManySold": 0
   },
   {
-    "id": "46034",
+    "id": "46032",
     "name": "עגילי שייני",
     "price": 79,
     "image": "https://shoptaostyle.com/wp-content/uploads/2022/10/1970-01-20-122417586-768x1152.jpg",
@@ -1288,7 +1288,7 @@
     "howManySold": 0
   },
   {
-    "id": "46035",
+    "id": "46033",
     "name": "עגילי אמה",
     "price": 159,
     "image": "https://shoptaostyle.com/wp-content/uploads/2022/11/20221202132336_IMG_3345_1-01-768x1152.jpg",
@@ -1302,7 +1302,7 @@
     "howManySold": 0
   },
   {
-    "id": "46036",
+    "id": "46034",
     "name": "עגילי פולס",
     "price": 159,
     "image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-122952588-1-768x1151.jpg",
@@ -1316,7 +1316,7 @@
     "howManySold": 0
   },
   {
-    "id": "46037",
+    "id": "46035",
     "name": "עגילי ווינדי",
     "price": 169,
     "image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-1221287980-768x1152.jpg",
