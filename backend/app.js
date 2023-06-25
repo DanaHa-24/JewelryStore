@@ -6,7 +6,6 @@ const path = require("path");
 const uri = `mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority`;
 
 const itemRoutes = require('./routes/ItemRoute');
-const configController = require('./controllers/ConfigController');
 const addressRoutes = require('./routes/AddressRoute');
 const cartRoutes = require ('./routes/CartRoute');
 const configRoutes = require ('./routes/ConfigRoute');
@@ -14,7 +13,6 @@ const orderRoutes = require('./routes/OrderRoute');
 const storeBranchesRoute = require('./routes/StoreBranchesRoute');
 const userRoutes = require('./routes/UserRoute');
 const wishlistRoutes = require('./routes/WishListRoute'); 
-const itemController = require('./controllers/ItemController');
 const cors = require('cors');
 console.log("hello");
 
@@ -53,13 +51,15 @@ app.use('/api/item', itemRoutes);
 
 
 
-// For not found page
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/views/pageNotFound.html'));
-});
+
 
 app.listen(5000, () => {
   console.log('Backend server is running ');
+});
+
+// For not found page
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/views/pageNotFound.html'));
 });
 
 module.exports = app;

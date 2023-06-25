@@ -1,15 +1,19 @@
-
 const headerContainer = $('<h1>').text('החנויות שלנו').addClass('stores-page-header');
-const mapContainer = $('<div>').attr("id","stores-page-container");
-const mapElement = $('<div>').attr("id","stores-page-map");
-const storesLocation = $('<aside>').addClass("stores-page-location-aside");
+const row = $('<div>').addClass('row').attr("id","stores-page-container");
+const mapColumn = $('<div>').addClass('col-lg-9 col-md-8 col-sm-12');
+const asideColumn = $('<div>').addClass('col-lg-3 col-md-4 col-sm-12');
+const mapElement = $('<div>').attr('id', 'stores-page-map');
+const storesLocation = $('<aside>').addClass('stores-page-location-aside');
 
 let locations = [];
 
 $('body').append(headerContainer);
-$('body').append(mapContainer);
-$('#stores-page-container').append(mapElement);
-$('#stores-page-container').append(storesLocation);
+asideColumn.append(storesLocation);
+mapColumn.append(mapElement);
+row.append(mapColumn, asideColumn);
+
+
+$('body').append(row);
 
 $(document).ready(function() {
   // Make an AJAX request to retrieve the API key from the backend
@@ -67,7 +71,7 @@ function initMap(apiKey, locations) {
     zoom: 12
   };
   let map = new google.maps.Map(document.getElementById('stores-page-map'), mapOptions);
-  
+
   // Create markers for each location
   if (locations) {
     locations.forEach((location) => {
@@ -75,9 +79,9 @@ function initMap(apiKey, locations) {
         content: `<div>${location.name}</div>`,
         ariaLabel: location.name
       });
-      
+
       const icon = {
-        url: "/images/BU-marker2.png", 
+        url: '/images/BU-marker2.png',
         scaledSize: new google.maps.Size(60, 40),
         labelOrigin: new google.maps.Point(20, 50)
       };
@@ -89,7 +93,7 @@ function initMap(apiKey, locations) {
         icon: icon
       });
 
-      marker.addListener("click", () => {
+      marker.addListener('click', () => {
         // Close the previously open info window, if any
         if (currentInfoWindow) {
           currentInfoWindow.close();
@@ -97,22 +101,20 @@ function initMap(apiKey, locations) {
 
         // Open the clicked marker's info window
         infowindow.open(map, marker);
-        
+
         // Update the reference to the currently open info window
         currentInfoWindow = infowindow;
       });
 
-      let locationsDiv = $('<div>').addClass("stores-page-location-info");
-      let locationName = $('<div>').addClass("stores-page-location-name").text(location.name).css("font-weight", "bold");
-      let citySpan = $('<span>').addClass("stores-page-city-location").text(location.city);
-      let streetSpan = $('<span>').addClass("stores-page-street-location").text(location.street);
+      let locationsDiv = $('<div>').addClass('stores-page-location-info');
+      let locationName = $('<div>').addClass('stores-page-location-name').text(location.name).css('font-weight', 'bold');
+      let citySpan = $('<span>').addClass('stores-page-city-location').text(location.city);
+      let streetSpan = $('<span>').addClass('stores-page-street-location').text(location.street);
 
       locationsDiv.append(locationName, citySpan, streetSpan);
-      $(".stores-page-location-aside").append(locationsDiv);
-
+      $('.stores-page-location-aside').append(locationsDiv);
     });
   } else {
-    console.log("No locations found");
+    console.log('No locations found');
   }
 }
-
