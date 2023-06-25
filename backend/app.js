@@ -49,6 +49,9 @@ app.use('/api/mywishlist', wishlistRoutes);
 app.use('/api/config', configRoutes);
 app.use('/api/item', itemRoutes);
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/views/homePage.html'));
+});
 
 
 
