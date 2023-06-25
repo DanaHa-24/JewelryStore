@@ -112,7 +112,7 @@ function handleMyOrders() {
         );
 
         table.append(tableHeader);
-
+        
         response.forEach(function(order) {
           const tableRow = $('<tr>').append(
             $('<td>').text(order.totalPrice),
