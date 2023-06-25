@@ -115,7 +115,7 @@ $(document).ready(function() {
   });
   
   let source = $('<source>', {
-    src: '/frontend/images/video.mp4',
+    src: '/images/video.mp4',
     type: 'video/mp4'
   });
   
