@@ -142,20 +142,35 @@ function handleMyAddress() {
     method: 'GET',
     success: function(response) {
       // Build and display the addresses table
-      const table = $('<table>').addClass('address-table');
+      const table = $('<table>').addClass('table table-striped');
       const tableHeader = $('<tr>').append(
         $('<th>').text('שם'),
-        $('<th>').text('טלפון'),
-        $('<th>').text('כתובת')
+        $('<th>').text('עיר'),
+        $('<th>').text('רחוב'),
+        $('<th>').text('מספר בית'),
+        $('<th>').text('מספר דירה'),
+        $('<th>').text('מיקוד'),
+        $('<th>').text('פעולות')
       );
 
       table.append(tableHeader);
 
       response.forEach(function(address) {
         const tableRow = $('<tr>').append(
-          $('<td>').text(address.name),
-          $('<td>').text(address.phone),
-          $('<td>').text(address.address)
+          $('<td>').text(address.nickname),
+          $('<td>').text(address.city),
+          $('<td>').text(address.street),
+          $('<td>').text(address.houseNum),
+          $('<td>').text(address.apartmentNum),
+          $('<td>').text(address.postalCode),
+          $('<td>').append(
+            $('<button>').text('עריכה').attr('type','button').addClass('btn btn-secondary').on('click', function() {
+              editAddress(address);
+            }),
+            $('<button>').text('מחיקה').attr('type','button').addClass('btn btn-danger').on('click', function() {
+              deleteAddress(address.id);
+            })
+          )
         );
 
         table.append(tableRow);
