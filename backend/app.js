@@ -42,10 +42,7 @@ app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
 
 
-// For not found page
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/views/pageNotFound.html'));
-});
+
 
 
 app.use('/map', storeBranchesRoute);
@@ -66,6 +63,11 @@ app.get('/Item', itemController.getFullSchema);
 
 app.listen(5000, () => {
   console.log('Backend server is running ');
+});
+
+// For not found page
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/views/pageNotFound.html'));
 });
 
 module.exports = app;

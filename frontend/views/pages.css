@@ -685,20 +685,20 @@ span.stores-page-street-location {
   
 /* Media queries */
 @media (max-width: 768px) {
-.page-not-found-container {
-    flex-direction: column;
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
+    .page-not-found-container {
+        flex-direction: column;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
 
-.page-not-found-text-container {
-    margin-left: auto;
-    margin-right: auto;
-}
+    .page-not-found-text-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
   
-  /*contact page*/
-  #contact-page-container{
+/* Contact page */
+#contact-page-container {
     height: 100vh;
     width: 100%;
     background-color:rgb(255, 255, 255);
@@ -707,18 +707,18 @@ span.stores-page-street-location {
     direction: rtl;
 }
 
-#contact-page-header{
+#contact-page-header {
     font-size: 28px;
     font-weight: 600;
     color: rgb(44, 44, 44);
 }
 
-#contact-page-form{
+#contact-page-form {
     margin-top: 30px;
 }
 
 
-#contact-page-field{
+#contact-page-field {
     height: 50px;
     width: 300%;
     margin-top: 20px;
@@ -728,7 +728,7 @@ span.stores-page-street-location {
 #contact-page-name-input,
 #contact-page-email-input,
 #contact-page-button,
-#contact-page-textarea{
+#contact-page-textarea {
     height: 100%;
     width: 100%;
     border: none;
@@ -739,19 +739,18 @@ span.stores-page-street-location {
 
 #contact-page-name-input,
 #contact-page-email-input,
-#contact-page-textarea{
+#contact-page-textarea {
     border: 1px solid#CACACA;
     padding: 0 15px; 
     outline: none;
 }
 
 #contact-page-name-input:focus,
-#contact-page-email-input:focus{
+#contact-page-email-input:focus {
     border-bottom-width: 2px;
 }
 
-
-#contact-page-button{
+#contact-page-button {
     margin-top: 70px;
     background-color: rgb(239, 221, 213);
     color: #333;
@@ -759,7 +758,7 @@ span.stores-page-street-location {
     cursor: pointer;
 }
 
-#contact-page-button:hover{
+#contact-page-button:hover {
     background-color: rgb(214, 186, 174);
 }
 
@@ -767,12 +766,12 @@ span.stores-page-street-location {
     height: 120px;
 }
   
-  /*login page*/
-  #canvas-login-page{
+/* Login Page */
+#canvas-login-page{
     display: block;
     margin: 20px auto;
     background-color: #000;
-  }
+}
   
 #login-page-container {
     direction: rtl;
@@ -782,9 +781,9 @@ span.stores-page-street-location {
     padding: 20px;
     background-color: #ffffff;
     border-radius: 5px;
-  }
+}
 
-  #login-page-input{
+#login-page-input{
     height: 50px;
     width: 100%;
     border: none;
@@ -796,9 +795,9 @@ span.stores-page-street-location {
     outline: none;
     margin-top: 15px;
     position: relative;
-  }
+}
 
-  #login-page-button{
+#login-page-button{
     height: 50px;
     width: 60%;
     border: none;
@@ -810,11 +809,10 @@ span.stores-page-street-location {
     transition: all 0.3s ease;
     cursor: pointer;
     margin-top: 15px;
-    margin-right: 20%;
-    
-  }
+    margin-right: 20%; 
+}
 
-  #login-page-button:hover{
+#login-page-button:hover {
     background-color: rgb(214, 186, 174);
 }
   
@@ -823,34 +821,34 @@ span.stores-page-street-location {
     font-weight: 600;
     color: rgb(44, 44, 44);
     text-align: center
-  }
+}
 
 #login-page-button-link {
     text-align: center;
-  height: 30px;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #333;;
-  text-decoration: none;
-  border: none;
-  font-size: 16px;
-  font-weight: 400;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content; /* Added this property */
-  margin: 10px auto; /* Updated this line */
-  background-color: #ffffff;
-  }
+    height: 30px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;;
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 10px auto;
+    background-color: #ffffff;
+}
   
 #login-page-button-link:hover {
     text-decoration: underline;
-  }
+}
   
-  /*signin page*/
-  #signin-page-container {
+/* Signin Page */
+#signin-page-container {
     direction: rtl;
     font-family: Arial, Helvetica, sans-serif;
     max-width: 400px;
@@ -858,9 +856,9 @@ span.stores-page-street-location {
     padding: 20px;
     background-color: #ffffff;
     border-radius: 5px;
-  }
+}
 
-  #signin-page-input{
+#signin-page-input {
     height: 50px;
     width: 100%;
     border: none;
@@ -872,9 +870,9 @@ span.stores-page-street-location {
     outline: none;
     margin-top: 15px;
     position: relative;
-  }
+}
 
-  #signin-page-button{
+#signin-page-button {
     height: 50px;
     width: 60%;
     border: none;
@@ -887,9 +885,9 @@ span.stores-page-street-location {
     cursor: pointer;
     margin-top: 15px;
     margin-right: 20%;
-  }
+}
 
-  #signin-page-button:hover{
+#signin-page-button:hover{
     background-color: rgb(214, 186, 174);
 }
 
@@ -898,9 +896,9 @@ span.stores-page-street-location {
     font-weight: 600;
     color: rgb(44, 44, 44);
     text-align: center
-  }
+}
 
-  #signin-page-button-link {
+#signin-page-button-link {
     text-align: center;
     height: 30px;
     margin-top: 10px;
@@ -916,23 +914,23 @@ span.stores-page-street-location {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: fit-content; /* Added this property */
-    margin: 10px auto; /* Updated this line */
-  }
+    width: fit-content;
+    margin: 10px auto;
+}
   
 #signin-page-button-link:hover {
     text-decoration: underline;
-  }
+}
 
 #canvas-signin-page {
     display: block;
     margin: 20px auto;
     background-color: #000;
-  }
+}
 
-  /*end of purchase page*/
+/* End of purchase Page */
     
-  #EP-page-container {
+#EP-page-container {
     max-width: 600px;
     font-family: Arial, sans-serif;
     margin: 20px auto;
@@ -942,24 +940,24 @@ span.stores-page-street-location {
     border-radius: 5px;
     direction: rtl;
     text-align: right;
-  }
+}
   
 #EP-page-h1 {
     color: #333;
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
-  }
+}
   
- #EP-page-p {
+#EP-page-p {
     margin-bottom: 10px;
-  }
+}
   
 #EP-page-card {
     margin-top: 20px;
     border: none;
     box-shadow: 0 2px 4px rgb(214, 186, 174);
-  }
+}
   
 #EP-page-card-header {
     background-color: #f8f8f8;
@@ -967,18 +965,17 @@ span.stores-page-street-location {
     padding: 10px 20px;
     font-size: 18px;
     color: #333;
-  }
+}
   
 #EP-page-card-body {
     padding: 20px;
-  }
+}
    
-  .mt-4 {
+.mt-4 {
     margin-top: 20px;
-  }
-  
+}
 
-  #EP-page-btn {
+#EP-page-btn {
     background-color: rgb(239, 221, 213);
     border: none;
     color: #333;
@@ -986,13 +983,13 @@ span.stores-page-street-location {
     border-radius: 4px;
     text-decoration: none;
     cursor: pointer;
-  }
+}
   
-  #EP-page-btn:hover {
+#EP-page-btn:hover {
     background-color: rgb(214, 186, 174);
-  }
+}
   
-  /*size guide page*/
+/* Size guide Page */
 
 .sizeguide-page-container{
     direction: rtl;
@@ -1001,66 +998,65 @@ span.stores-page-street-location {
      color: #565656;
 }
 
-  #SG-page-p {
+#SG-page-p {
     color: #565656;
-  }
+}
   
-  .size-guide-header {
+.size-guide-header {
     font-size: 24px;
     direction: rtl;
      margin-right: 60px;
      margin-top: 30px;
      text-decoration: underline;
      color: #333;
-  }
+}
   
-  .infoSG-item {
+.infoSG-item {
     font-size: 16px;
     margin-top: -10px;
-  }
+}
   
-  .sg-method-title {
+.sg-method-title {
     color: #333;
-  }
+}
   
-  .sg-method-content {
+.sg-method-content {
     font-size: 16px;
     color: #565656;
-  }
+}
   
-  .sg-link {
+.sg-link {
     margin-top: 40px;
     padding: 0px;
-  }
+}
   
-  .sg-method-div {
+.sg-method-div {
     margin-bottom: 30px;
-  }
+}
   
-  .sg-instructions {
+.sg-instructions {
     font-size: 14px;
     direction: rtl;
     margin-right: 60px;
      margin-top: 30px;
      color: #565656;
-  }
+}
   
-  .size {
+.size {
     text-align: center;
     font-size: 14px;
-  }
+}
   
-  .inner-diameter,
-  .outer-circumference {
+.inner-diameter,
+.outer-circumference {
     text-align: center;
     font-size: 14px;
-  }
+}
   
-  #sg-size-table{
+#sg-size-table{
     width: 40%;
     direction: rtl;
     margin-top: 20px;
     margin-left: 56%;
-
-  }
+}
   
