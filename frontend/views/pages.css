@@ -1076,6 +1076,14 @@ span.stores-page-street-location {
 .product-page-rtl{
     direction: rtl;
 }
+.product-page-convert{
+    height: 25px;
+    margin-top: -15px;
+ }
+ .opinion-Container{
+    width:40%;
+    
+ }
 
 
 /* Terms Page */
