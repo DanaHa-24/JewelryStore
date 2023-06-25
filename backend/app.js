@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 
+const uri = `mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority`;
+
 const itemRoutes = require('./routes/ItemRoute');
 const configController = require('./controllers/ConfigController');
 const addressRoutes = require('./routes/AddressRoute');
@@ -15,7 +17,6 @@ const wishlistRoutes = require('./routes/WishListRoute');
 const itemController = require('./controllers/ItemController');
 const cors = require('cors');
 console.log("hello");
-const uri = `mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority`;
 
 const options = {
   useNewUrlParser: true,
@@ -40,25 +41,18 @@ app.use(express.static(path.join(__dirname, '../frontend/views')));
 // Serve static files from the "images" directory
 app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
-
-
-
-
-
 app.use('/map', storeBranchesRoute);
 app.use('/api/storeBranches', storeBranchesRoute);
-
-
 app.use('/api/myaddresses', addressRoutes);
 app.use('/api/mycart', cartRoutes);
 app.use('/api/myorders', orderRoutes);
 app.use('/api/myuser', userRoutes);
 app.use('/api/mywishlist', wishlistRoutes);
-app.get('/api/config/api-key', configController.getApiKey);
 app.use('/api/config', configRoutes);
+app.use('/api/item', itemRoutes);
 
-app.use('/Item', itemRoutes);
-app.get('/Item', itemController.getFullSchema);
+
+
 
 
 app.listen(5000, () => {
