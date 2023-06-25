@@ -785,9 +785,23 @@ span.stores-page-street-location {
     border-radius: 5px;
   }
 
-  #login-page-input{
-    height: 50px;
-    width: 100%;
+  #login-page-input-email{
+    height: 60px;
+    width: 110%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+    border: 1px solid#CACACA;
+    padding: 0 15px; 
+    outline: none;
+    margin-top: 15px;
+    position: relative;
+  }
+
+  #login-page-input-password{
+    height: 60px;
+    width: 110%;
     border: none;
     font-size: 16px;
     font-weight: 400;
@@ -861,9 +875,15 @@ span.stores-page-street-location {
     border-radius: 5px;
   }
 
-  #signin-page-input{
-    height: 50px;
-    width: 100%;
+  #signin-page-input-firstName,
+  #signin-page-input-lastName,
+  #signin-page-input-email,
+  #signin-page-input-address,
+  #signin-page-input-phoneNumber,
+  #signin-page-input-password,
+  #signin-page-input-confirmPassword{
+    height: 60px;
+    width: 110%;
     border: none;
     font-size: 16px;
     font-weight: 400;
@@ -1057,11 +1077,36 @@ span.stores-page-street-location {
     font-size: 14px;
   }
   
-  #sg-size-table{
-    width: 40%;
+  #SG-table-video-container {
+    display: flex;
     direction: rtl;
-    margin-top: 20px;
-    margin-left: 56%;
-
   }
+  
+  #sg-size-table {
+    flex: 1;
+    margin-left: 10%;
+  }
+  
+  .video-container {
+    width: 40%;
+    margin-left: 20px;
+  }
+  
+  .video-container video {
+    width: 50%; /* Adjust the width as desired */
+    height: auto;
+  }
+  
+  @media (max-width: 768px) {
+    #SG-table-video-container {
+      flex-direction: column;
+    }
+  
+  .video-container {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  }
+  
   
