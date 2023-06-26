@@ -1,18 +1,18 @@
 const Wishlist = require('../models/WishListSchema');
 
-// Get all items in the wish list for the authenticated user (by ID)
+// Get all items in the wishlist for the authenticated user (by ID)
 async function getAllWishlistItems(wishlistId) {
     try {
     const wishList = await Wishlist.findById(wishlistId);
 
     if (!wishList) {
-        throw new Error('Wish list not found');
+        throw new Error('Wishlist not found');
     }
 
     return wishList.items;
     } catch (error) {
-    console.error('Error getting wish list items:', error);
-    throw new Error('Failed to get wish list items');
+    console.error('Error getting wishlist items:', error);
+    throw new Error('Failed to get wishlist items');
     }
 }
 
@@ -24,24 +24,24 @@ async function createWishlist(userId) {
         await wishList.save();
         return wishList;
     } catch (error) {
-        console.error('Error creating wish list:', error);
-        throw new Error('Failed to create wish list');
+        console.error('Error creating wishlist:', error);
+        throw new Error('Failed to create wishlist');
     }
 }
   
 
-// Delete the wish list for the authenticated user (by ID)
+// Delete the wishlist for the authenticated user (by ID)
 async function deleteWishlist(userId) {
     try {
     await Wishlist.deleteOne({ user: userId });
     } catch (error) {
-    console.error('Error deleting wish list:', error);
-    throw new Error('Failed to delete wish list');
+    console.error('Error deleting wishlist:', error);
+    throw new Error('Failed to delete wishlist');
     }
 }
 
 
-// Remove an item from the wish list for the authenticated user (by ID)
+// Remove an item from the wishlist for the authenticated user (by ID)
 async function removeItem(wishlistId, itemId) {
     try {
       await Wishlist.findByIdAndUpdate(wishlistId, { $pull: { items: itemId } });
@@ -80,7 +80,7 @@ async function getWishlistById(wishlistId) {
 }
   
  
-// Search for items in the wish list for the authenticated user (by ID)
+// Search for items in the wishlist for the authenticated user (by ID)
 async function searchWishlistItems(wishlistId, itemName) {
     try {
       const wishlist = await Wishlist.findById(wishlistId).populate({
@@ -104,13 +104,13 @@ async function searchWishlistItems(wishlistId, itemName) {
 }
   
 
-// Add an item to the wish list for the authenticated user (by ID)
+// Add an item to the wishlist for the authenticated user (by ID)
 async function addItem(wishlistId, itemId) {
     try {
       const wishList = await Wishlist.findById(wishlistId);
   
       if (!wishList) {
-        throw new Error('Wish list not found');
+        throw new Error('Wishlist not found');
       }
   
       wishList.items.push(itemId);
@@ -118,8 +118,8 @@ async function addItem(wishlistId, itemId) {
   
       return wishList;
     } catch (error) {
-      console.error('Error adding item to wish list:', error);
-      throw new Error('Failed to add item to wish list');
+      console.error('Error adding item to wishlist:', error);
+      throw new Error('Failed to add item to wishlist');
     }
 }
   

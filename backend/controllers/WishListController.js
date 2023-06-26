@@ -1,14 +1,14 @@
 const WishlistService = require('../services/WishListService');
 
-// Get all items in the wish list for the authenticated user (by ID)
+// Get all items in the wishlist for the authenticated user (by ID)
 async function getAllWishlistItems(req, res) {
     try {
       const userId = req.userId; // Assuming the user ID is stored in the req.userId property
       const items = await WishlistService.getItems(userId);
       res.json(items);
     } catch (error) {
-      console.error('Error getting wish list items:', error);
-      res.status(500).json({ error: 'Failed to get wish list items' });
+      console.error('Error getting wishlist items:', error);
+      res.status(500).json({ error: 'Failed to get wishlist items' });
     }
 }
 
@@ -20,26 +20,26 @@ async function createWishlist(req, res) {
       const wishList = await WishlistService.createWishlist(userId);
       res.json(wishList);
     } catch (error) {
-      console.error('Error creating wish list:', error);
-      res.status(500).json({ error: 'Failed to create wish list' });
+      console.error('Error creating wishlist:', error);
+      res.status(500).json({ error: 'Failed to create wishlist' });
     }
 }
   
 
-// Delete the wish list for the authenticated user (by ID)
+// Delete the wishlist for the authenticated user (by ID)
 async function deleteWishlist(req, res) {
     try {
       const userId = req.userId; // Assuming the user ID is stored in the req.userId property
-      await WishlistService.deleteWishList(userId);
-      res.json({ message: 'Wish list deleted successfully' });
+      await WishlistService.deleteWishlist(userId);
+      res.json({ message: 'Wishlist deleted successfully' });
     } catch (error) {
       console.error('Error deleting wish list:', error);
-      res.status(500).json({ error: 'Failed to delete wish list' });
+      res.status(500).json({ error: 'Failed to delete wishlist' });
     }
 }
   
 
-// Remove an item from the wish list for the authenticated user (by ID)
+// Remove an item from the wishlist for the authenticated user (by ID)
 async function removeItem(req, res) {
     try {
       const userId = req.userId; // Assuming the user ID is stored in the req.userId property
@@ -54,8 +54,8 @@ async function removeItem(req, res) {
       const wishList = await WishlistService.removeItem(wishlistId, itemId);
       res.json(wishList);
     } catch (error) {
-      console.error('Error removing item from wish list:', error);
-      res.status(500).json({ error: 'Failed to remove item from wish list' });
+      console.error('Error removing item from wishlist:', error);
+      res.status(500).json({ error: 'Failed to remove item from wishlist' });
     }
 }
 
@@ -89,7 +89,7 @@ async function getWishlistById(req, res) {
 }
   
 
-// Search for items in the wish list for the authenticated user (by ID)
+// Search for items in the wishlist for the authenticated user (by ID)
 async function searchWishlistItems(req, res) {
     try {
       const userId = req.userId; // Assuming the user ID is stored in the req.userId property
@@ -103,13 +103,13 @@ async function searchWishlistItems(req, res) {
       const items = await WishlistService.searchItems(userId, itemName);
       res.json(items);
     } catch (error) {
-      console.error('Error searching wish list items:', error);
-      res.status(500).json({ error: 'Failed to search wish list items' });
+      console.error('Error searching wishlist items:', error);
+      res.status(500).json({ error: 'Failed to search wishlist items' });
     }
 }
 
 
-// Add an item to the wish list for the authenticated user (by ID)
+// Add an item to the wishlist for the authenticated user (by ID)
 async function addItem(req, res) {
     try {
       const userId = req.userId; // Assuming the user ID is stored in the req.userId property
@@ -124,8 +124,8 @@ async function addItem(req, res) {
       const wishList = await WishlistService.addItem(wishlistId, itemId);
       res.json(wishList);
     } catch (error) {
-      console.error('Error adding item to wish list:', error);
-      res.status(500).json({ error: 'Failed to add item to wish list' });
+      console.error('Error adding item to wishlist:', error);
+      res.status(500).json({ error: 'Failed to add item to wishlist' });
     }
 }
 
