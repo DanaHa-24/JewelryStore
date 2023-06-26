@@ -49,7 +49,7 @@ $(document).ready(function() {
         // Handle successful login
         console.log(response);
         // Redirect the user to the desired page after successful login
-        window.location.href = "homePage.html";
+        window.location.href = `/homePage.html`;
       },
       error: function(error) {
         // Handle login error
