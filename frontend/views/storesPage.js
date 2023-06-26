@@ -18,7 +18,7 @@ $('body').append(row);
 $(document).ready(function() {
   // Make an AJAX request to retrieve the API key from the backend
   $.ajax({
-    url: 'http://localhost:5000/api/config/api-key',
+    url: 'http://localhost:5000/config/api-key',
     method: 'GET',
     success: function(response) {
       const apiKey = response.apiKey;
@@ -48,7 +48,7 @@ $(document).ready(function() {
 function fetchStoreBranches(apiKey) {
   // Make an AJAX request to retrieve the store branch data from the backend
   $.ajax({
-    url: 'http://localhost:5000/api/storeBranches',
+    url: 'http://localhost:5000/storeBranches',
     method: 'GET',
     success: function(response) {
       locations = response;

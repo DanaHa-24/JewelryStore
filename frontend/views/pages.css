@@ -295,9 +295,9 @@ body {
 }
 
 .profile-page-container {
-    background-color: #f2f2f2;
-    width: 600px;
-    height: 480px;
+    background-color: #fcf9f3;
+    width: 750px;
+    height: 100%;
     top: 60%;
     left: 45%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
