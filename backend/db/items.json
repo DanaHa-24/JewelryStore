@@ -1668,7 +1668,7 @@
 	{
 		"id": "46003",
 		"name": "עגילי הרמוני",
-		"price": null,
+		"price": 109,
 		"image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-1231370781-768x1152.jpg",
 		"type": "Earring",
 		"color": ["silver"],
@@ -1738,7 +1738,7 @@
 	{
 		"id": "46006",
 		"name": "עגילי וילי",
-		"price": null,
+		"price": 119,
 		"image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-122246862-768x1152.jpg",
 		"type": "Earring",
 		"color": ["silver"],
@@ -1780,7 +1780,7 @@
     {
 		"id": "46009",
 		"name": "עגילי הרה",
-		"price": null,
+		"price": 129,
 		"image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-121556873-768x1152.jpg",
 		"type": "Earring",
 		"color": ["silver","blue"],
