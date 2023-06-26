@@ -99,5 +99,5 @@ function showSlides(n) {
     // Show the current slide
     slides.eq(slideIndex - 1).show();
     // Add "home-page-active" class to the current dot
-    dots.eq(slideIndex - 1).addClass("home-page-active");
+    dots.eq(slideIndex).addClass("home-page-active");
 }
