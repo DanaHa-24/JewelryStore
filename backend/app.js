@@ -15,8 +15,6 @@ const orderRoutes = require('./routes/OrderRoute');
 const storeBranchesRoute = require('./routes/StoreBranchesRoute');
 const userRoutes = require('./routes/UserRoute');
 const wishlistRoutes = require('./routes/WishListRoute'); 
-
-
 console.log("hello");
 
 
@@ -57,26 +55,22 @@ app.use(express.static(path.join(__dirname, '../frontend/views')));
 // Serve static files from the "images" directory
 app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
-
-// Set up routes
-// Remove the api
-app.use('/api/item', itemRoutes);
-
 app.use('/map', storeBranchesRoute);
 app.use('/storeBranches', storeBranchesRoute);
-app.use('/users', userRoutes);
-app.use('/config', configRoutes);
 app.use('/addresses', addressRoutes);
-app.use('/wishlist', wishlistRoutes);
 app.use('/cart', cartRoutes);
 app.use('/orders', orderRoutes);
+app.use('/users', userRoutes);
+app.use('/wishlist', wishlistRoutes);
+app.use('/config', configRoutes);
+app.use('/item', itemRoutes);
 
 // Default redirect => Home Page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/views/homePage.html'));
 });
 
-// For other URL's => Not Found Page
+// For not found page
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/views/pageNotFound.html'));
 });
