@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser")
 
-const uri = `mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority`;
+// For testing User
+const User = require('./models/UserSchema');
 
 const itemRoutes = require('./routes/ItemRoute');
 const addressRoutes = require('./routes/AddressRoute');
@@ -17,6 +18,7 @@ const wishlistRoutes = require('./routes/WishListRoute');
 const cors = require('cors');
 console.log("hello");
 
+const uri = `mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority`;
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -44,27 +46,44 @@ app.use(express.static(path.join(__dirname, '../frontend/views')));
 // Serve static files from the "images" directory
 app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
-app.use('/map', storeBranchesRoute);
-app.use('/api/storeBranches', storeBranchesRoute);
-app.use('/api/myaddresses', addressRoutes);
+
+
 app.use('/api/mycart', cartRoutes);
 app.use('/api/myorders', orderRoutes);
-app.use('/api/myuser', userRoutes);
 app.use('/api/mywishlist', wishlistRoutes);
-app.use('/api/config', configRoutes);
+
+
+// Remove the api
 app.use('/api/item', itemRoutes);
+
+app.use('/map', storeBranchesRoute);
+app.use('/storeBranches', storeBranchesRoute);
+app.use('/users', userRoutes);
+app.use('/config', configRoutes);
+app.use('/addresses', addressRoutes);
+
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/views/homePage.html'));
 });
 
 
-
-
-
 app.listen(5000, () => {
   console.log('Backend server is running ');
 });
+
+
+// Test
+// app.get('/test', async (req, res) => {
+//   try {
+//     const users = await User.find({});
+//     res.json(users);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'An error occurred while querying the database' });
+//   }
+// });
+
 
 // For not found page
 app.get('*', (req, res) => {

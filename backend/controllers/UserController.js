@@ -5,73 +5,81 @@ const { updateNumOfOrders } = require('../services/UserService');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-// Create a new user
-async function createUser(req, res) {
-  try {
-      const { username, email, password, address, phoneNumber } = req.body;
-      const user = await userService.createUser(username, email, password, address, phoneNumber);
-      res.status(201).json(user);
-  } catch (error) {
-      res.status(500).json({ error: 'Failed to create the user.' });
-  }
-};
-
 // Get all users
 async function getAllUsers(req, res) {
   try {
-      const users = await userService.getAllUsers();
-      res.json(users);
+    const users = await UserService.getAllUsers();
+    res.json(users);
   } catch (error) {
-      res.status(500).json({ error: 'Failed to fetch users.' });
+    res.status(500).json({ error: error.message });
   }
-};
+}
 
-// Get a user by ID
-async function getUserById(req, res) {
+
+// Create a new user
+async function createUser(req, res) {
+  const userData = req.body;
   try {
-      const userId = req.params.id;
-      const user = await userService.getUserById(userId);
-      if (user) {
-          res.json(user);
-      } else {
-          res.status(404).json({ error: 'User not found.' });
-      }
+    const newUser = await UserService.createUser(userData);
+    // Redirect to the homepage
+    res.redirect('/homepage.html');
   } catch (error) {
-      res.status(500).json({ error: 'Failed to fetch the user.' });
+    res.status(500).json({ error: error.message });
   }
-};
+}
 
-// Update a user
+
+// Update an user by ID
 async function updateUser(req, res) {
+  const { id } = req.params;
+  const updateData = req.body;
   try {
-      const userId = req.params.id;
-      const { username, email, password, address, phoneNumber } = req.body;
-      const updatedUser = await userService.updateUser(userId, username, email, password, address, phoneNumber);
-      if (updatedUser) {
-          res.json(updatedUser);
-      } else {
-          res.status(404).json({ error: 'User not found.' });
-      }
+    const updatedUser = await UserService.updateUser(id, updateData);
+    res.json(updatedUser);
   } catch (error) {
-      res.status(500).json({ error: 'Failed to update the user.' });
+    res.status(500).json({ error: error.message });
   }
-};
+}
 
-// Delete a user
+
+// Delete an user by ID
 async function deleteUser(req, res) {
+  const { id } = req.params;
   try {
-      const userId = req.params.id;
-
-      const deletedUser = await userService.deleteUser(userId);
-      if (deletedUser) {
-          res.json(deletedUser);
-      } else {
-          res.status(404).json({ error: 'User not found.' });
-      }
+    const message = await UserService.deleteUser(id);
+    res.json({ message });
   } catch (error) {
-      res.status(500).json({ error: 'Failed to delete the user.' });
+    res.status(500).json({ error: error.message });
   }
-};
+}
+
+
+// Get an user by ID
+async function getUserById(req, res) {
+  const { id } = req.params;
+  try {
+    const user = await UserService.getUserById(id);
+    if (user) {
+      res.json(user);
+    } else {
+      res.status(404).json({ error: 'User not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
+// Search users by filter
+async function searchUsers(req, res) {
+  const { filter } = req.params;
+  try {
+    const users = await UserService.searchUsers(filter);
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 // Update num of orders in user
 async function saveUser(req, res) {
@@ -93,15 +101,33 @@ async function saveUser(req, res) {
 }
 
 
-// Get logged-in user details
-async function getMyUser(req, res) {
+// User logged-in
+async function login(req, res) {
+  const { email, password } = req.body;
+
   try {
-    const user = await UserService.getUser(req.userId);
-    res.json(user);
+    // Check if the user exists in the database
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Compare the provided password with the stored hashed password
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) {
+      return res.status(401).json({ error: 'Invalid password' });
+    }
+
+    // Generate a JSON Web Token (JWT) for authentication
+    const token = jwt.sign({ userId: user._id }, 'your-secret-key');
+
+    // Return the token to the client
+    res.json({ token });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to get user details' });
+    res.status(500).json({ error: error.message });
   }
-};
+}
+
 
 async function register(req, res, next) {
   try {
@@ -126,13 +152,25 @@ async function register(req, res, next) {
   }
 }
 
+
+// Get logged-in user details
+async function getMyUser(req, res) {
+  try {
+    const user = await UserService.getUser(req.userId);
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to get user details' });
+  }
+}
+
 module.exports = { 
-                    getMyUser,
-                    saveUser,
-                    createUser,
                     getAllUsers,
-                    getUserById,
+                    createUser,
                     updateUser,
                     deleteUser,
-                    register
+                    getUserById,
+                    searchUsers,
+                    login,
+                    register,
+                    getMyUser
                  };

@@ -142,7 +142,7 @@ function handleMyOrders() {
 function handleMyAddress() {
   // Make an AJAX request to retrieve the user's addresses from the backend
   $.ajax({
-    url: 'http://localhost:5000/api/myaddresses',
+    url: 'http://localhost:5000/addresses',
     method: 'GET',
     success: function(response) {
       // Build and display the addresses table
@@ -220,7 +220,7 @@ function saveAddress(addressId) {
 
   // Make an AJAX request to update the address in the backend
   $.ajax({
-    url: 'http://localhost:5000/api/myaddresses/' + addressId,
+    url: 'http://localhost:5000/addresses/' + addressId,
     method: 'PUT',
     data: editedValues,
     success: function(response) {
@@ -237,7 +237,7 @@ function saveAddress(addressId) {
 function deleteAddress(addressId) {
   // Make an AJAX request to delete the address from the backend
   $.ajax({
-    url: 'http://localhost:5000/api/myaddresses/' + addressId,
+    url: 'http://localhost:5000/addresses/' + addressId,
     method: 'DELETE',
     success: function(response) {
       console.log('Address deleted successfully');

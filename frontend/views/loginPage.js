@@ -37,6 +37,27 @@ $(document).ready(function() {
     let emaiInputLogin = $("#login-page-input-email").val();
     let passwordInputLogin = $("#login-page-input-password").val();
     
-  })
+    // Make an AJAX request to the server
+  $.ajax({
+      url: '/users/login',
+      method: 'POST',
+      data: {
+        username: emaiInputLogin,
+        password: passwordInputLogin
+      },
+      success: function(response) {
+        // Handle successful login
+        console.log(response);
+        // Redirect the user to the desired page after successful login
+        window.location.href = "homePage.html";
+      },
+      error: function(error) {
+        // Handle login error
+        console.log(error);
+        // Display an error message to the user
+        alert('Invalid email or password. Please try again.');
+      }
+    });
+  });
 
 });
