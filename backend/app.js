@@ -4,9 +4,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser")
 
-// For testing User
-const User = require('./models/UserSchema');
-
 const itemRoutes = require('./routes/ItemRoute');
 const addressRoutes = require('./routes/AddressRoute');
 const cartRoutes = require ('./routes/CartRoute');
@@ -50,7 +47,7 @@ app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
 app.use('/api/mycart', cartRoutes);
 app.use('/api/myorders', orderRoutes);
-app.use('/api/mywishlist', wishlistRoutes);
+
 
 
 // Remove the api
@@ -61,6 +58,7 @@ app.use('/storeBranches', storeBranchesRoute);
 app.use('/users', userRoutes);
 app.use('/config', configRoutes);
 app.use('/addresses', addressRoutes);
+app.use('/wishlist', wishlistRoutes);
 
 
 app.get('/', (req, res) => {
@@ -71,18 +69,6 @@ app.get('/', (req, res) => {
 app.listen(5000, () => {
   console.log('Backend server is running ');
 });
-
-
-// Test
-// app.get('/test', async (req, res) => {
-//   try {
-//     const users = await User.find({});
-//     res.json(users);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'An error occurred while querying the database' });
-//   }
-// });
 
 
 // For not found page

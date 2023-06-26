@@ -324,7 +324,7 @@ function handleMyDetails() {
 function handleMyWishList() {
   // Make an AJAX request to retrieve the user's wishlist from the backend
   $.ajax({
-    url: 'http://localhost:5000/api/mywishlist',
+    url: 'http://localhost:5000/wishlist',
     method: 'GET',
     success: function(response) {
       if (response.length === 0) {
