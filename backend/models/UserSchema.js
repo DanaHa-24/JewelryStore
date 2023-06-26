@@ -13,7 +13,10 @@ const userSchema = new mongoose.Schema({
     phoneNumber: { type: String, required: true },
     role: { type: String, default: 'customer', enum: ['customer', 'admin'] },
     createdAt: { type: Date, default: Date.now }
-});
+    
+},
+{ versionKey: false}
+);
 
 const User = mongoose.model('User', userSchema, 'UserSchema');
 

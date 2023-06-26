@@ -1,5 +1,17 @@
 const Address = require('../models/AddressSchema');
 
+// Get all addresses
+async function getAllAddresses() {
+  try {
+    const addresses = await Address.find();
+    return addresses;
+  } catch (error) {
+    console.error('Error getting addresses:', error);
+    throw new Error('Failed to get addresses');
+  }
+}
+
+
 // Create a new address
 async function createAddress(addressData) {
     try {
@@ -9,8 +21,9 @@ async function createAddress(addressData) {
       console.error('Error creating address:', error);
       throw new Error('Failed to create address');
     }
-  }
+}
   
+
 // Delete an address by ID
 async function deleteAddress(addressId) {
     try {
@@ -25,6 +38,7 @@ async function deleteAddress(addressId) {
     }
 }
   
+
 // Update an address by ID
 async function updateAddress(addressId, updatedData) {
     try {
@@ -38,18 +52,22 @@ async function updateAddress(addressId, updatedData) {
       throw new Error('Failed to update address');
     }
 }
-  
-// Get all addresses
-async function getAllAddresses() {
-    try {
-      const addresses = await Address.find();
-      return addresses;
-    } catch (error) {
-      console.error('Error getting addresses:', error);
-      throw new Error('Failed to get addresses');
+
+
+// Get an address by ID
+async function getAddressById(addressId) {
+  try {
+    const address = await Address.findById(addressId);
+    if (!address) {
+      throw new Error('Address not found');
     }
+    return address;
+  } catch (error) {
+    throw new Error('Error fetching address by ID');
+  }
 }
-  
+
+
 // Search addresses by name, city, or street
 async function searchAddresses(query) {
     try {
@@ -80,12 +98,12 @@ async function getUserAddresses(userId) {
 }
   
 
-
 module.exports = {
                     createAddress,
                     deleteAddress,
                     updateAddress,
                     getAllAddresses,
+                    getAddressById,
                     searchAddresses,
                     getUserAddresses
                 };

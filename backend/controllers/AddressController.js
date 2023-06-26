@@ -1,5 +1,17 @@
 const AddressService = require('../services/AddressService');
 
+// Get all addresses
+async function getAllAddresses(req, res) {
+    try {
+    const addresses = await AddressService.getAllAddresses();
+    res.json(addresses);
+    } catch (error) {
+    console.error('Error getting addresses:', error);
+    res.status(500).json({ error: 'Failed to get addresses' });
+    }
+}
+
+
 // Create a new address
 async function createAddress(req, res) {
     try {
@@ -12,17 +24,6 @@ async function createAddress(req, res) {
     }
 }
 
-// Delete an address by ID
-async function deleteAddress(req, res) {
-    try {
-    const addressId = req.params.id; // Assuming the address ID is passed in the URL parameter
-    const deletedAddress = await AddressService.deleteAddress(addressId);
-    res.json(deletedAddress);
-    } catch (error) {
-    console.error('Error deleting address:', error);
-    res.status(500).json({ error: 'Failed to delete address' });
-    }
-}
 
 // Update an address by ID
 async function updateAddress(req, res) {
@@ -37,16 +38,32 @@ async function updateAddress(req, res) {
     }
 }
 
-// Get all addresses
-async function getAllAddresses(req, res) {
+
+// Delete an address by ID
+async function deleteAddress(req, res) {
     try {
-    const addresses = await AddressService.getAllAddresses();
-    res.json(addresses);
+    const addressId = req.params.id; // Assuming the address ID is passed in the URL parameter
+    const deletedAddress = await AddressService.deleteAddress(addressId);
+    res.json(deletedAddress);
     } catch (error) {
-    console.error('Error getting addresses:', error);
-    res.status(500).json({ error: 'Failed to get addresses' });
+    console.error('Error deleting address:', error);
+    res.status(500).json({ error: 'Failed to delete address' });
     }
 }
+
+
+// Get an address by ID
+async function getAddressById(req, res) {
+    try {
+      const addressId = req.params.id;
+      const address = await AddressService.getAddressById(addressId);
+      res.status(200).json(address);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+}
+
 
 // Search addresses by name, city, or street
 async function searchAddresses(req, res) {
@@ -73,10 +90,11 @@ async function getMyAddresses(req, res) {
 }
 
 module.exports = {
+                    getAllAddresses,
                     createAddress,
                     deleteAddress,
                     updateAddress,
-                    getAllAddresses,
+                    getAddressById,
                     searchAddresses,
                     getMyAddresses
                 };

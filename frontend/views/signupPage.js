@@ -110,43 +110,66 @@ $(document).ready(function() {
   // Append the sign-up button to the body
   $("body").append(signUpButton);
 
+  
   $("#signin-page-button").click(function(event) {
     event.preventDefault();
     let firstNameSignin = $("#signin-page-input-firstName").val();
     let lastNameSignin = $("#signin-page-input-lastName").val();
-    let emailSignin = $("#signin-page-input-email").val();
-    let addressSignin = $("#signin-page-input-address").val();
+    let emailSignin = $("#signin-page-input-email").val(); // Assuming email field is used as username
+    let addressSignin = $("#signin-page-input-address").val().split(",");
     let phoneSignin = $("#signin-page-input-phoneNumber").val();
     let passwordSignin = $("#signin-page-input-password").val();
     let confirmPasswordSignin = $("#signin-page-input-confirmPassword").val();
-
-    console.log(passwordSignin);
-
-    // Create an object with the form data
-    const formData = {
-      firstName: firstNameSignin,
-      lastName: lastNameSignin,
-      username: emailSignin, // Assuming the email is used as the username
-      address: addressSignin,
-      phoneNumber: phoneSignin,
-      password: passwordSignin
+  
+    // Create an object with the address data
+    const addressData = {
+      city: addressSignin[0].trim(),
+      street: addressSignin[1].trim(),
+      houseNum: parseInt(addressSignin[2].trim()),
+      apartmentNum: parseInt(addressSignin[3].trim()),
+      postalCode: parseInt(addressSignin[4].trim())
     };
-    
-    // Send a POST request to the register route in the controller
+  
+    // Send a POST request to create the address
     $.ajax({
       type: "POST",
-      url: "/api/myuser/register",
-      data: formData,
-      success: function(response) {
-        // Handle the success response
-        console.log(response);
-        // Redirect to a success page or perform any other actions
+      url: "/addresses",
+      data: addressData,
+      success: function(addressResponse) {
+        // Create an object with the form data including the address ID
+        const formData = {
+          firstName: firstNameSignin,
+          lastName: lastNameSignin,
+          username: emailSignin, // Assuming email field is used as username
+          password: passwordSignin,
+          address: [addressResponse._id],
+          phoneNumber: phoneSignin
+        };
+  
+        // Send a POST request to create the user with the updated address
+        $.ajax({
+          type: "POST",
+          url: "/users",
+          data: formData,
+          success: function(userResponse) {
+            // Handle the success response
+            console.log("you logged in");
+            // Redirect to a success page or perform any other actions
+            window.location.href = `/homePage.html`;
+          },
+          error: function(userError) {
+            // Handle the error response for user creation
+            console.log(userError);
+            // Display an error message or perform any other actions
+          }
+        });
       },
-      error: function(error) {
-        // Handle the error response
-        console.log(error);
+      error: function(addressError) {
+        // Handle the error response for address creation
+        console.log(addressError);
         // Display an error message or perform any other actions
       }
     });
-  });
+  }); 
+  
 });

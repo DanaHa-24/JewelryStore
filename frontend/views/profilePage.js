@@ -92,6 +92,8 @@ $(document).ready(function() {
 });
 
 
+/////////////////////////////////// My Orders Tab ///////////////////////////////////
+
 // Function to handle "My Orders" tab
 function handleMyOrders() {
   // Make an AJAX request to retrieve the user's order history from the backend
@@ -134,11 +136,13 @@ function handleMyOrders() {
 }
 
 
+/////////////////////////////////// My Addresses Tab ///////////////////////////////////
+
 // Function to handle "My Addresses" tab
 function handleMyAddress() {
   // Make an AJAX request to retrieve the user's addresses from the backend
   $.ajax({
-    url: 'http://localhost:5000/api/myaddresses',
+    url: 'http://localhost:5000/addresses',
     method: 'GET',
     success: function(response) {
       // Build and display the addresses table
@@ -164,10 +168,10 @@ function handleMyAddress() {
           $('<td>').text(address.apartmentNum),
           $('<td>').text(address.postalCode),
           $('<td>').append(
-            $('<button>').text('עריכה').attr('type','button').addClass('btn btn-secondary').on('click', function() {
+            $('<button>').text('עריכה').attr('type','button').addClass('btn btn-outline-secondary').on('click', function() {
               editAddress(address);
             }),
-            $('<button>').text('מחיקה').attr('type','button').addClass('btn btn-danger').on('click', function() {
+            $('<button>').text('מחיקה').attr('type','button').addClass('btn btn-outline-danger').on('click', function() {
               deleteAddress(address.id);
             })
           )
@@ -184,6 +188,68 @@ function handleMyAddress() {
   });
 }
 
+// Function to handle editing an address
+function editAddress(address) {
+  const tableRow = $('tr').has('td:contains("' + address.name + '")');
+
+  // Convert address fields to input fields for editing
+  tableRow.children().each(function(index) {
+    const text = $(this).text();
+    $(this).html($('<input>').val(text));
+  });
+
+  const editButton = tableRow.find('.btn-primary');
+  editButton.text('שמירה').off('click').on('click', function() {
+    saveAddress(address.id);
+  });
+}
+
+// Function to save the edited address
+function saveAddress(addressId) {
+  const tableRow = $('tr').has('button:contains("שמירה")');
+
+  // Get the edited values from the input fields
+  const editedValues = {
+    name: tableRow.find('input').eq(0).val(),
+    city: tableRow.find('input').eq(1).val(),
+    street: tableRow.find('input').eq(2).val(),
+    houseNumber: tableRow.find('input').eq(3).val(),
+    apartmentNumber: tableRow.find('input').eq(4).val(),
+    zipCode: tableRow.find('input').eq(5).val()
+  };
+
+  // Make an AJAX request to update the address in the backend
+  $.ajax({
+    url: 'http://localhost:5000/addresses/' + addressId,
+    method: 'PUT',
+    data: editedValues,
+    success: function(response) {
+      console.log('Address updated successfully');
+      handleMyAddress(); // Refresh the addresses table
+    },
+    error: function(error) {
+      console.error('Error updating address:', error);
+    }
+  });
+}
+
+// Function to delete an address
+function deleteAddress(addressId) {
+  // Make an AJAX request to delete the address from the backend
+  $.ajax({
+    url: 'http://localhost:5000/addresses/' + addressId,
+    method: 'DELETE',
+    success: function(response) {
+      console.log('Address deleted successfully');
+      handleMyAddress(); // Refresh the addresses table
+    },
+    error: function(error) {
+      console.error('Error deleting address:', error);
+    }
+  });
+}
+
+/////////////////////////////////// My Details Tab ///////////////////////////////////
 
 // Function to handle "My Details" tab
 function handleMyDetails() {
@@ -252,6 +318,9 @@ function handleMyDetails() {
   });
 }
 
+
+/////////////////////////////////// My WishList Tab ///////////////////////////////////
+
 function handleMyWishList() {
   // Make an AJAX request to retrieve the user's wishlist from the backend
   $.ajax({
@@ -296,25 +365,23 @@ function handleMyWishList() {
   });
 }
 
-
-
 // Function to handle adding an item to the cart from "My Wish List" tab
-function addToCart(itemId) {
-  // Make an AJAX request to add the item to the user's cart in the backend
-  $.ajax({
-    url: 'http://localhost:5000/api/mycart',
-    method: 'POST',
-    data: {
-      itemId: itemId
-    },
-    success: function(response) {
-      console.log('Item added to cart');
-    },
-    error: function(error) {
-      console.error('Error adding item to cart:', error);
-    }
-  });
-}
+// function addToCart(itemId) {
+//   // Make an AJAX request to add the item to the user's cart in the backend
+//   $.ajax({
+//     url: 'http://localhost:5000/api/mywishlist',
+//     method: 'POST',
+//     data: {
+//       itemId: itemId
+//     },
+//     success: function(response) {
+//       console.log('Item added to cart');
+//     },
+//     error: function(error) {
+//       console.error('Error adding item to cart:', error);
+//     }
+//   });
+// }
 
 
   

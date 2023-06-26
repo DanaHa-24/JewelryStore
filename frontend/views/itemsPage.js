@@ -262,10 +262,10 @@ function createItemCards(items){
         let card = $("<div>").attr("id", "items-page" + item.id);
 
         // let cardImage = $("<img>").attr("src", item.image).addClass("card-img-top");
-        let cardImage = $("<img>").attr("src", "../images/BU.png").addClass("card-img-top");
+        let cardImage = $("<img>").attr("src", item.image).addClass("card-img-top");
 
         let cardBody = $("<div>").addClass("card-body");
-        let heart = $("<button>").addClass("far fa-heart cardHollowHeart");
+        let heart = $("<button>").addClass("far fa-heart cardHollowHeart").css("background-color", "transparent");
         let name = $("<h3>").attr("id", "items-page-jewel-name").text(item.name);
         let price = $("<p>").attr("id", "items-page-jewel-price").text(`₪${item.price}`);
         

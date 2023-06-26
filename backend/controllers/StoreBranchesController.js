@@ -1,90 +1,87 @@
-const StoreBranchesSchema = require('../models/StoreBranchesSchema');
-
+const StoreBranchesService = require('../services/StoreBranchService');
 
 // Get all Store's branches
 async function getAllStoreBranches(req, res) {
   try {
-    const storeBranches = await StoreBranchesSchema.find();
-    res.status(200).json(storeBranches);
+    const branches = await StoreBranchesService.getAllStoreBranches();
+    res.json(branches);
   } catch (error) {
-    res.status(500).json({ message: 'Error retrieving store branches', error });
+    res.status(500).json({ error: error.message });
   }
 }
 
 
-
 // Create a new store branch
-async function createStoreBranches(req, res) {
-    try {
-      const { address } = req.body;
-      const branch = new StoreBranchesSchema({ address });
-      await branch.save();
-      res.json({ message: 'Branch created successfully', branch });
-    } catch (error) {
-      console.error('Error creating branch:', error);
-      res.status(500).json({ error: 'Failed to create branch' });
-    }
+async function createStoreBranch(req, res) {
+  const branchData = req.body;
+  try {
+    const newBranch = await StoreBranchesService.createStoreBranch(branchData);
+    res.status(201).json(newBranch);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
+}
   
-  // Update an existing branch
-  async function updateStoreBranches(req, res) {
-    try {
-      const { id } = req.params;
-      const { address } = req.body;
-      const branch = await StoreBranchesSchema.findByIdAndUpdate(id, { address }, { new: true });
-      if (!branch) {
-        return res.status(404).json({ error: 'Branch not found' });
-      }
-      res.json({ message: 'Branch updated successfully', branch });
-    } catch (error) {
-      console.error('Error updating branch:', error);
-      res.status(500).json({ error: 'Failed to update branch' });
-    }
-  }
-  
-  // Delete an existing branch
-  async function deleteStoreBranches(req, res) {
-    try {
-      const { id } = req.params;
-      const branch = await StoreBranchesSchema.findByIdAndDelete(id);
-      if (!branch) {
-        return res.status(404).json({ error: 'Branch not found' });
-      }
-      res.json({ message: 'Branch deleted successfully', branch });
-    } catch (error) {
-      console.error('Error deleting branch:', error);
-      res.status(500).json({ error: 'Failed to delete branch' });
-    }
-  }
-  
-  // List all branches
-  async function listStoreBranches(req, res) {
-    try {
-      const branches = await StoreBranchesSchema.find().select('address');
-      res.json(branches);
-    } catch (error) {
-      console.error('Error fetching branches:', error);
-      res.status(500).json({ error: 'Failed to fetch branches' });
-    }
-  }
-  
-  // Search for branches by address
-  async function searchStoreBranches(req, res) {
-    try {
-      const { query } = req.query;
-      const branches = await StoreBranchesSchema.find({ address: { $regex: query, $options: 'i' } }).select('address');
-      res.json(branches);
-    } catch (error) {
-      console.error('Error searching branches:', error);
-      res.status(500).json({ error: 'Failed to search branches' });
-    }
-  }
 
-  module.exports = {
-                      getAllStoreBranches,
-                      createStoreBranches,
-                      deleteStoreBranches,
-                      updateStoreBranches,
-                      listStoreBranches,
-                      searchStoreBranches
-                    };
+// Update a store branch by ID
+async function updateStoreBranch(req, res) {
+  const { id } = req.params;
+  const updateData = req.body;
+  try {
+    const updatedBranch = await StoreBranchesService.updateStoreBranch(id, updateData);
+    res.json(updatedBranch);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+  
+
+// Delete a store branch by ID
+async function deleteStoreBranch(req, res) {
+  const { id } = req.params;
+  try {
+    const message = await StoreBranchesService.deleteStoreBranch(id);
+    res.json({ message });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+  
+
+// Get a store branch by ID
+async function getStoreBranchById(req, res) {
+  const { id } = req.params;
+  try {
+    const branch = await StoreBranchesService.getStoreBranchById(id);
+    if (branch) {
+      res.json(branch);
+    } else {
+      res.status(404).json({ error: 'Store branch not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
+// Search store branches by filter
+async function searchStoreBranches(req, res) {
+  const { filter } = req.params;
+  try {
+    const branches = await StoreBranchesService.searchStoreBranches(filter);
+    res.json(branches);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+  
+
+module.exports = {
+    getAllStoreBranches,
+    createStoreBranch,
+    deleteStoreBranch,
+    updateStoreBranch,
+    searchStoreBranches,
+    getStoreBranchById
+};

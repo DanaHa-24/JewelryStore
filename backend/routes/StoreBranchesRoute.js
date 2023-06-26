@@ -1,24 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const branchController = require('../controllers/StoreBranchesController');
+const StoreBranchesController = require('../controllers/StoreBranchesController');
 
 
 // Define the route handler for fetching store branches on Google map
-router.get('/', branchController.getAllStoreBranches);
+// Get all Store's branches
+router.get('/', StoreBranchesController.getAllStoreBranches);
 
-// Create a new branch
-router.post('/', branchController.createStoreBranches);
+// Create a new store branch
+router.post('/', StoreBranchesController.createStoreBranch);
 
-// Update an existing branch
-router.put('/:id', branchController.updateStoreBranches);
+// Update a store branch by ID
+router.put('/:id', StoreBranchesController.updateStoreBranch);
 
-// Delete an existing branch
-router.delete('/:id', branchController.deleteStoreBranches);
+// Delete a store branch by ID
+router.delete('/:id', StoreBranchesController.deleteStoreBranch);
 
-// List all branches
-router.get('/', branchController.listStoreBranches);
+// Get a store branch by ID
+router.get('/:id', StoreBranchesController.getStoreBranchById);
 
-// Search for branches by address
-router.get('/search', branchController.searchStoreBranches);
-
+// Search store branches by filter
+router.get('/search/:filter', StoreBranchesController.searchStoreBranches);
 module.exports = router;
