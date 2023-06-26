@@ -83,20 +83,20 @@ $(document).ready(function() {
     { size: '21', usSize: '10.25', innerDiameter: '19.96', outerCircumference: '62.75' },
     { size: '22', usSize: '10.5', innerDiameter: '20.17', outerCircumference: '63.25' }
   ];
-
+  
   const table = $('<table class="table table-bordered"></table>').attr("id","sg-size-table");
   const thead = $('<thead></thead>');
   const tbody = $('<tbody></tbody>');
-
+  
   const headerRow = $('<tr></tr>');
   headerRow.append('<th class="size" scope="col">מידה ישראלית</th>');
   headerRow.append('<th class="size" scope="col">מידה אמריקאית</th>');
   headerRow.append('<th class="inner-diameter" scope="col">קוטר פנימי (מ"מ)</th>');
   headerRow.append('<th class="outer-circumference" scope="col">היקף חיצוני (מ"מ)</th>');
-
+  
   thead.append(headerRow);
   table.append(thead);
-
+  
   for (var i = 0; i < tableData.length; i++) {
     let row = $('<tr></tr>');
     row.append('<td class="size">' + tableData[i].size + '</td>');
@@ -105,40 +105,50 @@ $(document).ready(function() {
     row.append('<td class="outer-circumference">' + tableData[i].outerCircumference + '</td>');
     tbody.append(row);
   }
-
+  
   table.append(tbody);
   $('body').append(table);
-
+  
   let video = $('<video>', {
     id: 'myVideo',
     controls: true
   });
-
+  
   let source = $('<source>', {
-    src: '/frontend/images/video.mp4',
+    src: '/images/video.mp4',
     type: 'video/mp4'
-  });
-
-  // Play the video
-  $('#playButton').click(function() {
-    video.play();
-  });
-
-  // Pause the video
-  $('#pauseButton').click(function() {
-    video.pause();
   });
   
   video.append(source);
-
-  // Append the video element to a container or specific element on your page
-  $('body').append(video);
-
+  
+  // Create a container for the table and video
+  const container = $('<div></div>').addClass('container').attr("id","SG-table-video-container");
+  $('body').append(container);
+  
+  // Append the table to the container
+  container.append(table);
+  
+  // Create a div for the video
+  const videoContainer = $('<div></div>').addClass('video-container');
+  container.append(videoContainer);
+  
+  videoContainer.append(video);
+  
   // Initialize Video.js with custom not supported message
   videojs('myVideo', {
     notSupportedMessage: 'Your browser does not support the video playback.'
   });
-
+  
+  // Play the video
+  $('#playButton').click(function() {
+    video[0].play();
+  });
+  
+  // Pause the video
+  $('#pauseButton').click(function() {
+    video[0].pause();
+  });
+  
 }); 
 
 

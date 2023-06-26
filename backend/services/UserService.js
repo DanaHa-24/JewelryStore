@@ -20,6 +20,8 @@ const updateUserDetails = async (userId, userDetails) => {
   return User.findByIdAndUpdate(userId, userDetails, { new: true });
 };
 
+
+
 module.exports = {
   getUserById,
   updateUserDetails,

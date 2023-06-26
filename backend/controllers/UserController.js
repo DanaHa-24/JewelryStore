@@ -1,6 +1,9 @@
+const Address = require('../models/AddressSchema');
 const User = require('../models/UserSchema');
 const UserService = require('../services/UserService');
 const { updateNumOfOrders } = require('../services/UserService');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 // Create a new user
 async function createUser(req, res) {
@@ -100,6 +103,29 @@ async function getMyUser(req, res) {
   }
 };
 
+async function register(req, res, next) {
+  try {
+    const { firstName, lastName, emailSignin, password,address,phoneNumber} = req.body;
+    console.log(emailSignin);
+    const salt = await bcrypt.genSalt(12);
+    const hash = await bcrypt.hash(password, salt);
+    const user = await User.create({
+      firstName,
+      lastName,
+      emailSignin,
+      password: hash,
+      address,
+      phoneNumber
+    });
+    console.log("3");
+    console.log("4");
+    res.redirect('/homePage.html'); // Replace with the desired redirect location
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'An error occurred during registration' });
+  }
+}
+
 module.exports = { 
                     getMyUser,
                     saveUser,
@@ -107,5 +133,6 @@ module.exports = {
                     getAllUsers,
                     getUserById,
                     updateUser,
-                    deleteUser
+                    deleteUser,
+                    register
                  };
