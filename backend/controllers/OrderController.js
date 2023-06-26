@@ -1,11 +1,23 @@
 const OrderService = require('../services/OrderService');
 const CartService = require('../services/CartService'); 
 
+
+// Get all orders
+async function getAllOrders(req, res) {
+  try {
+    const orders = await OrderService.listOrders();
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
 // Create a new order
 async function createOrder(req, res) {
   try {
     // Get the cart items
-    const cartItems = await CartService.getCartItems(req.userId); // Modify this according to your implementation
+    const cartItems = await CartService.getCartItems(req.userId);
 
     // Create the orderData object
     const orderData = {
@@ -60,16 +72,6 @@ async function deleteOrder(req, res) {
   }
 }
 
-// Get all orders
-async function getAllOrders(req, res) {
-  try {
-    const orders = await OrderService.listOrders();
-    res.json(orders);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-}
-
 
 // Get an order by ID
 async function getOrderById(req, res) {
@@ -88,7 +90,8 @@ async function getOrderById(req, res) {
   }
 }
 
-// Filter orders by given filter
+
+// Search orders by given filter
 async function searchOrders(req, res) {
   try {
     const filter = req.query;
@@ -98,6 +101,7 @@ async function searchOrders(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+
 
 // Get user's order history
 async function getAllUserOrders(req, res) {

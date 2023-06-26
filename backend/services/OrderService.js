@@ -1,5 +1,16 @@
 const Order = require('../models/OrderSchema');
-const Item = require('../models/ItemSchema')
+const Item = require('../models/ItemSchema');
+
+
+// Get all orders
+async function getAllOrders() {
+  try {
+    const orders = await Order.find();
+    return orders;
+  } catch (error) {
+    throw new Error('Failed to fetch store branches');
+  }
+}
 
 
 // Create a new order
@@ -59,13 +70,6 @@ async function deleteOrder(orderId) {
 }
 
 
-// Get all orders
-async function getAllOrders() {
-  const orders = await Order.find();
-  return orders;
-}
-
-
 // Get an order by ID
 async function getOrderById(orderId) {
   const order = await Order.findById(orderId);
@@ -76,11 +80,12 @@ async function getOrderById(orderId) {
 }
 
 
-// Filter orders by given filter
+// Search orders by given filter
 async function searchOrders(filter) {
   const orders = await Order.find(filter);
   return orders;
 }
+
 
 // Get all orders for a user
 async function getAllUserOrders(username) {

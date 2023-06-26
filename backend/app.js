@@ -38,6 +38,7 @@ app.use(express.json());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
+
 // Serve static files from the "frontend" directory
 app.use(express.static(path.join(__dirname, '../frontend/views')));
 // Serve static files from the "images" directory
