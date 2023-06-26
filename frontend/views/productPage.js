@@ -21,7 +21,7 @@ $(document).ready(function() {
       }
     
       // WebSocket section
-      const websocket = new WebSocket('ws://localhost:5000');
+      const websocket = new WebSocket('ws://localhost:8082');
     
       // WebSocket event handlers
       websocket.onopen = function() {
@@ -42,7 +42,7 @@ $(document).ready(function() {
       websocket.onclose = function() {
         console.log('WebSocket connection closed.');
       };
-      
+
       // WebSocket section end
   
     //live convertion rate webservice
