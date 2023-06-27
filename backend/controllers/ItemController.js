@@ -1,5 +1,5 @@
 const Item = require('../models/ItemSchema');
-const itemServices = require('../services/ItemService');
+const ItemService = require('../services/ItemService');
 
 const sortingArray = [
     { filter: { howManySold: -1 } },
@@ -13,8 +13,8 @@ const sortingArray = [
 async function createItem(req, res) {
     try {
         const { type, name, price } = req.body;
-        // Generate the item ID using the itemServices
-        const id = await itemServices.generateItemId(type);
+        // Generate the item ID using the ItemService
+        const id = await ItemService.generateItemId(type);
         // Create the item
         const item = new Item({ type, name, price, id });
         // Save the item to the database
@@ -87,18 +87,18 @@ async function deleteItem(req, res) {
   
 
 async function getItemById(req, res) {
-    try {
-      const itemId = req.params.id;
-      const item = await ItemService.getItemById(itemId);
-      if (item) {
-        res.json(item);
-      } else {
-        res.status(404).json({ error: 'Item not found' });
-      }
-    } catch (error) {
-      console.error('Error getting item by ID:', error);
-      res.status(500).json({ error: 'Failed to get item' });
+  try {
+    const itemId = req.params.itemId;
+    const item = await ItemService.getItemById(itemId);
+    if (item) {
+      res.json(item);
+    } else {
+      res.status(404).json({ error: 'Item not found' });
     }
+  } catch (error) {
+    console.error('Error getting item by ID:', error);
+    res.status(500).json({ error: 'Failed to get item' });
+  }
 }
   
 

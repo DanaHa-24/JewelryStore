@@ -3,7 +3,7 @@ const router = express.Router();
 const ItemController = require('../controllers/ItemController');
 
 // Get an item by ID
-router.get('/item/:id', ItemController.getItemById);
+router.get('/:itemId', ItemController.getItemById);
 
 // Search items by name
 router.get('/search', ItemController.searchItemsByName);
@@ -16,9 +16,9 @@ router.get('/allItems', ItemController.getAllItems);
 router.post('/', ItemController.createItem);
 
 // Update an item by ID
-router.put('/:id', ItemController.updateItem);
+router.put('/:itemId', ItemController.updateItem);
 
 // Delete an item by ID
-router.delete('/:id', ItemController.deleteItem);
+router.delete('/:itemId', ItemController.deleteItem);
 
 module.exports = router;

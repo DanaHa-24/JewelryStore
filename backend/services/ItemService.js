@@ -39,10 +39,11 @@ async function deleteItem(itemId) {
   }
 }
 
+
 // Get an item by ID
 async function getItemById(itemId) {
   try {
-    const item = await Item.findById(itemId);
+    const item = await Item.findOne({ id: itemId });
     return item;
   } catch (error) {
     throw new Error('Failed to retrieve item by ID');
