@@ -64,6 +64,16 @@ const searchLi = $("<li>").append(searchDiv);
 searchButton.append($("<i>").addClass("fas fa-search"));
 headerLinks.append(searchLi);
 
+searchButton.click(function(){
+    let searchWord = searchInput.val();
+    if(searchWord == null){
+        return;
+    }
+    else{
+        window.location.href = `itemsPage.html?search=${searchWord}`
+    }
+});
+
 $.each(navIcons, function(index, link){
     let iconLink = $("<a>").attr("href", link.page).addClass("nav-link");
     let icon = $("<i>").addClass(link.class);
@@ -76,7 +86,8 @@ navbarDiv.append(headerLinks);
 const headerCategories = $("<ul>").attr("id", "home-page-header-categories").addClass("navbar");
 $.each(dropdownArray, function(label, items){
     let dropdown = $("<div>").addClass("dropdown");
-    let dropdownLabel = $("<label>").text(items.title);
+    let dropdownLabel = $("<button>").text(items.title).click(function() { window.location.href = `itemsPage.html?type=${label}` });
+        
     let dropdownContent = $("<div>").addClass("dropdown-content container");
     
     $.each(items.materials, function(index, item){

@@ -41,7 +41,7 @@ let dotContainer = $("<div>").attr("id", "home-page-dot-container");
 slideshowContainer.append(slideshowContent, dotContainer);
 
 $.ajax({
-    url: `api/item/allItems`,
+    url: `item/allItems`,
     method: 'GET',
     data: {
         sort: 0 // Index of the sorting option in the sortingArray (0 for howManySold: -1)
@@ -99,5 +99,5 @@ function showSlides(n) {
     // Show the current slide
     slides.eq(slideIndex - 1).show();
     // Add "home-page-active" class to the current dot
-    dots.eq(slideIndex - 1).addClass("home-page-active");
+    dots.eq(slideIndex).addClass("home-page-active");
 }

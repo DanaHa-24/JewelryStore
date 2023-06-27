@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  
   // Needs to get after loggin  
   const userId = "64982471eaa2cfe2d1b32d5a";  
 
