@@ -163,6 +163,19 @@ async function getMyUser(req, res) {
   }
 }
 
+
+// Get user's order history by ID
+async function getUserOrderHistory(req, res) {
+  try {
+    const userId = req.params.userId;
+    const orderHistory = await UserService.getUserOrderHistory(userId);
+    res.json(orderHistory);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch order history' });
+  }
+}
+
+
 module.exports = { 
                     getAllUsers,
                     createUser,
@@ -172,5 +185,6 @@ module.exports = {
                     searchUsers,
                     login,
                     register,
-                    getMyUser
+                    getMyUser,
+                    getUserOrderHistory
                  };

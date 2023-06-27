@@ -103,7 +103,7 @@ $(document).ready(function() {
     .addClass("btn btn-link")
     .text("נרשמת כבר בעבר? לחץ/י כאן להתחברות")
     .click(function() {
-      window.location.href = "loginPage.html"; // Replace "signup.html" with the URL of your sign-up page
+      window.location.href = "loginPage.html";
     })
     .attr("id", "signin-page-button-link");
 
@@ -115,7 +115,7 @@ $(document).ready(function() {
     event.preventDefault();
     let firstNameSignin = $("#signin-page-input-firstName").val();
     let lastNameSignin = $("#signin-page-input-lastName").val();
-    let emailSignin = $("#signin-page-input-email").val(); // Assuming email field is used as username
+    let emailSignin = $("#signin-page-input-email").val();
     let addressSignin = $("#signin-page-input-address").val().split(",");
     let phoneSignin = $("#signin-page-input-phoneNumber").val();
     let passwordSignin = $("#signin-page-input-password").val();
@@ -140,7 +140,7 @@ $(document).ready(function() {
         const formData = {
           firstName: firstNameSignin,
           lastName: lastNameSignin,
-          username: emailSignin, // Assuming email field is used as username
+          username: emailSignin,
           password: passwordSignin,
           address: [addressResponse._id],
           phoneNumber: phoneSignin

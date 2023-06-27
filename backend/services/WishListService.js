@@ -1,104 +1,141 @@
 const Wishlist = require('../models/WishListSchema');
 
-// Create a wish list for the user
-async function createWishList(userId) {
+// Get all items in the wishlist for the authenticated user (by ID)
+async function getAllWishlistItems(wishlistId) {
     try {
-    const wishList = new WishList({ user: userId });
-    await wishList.save();
-    return wishList;
-    } catch (error) {
-    console.error('Error creating wish list:', error);
-    throw new Error('Failed to create wish list');
-    }
-}
-
-// Delete the wish list for the user
-async function deleteWishList(userId) {
-    try {
-    await WishList.deleteOne({ user: userId });
-    } catch (error) {
-    console.error('Error deleting wish list:', error);
-    throw new Error('Failed to delete wish list');
-    }
-}
-
-// Add an item to the wish list
-async function addToWishList(userId, itemId) {
-    try {
-    const wishList = await WishList.findOne({ user: userId });
+    const wishList = await Wishlist.findById(wishlistId);
 
     if (!wishList) {
-        throw new Error('Wish list not found');
-    }
-
-    wishList.items.push(itemId);
-    await wishList.save();
-
-    return wishList;
-    } catch (error) {
-    console.error('Error adding item to wish list:', error);
-    throw new Error('Failed to add item to wish list');
-    }
-}
-
-// Remove an item from the wish list
-async function removeFromWishList(userId, itemId) {
-    try {
-    const wishList = await WishList.findOne({ user: userId });
-
-    if (!wishList) {
-        throw new Error('Wish list not found');
-    }
-
-    wishList.items = wishList.items.filter((item) => item.toString() !== itemId);
-    await wishList.save();
-
-    return wishList;
-    } catch (error) {
-    console.error('Error removing item from wish list:', error);
-    throw new Error('Failed to remove item from wish list');
-    }
-}
-
-// Get all items in the wish list
-async function getWishListItems(userId) {
-    try {
-    const wishList = await WishList.findOne({ user: userId });
-
-    if (!wishList) {
-        throw new Error('Wish list not found');
+        throw new Error('Wishlist not found');
     }
 
     return wishList.items;
     } catch (error) {
-    console.error('Error getting wish list items:', error);
-    throw new Error('Failed to get wish list items');
+    console.error('Error getting wishlist items:', error);
+    throw new Error('Failed to get wishlist items');
     }
 }
 
-// Search for items in the wish list by name
-async function searchWishListItems(userId, itemName) {
+
+// Create a new wishlist the authenticated user (by ID)
+async function createWishlist(userId) {
     try {
-    const wishList = await WishList.findOne({ user: userId });
-
-    if (!wishList) {
-        throw new Error('Wish list not found');
-    }
-
-    const items = wishList.items.filter((item) => item.name.toLowerCase().includes(itemName.toLowerCase()));
-    return items;
+        const wishList = new Wishlist({ user: userId });
+        await wishList.save();
+        return wishList;
     } catch (error) {
-    console.error('Error searching wish list items:', error);
-    throw new Error('Failed to search wish list items');
+        console.error('Error creating wishlist:', error);
+        throw new Error('Failed to create wishlist');
     }
 }
+  
+
+// Delete the wishlist for the authenticated user (by ID)
+async function deleteWishlist(userId) {
+    try {
+    await Wishlist.deleteOne({ user: userId });
+    } catch (error) {
+    console.error('Error deleting wishlist:', error);
+    throw new Error('Failed to delete wishlist');
+    }
+}
+
+
+// Remove an item from the wishlist for the authenticated user (by ID)
+async function removeItem(wishlistId, itemId) {
+    try {
+      await Wishlist.findByIdAndUpdate(wishlistId, { $pull: { items: itemId } });
+    } catch (error) {
+      console.error('Error deleting item from wishlist:', error);
+      throw new Error('Failed to delete item from wishlist');
+    }
+}
+  
+
+// Update the wishlist
+async function updateWishlist(wishlistId, wishlistData) {
+    try {
+      const updatedWishlist = await Wishlist.findByIdAndUpdate(
+        wishlistId,
+        wishlistData,
+        { new: true }
+      );
+      return updatedWishlist;
+    } catch (error) {
+      console.error('Error updating wishlist:', error);
+      throw new Error('Failed to update wishlist');
+    }
+}
+  
+
+// Get a specific wishlist by ID
+async function getWishlistById(wishlistId) {
+    try {
+      const wishlist = await Wishlist.findById(wishlistId);
+      return wishlist;
+    } catch (error) {
+      console.error('Error retrieving wishlist:', error);
+      throw new Error('Failed to retrieve wishlist');
+    }
+}
+  
+ 
+// Search for items in the wishlist for the authenticated user (by ID)
+async function searchWishlistItems(wishlistId, itemName) {
+    try {
+      const wishlist = await Wishlist.findById(wishlistId).populate({
+        path: 'items',
+        match: { name: { $regex: itemName, $options: 'i' } }
+      });
+  
+      if (!wishlist) {
+        throw new Error('Wishlist not found');
+      }
+  
+      const items = wishlist.items.filter((item) =>
+        item.name.toLowerCase().includes(itemName.toLowerCase())
+      );
+  
+      return items;
+    } catch (error) {
+      console.error('Error searching wishlist items:', error);
+      throw new Error('Failed to search wishlist items');
+    }
+}
+  
+
+// Add an item to the wishlist for the authenticated user (by ID)
+async function addItem(wishlistId, itemId) {
+    try {
+      const wishList = await Wishlist.findById(wishlistId);
+  
+      if (!wishList) {
+        throw new Error('Wishlist not found');
+      }
+  
+      wishList.items.push(itemId);
+      await wishList.save();
+  
+      return wishList;
+    } catch (error) {
+      console.error('Error adding item to wishlist:', error);
+      throw new Error('Failed to add item to wishlist');
+    }
+}
+  
 
 module.exports = {
-                    createWishList,
-                    deleteWishList,
-                    addToWishList,
-                    removeFromWishList,
-                    getWishListItems,
-                    searchWishListItems,
-                };
+    getAllWishlistItems,
+    createWishlist,
+    deleteWishlist,
+    removeItem,
+    updateWishlist,
+    getWishlistById,
+    searchWishlistItems,
+    addItem
+};
+
+
+
+
                 
