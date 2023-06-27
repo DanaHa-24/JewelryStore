@@ -11,7 +11,7 @@ router.get('/search', CartController.searchCartItems);
 // Get all items in the cart for the authenticated user (by ID)
 router.get('/:cartId/items', CartController.getAllCartItems);
 
-// Create a new cart the authenticated user (by ID)
+// Create a new cart for the authenticated user (by ID)
 router.post('/:userId', CartController.createCart);
 
 // Delete the cart for the authenticated user (by ID)
@@ -24,10 +24,6 @@ router.delete('/:cartId/items/:itemId', CartController.removeItem);
 router.put('/:cartId/items', CartController.updateCart);
 
 // Add an item to the cart for the authenticated user (by ID)
-router.post('/:cartId/items/:itemId', CartController.addItem);
-
-module.exports = router;
-
-
+router.get('/:cartId/items/:itemId', CartController.addItem);
 
 module.exports = router;

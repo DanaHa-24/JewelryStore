@@ -3,8 +3,8 @@ const CartService = require('../services/CartService');
 // Get all items in the cart for the authenticated user (by ID)
 async function getAllCartItems(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
-    const items = await CartService.getItems(userId);
+    const cartId = req.params.cartId; // Retrieve the cartId from the request parameters
+    const items = await CartService.getAllCartItems(cartId);
     res.json(items);
   } catch (error) {
     console.error('Error getting cart items:', error);
