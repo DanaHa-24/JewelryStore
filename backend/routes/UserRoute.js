@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/UserController');
 
+// Get user's order history by ID
+router.get('/:userId/order-history', UserController.getUserOrderHistory);
+
 // Get all users
 router.get('/', UserController.getAllUsers);
 
@@ -23,7 +26,7 @@ router.get('/search/:filter', UserController.searchUsers);
 // User logged-in
 router.post('/login', UserController.login);
 
-// for bar's pages
+// User register
 router.post('/register',UserController.register);
 
 module.exports = router;

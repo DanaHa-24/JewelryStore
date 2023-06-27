@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  // Needs to get after loggin  
+  const userId = "64982471eaa2cfe2d1b32d5b";  
+
     // Create navbar
     const navbar = $('<div>').addClass('profile-page-navbar');
     const tabsList = $('<ul></ul>').addClass('profile-page-options');
@@ -7,7 +10,9 @@ $(document).ready(function() {
       {
         text: 'ההזמנות שלי',
         content: 'הזמנות שלי',
-        action: handleMyOrders
+        action: function() {
+          handleMyOrders(userId);
+        }
       },
       {
         text: 'הכתובות שלי',
@@ -95,42 +100,27 @@ $(document).ready(function() {
 /////////////////////////////////// My Orders Tab ///////////////////////////////////
 
 // Function to handle "My Orders" tab
-function handleMyOrders() {
+function handleMyOrders(userId) {
+  $('.profile-page-container').empty();
+  //console.log(userId);
+  if(!userId) {
+    $('.profile-page-container').text('טרם הזמנת אצלנו / עדיין לא התחברת 🖤');
+  }
   // Make an AJAX request to retrieve the user's order history from the backend
   $.ajax({
-    url: 'http://localhost:5000/api/myorders',
+    url: `/users/${userId}/order-history`,
     method: 'GET',
-    success: function(response) {
-      if (response.length === 0) {
-        $('.profile-page-container').text('טרם הזמנת אצלנו');
-      } else {
-        // Build and display the order history table
-        const table = $('<table>').addClass('order-history-table');
-        const tableHeader = $('<tr>').append(
-          $('<th>').text('מחיר כולל'),
-          $('<th>').text('תאריך'),
-          $('<th>').text('מספר הזמנה'),
-          $('<th>').text('כמות מוצרים')
-        );
-
-        table.append(tableHeader);
-        
-        response.forEach(function(order) {
-          const tableRow = $('<tr>').append(
-            $('<td>').text(order.totalPrice),
-            $('<td>').text(order.date),
-            $('<td>').text(order.orderId),
-            $('<td>').text(order.items.length)
-          );
-
-          table.append(tableRow);
-        });
-
-        $('.profile-page-container').empty().append(table);
-      }
+    dataType: 'json',
+    success: function (response) {
+      // Handle successful response (order history data)
+      console.log(response);
+      // Populate the user's order history accordion
+      fetchUserOrdersHistory(response);
     },
-    error: function(error) {
-      console.error('Error retrieving order history:', error);
+    error: function (error) {
+      // Handle error
+      console.error('Error fetching order history:', error);
+      // Display an error message or perform appropriate error handling
     }
   });
 }
@@ -140,6 +130,7 @@ function handleMyOrders() {
 
 // Function to handle "My Addresses" tab
 function handleMyAddress() {
+  $('.profile-page-container').empty();
   // Make an AJAX request to retrieve the user's addresses from the backend
   $.ajax({
     url: 'http://localhost:5000/addresses',
@@ -180,7 +171,7 @@ function handleMyAddress() {
         table.append(tableRow);
       });
 
-      $('.profile-page-container').empty().append(table);
+      $('.profile-page-container').append(table);
     },
     error: function(error) {
       console.error('Error retrieving addresses:', error);
@@ -253,6 +244,7 @@ function deleteAddress(addressId) {
 
 // Function to handle "My Details" tab
 function handleMyDetails() {
+  $('.profile-page-container').empty();
   // Make an AJAX request to retrieve the user's details from the backend
   $.ajax({
     url: 'http://localhost:5000/api/myuser',
@@ -322,6 +314,7 @@ function handleMyDetails() {
 /////////////////////////////////// My WishList Tab ///////////////////////////////////
 
 function handleMyWishList() {
+  $('.profile-page-container').empty();
   // Make an AJAX request to retrieve the user's wishlist from the backend
   $.ajax({
     url: 'http://localhost:5000/wishlist',
@@ -365,23 +358,157 @@ function handleMyWishList() {
   });
 }
 
-// Function to handle adding an item to the cart from "My Wish List" tab
-// function addToCart(itemId) {
-//   // Make an AJAX request to add the item to the user's cart in the backend
-//   $.ajax({
-//     url: 'http://localhost:5000/api/mywishlist',
-//     method: 'POST',
-//     data: {
-//       itemId: itemId
-//     },
-//     success: function(response) {
-//       console.log('Item added to cart');
-//     },
-//     error: function(error) {
-//       console.error('Error adding item to cart:', error);
-//     }
-//   });
-// }
+
+/////////////////////////////////// Fetching for User Order History tab ///////////////////////////////////
 
 
-  
+function fetchUserOrdersHistory(data) {
+  const orderHistoryAccordion = $('<div>').attr('id', 'orderHistoryAccordion');
+  $('.profile-page-container').append(orderHistoryAccordion);
+
+  data.forEach(orderId => {
+    console.log(orderId);
+    // Make an AJAX request to fetch the complete order details
+    $.ajax({
+      url: `/orders/${orderId}`, // Adjust the URL endpoint to fetch the order details
+      method: 'GET',
+      success: function(response) {
+        console.log(response);
+        // Handle successful response (complete order details)
+        const orderDate = response.createdAt;
+        const orderNum = response.orderNumber;
+        const orderState = response.state;
+        const orderPaymentMethod = response.paymentMethod;
+        const orderShipmentMethod = response.deliveryMethod;
+        const orderTotalPrice = response.totalPrice;
+        const orderItemsId = response.orderItems;
+        const addressId = response.address;
+
+        // Create the accordion item
+        const accordionItem = $('<div>').addClass('accordion-item-profile-page');
+
+        // Create the accordion header
+        const accordionHeader = $('<h2>')
+          .addClass('accordion-header')
+          .attr('id', `orderHeading_${orderId}`);
+
+        const accordionButton = $('<button>')
+          .addClass('accordion-button')
+          .attr('type', 'button')
+          .attr('data-bs-toggle', 'collapse')
+          .attr('data-bs-target', `#collapse_${orderId}`)
+          .attr('aria-expanded', 'false')
+          .attr('aria-controls', `collapse_${orderId}`)
+          .text(`הזמנה  ${orderNum} 🖤  `);
+
+        accordionHeader.append(accordionButton);
+
+        // Create the accordion body
+        const accordionBody = $('<div>')
+          .addClass('accordion-collapse collapse')
+          .attr('id', `collapse_${orderId}`)
+          .attr('aria-labelledby', `orderHeading_${orderId}`);
+
+        const accordionBodyContent = $('<div>').addClass('accordion-body');
+
+        // Append the order details to the accordion body
+        accordionBodyContent.append(`<p>תאריך הזמנה - ${orderDate}</p>`);
+        accordionBodyContent.append(`<p>מצב הזמנה - ${orderState}</p>`);
+        accordionBodyContent.append(`<p>שיטת תשלום - ${orderPaymentMethod}</p>`);
+        accordionBodyContent.append(`<p>משלוח / איסוף - ${orderShipmentMethod}</p>`);
+        accordionBodyContent.append(`<p>סה"כ שולם - ₪${orderTotalPrice}</p>`);
+
+        // Create a table for order items
+        const table = $('<table>').addClass('table');
+        const tableBody = $('<tbody>');
+
+        // Fetch order items details
+        const fetchOrderItems = orderItemsId.map(itemId => {
+          return $.ajax({
+            url: `/items/${itemId}`,
+            method: 'GET'
+          });
+        });
+
+        // Wait for all AJAX requests for order items to complete
+        $.when(...fetchOrderItems)
+          .then(function(...orderItemsResponses) {
+            // Handle successful responses for order items
+            const orderItems = orderItemsResponses.map(response => response[0]);
+
+            // Iterate over order items and create table rows
+            orderItems.forEach(item => {
+              const itemImage = `<img src="${item.image}" alt="${item.name}" width="50" height="50">`;
+              const itemName = `<td>${item.name}</td>`;
+              const itemQuantity = `<td>${item.quantity}</td>`;
+              const itemPrice = `<td>${item.price}</td>`;
+
+              const row = $('<tr>').append(itemImage, itemName, itemQuantity, itemPrice);
+              tableBody.append(row);
+            });
+
+            // Append the table to the accordion body
+            table.append(tableBody);
+            accordionBodyContent.append(table);
+
+            // Fetch address details
+            $.ajax({
+              url: `/addresses/${addressId}`, // Adjust the URL endpoint to fetch the address
+              method: 'GET',
+              success: function(address) {
+                // Concatenate the address fields if available
+                let orderAddress = '';
+                if (address) {
+                  orderAddress = `${address.city}, ${address.street} ${address.houseNum}, ${address.apartmentNum}, ${address.postalCode}`;
+                }
+
+                // Append the order address if available
+                if (orderAddress) {
+                  accordionBodyContent.append(`<p>כתובת למשלוח - ${orderAddress}</p>`);
+                }
+
+                // Append the accordion body content to the accordion body
+                accordionBody.append(accordionBodyContent);
+
+                // Append the accordion header and body to the accordion item
+                accordionItem.append(accordionHeader, accordionBody);
+
+                // Append the accordion item to the order history accordion
+                orderHistoryAccordion.append(accordionItem);
+
+                // Activate the Bootstrap accordion
+                $('#orderHistoryAccordion').addClass('accordion');
+                $('.accordion-button').click(function() {
+                  $(this).attr('aria-expanded', function(index, attr) {
+                    return attr === 'true' ? 'false' : 'true';
+                  });
+                  const targetId = $(this).attr('data-bs-target');
+                  $(targetId).collapse('toggle');
+                });
+              },
+              error: function(error) {
+                // Handle error fetching address
+                console.error('Error fetching address:', error);
+              }
+            });
+          })
+          .fail(function(error) {
+            // Handle errors fetching order items
+            console.error('Error fetching order items:', error);
+          });
+      },
+      error: function(error) {
+        // Handle error fetching order details
+        console.error('Error fetching order details:', error);
+      }
+    });
+  });
+}
+
+
+
+/////////////////////////////////// Fetching for User cart tab ///////////////////////////////////
+
+
+
+
