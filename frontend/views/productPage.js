@@ -33,19 +33,22 @@ $(document).ready(function() {
     };
 
     function submitOpinion() {
-    const opinionText = $('#opinion-input').val();
-
-    if (opinionText) {
-        const opinionItem = $('<div>')
-        .addClass('opinion-item product-page-rtl')
-        .text('• ' + opinionText);
-        $('.opinion-Container').prepend(opinionItem);
-        $('#opinion-input').val('');
-
-        // Send the opinion to the server via WebSocket
-        websocket.send(opinionText);
-     }
-    }
+        const opinionText = $('#opinion-input').val();
+      
+        if (opinionText) {
+          const opinionItem = $('<div>')
+            .addClass('opinion-item product-page-rtl')
+            .text('• ' + opinionText);
+      
+          // Insert the opinion above the input field
+          opinionItem.insertBefore('#opinion-input');
+          $('#opinion-input').val('');
+          
+          // Send the opinion to the server via WebSocket
+          websocket.send(opinionText);
+        }
+      }
+      
     //web socket section end
   
     //live convertion rate webservice
@@ -127,7 +130,7 @@ $(document).ready(function() {
   
     // Create the opinion window
     const opinionContainer = $('<div>').addClass('opinion-Container ml-2 product-page-rtl');
-    const opinionHeading = $('<h2>').addClass('h4 product-page-rtl').text(' דעות של לקוחותינו על מוצר זה:');
+    const opinionHeading = $('<h2>').addClass('h4 product-page-rtl').text(' מה הלקוחות חשבו על מוצר זה:');
     opinionHeading.css('margin-bottom', '10px');
     opinionContainer.append(opinionHeading);
     const opinionInput = $('<input>').attr('id', 'opinion-input').addClass('form-control mb-3 product-page-rtl').attr('placeholder', 'הקלד את דעתך כאן');

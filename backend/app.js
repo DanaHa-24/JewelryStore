@@ -17,6 +17,9 @@ const userRoutes = require('./routes/UserRoute');
 const wishlistRoutes = require('./routes/WishListRoute'); 
 const cors = require('cors');
 console.log("hello");
+//const wss = new WebSocket.Server({ server: app });
+
+
 
 const uri = `mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority`;
 const options = {
@@ -70,6 +73,30 @@ app.get('/', (req, res) => {
 
 app.listen(5000, () => {
   console.log('Backend server is running ');
+ /* wss.on('connection', (ws) => {
+    console.log('WebSocket connection established.');
+  
+    // Handle WebSocket messages
+    ws.on('message', (message) => {
+      // Broadcast the received opinion to all connected clients
+      wss.clients.forEach((client) => {
+        if (client.readyState === WebSocket.OPEN) {
+          client.send(message);
+        }
+      });
+    });
+  
+    // Handle WebSocket disconnections
+    ws.on('close', () => {
+      console.log('WebSocket connection closed.');
+    });
+  
+    // Handle WebSocket errors
+    ws.on('error', (error) => {
+      console.error('WebSocket error:', error);
+    });
+  });*/
+  
 });
 
 
