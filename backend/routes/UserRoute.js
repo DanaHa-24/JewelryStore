@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/UserController');
 
+// Get user's cart by ID
+router.get('/:userId/my-cart', UserController.getUserMyCart)
+
 // Get user's order history by ID
 router.get('/:userId/order-history', UserController.getUserOrderHistory);
 

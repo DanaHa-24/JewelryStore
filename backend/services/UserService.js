@@ -98,6 +98,23 @@ async function getUserOrderHistory(userId) {
 }
 
 
+// Get user's cart by ID
+async function getUserMyCart(userId) {
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    return user.MyCart;
+  } catch (error) {
+    console.error('Error fetching order my cart:', error);
+    throw error;
+  }
+}
+
+
 module.exports = {
     getAllUsers,
     createUser,
@@ -105,5 +122,6 @@ module.exports = {
     deleteUser,
     getUserById,
     searchUsers,
-    getUserOrderHistory
+    getUserOrderHistory,
+    getUserMyCart
 };

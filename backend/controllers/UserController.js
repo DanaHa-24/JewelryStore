@@ -176,15 +176,28 @@ async function getUserOrderHistory(req, res) {
 }
 
 
+// Get user's cart by ID
+async function getUserMyCart(req, res) {
+  try {
+    const userId = req.params.userId;
+    const MyCart = await UserService.getUserMyCart(userId);
+    res.json(MyCart);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch my cart' });
+  }
+}
+
+
 module.exports = { 
-                    getAllUsers,
-                    createUser,
-                    updateUser,
-                    deleteUser,
-                    getUserById,
-                    searchUsers,
-                    login,
-                    register,
-                    getMyUser,
-                    getUserOrderHistory
-                 };
+    getAllUsers,
+    createUser,
+    updateUser,
+    deleteUser,
+    getUserById,
+    searchUsers,
+    login,
+    register,
+    getMyUser,
+    getUserOrderHistory,
+    getUserMyCart
+};

@@ -4,15 +4,15 @@
         "username": "noam.cohen@gmail.com",
         "orderItems": [
             {
-                "item": 26000,
+                "item": "26000",
                 "quantity": 2
             },
             {
-                "item": 46000,
+                "item": "46000",
                 "quantity": 1
             },
             {
-                "item": 26002,
+                "item": "26002",
                 "quantity": 1
             }
         ],
@@ -30,19 +30,19 @@
         "username": "Dana.levi@gmail.com",
         "orderItems": [
             {
-                "item": 26001,
+                "item": "26001",
                 "quantity": 2
             },
             {
-                "item": 46000,
+                "item": "46000",
                 "quantity": 1
             },
             {
-                "item": 26002,
+                "item": "26002",
                 "quantity": 1
             },
             {
-                "item": 26003,
+                "item": "26003",
                 "quantity": 2
             }
         ],
@@ -60,11 +60,11 @@
         "username": "Doritco@gmail.com",
         "orderItems": [
             {
-                "item": 26004,
+                "item": "26004",
                 "quantity": 1
             },
             {
-                "item": 16000,
+                "item": "16000",
                 "quantity": 1
             }
         ],
@@ -82,11 +82,11 @@
         "username": "Doritco@gmail.com",
         "orderItems": [
             {
-                "item": 36000,
+                "item": "36000",
                 "quantity": 1
             },
             {
-                "item": 26005,
+                "item": "26005",
                 "quantity": 1
             }
         ],
@@ -104,11 +104,11 @@
         "username": "saraMen18@walla.com",
         "orderItems": [
             {
-                "item": 26005,
+                "item": "26005",
                 "quantity": 1
             },
             {
-                "item": 36001,
+                "item": "36001",
                 "quantity": 1
             }
         ],
