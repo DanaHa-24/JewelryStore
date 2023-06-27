@@ -2234,8 +2234,6 @@
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
 	},
 	{
 		"id": "46034",
@@ -2324,8 +2322,6 @@
 		"style": ["hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
 		"howManySold": 1,
 		"createdAt" : "12:16 - 24/6/2023"
     },
@@ -2341,8 +2337,6 @@
 		"style": ["hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
     }
