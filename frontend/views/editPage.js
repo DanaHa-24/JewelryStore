@@ -1,45 +1,37 @@
 $(document).ready(function() {
   const createTableRow = function(data) {
-    const row = document.createElement('tr');
+    const row = $('<tr></tr>');
     data.forEach(function(cellText, index) {
-      const cell = document.createElement('td');
+      const cell = $('<td></td>');
       if (index === 0) {
-        const deleteBtn = document.createElement('button');
-        deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'delete-row');
-        deleteBtn.textContent = 'מחק';
-        cell.appendChild(deleteBtn);
+        const deleteBtn = $('<button></button>').addClass('btn btn-danger btn-sm delete-row').text('מחק');
+        cell.append(deleteBtn);
       } else if (index === 4) {
-        const inputGroup = document.createElement('div');
-        inputGroup.classList.add('input-group');
-        const decreaseBtn = document.createElement('button');
-        decreaseBtn.classList.add('btn', 'btn-secondary', 'btn-sm', 'decrease-amount');
-        decreaseBtn.textContent = '-';
-        const amountInput = document.createElement('input');
-        amountInput.type = 'number';
-        amountInput.classList.add('form-control', 'text-center', 'amount-input');
-        amountInput.value = cellText;
-        amountInput.min = '0';
-        const increaseBtn = document.createElement('button');
-        increaseBtn.classList.add('btn', 'btn-secondary', 'btn-sm', 'increase-amount');
-        increaseBtn.textContent = '+';
-        inputGroup.appendChild(decreaseBtn);
-        inputGroup.appendChild(amountInput);
-        inputGroup.appendChild(increaseBtn);
-        cell.appendChild(inputGroup);
+        const inputGroup = $('<div></div>').addClass('input-group');
+        const decreaseBtn = $('<button></button>').addClass('btn btn-secondary btn-sm decrease-amount').text('-');
+        const amountInput = $('<input>').attr({
+          type: 'number',
+          class: 'form-control text-center amount-input',
+          value: cellText,
+          min: '0'
+        });
+        const increaseBtn = $('<button></button>').addClass('btn btn-secondary btn-sm increase-amount').text('+');
+        inputGroup.append(decreaseBtn, amountInput, increaseBtn);
+        cell.append(inputGroup);
       } else if (index === 3) {
-        const inputGroup = document.createElement('div');
-        inputGroup.classList.add('input-group');
-        const priceInput = document.createElement('input');
-        priceInput.type = 'number';
-        priceInput.classList.add('form-control', 'text-center', 'price-input');
-        priceInput.value = cellText;
-        priceInput.min = '0';
-        inputGroup.appendChild(priceInput);
-        cell.appendChild(inputGroup);
+        const inputGroup = $('<div></div>').addClass('input-group');
+        const priceInput = $('<input>').attr({
+          type: 'number',
+          class: 'form-control text-center price-input',
+          value: cellText,
+          min: '0'
+        });
+        inputGroup.append(priceInput);
+        cell.append(inputGroup);
       } else {
-        cell.textContent = cellText;
+        cell.text(cellText);
       }
-      row.appendChild(cell);
+      row.append(cell);
     });
     return row;
   };
