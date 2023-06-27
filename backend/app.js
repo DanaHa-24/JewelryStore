@@ -62,7 +62,7 @@ app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
 // Set up routes
 // Remove the api
-app.use('/api/item', itemRoutes);
+//app.use('/api/item', itemRoutes);
 
 app.use('/map', storeBranchesRoute);
 app.use('/storeBranches', storeBranchesRoute);
