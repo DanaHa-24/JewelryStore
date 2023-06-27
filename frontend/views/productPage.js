@@ -1,11 +1,59 @@
 $(document).ready(function() {
-    // Function to update product details
-    function updateProductDetails(title, price, availability, description) {
-      $('.product-title').text(title);
-      $('.product-price').text(price).data('currency', 'shekels');
-      $('.product-availability').text(availability);
-      $('.product-description').text(description);
+    // Function to update product details dynamicly
+    function updateProductDetails(id) {
+      // Make a request to your MongoDB Atlas database to fetch the product details by ID
+      // Assuming you have set up the necessary connection and have the appropriate MongoDB client library installed
+      // Replace the connection and query logic with your actual implementation
+    
+      // Example using MongoDB Node.js driver
+      const { MongoClient } = require('mongodb');
+      const uri = 'mongodb+srv://<username>:<password>@<cluster-url>/test?retryWrites=true&w=majority'; // Replace with your MongoDB Atlas connection string
+    
+      const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    
+      client.connect((err) => {
+        if (err) {
+          console.error('Error connecting to MongoDB Atlas:', err);
+          return;
+        }
+    
+        const collection = client.db('your-database-name').collection('your-collection-name'); // Replace with your database and collection names
+    
+        collection.findOne({ id: id }, (err, product) => {
+          if (err) {
+            console.error('Error fetching product details from MongoDB Atlas:', err);
+            client.close();
+            return;
+          }
+    
+          // Update the product details on the page with the fetched data
+          $('.product-title').text(product.name);
+          $('.product-price').text(`מחיר: ₪${product.price}`).data('currency', 'shekels');
+          $('.product-description').text(product.description);
+    
+          // Check if it's the last couple of units
+          if (product.amountInStock <= 2) {
+            // Fetch additional information from the database based on the provided id
+            // and update the product availability accordingly
+            // You can customize this part based on your database structure and requirements
+            const additionalInfo = `יחידות אחרונות במלאי - צבעים זמינים: ${product.color.join(', ')}, גדלים זמינים: ${product.size.join(', ')}`;
+            $('.product-availability').text(additionalInfo);
+          } else {
+            $('.product-availability').text('מוצר במלאי');
+          }
+    
+          // Update the product image source dynamically
+          const productImage = $('<img>')
+            .attr('src', product.image)
+            .addClass('img-fluid rounded')
+            .attr('alt', 'Product Image');
+          $('.col-md-6.product-page-rtl').empty().append(productImage);
+    
+          client.close();
+        });
+      });
     }
+    
   
     // WebSocket section
     const websocket = new WebSocket('ws://localhost:5000');
