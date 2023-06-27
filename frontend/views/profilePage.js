@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    const userId = "64982471eaa2cfe2d1b32d5b";  
+  // Needs to get after loggin  
+  const userId = "64982471eaa2cfe2d1b32d5b";  
 
     // Create navbar
     const navbar = $('<div>').addClass('profile-page-navbar');
