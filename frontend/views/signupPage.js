@@ -103,7 +103,7 @@ $(document).ready(function() {
     .addClass("btn btn-link")
     .text("נרשמת כבר בעבר? לחץ/י כאן להתחברות")
     .click(function() {
-      window.location.href = "loginPage.html"; // Replace "signup.html" with the URL of your sign-up page
+      window.location.href = "loginPage.html";
     })
     .attr("id", "signin-page-button-link");
 
