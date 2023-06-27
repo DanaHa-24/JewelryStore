@@ -80,11 +80,30 @@ async function searchUsers(filter) {
   }
 }
 
+
+// Get user's order history by ID
+async function getUserOrderHistory(userId) {
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    return user.orderHistory;
+  } catch (error) {
+    console.error('Error fetching order history:', error);
+    throw error;
+  }
+}
+
+
 module.exports = {
     getAllUsers,
     createUser,
     updateUser,
     deleteUser,
     getUserById,
-    searchUsers
+    searchUsers,
+    getUserOrderHistory
 };

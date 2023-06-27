@@ -16,6 +16,9 @@ const storeBranchesRoute = require('./routes/StoreBranchesRoute');
 const userRoutes = require('./routes/UserRoute');
 const wishlistRoutes = require('./routes/WishListRoute'); 
 console.log("hello");
+//const wss = new WebSocket.Server({ server: app });
+
+
 
 
 // Connect to our MongoDB Atlas
@@ -54,6 +57,12 @@ app.use(express.static(path.join(__dirname, '../frontend/views')));
 
 // Serve static files from the "images" directory
 app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
+
+
+
+// Set up routes
+// Remove the api
+app.use('/api/item', itemRoutes);
 
 app.use('/map', storeBranchesRoute);
 app.use('/storeBranches', storeBranchesRoute);
