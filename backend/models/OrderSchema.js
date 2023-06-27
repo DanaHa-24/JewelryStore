@@ -14,7 +14,7 @@ const orderSchema = new mongoose.Schema({
     deliveryMethod: { type: String, enum: ['משלוח', 'איסוף עצמי'], required: true},
     address: { type: mongoose.Schema.Types.ObjectId, ref: 'Address' },
     paymentMethod: { type: String, enum: ['אשראי', 'מזומן', 'ביט'], required: true },
-    state: { type: String, enum: ['נשלח ללקוח', 'הגיע לידי הלקוח', 'התקבלה', 'ממתינה', 'בתהליך עיבוד', 'נאסף ע"י הלקוח', 'בוטלה']},
+    state: { type: String, enum: ['נשלח ללקוח', 'הגיע לידי הלקוח/ה', 'התקבלה', 'ממתינה', 'בתהליך עיבוד', 'נאסף ע"י הלקוח/ה', 'בוטלה']},
     promoCode: { type: String },
     createdAt: { type: String, default: Date.now },
 });
