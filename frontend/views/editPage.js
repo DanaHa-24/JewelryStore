@@ -1,78 +1,84 @@
 $(document).ready(function() {
-  // Create table
-  const table = `
-    <div class="container mt-5">
-      <table id="inventoryTable" class="table table-striped table-hover text-center">
-        <thead>
-          <tr>
-            <th></th>
-            <th>כמות נמכרה</th>
-            <th>מספר סידורי</th>
-            <th>מחיר</th>
-            <th>כמות</th>
-            <th>שם המוצר</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><button class="btn btn-danger btn-sm delete-row">מחק</button></td>
-            <td>5</td>
-            <td>SN-001</td>
-            <td>
-              <div class="input-group">
-                <input type="number" class="form-control text-center price-input" value="10" min="0">
-              </div>
-            </td>
-            <td>
-              <div class="input-group">
-                <button class="btn btn-secondary btn-sm decrease-amount">-</button>
-                <input type="number" class="form-control text-center amount-input" value="10" min="0">
-                <button class="btn btn-secondary btn-sm increase-amount">+</button>
-              </div>
-            </td>
-            <td>מוצר 1</td>
-          </tr>
-          <tr>
-            <td><button class="btn btn-danger btn-sm delete-row">מחק</button></td>
-            <td>2</td>
-            <td>SN-002</td>
-            <td>
-              <div class="input-group">
-                <input type="number" class="form-control text-center price-input" value="5" min="0">
-              </div>
-            </td>
-            <td>
-              <div class="input-group">
-                <button class="btn btn-secondary btn-sm decrease-amount">-</button>
-                <input type="number" class="form-control text-center amount-input" value="5" min="0">
-                <button class="btn btn-secondary btn-sm increase-amount">+</button>
-              </div>
-            </td>
-            <td>מוצר 2</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="input-group mt-3">
-        <input id="amountSoldInput" type="number" class="form-control text-center" placeholder="כמות נמכרה" min="0">
-        <input id="serialNumberInput" type="text" class="form-control text-center" placeholder="מספר סידורי">
-        <input id="priceInput" type="number" class="form-control text-center" placeholder="מחיר" min="0">
-        <input id="amountInput" type="number" class="form-control text-center" placeholder="כמות" min="0">
-        <input id="productNameInput" type="text" class="form-control text-center" placeholder="שם המוצר">
-        <button id="addRowBtn" class="btn btn-primary">הוסף</button>
-      </div>
-    </div>
-  `;
- 
+  const createTableRow = function(data) {
+    const row = document.createElement('tr');
+    data.forEach(function(cellText, index) {
+      const cell = document.createElement('td');
+      if (index === 0) {
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'delete-row');
+        deleteBtn.textContent = 'מחק';
+        cell.appendChild(deleteBtn);
+      } else if (index === 4) {
+        const inputGroup = document.createElement('div');
+        inputGroup.classList.add('input-group');
+        const decreaseBtn = document.createElement('button');
+        decreaseBtn.classList.add('btn', 'btn-secondary', 'btn-sm', 'decrease-amount');
+        decreaseBtn.textContent = '-';
+        const amountInput = document.createElement('input');
+        amountInput.type = 'number';
+        amountInput.classList.add('form-control', 'text-center', 'amount-input');
+        amountInput.value = cellText;
+        amountInput.min = '0';
+        const increaseBtn = document.createElement('button');
+        increaseBtn.classList.add('btn', 'btn-secondary', 'btn-sm', 'increase-amount');
+        increaseBtn.textContent = '+';
+        inputGroup.appendChild(decreaseBtn);
+        inputGroup.appendChild(amountInput);
+        inputGroup.appendChild(increaseBtn);
+        cell.appendChild(inputGroup);
+      } else if (index === 3) {
+        const inputGroup = document.createElement('div');
+        inputGroup.classList.add('input-group');
+        const priceInput = document.createElement('input');
+        priceInput.type = 'number';
+        priceInput.classList.add('form-control', 'text-center', 'price-input');
+        priceInput.value = cellText;
+        priceInput.min = '0';
+        inputGroup.appendChild(priceInput);
+        cell.appendChild(inputGroup);
+      } else {
+        cell.textContent = cellText;
+      }
+      row.appendChild(cell);
+    });
+    return row;
+  };
+
+  const table = $('<div class="container mt-5"></div>').append(
+    $('<table id="inventoryTable" class="table table-striped table-hover text-center"></table>').append(
+      $('<thead></thead>').append(
+        $('<tr></tr>').append(
+          $('<th></th>'),
+          $('<th>כמות נמכרה</th>'),
+          $('<th>מספר סידורי</th>'),
+          $('<th>מחיר</th>'),
+          $('<th>כמות</th>'),
+          $('<th>שם המוצר</th>')
+        )
+      ),
+      $('<tbody></tbody>').append(
+        createTableRow(['', '5', 'SN-001', '10', '10', 'מוצר 1']),
+        createTableRow(['', '2', 'SN-002', '5', '5', 'מוצר 2'])
+      )
+    ),
+    $('<div class="input-group mt-3"></div>').append(
+      $('<input id="amountSoldInput" type="number" class="form-control text-center" placeholder="כמות נמכרה" min="0">'),
+      $('<input id="serialNumberInput" type="text" class="form-control text-center" placeholder="מספר סידורי">'),
+      $('<input id="priceInput" type="number" class="form-control text-center" placeholder="מחיר" min="0">'),
+      $('<input id="amountInput" type="number" class="form-control text-center" placeholder="כמות" min="0">'),
+      $('<input id="productNameInput" type="text" class="form-control text-center" placeholder="שם המוצר">'),
+      $('<button id="addRowBtn" class="btn btn-primary">הוסף</button>')
+    )
+  );
+
   const headline = $('<h1 class="text-center display-4">ניהול מלאי</h1>');
   $('body').append(headline);
   $('body').append(table);
 
-  // Delete row
   $(document).on('click', '.delete-row', function() {
     $(this).closest('tr').remove();
   });
 
-  // Add row
   $('#addRowBtn').click(function() {
     const productName = $('#productNameInput').val();
     const serialNumber = $('#serialNumberInput').val();
@@ -81,29 +87,9 @@ $(document).ready(function() {
     const amountSold = $('#amountSoldInput').val();
 
     if (productName && serialNumber && amount && price && amountSold && amount >= 0 && price >= 0) {
-      const newRow = `
-        <tr>
-          <td><button class="btn btn-danger btn-sm delete-row">מחק</button></td>
-          <td>${amountSold}</td>
-          <td>${serialNumber}</td>
-          <td>
-            <div class="input-group">
-              <input type="number" class="form-control text-center price-input" value="${price}" min="0">
-            </div>
-          </td>
-          <td>
-            <div class="input-group">
-              <button class="btn btn-secondary btn-sm decrease-amount">-</button>
-              <input type="number" class="form-control text-center amount-input" value="${amount}" min="0">
-              <button class="btn btn-secondary btn-sm increase-amount">+</button>
-            </div>
-          </td>
-          <td>${productName}</td>
-        </tr>
-      `;
+      const newRow = createTableRow(['', amountSold, serialNumber, price, amount, productName]);
       $('#inventoryTable tbody').append(newRow);
 
-      // Clear input fields
       $('#productNameInput').val('');
       $('#serialNumberInput').val('');
       $('#amountInput').val('');
@@ -114,14 +100,12 @@ $(document).ready(function() {
     }
   });
 
-  // Increase amount
   $(document).on('click', '.increase-amount', function() {
     const input = $(this).siblings('input.amount-input');
     let currentValue = parseInt(input.val());
     input.val(currentValue + 1);
   });
 
-  // Decrease amount
   $(document).on('click', '.decrease-amount', function() {
     const input = $(this).siblings('input.amount-input');
     let currentValue = parseInt(input.val());
