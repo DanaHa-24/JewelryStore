@@ -5,6 +5,12 @@ const router = express.Router();
 // Define the API key endpoint
 router.get('/key', ConfigController.getConfigByName);
 
+// Get an config by ID
+router.get('/:id', ConfigController.getConfigById);
+
+// Search configs by given filter
+router.post('/search/:filter', ConfigController.searchConfigs);
+
 // Get all configs 
 router.get('/',ConfigController.getAllConfigs);
 
@@ -16,11 +22,5 @@ router.put('/:id', ConfigController.updateConfig);
 
 // Delete an config by ID
 router.delete('/:id', ConfigController.deleteConfig);
-
-// Get an config by ID
-router.get('/:id', ConfigController.getConfigById);
-
-// Search configs by given filter
-router.post('/search/:filter', ConfigController.searchConfigs);
 
 module.exports = router;

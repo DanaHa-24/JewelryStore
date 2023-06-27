@@ -16,11 +16,19 @@ const orderSchema = new mongoose.Schema({
     paymentMethod: { type: String, required: true },
     state: { type: String, enum: ['sent to costumer', 'delivered to costumer', 'accepted', 'pending', 'in progress', 'collected by costumer', 'canceled']},
     promoCode: { type: String },
-    createdAt: { type: Date, default: Date.now },
+    createdAt: { type: String, default: Date.now },
+});
+
+// Mongoose middleware to format the createdAt field before saving
+orderSchema.pre('save', function (next) {
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getHours()}:${currentDate.getMinutes()} - ${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+
+    // Update the createdAt field with the formatted date
+    this.createdAt = formattedDate; 
+    next();
 });
 
 const Order = mongoose.model('Order', orderSchema, 'OrderSchema');
 
 module.exports = Order;
-
-

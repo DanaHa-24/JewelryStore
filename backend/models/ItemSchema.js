@@ -20,10 +20,20 @@ const itemSchema = new mongoose.Schema({
     size: [{ type: String, enum: ['S','M','L','flexible','5','6','7','8']}],
     material: [{ type: String, enum: ['beads', 'silver', 'pearl', 'stone', 'macrame']}],
     style: [{ type: String, enum: ['choker', 'falling', 'regular','tight','set','hoop']}],
-    createdAt: { type: Date, default: Date.now },
+    createdAt: { type: String, default: Date.now  },
     amountInStock: { type: Number },
     status: {type: String, enum:['available', 'almost out of stock', 'out of stock']},
     howManySold: { type: Number, default: 0}
+});
+
+// Mongoose middleware to format the createdAt field before saving
+itemSchema.pre('save', function (next) {
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getHours()}:${currentDate.getMinutes()} - ${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+
+    // Update the createdAt field with the formatted date
+    this.createdAt = formattedDate; 
+    next();
 });
 
 itemSchema.pre('save', async function (next) {
@@ -47,3 +57,4 @@ itemSchema.pre('save', async function (next) {
 const Item = mongoose.model('Item', itemSchema, 'ItemSchema');
 
 module.exports = Item;
+
