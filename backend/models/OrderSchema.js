@@ -11,10 +11,10 @@ const orderSchema = new mongoose.Schema({
     ],
     numOfItems: { type: Number, required: true},
     totalPrice: { type: Number, required: true },
-    deliveryMethod: { type: String, enum: ['shipping', 'pickup']},
+    deliveryMethod: { type: String, enum: ['משלוח', 'איסוף עצמי'], required: true},
     address: { type: mongoose.Schema.Types.ObjectId, ref: 'Address' },
-    paymentMethod: { type: String, required: true },
-    state: { type: String, enum: ['sent to costumer', 'delivered to costumer', 'accepted', 'pending', 'in progress', 'collected by costumer', 'canceled']},
+    paymentMethod: { type: String, enum: ['אשראי', 'מזומן', 'ביט'], required: true },
+    state: { type: String, enum: ['נשלח ללקוח', 'הגיע לידי הלקוח', 'התקבלה', 'ממתינה', 'בתהליך עיבוד', 'נאסף ע"י הלקוח', 'בוטלה']},
     promoCode: { type: String },
     createdAt: { type: String, default: Date.now },
 });
