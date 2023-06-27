@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Needs to get after loggin  
-  const userId = "64982471eaa2cfe2d1b32d5b";  
+  const userId = "64982471eaa2cfe2d1b32d5a";  
 
     // Create navbar
     const navbar = $('<div>').addClass('profile-page-navbar');
@@ -113,7 +113,7 @@ function handleMyOrders(userId) {
     dataType: 'json',
     success: function (response) {
       // Handle successful response (order history data)
-      console.log(response);
+      //console.log(response);
       // Populate the user's order history accordion
       fetchUserOrdersHistory(response);
     },
@@ -367,13 +367,13 @@ function fetchUserOrdersHistory(data) {
   $('.profile-page-container').append(orderHistoryAccordion);
 
   data.forEach(orderId => {
-    console.log(orderId);
+    //console.log(orderId);
     // Make an AJAX request to fetch the complete order details
     $.ajax({
       url: `/orders/${orderId}`, // Adjust the URL endpoint to fetch the order details
       method: 'GET',
       success: function(response) {
-        console.log(response);
+        //console.log(response);
         // Handle successful response (complete order details)
         const orderDate = response.createdAt;
         const orderNum = response.orderNumber;
@@ -451,46 +451,68 @@ function fetchUserOrdersHistory(data) {
             table.append(tableBody);
             accordionBodyContent.append(table);
 
-            // Fetch address details
-            $.ajax({
-              url: `/addresses/${addressId}`, // Adjust the URL endpoint to fetch the address
-              method: 'GET',
-              success: function(address) {
-                // Concatenate the address fields if available
-                let orderAddress = '';
-                if (address) {
-                  orderAddress = `${address.city}, ${address.street} ${address.houseNum}, ${address.apartmentNum}, ${address.postalCode}`;
-                }
+            // Fetch address details - just for delivered orders
+            if (addressId) {
+              $.ajax({
+                url: `/addresses/${addressId}`, // Adjust the URL endpoint to fetch the address
+                method: 'GET',
+                success: function(address) {
+                  // Concatenate the address fields if available
+                  let orderAddress = '';
+                  if (address) {
+                    orderAddress = `${address.city}, ${address.street} ${address.houseNum}, ${address.apartmentNum}, ${address.postalCode}`;
+                  }
 
-                // Append the order address if available
-                if (orderAddress) {
-                  accordionBodyContent.append(`<p>כתובת למשלוח - ${orderAddress}</p>`);
-                }
+                  // Append the order address if available
+                  if (orderAddress) {
+                    accordionBodyContent.append(`<p>כתובת למשלוח - ${orderAddress}</p>`);
+                  }
+                },
+                error: function(error) {
+                  // Handle error fetching address
+                  console.error('Error fetching address:', error);
+                },
+                complete: function() {
+                  // Append the accordion body content to the accordion body
+                  accordionBody.append(accordionBodyContent);
 
-                // Append the accordion body content to the accordion body
-                accordionBody.append(accordionBodyContent);
+                  // Append the accordion header and body to the accordion item
+                  accordionItem.append(accordionHeader, accordionBody);
 
-                // Append the accordion header and body to the accordion item
-                accordionItem.append(accordionHeader, accordionBody);
+                  // Append the accordion item to the order history accordion
+                  orderHistoryAccordion.append(accordionItem);
 
-                // Append the accordion item to the order history accordion
-                orderHistoryAccordion.append(accordionItem);
-
-                // Activate the Bootstrap accordion
-                $('#orderHistoryAccordion').addClass('accordion');
-                $('.accordion-button').click(function() {
-                  $(this).attr('aria-expanded', function(index, attr) {
-                    return attr === 'true' ? 'false' : 'true';
+                  // Activate the Bootstrap accordion
+                  $('#orderHistoryAccordion').addClass('accordion');
+                  $('.accordion-button').click(function() {
+                    $(this).attr('aria-expanded', function(index, attr) {
+                      return attr === 'true' ? 'false' : 'true';
+                    });
+                    const targetId = $(this).attr('data-bs-target');
+                    $(targetId).collapse('toggle');
                   });
-                  const targetId = $(this).attr('data-bs-target');
-                  $(targetId).collapse('toggle');
+                }
+              });
+            } else {
+              // Append the accordion body content to the accordion body
+              accordionBody.append(accordionBodyContent);
+
+              // Append the accordion header and body to the accordion item
+              accordionItem.append(accordionHeader, accordionBody);
+
+              // Append the accordion item to the order history accordion
+              orderHistoryAccordion.append(accordionItem);
+
+              // Activate the Bootstrap accordion
+              $('#orderHistoryAccordion').addClass('accordion');
+              $('.accordion-button').click(function() {
+                $(this).attr('aria-expanded', function(index, attr) {
+                  return attr === 'true' ? 'false' : 'true';
                 });
-              },
-              error: function(error) {
-                // Handle error fetching address
-                console.error('Error fetching address:', error);
-              }
-            });
+                const targetId = $(this).attr('data-bs-target');
+                $(targetId).collapse('toggle');
+              });
+            }
           })
           .fail(function(error) {
             // Handle errors fetching order items
@@ -504,6 +526,7 @@ function fetchUserOrdersHistory(data) {
     });
   });
 }
+
 
 
 
