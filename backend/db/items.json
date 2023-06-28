@@ -963,7 +963,7 @@
         "id" : "23007",
         "name" : "שרשרת לוסי",
         "price" : 190,
-        "image" : "./backendImages/23001.jpg",
+        "image" : "./backendImages/23007.jpg",
         "type" : "Necklace",
         "color" : ["white"],
         "size" : [],
