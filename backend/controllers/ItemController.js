@@ -86,6 +86,7 @@ async function deleteItem(req, res) {
 }
   
 
+// Get an item by ID
 async function getItemById(req, res) {
   try {
     const itemId = req.params.itemId;

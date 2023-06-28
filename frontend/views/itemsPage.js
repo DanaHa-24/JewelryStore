@@ -132,7 +132,7 @@ function queryItems(event) {
     const query = serializeFilters(filters);
 
     $.ajax({
-        url: `item/allItems${query}`,
+        url: `item/${query}`,
         method: "GET",
         success: function (response) {
             const items = response.items;
@@ -171,7 +171,7 @@ function createCategoryBar(items, filters) {
         material: new Set(),
         style: new Set()
     }
-
+    
     items.forEach(function(item) {
         item.color.forEach(sets.color.add, sets.color);
         item.size.forEach(sets.size.add, sets.size);
@@ -300,7 +300,7 @@ initFilters();
 
 // load items from initial query
 $.ajax({
-    url: `item/allItems${serializeFilters(filters)}`,
+    url: `item/${serializeFilters(filters)}`,
     method: 'GET',
     success: function (response) {
         const items = response.items;
@@ -353,4 +353,5 @@ $(document).on("click", ".cardFullHeart", function (event) {
     event.preventDefault();
     $(event.target).removeClass("fas cardFullHeart").addClass("far cardHollowHeart");
 });
+
 // ------------------------------------------------------------- onClick Events

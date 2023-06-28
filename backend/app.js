@@ -15,6 +15,8 @@ const orderRoutes = require('./routes/OrderRoute');
 const storeBranchesRoute = require('./routes/StoreBranchesRoute');
 const userRoutes = require('./routes/UserRoute');
 const wishlistRoutes = require('./routes/WishListRoute'); 
+
+
 console.log("hello");
 //const wss = new WebSocket.Server({ server: app });
 
@@ -55,31 +57,30 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 // Serve static files from the "frontend" directory
 app.use(express.static(path.join(__dirname, '../frontend/views')));
 
-// Serve static files from the "images" directory
+// Serve static files from the "../frontend/images" directory
 app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
+// Serve static files from the "../backend/images" directory
+app.use('/backendImages', express.static(path.join(__dirname, './images')));
 
-
-// Set up routes
-// Remove the api
-//app.use('/api/item', itemRoutes);
 
 app.use('/map', storeBranchesRoute);
 app.use('/storeBranches', storeBranchesRoute);
+app.use('/users', userRoutes);
+app.use('/config', configRoutes);
 app.use('/addresses', addressRoutes);
+app.use('/wishlist', wishlistRoutes);
 app.use('/cart', cartRoutes);
 app.use('/orders', orderRoutes);
-app.use('/users', userRoutes);
-app.use('/wishlist', wishlistRoutes);
-app.use('/config', configRoutes);
 app.use('/item', itemRoutes);
+
 
 // Default redirect => Home Page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/views/homePage.html'));
 });
 
-// For not found page
+// For other URL's => Not Found Page
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/views/pageNotFound.html'));
 });

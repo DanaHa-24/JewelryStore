@@ -9,8 +9,7 @@ router.get('/:itemId', ItemController.getItemById);
 router.get('/search', ItemController.searchItemsByName);
 
 // Get all items
-router.get('/allItems', ItemController.getAllItems);
-//router.get('/', ItemController.getAllItems);
+router.get('/', ItemController.getAllItems);
 
 // Create a new item
 router.post('/', ItemController.createItem);
