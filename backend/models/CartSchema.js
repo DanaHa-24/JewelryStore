@@ -5,11 +5,8 @@ const cartSchema = new mongoose.Schema({
     items: [
         {
             item: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Item',
-                required: true,
-                localField: 'orderItems.itemId',
-                foreignField: 'id'
+                itemId: { type: mongoose.Schema.Types.ObjectId, ref: 'Item', required: true },
+                quantity: { type: Number, required: true }
             },
             quantity: { type: Number, required: true }
         }

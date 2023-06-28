@@ -103,19 +103,6 @@ async function searchOrders(req, res) {
 }
 
 
-// // Get user's order history
-// async function getAllUserOrders(req, res) {
-//   try {
-//     const username = req.params.username;
-
-//     const orders = await OrderService.getAllUserOrders(username);
-
-//     res.status(200).json(orders);
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// }
-
 module.exports = {
   createOrder,
   updateOrder,

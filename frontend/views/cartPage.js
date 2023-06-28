@@ -35,55 +35,55 @@ $(document).ready(function () {
                 const table = $('<table>').addClass('table');
                 const tableHeader = $('<thead>').html('<tr><th>שם הפריט</th><th>תמונה</th><th>כמות</th><th>מחיר הפריט</th><th>מחיר כולל</th></tr>');
                 table.append(tableHeader);
-  
+                console.log(cartItems);
                 const tableBody = $('<tbody>');
                 let totalToPay = 0;
   
                 // Populate table rows with cart items
                 cartItems.forEach(function (item) {
-                  // Fetch additional item information
-                  $.ajax({
-                    url: `/items/${item.itemId}`, // Replace with the appropriate URL to fetch item details
+                    // Fetch additional item information
+                    $.ajax({
+                    url: `/item/${item.item}`,
                     method: 'GET',
                     dataType: 'json',
                     success: function (itemDetails) {
-                      const row = $('<tr>');
-                      const itemName = $('<td>').text(itemDetails.name);
-                      const itemImage = $('<td>').append($('<img>').attr('src', itemDetails.image).css('max-width', '100px'));
-                      const itemQuantity = $('<td>').html(`<input type="number" value="${item.quantity}" min="1">`);
-                      const itemPrice = $('<td>').text(itemDetails.price);
-                      const totalPrice = $('<td>').text(item.quantity * itemDetails.price);
-                      totalToPay += item.quantity * itemDetails.price;
-  
-                      // Remove item button
-                      const removeButton = $('<button>').addClass('btn btn-danger btn-sm').text('הסר');
-                      removeButton.on('click', function () {
+                        const row = $('<tr>');
+                        const itemName = $('<td>').text(itemDetails.name);
+                        const itemImage = $('<td>').append($('<img>').attr('src', itemDetails.image).css('max-width', '100px'));
+                        const itemQuantity = $('<td>').html(`<input type="number" value="${item.quantity}" min="1">`);
+                        const itemPrice = $('<td>').text(itemDetails.price);
+                        const totalPrice = $('<td>').text(item.quantity * itemDetails.price);
+                        totalToPay += item.quantity * itemDetails.price;
+
+                        // Remove item button
+                        const removeButton = $('<button>').addClass('btn btn-danger btn-sm').text('הסר');
+                        removeButton.on('click', function () {
                         // Remove item from cart
                         $.ajax({
-                          url: `/cart/${cartId}/items/${item.itemId}`,
-                          method: 'DELETE',
-                          success: function () {
-                            // Remove table row
-                            row.remove();
-  
-                            // Update total to pay
-                            totalToPay -= item.quantity * itemDetails.price;
-                            updateTotalToPay();
-                          },
-                          error: function (err) {
-                            console.error('Failed to remove item from cart:', err);
-                          },
+                            url: `/cart/${cartId}/items/${item.id}`,
+                            method: 'DELETE',
+                            success: function () {
+                                // Remove table row
+                                row.remove();
+
+                                // Update total to pay
+                                totalToPay -= item.quantity * itemDetails.price;
+                                updateTotalToPay();
+                                },
+                                error: function (err) {
+                                console.error('Failed to remove item from cart:', err);
+                                },
+                            });
                         });
-                      });
-  
-                      itemName.append(removeButton);
-                      row.append(itemName, itemImage, itemQuantity, itemPrice, totalPrice);
-                      tableBody.append(row);
-                    },
-                    error: function (err) {
-                      console.error('Failed to retrieve item details:', err);
-                    },
-                  });
+
+                        itemName.append(removeButton);
+                        row.append(itemName, itemImage, itemQuantity, itemPrice, totalPrice);
+                        tableBody.append(row);
+                        },
+                        error: function (err) {
+                        console.error('Failed to retrieve item details:', err);
+                        },
+                    });
                 });
   
                 table.append(tableBody);
@@ -126,7 +126,7 @@ $(document).ready(function () {
   
                   // Update quantity in cart through AJAX request
                   $.ajax({
-                    url: `/cart/${cartId}/items/${item.itemId}`, // Replace with the appropriate URL to update quantity in cart
+                    url: `/cart/${cartId}/items/${item.id}`,
                     method: 'PUT',
                     data: { quantity: quantity },
                     success: function () {

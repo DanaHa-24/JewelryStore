@@ -1,5 +1,5 @@
 const Item = require('../models/ItemSchema');
-const itemServices = require('../services/ItemService');
+const ItemService = require('../services/ItemService');
 
 const sortingArray = [
     { filter: { howManySold: -1 } },
@@ -8,11 +8,13 @@ const sortingArray = [
     { filter: { price: -1 } }
 ];
 
-exports.createItem = async (req, res) => {
+// Needs to seperate to Controller and Service
+// Create a new item
+async function createItem(req, res) {
     try {
         const { type, name, price } = req.body;
-        // Generate the item ID using the itemServices
-        const id = await itemServices.generateItemId(type);
+        // Generate the item ID using the ItemService
+        const id = await ItemService.generateItemId(type);
         // Create the item
         const item = new Item({ type, name, price, id });
         // Save the item to the database
@@ -21,9 +23,12 @@ exports.createItem = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Failed to create item' });
     }
-};
+}
 
-exports.getItems = async (req, res) => {
+
+// Needs to seperate to Controller and Service
+// Get all items
+async function getAllItems(req, res) {
     let sortBy = {}
     let filterBy = {}
     let filter = {}
@@ -53,4 +58,68 @@ exports.getItems = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Failed to retrieve schema data from Item' });
     }
+}
+
+
+// Update an item by ID
+async function updateItem(req, res) {
+    try {
+      const itemId = req.params.id;
+      const updatedItem = req.body;
+      const item = await ItemService.updateItem(itemId, updatedItem);
+      res.json(item);
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to update item' });
+    }
+}
+  
+
+// Delete an item by ID
+async function deleteItem(req, res) {
+    try {
+      const itemId = req.params.id;
+      await ItemService.deleteItem(itemId);
+      res.json({ message: 'Item deleted successfully' });
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to delete item' });
+    }
+}
+  
+
+// Get an item by ID
+async function getItemById(req, res) {
+  try {
+    const itemId = req.params.itemId;
+    const item = await ItemService.getItemById(itemId);
+    if (item) {
+      res.json(item);
+    } else {
+      res.status(404).json({ error: 'Item not found' });
+    }
+  } catch (error) {
+    console.error('Error getting item by ID:', error);
+    res.status(500).json({ error: 'Failed to get item' });
+  }
+}
+  
+
+// Search items by name
+async function searchItemsByName(req, res) {
+    try {
+      const searchQuery = req.query.search;
+      const items = await ItemService.searchItemsByName(searchQuery);
+      res.json(items);
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to search items' });
+    }
+}
+
+
+module.exports = {
+    getAllItems,
+    createItem,
+    updateItem,
+    deleteItem,
+    getItemById,
+    searchItemsByName
 };

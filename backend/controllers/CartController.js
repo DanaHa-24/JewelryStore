@@ -3,7 +3,7 @@ const CartService = require('../services/CartService');
 // Get all items in the cart for the authenticated user (by ID)
 async function getAllCartItems(req, res) {
   try {
-    const cartId = req.params.cartId; // Retrieve the cartId from the request parameters
+    const cartId = req.params.cartId;
     const items = await CartService.getAllCartItems(cartId);
     res.json(items);
   } catch (error) {
@@ -16,7 +16,7 @@ async function getAllCartItems(req, res) {
 // Create a new cart the authenticated user (by ID)
 async function createCart(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+    const userId = req.userId;
     const cart = await CartService.createCart(userId);
     res.json(cart);
   } catch (error) {
@@ -29,7 +29,7 @@ async function createCart(req, res) {
 // Delete the cart for the authenticated user (by ID)
 async function deleteCart(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+    const userId = req.userId;
     await CartService.deleteCart(userId);
     res.json({ message: 'Cart deleted successfully' });
   } catch (error) {
@@ -42,7 +42,7 @@ async function deleteCart(req, res) {
 // Remove an item from the cart for the authenticated user (by ID)
 async function removeItem(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+    const userId = req.userId;
     const cartId = req.params.cartId;
     const itemId = req.params.itemId;
 
@@ -92,7 +92,7 @@ async function getCartById(req, res) {
 // Search for items in the cart for the authenticated user (by ID)
 async function searchCartItems(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+    const userId = req.userId;
     const itemName = req.query.name;
 
     if (!itemName) {
@@ -112,7 +112,7 @@ async function searchCartItems(req, res) {
 // Add an item to the cart for the authenticated user (by ID)
 async function addItem(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+    const userId = req.userId;
     const cartId = req.params.cartId;
     const itemId = req.params.itemId;
 
