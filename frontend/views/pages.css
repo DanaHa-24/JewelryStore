@@ -1137,7 +1137,6 @@ body {
     
 #EP-page-container {
     max-width: 600px;
-    font-family: Arial, sans-serif;
     margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -1155,6 +1154,7 @@ body {
 }
   
 #EP-page-p {
+    margin-top: 30px;
     margin-bottom: 10px;
 }
   
@@ -1199,8 +1199,8 @@ body {
 .sizeguide-page-container{
     direction: rtl;
     margin-right: 60px;
-     margin-top: 30px;
-     color: #565656;
+    margin-top: 30px;
+    color: #565656;
 }
 
 #SG-page-p {
@@ -1208,12 +1208,14 @@ body {
 }
   
 .size-guide-header {
-    font-size: 24px;
-    direction: rtl;
-     margin-right: 60px;
-     margin-top: 30px;
-     text-decoration: underline;
-     color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-decoration-line: underline;
+    margin-top: 60px;
+    margin-bottom: 30px;
 }
   
 .infoSG-item {

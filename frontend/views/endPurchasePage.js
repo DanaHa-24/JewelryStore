@@ -37,9 +37,10 @@ $(document).ready(function() {
     // Create the thank you message
     let thankYouMessage = $('<p>תודה שקנית אצלנו!</p>').attr("id","EP-page-p");
 
-    // Create the "Back to Homepage" button
-    let homeButton = $('<div class="text-center mt-4"><a href="#" class="btn">חזור לדף הבית</a></div>');
-    homeButton.find('a').attr("id","EP-page-btn");
+    // Create the "Back to Homepage" and "Share on Facebook" buttons
+    const homeButton = $('<div class="text-center mt-4"><a href="homePage.html" class="btn">חזור לדף הבית</a></div>').attr("id","EP-page-btn");
+    const shareButton = $('<div class="text-center mt-4"><a href="homePage.html" class="btn">Share on Facebook</a></div>').attr("id","EP-page-btn");
+    
     // Append all the created elements to the container div
     container.append(
       heading,
@@ -48,7 +49,8 @@ $(document).ready(function() {
       shippingDetailsCard,
       paymentDetailsCard,
       thankYouMessage,
-      homeButton
+      homeButton,
+      shareButton
     );
 
     // Append the container to the body of the document
