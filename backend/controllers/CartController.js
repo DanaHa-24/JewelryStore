@@ -3,8 +3,8 @@ const CartService = require('../services/CartService');
 // Get all items in the cart for the authenticated user (by ID)
 async function getAllCartItems(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
-    const items = await CartService.getItems(userId);
+    const cartId = req.params.cartId;
+    const items = await CartService.getAllCartItems(cartId);
     res.json(items);
   } catch (error) {
     console.error('Error getting cart items:', error);
@@ -16,7 +16,7 @@ async function getAllCartItems(req, res) {
 // Create a new cart the authenticated user (by ID)
 async function createCart(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+    const userId = req.userId;
     const cart = await CartService.createCart(userId);
     res.json(cart);
   } catch (error) {
@@ -29,7 +29,7 @@ async function createCart(req, res) {
 // Delete the cart for the authenticated user (by ID)
 async function deleteCart(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+    const userId = req.userId;
     await CartService.deleteCart(userId);
     res.json({ message: 'Cart deleted successfully' });
   } catch (error) {
@@ -42,7 +42,7 @@ async function deleteCart(req, res) {
 // Remove an item from the cart for the authenticated user (by ID)
 async function removeItem(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+    const userId = req.userId;
     const cartId = req.params.cartId;
     const itemId = req.params.itemId;
 
@@ -60,7 +60,7 @@ async function removeItem(req, res) {
 }
 
 
-// Update the wishlist
+// Update the cart
 async function updateCart(req, res) {
   try {
     const cartId = req.params.cartId;
@@ -71,6 +71,20 @@ async function updateCart(req, res) {
   } catch (error) {
     console.error('Error updating cart:', error);
     res.status(500).json({ error: 'Failed to update cart' });
+  }
+}
+
+
+// Update quantity for item by it's ID at the cart by it's ID
+async function updateCartItem(req, res) {
+  const { cartId, itemId } = req.params;
+  const { quantity } = req.body;
+  try {
+    const updatedCart = await CartService.updateCartItem(cartId, itemId, quantity);
+    res.json(updatedCart);
+    res.json({ message: 'Cart item updated' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update cart item' });
   }
 }
 
@@ -92,7 +106,7 @@ async function getCartById(req, res) {
 // Search for items in the cart for the authenticated user (by ID)
 async function searchCartItems(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+    const userId = req.userId;
     const itemName = req.query.name;
 
     if (!itemName) {
@@ -112,7 +126,7 @@ async function searchCartItems(req, res) {
 // Add an item to the cart for the authenticated user (by ID)
 async function addItem(req, res) {
   try {
-    const userId = req.userId; // Assuming the user ID is stored in the req.userId property
+    const userId = req.userId;
     const cartId = req.params.cartId;
     const itemId = req.params.itemId;
 
@@ -135,6 +149,7 @@ module.exports = {
     deleteCart,
     removeItem,
     updateCart,
+    updateCartItem,
     getCartById,
     searchCartItems,
     addItem

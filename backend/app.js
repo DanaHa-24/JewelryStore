@@ -57,14 +57,12 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 // Serve static files from the "frontend" directory
 app.use(express.static(path.join(__dirname, '../frontend/views')));
 
-// Serve static files from the "images" directory
+// Serve static files from the "../frontend/images" directory
 app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
+// Serve static files from the "../backend/images" directory
+app.use('/backendImages', express.static(path.join(__dirname, './images')));
 
-
-// Set up routes
-// Remove the api
-app.use('/api/item', itemRoutes);
 
 app.use('/map', storeBranchesRoute);
 app.use('/storeBranches', storeBranchesRoute);
@@ -74,6 +72,8 @@ app.use('/addresses', addressRoutes);
 app.use('/wishlist', wishlistRoutes);
 app.use('/cart', cartRoutes);
 app.use('/orders', orderRoutes);
+app.use('/item', itemRoutes);
+
 
 // Default redirect => Home Page
 app.get('/', (req, res) => {
