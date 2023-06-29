@@ -60,7 +60,7 @@ async function removeItem(req, res) {
 }
 
 
-// Update the wishlist
+// Update the cart
 async function updateCart(req, res) {
   try {
     const cartId = req.params.cartId;
@@ -71,6 +71,20 @@ async function updateCart(req, res) {
   } catch (error) {
     console.error('Error updating cart:', error);
     res.status(500).json({ error: 'Failed to update cart' });
+  }
+}
+
+
+// Update quantity for item by it's ID at the cart by it's ID
+async function updateCartItem(req, res) {
+  const { cartId, itemId } = req.params;
+  const { quantity } = req.body;
+  try {
+    const updatedCart = await CartService.updateCartItem(cartId, itemId, quantity);
+    res.json(updatedCart);
+    res.json({ message: 'Cart item updated' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update cart item' });
   }
 }
 
@@ -135,6 +149,7 @@ module.exports = {
     deleteCart,
     removeItem,
     updateCart,
+    updateCartItem,
     getCartById,
     searchCartItems,
     addItem

@@ -15,7 +15,7 @@ async function getAllAddresses(req, res) {
 // Create a new address
 async function createAddress(req, res) {
     try {
-    const addressData = req.body; // Assuming the address data is passed in the request body
+    const addressData = req.body;
     const newAddress = await AddressService.createAddress(addressData);
     res.status(201).json(newAddress);
     } catch (error) {
@@ -28,8 +28,8 @@ async function createAddress(req, res) {
 // Update an address by ID
 async function updateAddress(req, res) {
     try {
-    const addressId = req.params.id; // Assuming the address ID is passed in the URL parameter
-    const updatedData = req.body; // Assuming the updated address data is passed in the request body
+    const addressId = req.params.addressId;
+    const updatedData = req.body;
     const updatedAddress = await AddressService.updateAddress(addressId, updatedData);
     res.json(updatedAddress);
     } catch (error) {
@@ -42,7 +42,7 @@ async function updateAddress(req, res) {
 // Delete an address by ID
 async function deleteAddress(req, res) {
     try {
-    const addressId = req.params.id; // Assuming the address ID is passed in the URL parameter
+    const addressId = req.params.addressId;
     const deletedAddress = await AddressService.deleteAddress(addressId);
     res.json(deletedAddress);
     } catch (error) {
@@ -55,7 +55,7 @@ async function deleteAddress(req, res) {
 // Get an address by ID
 async function getAddressById(req, res) {
     try {
-      const addressId = req.params.id;
+      const addressId = req.params.addressId;
       const address = await AddressService.getAddressById(addressId);
       res.status(200).json(address);
     } catch (error) {
@@ -68,7 +68,7 @@ async function getAddressById(req, res) {
 // Search addresses by name, city, or street
 async function searchAddresses(req, res) {
     try {
-    const query = req.query.q; // Assuming the search query is passed as a query parameter '?q=<search query>'
+    const query = req.query.q;
     const addresses = await AddressService.searchAddresses(query);
     res.json(addresses);
     } catch (error) {

@@ -5,6 +5,7 @@ const { updateNumOfOrders } = require('../services/UserService');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+
 // Get all users
 async function getAllUsers(req, res) {
   try {
@@ -31,7 +32,7 @@ async function createUser(req, res) {
 
 // Update an user by ID
 async function updateUser(req, res) {
-  const { id } = req.params;
+  const { id } = req.params.userId;
   const updateData = req.body;
   try {
     const updatedUser = await UserService.updateUser(id, updateData);
@@ -44,7 +45,7 @@ async function updateUser(req, res) {
 
 // Delete an user by ID
 async function deleteUser(req, res) {
-  const { id } = req.params;
+  const { id } = req.params.userId;
   try {
     const message = await UserService.deleteUser(id);
     res.json({ message });
@@ -56,7 +57,7 @@ async function deleteUser(req, res) {
 
 // Get an user by ID
 async function getUserById(req, res) {
-  const { id } = req.params;
+  const { id } = req.params.userId;
   try {
     const user = await UserService.getUserById(id);
     if (user) {
@@ -80,6 +81,55 @@ async function searchUsers(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+
+
+// Get user's order history by ID
+async function getUserOrderHistory(req, res) {
+  try {
+    const userId = req.params.userId;
+    const orderHistory = await UserService.getUserOrderHistory(userId);
+    res.json(orderHistory);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch order history' });
+  }
+}
+
+
+// Get user's addresses by ID
+async function getUserAddresses(req, res) {
+  try {
+    const userId = req.params.userId;
+    const myAddresses = await UserService.getUserAddresses(userId);
+    res.json(myAddresses);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch order history' });
+  }
+}
+
+
+// Get user's wishlist by ID
+async function getUserWishlist(req, res) {
+  try {
+    const userId = req.params.userId;
+    const myWishlist = await UserService.getUserWishlist(userId);
+    res.json(myWishlist);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch order history' });
+  }
+}
+
+
+// Get user's cart by ID
+async function getUserMyCart(req, res) {
+  try {
+    const userId = req.params.userId;
+    const MyCart = await UserService.getUserMyCart(userId);
+    res.json(MyCart);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch my cart' });
+  }
+}
+
 
 // Update num of orders in user
 async function saveUser(req, res) {
@@ -164,30 +214,6 @@ async function getMyUser(req, res) {
 }
 
 
-// Get user's order history by ID
-async function getUserOrderHistory(req, res) {
-  try {
-    const userId = req.params.userId;
-    const orderHistory = await UserService.getUserOrderHistory(userId);
-    res.json(orderHistory);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch order history' });
-  }
-}
-
-
-// Get user's cart by ID
-async function getUserMyCart(req, res) {
-  try {
-    const userId = req.params.userId;
-    const MyCart = await UserService.getUserMyCart(userId);
-    res.json(MyCart);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch my cart' });
-  }
-}
-
-
 module.exports = { 
     getAllUsers,
     createUser,
@@ -199,5 +225,7 @@ module.exports = {
     register,
     getMyUser,
     getUserOrderHistory,
+    getUserAddresses,
+    getUserWishlist,
     getUserMyCart
 };
