@@ -55,50 +55,6 @@ $(document).ready(function() {
     }
     
   
-    // WebSocket section
-    const websocket = new WebSocket('ws://localhost:5000');
-
-    // WebSocket event handlers
-    websocket.onopen = function () {
-    console.log('WebSocket connection established.');
-    };
-
-    websocket.onmessage = function (event) {
-    // Receive opinions from the server and display them
-    const opinionText = event.data;
-    const opinionItem = $('<div>')
-        .addClass('opinion-item product-page-rtl')
-        .text('• ' + opinionText);
-    $('.opinion-Container').prepend(opinionItem);
-    };
-
-    websocket.onerror = function (event) {
-    console.error('WebSocket error:', event);
-    };
-
-    websocket.onclose = function () {
-    console.log('WebSocket connection closed.');
-    };
-
-    function submitOpinion() {
-        const opinionText = $('#opinion-input').val();
-      
-        if (opinionText) {
-          const opinionItem = $('<div>')
-            .addClass('opinion-item product-page-rtl')
-            .text('• ' + opinionText);
-      
-          // Insert the opinion above the input field
-          opinionItem.insertBefore('#opinion-input');
-          $('#opinion-input').val('');
-          
-          // Send the opinion to the server via WebSocket
-          websocket.send(opinionText);
-        }
-      }
-      
-    //web socket section end
-  
     //live convertion rate webservice
     function convertCurrency() {
       const shekelsPrice = parseFloat($('.product-price').data('shekels'));
@@ -176,21 +132,11 @@ $(document).ready(function() {
     // Add the buttons div to the details column
     detailsColumn.append(buttonsDiv);
   
-    // Create the opinion window
-    const opinionContainer = $('<div>').addClass('opinion-Container ml-2 product-page-rtl');
-    const opinionHeading = $('<h2>').addClass('h4 product-page-rtl').text(' מה הלקוחות חשבו על מוצר זה:');
-    opinionHeading.css('margin-bottom', '10px');
-    opinionContainer.append(opinionHeading);
-    const opinionInput = $('<input>').attr('id', 'opinion-input').addClass('form-control mb-3 product-page-rtl').attr('placeholder', 'הקלד את דעתך כאן');
-    const opinionButton = $('<button>').addClass('btn btn-primary product-page-rtl').text('הוסף את דעתך');
-    opinionButton.on('click', submitOpinion);
-    opinionContainer.append(opinionInput);
-    opinionContainer.append(opinionButton);
   
     // Append the columns and opinion window to the row
     row.append(imageColumn);
     row.append(detailsColumn);
-    row.append(opinionContainer);
+   
   
     // Append the row to the product container
     productContainer.append(row);
