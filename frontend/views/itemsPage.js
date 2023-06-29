@@ -45,7 +45,7 @@ let filters = {
     style: [],
     type: "",
     search: "",
-    sort: 0,
+    sort: -1,
 }
 
 function initFilters() {

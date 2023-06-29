@@ -29,35 +29,37 @@ async function createItem(req, res) {
 // Needs to seperate to Controller and Service
 // Get all items
 async function getAllItems(req, res) {
-    let sortBy = {}
-    let filterBy = {}
-    let filter = {}
-    try {
-        for(let filterName in req.query){
-            if(filterName == "search"){
-                Object.assign(filterBy, filterBy, {name: new RegExp(".*" + req.query.search + ".*")});
-                continue;
-            }
-            // filterName is: color, material, type ...
-            let filterComponents = [];
-            filterComponents = req.query[filterName].split(",");
-            // for example: filterComponents = 'black'
+  let sortBy = {}
+  let filterBy = {}
+  let filter = {}
+  try {
+      for(let filterName in req.query){
+          // filterName is: color, material, type ...
+          if(filterName === "search"){
+              Object.assign(filterBy, filterBy, {name: new RegExp(".*" + req.query.search + ".*")});
+              continue;
+          }
+          
+          let filterComponents = [];
+          filterComponents = req.query[filterName].split(",");
+          // for example: filterComponents = ["black", "blue"]
 
-            filter = { [filterName]: { '$all': filterComponents } };
-            
-            if(filterName !== "sort"){
-                Object.assign(filterBy, filterBy, filter);
-            }
-        }
-        if(req.query.sort != null){
-            sortBy = sortingArray[req.query.sort].filter;
-        }
-        console.log(filterBy)
-        const items = await Item.find(filterBy).sort(sortBy);
-        res.status(200).json({ items });
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to retrieve schema data from Item' });
-    }
+          // creating a dictionary containing all the filters like: { color: { '$all': [ 'silver', 'white' ] } }
+          filter = { [filterName]: { '$all': filterComponents } };
+          // without $all, we will only get the items that have exactly these colors and does not have more
+                      
+          if(filterName !== "sort"){
+              Object.assign(filterBy, filterBy, filter);
+          }
+      }
+      if(req.query.sort != null){
+          sortBy = sortingArray[req.query.sort].filter;
+      }
+      const items = await Item.find(filterBy).sort(sortBy);
+      res.status(200).json({ items });
+  } catch (error) {
+      res.status(500).json({ error: 'Failed to retrieve schema data from Item' });
+  }
 }
 
 

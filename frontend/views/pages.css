@@ -384,6 +384,12 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
+#home-page-favorites-phrase{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
 .home-page-slide{
     width: fit-content;
     margin: auto;
@@ -394,19 +400,19 @@ body {
     margin: auto;
 }
 
-.home-page-image{
+.home-page-image {
+    display: block;
     margin: auto;
-    height: 500px;
-    width: 800px;
-    vertical-align: middle;
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; 
+    max-height: 750px;
+    max-width: 1000px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 #home-page-slideshow-container {
     width: fit-content;
+    height: fit-content;
     position: relative;
     margin: auto;
 }
