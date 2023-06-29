@@ -33,7 +33,6 @@ async function getAllItems(req, res) {
   let filterBy = {}
   let filter = {}
   try {
-    console.log(req.query)
       for(let filterName in req.query){
           // filterName is: color, material, type ...
           if(filterName === "search"){
