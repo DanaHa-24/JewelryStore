@@ -17,17 +17,23 @@ $(document).ready(function() {
       {
         text: 'הכתובות שלי',
         content: 'כתובות שלי',
-        action: handleMyAddress
+        action: function() {
+          handleMyAddress(userId);
+        }
       },
       {
         text: 'פרטי התחברות',
         content: 'פרטי התחברות',
-        action: handleMyDetails
+        action: function() {
+          handleMyDetails(userId);
+        }
       },
       {
         text: 'Wishlist',
         content: 'Wishlist',
-        action: handleMyWishList
+        action: function() {
+          handleMyWishList(userId);
+        }
       }
     ];
   
@@ -129,110 +135,318 @@ function handleMyOrders(userId) {
 /////////////////////////////////// My Addresses Tab ///////////////////////////////////
 
 // Function to handle "My Addresses" tab
-function handleMyAddress() {
+function handleMyAddress(userId) {
   $('.profile-page-container').empty();
-  // Make an AJAX request to retrieve the user's addresses from the backend
-  $.ajax({
-    url: 'http://localhost:5000/addresses',
-    method: 'GET',
-    success: function(response) {
-      // Build and display the addresses table
-      const table = $('<table>').addClass('table table-striped');
-      const tableHeader = $('<tr>').append(
-        $('<th>').text('שם'),
-        $('<th>').text('עיר'),
-        $('<th>').text('רחוב'),
-        $('<th>').text('מספר בית'),
-        $('<th>').text('מספר דירה'),
-        $('<th>').text('מיקוד'),
-        $('<th>').text('פעולות')
-      );
+  if(!userId) {
+    $('.profile-page-container').text('טרם הזמנת אצלנו / עדיין לא התחברת 🖤');
+  }
+  else{
+    // Make an AJAX request to retrieve the user's addresses from the backend
+    $.ajax({
+      url: `/users/${userId}/my-addresses`,
+      method: 'GET',
+      success: function(response) {
+        
+        fetchUserAddresses(response);
+        
+      },
+      error: function(error) {
+        console.error('Error retrieving addresses:', error);
+      }
+    });
+  }
+}
+  
 
-      table.append(tableHeader);
+/////////////////////////////////// My Details Tab ///////////////////////////////////
 
-      response.forEach(function(address) {
+// Function to handle "My Details" tab
+function handleMyDetails(userId) {
+  $('.profile-page-container').empty();
+  
+  if(!userId) {
+    $('.profile-page-container').text(' עדיין לא התחברת 🖤');
+  }
+  else{
+    // Make an AJAX request to retrieve the user's details from the backend
+    $.ajax({
+      url: `/users/${userId}`,
+      method: 'GET',
+      success: function(response) {
+        if (response === null) {
+          $('.profile-page-container').text('לא נמצאו פרטי משתמש');
+        } else {
+          // Build and display the details form
+          const form = $('<form>').addClass('details-form');
+          const firstNameInput = $('<input>').attr('type', 'text').val(response.firstName);
+          const lastNameInput = $('<input>').attr('type', 'text').val(response.lastName);
+          const usernameInput = $('<input>').attr('type', 'email').val(response.username);
+          const phoneNumberInput = $('<input>').attr('type', 'tel').val(response.phoneNumber);
+          const passwordInput = $('<input>').attr('type', 'password').val(response.password);
+          const submitButton = $('<button>').attr('type', 'submit').text('שמור');
+
+          form.append(
+            $('<label>').text('שם פרטי: ').append(firstNameInput),
+            $('<br>'),
+            $('<label>').text('שם משפחה: ').append(lastNameInput),
+            $('<br>'),
+            $('<label>').text('שם משתמש: ').append(usernameInput),
+            $('<br>'),
+            $('<label>').text('מספר טלפון: ').append(phoneNumberInput),
+            $('<br>'),
+            $('<label>').text('סיסמה: ').append(passwordInput),
+            $('<br>'),
+            submitButton
+          );
+
+          form.on('submit', function(event) {
+            event.preventDefault();
+
+            // Make an AJAX request to update the user's details in the backend
+            const updatedDetails = {
+              firstName: firstNameInput.val(),
+              lastName: lastNameInput.val(),
+              username: usernameInput.val(),
+              phoneNumber: phoneNumberInput.val(),
+              password: passwordInput.val()
+            };
+
+            $.ajax({
+              url: '/users/${userId}',
+              method: 'PUT',
+              data: updatedDetails,
+              success: function(response) {
+                console.log('User details updated successfully');
+              },
+              error: function(error) {
+                console.error('Error updating user details:', error);
+              }
+            });
+          });
+
+          $('.profile-page-container').empty().append(form);
+        }
+      },
+      error: function(error) {
+        console.error('Error retrieving user details:', error);
+      }
+    });
+  }
+}
+
+
+/////////////////////////////////// My WishList Tab ///////////////////////////////////
+
+function handleMyWishList(userId) {
+  $('.profile-page-container').empty();
+  
+  if(!userId) {
+    $('.profile-page-container').text(' עדיין לא התחברת 🖤');
+  }
+  else{
+    // Make an AJAX request to retrieve the user's wishlist from the backend
+    $.ajax({
+      url: `/users/${userId}/my-wish`,
+      method: 'GET',
+      success: function(response) {
+        if (response.length === 0) {
+          $('.profile-page-container').text('ריק פה, בטוח יש דברים יפים שראיתם 🖤');
+        } else {
+          // Build and display the wishlist table
+          const table = $('<table>').addClass('wishlist-table');
+          const tableHeader = $('<tr>').append(
+            $('<th>').text('Item Name'),
+            $('<th>').text('Price'),
+            $('<th>').text('Quantity'),
+            $('<th>').text('Add to Cart')
+          );
+
+          table.append(tableHeader);
+
+          response.forEach(function(item) {
+            const tableRow = $('<tr>').append(
+              $('<td>').text(item.name),
+              $('<td>').text(item.price),
+              $('<td>').text(item.amount),
+              $('<td>').append(
+                $('<button>').text('Add').on('click', function() {
+                  addToCart(item.id);
+                })
+              )
+            );
+
+            table.append(tableRow);
+          });
+
+          $('.profile-page-container').empty().append(table);
+        }
+      },
+      error: function(error) {
+        console.error('Error retrieving wishlist:', error);
+      }
+    });
+  }
+}
+
+
+/////////////////////////////////// Fetching for User Addresses tab  ////////////////////////////////////
+
+function fetchUserAddresses(data){
+  // Build and display the addresses table
+  const table = $('<table>').addClass('table table-striped');
+  const tableHeader = $('<tr>').append(
+    $('<th>').text('שם'),
+    $('<th>').text('עיר'),
+    $('<th>').text('רחוב'),
+    $('<th>').text('מספר בית'),
+    $('<th>').text('מספר דירה'),
+    $('<th>').text('מיקוד'),
+    $('<th>').text('פעולות')
+  );
+
+  table.append(tableHeader);
+  data.forEach(function(addressId) {
+    // Make an AJAX request to fetch the address details
+    $.ajax({
+      url: `addresses/${addressId}`,
+      method: 'GET',
+      success: function(addressData) {
         const tableRow = $('<tr>').append(
-          $('<td>').text(address.nickname),
-          $('<td>').text(address.city),
-          $('<td>').text(address.street),
-          $('<td>').text(address.houseNum),
-          $('<td>').text(address.apartmentNum),
-          $('<td>').text(address.postalCode),
+          $('<td>').text(addressData.nickname),
+          $('<td>').text(addressData.city),
+          $('<td>').text(addressData.street),
+          $('<td>').text(addressData.houseNum),
+          $('<td>').text(addressData.apartmentNum),
+          $('<td>').text(addressData.postalCode),
           $('<td>').append(
-            $('<button>').text('עריכה').attr('type','button').addClass('btn btn-outline-secondary').on('click', function() {
-              editAddress(address);
-            }),
-            $('<button>').text('מחיקה').attr('type','button').addClass('btn btn-outline-danger').on('click', function() {
-              deleteAddress(address.id);
-            })
+            $('<button>')
+              .text('עריכה')
+              .attr('type', 'button')
+              .addClass('btn btn-outline-secondary')
+              .on('click', function() {
+                editAddress(addressData);
+              }),
+            $('<button>')
+              .text('מחיקה')
+              .attr('type', 'button')
+              .addClass('btn btn-outline-danger')
+              .on('click', function() {
+                deleteAddress(addressData.id);
+              })
           )
         );
 
         table.append(tableRow);
-      });
+      },
+      error: function(error) {
+        console.error('Error fetching address:', error);
+      }
+    });
 
-      $('.profile-page-container').append(table);
-    },
-    error: function(error) {
-      console.error('Error retrieving addresses:', error);
-    }
-  });
+    // Append a row for adding a new address
+    const addRow = $('<tr>').append(
+      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newName')),
+      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newCity')),
+      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newStreet')),
+      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newHouseNum')),
+      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newApartmentNum')),
+      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newPostalCode')),
+      $('<td>').append(
+        $('<button>')
+          .text('שמירה')
+          .attr('type', 'button')
+          .addClass('btn btn-success')
+          .on('click', function() {
+            saveNewAddress();
+          })
+      )
+    );
+
+    table.append(addRow);
+  })
+
+  $('.profile-page-container').append(table);
 }
 
-// Function to handle editing an address
-function editAddress(address) {
-  const tableRow = $('tr').has('td:contains("' + address.name + '")');
 
-  // Convert address fields to input fields for editing
+/////////////////////////////////// Additional functions for Addresses  ////////////////////////////////////
+
+function editAddress(addressId) {
+  const tableRow = $(`tr[data-id='${addressId}']`);
+
+  // Convert table cells to inputs for editing
   tableRow.children().each(function(index) {
-    const text = $(this).text();
-    $(this).html($('<input>').val(text));
+    const cellText = $(this).text();
+    $(this).empty().append($('<input>').attr('type', 'text').addClass('form-control').val(cellText));
   });
 
-  const editButton = tableRow.find('.btn-primary');
-  editButton.text('שמירה').off('click').on('click', function() {
-    saveAddress(address.id);
-  });
+  // Replace the "Edit" button with a "Save" button
+  tableRow.find('.edit-button').replaceWith(
+    $('<button>')
+      .text('שמירה')
+      .attr('type', 'button')
+      .addClass('btn btn-success save-button')
+      .on('click', function() {
+        saveEditedAddress(addressId);
+      })
+  );
 }
 
-// Function to save the edited address
-function saveAddress(addressId) {
-  const tableRow = $('tr').has('button:contains("שמירה")');
+function saveEditedAddress(addressId) {
+  const tableRow = $(`tr[data-id='${addressId}']`);
 
   // Get the edited values from the input fields
-  const editedValues = {
-    name: tableRow.find('input').eq(0).val(),
-    city: tableRow.find('input').eq(1).val(),
-    street: tableRow.find('input').eq(2).val(),
-    houseNumber: tableRow.find('input').eq(3).val(),
-    apartmentNumber: tableRow.find('input').eq(4).val(),
-    zipCode: tableRow.find('input').eq(5).val()
-  };
+  const nickname = tableRow.find('input:eq(0)').val();
+  const city = tableRow.find('input:eq(1)').val();
+  const street = tableRow.find('input:eq(2)').val();
+  const houseNum = tableRow.find('input:eq(3)').val();
+  const apartmentNum = tableRow.find('input:eq(4)').val();
+  const postalCode = tableRow.find('input:eq(5)').val();
 
   // Make an AJAX request to update the address in the backend
   $.ajax({
-    url: 'http://localhost:5000/addresses/' + addressId,
+    url: `addresses/${addressId}`,
     method: 'PUT',
-    data: editedValues,
+    data: {
+      nickname: nickname,
+      city: city,
+      street: street,
+      houseNum: houseNum,
+      apartmentNum: apartmentNum,
+      postalCode: postalCode
+    },
     success: function(response) {
-      console.log('Address updated successfully');
-      handleMyAddress(); // Refresh the addresses table
+      // Replace the input fields with the updated values
+      tableRow.children().each(function(index) {
+        const inputValue = $(this).find('input').val();
+        $(this).empty().text(inputValue);
+      });
+
+      // Replace the "Save" button with an "Edit" button
+      tableRow.find('.save-button').replaceWith(
+        $('<button>')
+          .text('עריכה')
+          .attr('type', 'button')
+          .addClass('btn btn-outline-secondary edit-button')
+          .on('click', function() {
+            editAddress(response);
+          })
+      );
     },
     error: function(error) {
-      console.error('Error updating address:', error);
+      console.error('Error saving edited address:', error);
     }
   });
 }
 
-// Function to delete an address
 function deleteAddress(addressId) {
   // Make an AJAX request to delete the address from the backend
   $.ajax({
-    url: 'http://localhost:5000/addresses/' + addressId,
+    url: `addresses/${addressId}`,
     method: 'DELETE',
-    success: function(response) {
-      console.log('Address deleted successfully');
-      handleMyAddress(); // Refresh the addresses table
+    success: function() {
+      // Remove the table row from the UI
+      $(`tr[data-id='${addressId}']`).remove();
     },
     error: function(error) {
       console.error('Error deleting address:', error);
@@ -240,120 +454,66 @@ function deleteAddress(addressId) {
   });
 }
 
-/////////////////////////////////// My Details Tab ///////////////////////////////////
+function saveNewAddress() {
+  const newName = $('#newName').val();
+  const newCity = $('#newCity').val();
+  const newStreet = $('#newStreet').val();
+  const newHouseNum = $('#newHouseNum').val();
+  const newApartmentNum = $('#newApartmentNum').val();
+  const newPostalCode = $('#newPostalCode').val();
 
-// Function to handle "My Details" tab
-function handleMyDetails() {
-  $('.profile-page-container').empty();
-  // Make an AJAX request to retrieve the user's details from the backend
+  // Make an AJAX request to create a new address in the backend
   $.ajax({
-    url: 'http://localhost:5000/api/myuser',
-    method: 'GET',
+    url: 'addresses/',
+    method: 'POST',
+    data: {
+      nickname: newName,
+      city: newCity,
+      street: newStreet,
+      houseNum: newHouseNum,
+      apartmentNum: newApartmentNum,
+      postalCode: newPostalCode
+    },
     success: function(response) {
-      if (response === null) {
-        $('.profile-page-container').text('לא נמצאו פרטי משתמש');
-      } else {
-        // Build and display the details form
-        const form = $('<form>').addClass('details-form');
-        const firstNameInput = $('<input>').attr('type', 'text').val(response.firstName);
-        const lastNameInput = $('<input>').attr('type', 'text').val(response.lastName);
-        const usernameInput = $('<input>').attr('type', 'email').val(response.username);
-        const phoneNumberInput = $('<input>').attr('type', 'tel').val(response.phoneNumber);
-        const passwordInput = $('<input>').attr('type', 'password').val(response.password);
-        const submitButton = $('<button>').attr('type', 'submit').text('שמור');
+      // Create a new table row with the saved address
+      const tableRow = $('<tr>').attr('data-id', response.id).append(
+        $('<td>').text(response.nickname),
+        $('<td>').text(response.city),
+        $('<td>').text(response.street),
+        $('<td>').text(response.houseNum),
+        $('<td>').text(response.apartmentNum),
+        $('<td>').text(response.postalCode),
+        $('<td>').append(
+          $('<button>')
+            .text('עריכה')
+            .attr('type', 'button')
+            .addClass('btn btn-outline-secondary edit-button')
+            .on('click', function() {
+              editAddress(response);
+            }),
+          $('<button>')
+            .text('מחיקה')
+            .attr('type', 'button')
+            .addClass('btn btn-outline-danger')
+            .on('click', function() {
+              deleteAddress(response.id);
+            })
+        )
+      );
 
-        form.append(
-          $('<label>').text('שם פרטי: ').append(firstNameInput),
-          $('<br>'),
-          $('<label>').text('שם משפחה: ').append(lastNameInput),
-          $('<br>'),
-          $('<label>').text('שם משתמש: ').append(usernameInput),
-          $('<br>'),
-          $('<label>').text('מספר טלפון: ').append(phoneNumberInput),
-          $('<br>'),
-          $('<label>').text('סיסמה: ').append(passwordInput),
-          $('<br>'),
-          submitButton
-        );
+      // Insert the new table row before the add row
+      $('.profile-page-container table tr:last').before(tableRow);
 
-        form.on('submit', function(event) {
-          event.preventDefault();
-
-          // Make an AJAX request to update the user's details in the backend
-          const updatedDetails = {
-            firstName: firstNameInput.val(),
-            lastName: lastNameInput.val(),
-            username: usernameInput.val(),
-            phoneNumber: phoneNumberInput.val(),
-            password: passwordInput.val()
-          };
-
-          $.ajax({
-            url: 'http://localhost:5000/api/myuser',
-            method: 'PUT',
-            data: updatedDetails,
-            success: function(response) {
-              console.log('User details updated successfully');
-            },
-            error: function(error) {
-              console.error('Error updating user details:', error);
-            }
-          });
-        });
-
-        $('.profile-page-container').empty().append(form);
-      }
+      // Clear the input fields
+      $('#newName').val('');
+      $('#newCity').val('');
+      $('#newStreet').val('');
+      $('#newHouseNum').val('');
+      $('#newApartmentNum').val('');
+      $('#newPostalCode').val('');
     },
     error: function(error) {
-      console.error('Error retrieving user details:', error);
-    }
-  });
-}
-
-
-/////////////////////////////////// My WishList Tab ///////////////////////////////////
-
-function handleMyWishList() {
-  $('.profile-page-container').empty();
-  // Make an AJAX request to retrieve the user's wishlist from the backend
-  $.ajax({
-    url: 'http://localhost:5000/wishlist',
-    method: 'GET',
-    success: function(response) {
-      if (response.length === 0) {
-        $('.profile-page-container').text('ריק פה, בטוח יש דברים יפים שראיתם 🖤');
-      } else {
-        // Build and display the wishlist table
-        const table = $('<table>').addClass('wishlist-table');
-        const tableHeader = $('<tr>').append(
-          $('<th>').text('Item Name'),
-          $('<th>').text('Price'),
-          $('<th>').text('Quantity'),
-          $('<th>').text('Add to Cart')
-        );
-
-        table.append(tableHeader);
-
-        response.forEach(function(item) {
-          const tableRow = $('<tr>').append(
-            $('<td>').text(item.name),
-            $('<td>').text(item.price),
-            $('<td>').text(item.amount),
-            $('<td>').append(
-              $('<button>').text('Add').on('click', function() {
-                addToCart(item.id);
-              })
-            )
-          );
-
-          table.append(tableRow);
-        });
-
-        $('.profile-page-container').empty().append(table);
-      }
-    },
-    error: function(error) {
-      console.error('Error retrieving wishlist:', error);
+      console.error('Error saving new address:', error);
     }
   });
 }
@@ -370,7 +530,7 @@ function fetchUserOrdersHistory(data) {
     //console.log(orderId);
     // Make an AJAX request to fetch the complete order details
     $.ajax({
-      url: `/orders/${orderId}`, // Adjust the URL endpoint to fetch the order details
+      url: `/orders/${orderId}`,
       method: 'GET',
       success: function(response) {
         //console.log(response);

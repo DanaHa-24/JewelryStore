@@ -20,6 +20,9 @@ router.delete('/:userId', CartController.deleteCart);
 // Remove an item from the cart for the authenticated user (by ID)
 router.delete('/:cartId/items/:itemId', CartController.removeItem);
 
+// Update cart's item
+router.put('/:cartId/items/:itemId', CartController.updateCartItem);
+
 // Update the cart
 router.put('/:cartId/items', CartController.updateCart);
 

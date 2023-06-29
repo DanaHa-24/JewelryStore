@@ -41,7 +41,7 @@ let dotContainer = $("<div>").attr("id", "home-page-dot-container");
 slideshowContainer.append(slideshowContent, dotContainer);
 
 $.ajax({
-    url: `item/allItems`,
+    url: `item/`,
     method: 'GET',
     data: {
         sort: 0 // Index of the sorting option in the sortingArray (0 for howManySold: -1)
@@ -63,7 +63,7 @@ function createSlides(favoriteItems){
     for (let i = 0; i < 20; i++) {
         let item = favoriteItems[i];
         let slide = $("<div>").addClass("home-page-slide home-page-fade");
-        let slideImage = $("<img>").attr("src", "../images/BU.png").addClass("home-page-image");
+        let slideImage = $("<img>").attr("src", item.image).addClass("home-page-image");
         slideshowContent.append(slide.append(slideImage));
         dotContainer.append($("<span>").addClass("home-page-dot").click(function(){ currentSlide(i) }));
     }
