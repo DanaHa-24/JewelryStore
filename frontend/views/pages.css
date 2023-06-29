@@ -192,32 +192,32 @@ body {
     border-radius: 5px;
     margin-right: 5%;
     margin-left: 25%;
-  }
-  
-  .stores-page-location-info {
+}
+
+.stores-page-location-info {
     margin-bottom: 10px;
-  }
-  
-  .stores-page-location-name {
+}
+
+.stores-page-location-name {
     font-weight: bold;
     margin-bottom: 5px;
-  }
-  
-  .stores-page-city-location,
-  .stores-page-street-location {
-    display: block;
-  }
+}
 
-  .stores-page-street-location{
+.stores-page-city-location,
+.stores-page-street-location {
+    display: block;
+}
+
+.stores-page-street-location{
     margin-bottom: 15px;
-  }
+}
   
-  #stores-page-map {
+#stores-page-map {
     width: 100%;
     height: 100%;
     border-radius: 5px;
     margin-left: 5%;
-  }
+}
   
 
 /* Profile Page */
@@ -789,9 +789,9 @@ body {
 }
 
 .cart-page-container {
-    background-color: #f2f2f2;
-    width: 600px;
-    height: 480px;
+    background-color: #fffefc;
+    width: 700px;
+    height: fit-content;
     top: 60%;
     left: 45%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -820,16 +820,15 @@ body {
 }
 
 .wishlist-page-container {
-    background-color: #f2f2f2;
-    width: 600px;
-    height: 480px;
-    position: fixed;
+    background-color: #fffefc;
+    width: 700px;
+    height: fit-content;
     top: 60%;
     left: 45%;
-    transform: translate(-50%, -50%);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     padding: 20px;
+    margin: 20px auto;
     direction: rtl;
 }
 
@@ -899,7 +898,7 @@ body {
 #contact-page-header {
     font-size: 28px;
     font-weight: 600;
-    color: rgb(44, 44, 44);
+    color: #333;
 }
 
 #contact-page-form {
@@ -972,7 +971,7 @@ body {
     border-radius: 5px;
 }
 
-  #login-page-input-email{
+#login-page-input-email{
     height: 60px;
     width: 110%;
     border: none;
@@ -986,7 +985,7 @@ body {
     position: relative;
   }
 
-  #login-page-input-password{
+#login-page-input-password{
     height: 60px;
     width: 110%;
     border: none;
@@ -1022,8 +1021,10 @@ body {
 #login-page-header {
     font-size: 28px;
     font-weight: 600;
-    color: rgb(44, 44, 44);
-    text-align: center
+    color: #333;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 #login-page-button-link {
@@ -1103,8 +1104,10 @@ body {
 #signin-page-header {
     font-size: 28px;
     font-weight: 600;
-    color: rgb(44, 44, 44);
-    text-align: center
+    color: #333;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 #signin-page-button-link {
@@ -1249,8 +1252,8 @@ body {
     font-size: 14px;
     direction: rtl;
     margin-right: 60px;
-     margin-top: 30px;
-     color: #565656;
+    margin-top: 30px;
+    color: #565656;
 }
   
 .size {
@@ -1264,38 +1267,37 @@ body {
     font-size: 14px;
 }
   
-  #SG-table-video-container {
+#SG-table-video-container {
     display: flex;
     direction: rtl;
-  }
+}
   
-  #sg-size-table {
+#sg-size-table {
     flex: 1;
     margin-left: 10%;
-  }
+}
   
-  .video-container {
+.video-container {
     width: 40%;
     margin-left: 20px;
-  }
+}
   
-  .video-container video {
+.video-container video {
     width: 50%; /* Adjust the width as desired */
     height: auto;
-  }
+}
   
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     #SG-table-video-container {
-      flex-direction: column;
+    flex-direction: column;
     }
-  
-  .video-container {
-      width: 100%;
-      margin-left: 0;
-      margin-top: 20px;
+
+.video-container {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
     }
-  }
-  
+}
   
 /* About Page */
 
