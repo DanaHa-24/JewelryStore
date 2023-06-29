@@ -526,50 +526,60 @@ function fetchUserOrdersHistory(data) {
   const orderHistoryAccordion = $('<div>').attr('id', 'orderHistoryAccordion');
   $('.profile-page-container').append(orderHistoryAccordion);
 
+  // Helper function to create table rows for order items
+  function createTableRow(item) {
+    const itemImage = `<td><img src="${item.image}" alt="${item.name}" width="100px" height="100px"></td>`;
+    const itemName = `<td>${item.name}</td>`;
+    const itemQuantity = `<td>${item.quantity}</td>`;
+    const itemPrice = `<td>${item.price}</td>`;
+    return $('<tr>').append(itemImage, itemName, itemQuantity, itemPrice);
+  }
+
+  // Helper function to handle address details
+  function handleAddressDetails(address) {
+    let orderAddress = '';
+    if (address) {
+      orderAddress = `${address.city}, ${address.street} ${address.houseNum}, ${address.apartmentNum}, ${address.postalCode}`;
+    }
+    if (orderAddress) {
+      accordionBodyContent.append(`<p>כתובת למשלוח - ${orderAddress}</p>`);
+    }
+  }
+
   data.forEach(orderId => {
-    //console.log(orderId);
-    // Make an AJAX request to fetch the complete order details
+    const accordionItem = $('<div>').addClass('accordion-item-profile-page');
+    const accordionHeader = $('<h2>')
+      .addClass('pf-oh-accordion-header')
+      .attr('id', `orderHeading_${orderId}`);
+    const accordionButton = $('<button>')
+      .addClass('accordion-button')
+      .attr('type', 'button')
+      .attr('data-bs-toggle', 'collapse')
+      .attr('data-bs-target', `#collapse_${orderId}`)
+      .attr('aria-expanded', 'false')
+      .attr('aria-controls', `collapse_${orderId}`);
+    accordionHeader.append(accordionButton);
+
+    const accordionBody = $('<div>')
+      .addClass('accordion-collapse collapse')
+      .attr('id', `collapse_${orderId}`)
+      .attr('aria-labelledby', `orderHeading_${orderId}`);
+
+    const accordionBodyContent = $('<div>').addClass('accordion-body');
+
+    // Fetch complete order details
     $.ajax({
       url: `/orders/${orderId}`,
       method: 'GET',
       success: function(response) {
-        //console.log(response);
-        // Handle successful response (complete order details)
         const orderDate = response.createdAt;
         const orderNum = response.orderNumber;
         const orderState = response.state;
         const orderPaymentMethod = response.paymentMethod;
         const orderShipmentMethod = response.deliveryMethod;
         const orderTotalPrice = response.totalPrice;
-        const orderItemsId = response.orderItems;
+        const orderItems = response.orderItems;
         const addressId = response.address;
-
-        // Create the accordion item
-        const accordionItem = $('<div>').addClass('accordion-item-profile-page');
-
-        // Create the accordion header
-        const accordionHeader = $('<h2>')
-          .addClass('accordion-header')
-          .attr('id', `orderHeading_${orderId}`);
-
-        const accordionButton = $('<button>')
-          .addClass('accordion-button')
-          .attr('type', 'button')
-          .attr('data-bs-toggle', 'collapse')
-          .attr('data-bs-target', `#collapse_${orderId}`)
-          .attr('aria-expanded', 'false')
-          .attr('aria-controls', `collapse_${orderId}`)
-          .text(`הזמנה  ${orderNum} 🖤  `);
-
-        accordionHeader.append(accordionButton);
-
-        // Create the accordion body
-        const accordionBody = $('<div>')
-          .addClass('accordion-collapse collapse')
-          .attr('id', `collapse_${orderId}`)
-          .attr('aria-labelledby', `orderHeading_${orderId}`);
-
-        const accordionBodyContent = $('<div>').addClass('accordion-body');
 
         // Append the order details to the accordion body
         accordionBodyContent.append(`<p>תאריך הזמנה - ${orderDate}</p>`);
@@ -577,59 +587,64 @@ function fetchUserOrdersHistory(data) {
         accordionBodyContent.append(`<p>שיטת תשלום - ${orderPaymentMethod}</p>`);
         accordionBodyContent.append(`<p>משלוח / איסוף - ${orderShipmentMethod}</p>`);
         accordionBodyContent.append(`<p>סה"כ שולם - ₪${orderTotalPrice}</p>`);
+        accordionButton.text(`הזמנה  ${orderNum} 🖤`);
 
         // Create a table for order items
-        const table = $('<table>').addClass('table');
+        const table = $('<table>').addClass('table').attr("id","pf-oh-table");
         const tableBody = $('<tbody>');
 
         // Fetch order items details
-        const fetchOrderItems = orderItemsId.map(itemId => {
+        const itemPromises = orderItems.map(item => {
+
+          const itemId = item.item;
+          const itemQuantity = item.quantity;
+          console.log(itemId);
+
+          // Make an AJAX request to get item details
           return $.ajax({
-            url: `/items/${itemId}`,
-            method: 'GET'
+            url: `item/${itemId}`,
+            method: 'GET',
+            success: function(response) {
+              const itemImage = response.image;
+
+              const itemName = response.name;
+              const itemPrice = response.price;
+
+              // Create table row with item details
+              const row = createTableRow({
+                image: itemImage,
+                name: itemName,
+                quantity: itemQuantity,
+                price: itemPrice
+              });
+
+              // Append the row to the table body
+              tableBody.append(row);
+            },
+            error: function(error) {
+              console.error('Error fetching item details:', error);
+            }
           });
         });
 
-        // Wait for all AJAX requests for order items to complete
-        $.when(...fetchOrderItems)
-          .then(function(...orderItemsResponses) {
-            // Handle successful responses for order items
-            const orderItems = orderItemsResponses.map(response => response[0]);
-
-            // Iterate over order items and create table rows
-            orderItems.forEach(item => {
-              const itemImage = `<img src="${item.image}" alt="${item.name}" width="50" height="50">`;
-              const itemName = `<td>${item.name}</td>`;
-              const itemQuantity = `<td>${item.quantity}</td>`;
-              const itemPrice = `<td>${item.price}</td>`;
-
-              const row = $('<tr>').append(itemImage, itemName, itemQuantity, itemPrice);
-              tableBody.append(row);
-            });
-
-            // Append the table to the accordion body
+        // Wait for all item detail requests to complete
+        Promise.all(itemPromises)
+          .then(() => {
+            // Append the table body to the table
             table.append(tableBody);
+
+            // Append order's items table to accordion
             accordionBodyContent.append(table);
 
-            // Fetch address details - just for delivered orders
+            // Fetch address details (for delivered orders)
             if (addressId) {
               $.ajax({
-                url: `/addresses/${addressId}`, // Adjust the URL endpoint to fetch the address
+                url: `/addresses/${addressId}`,
                 method: 'GET',
                 success: function(address) {
-                  // Concatenate the address fields if available
-                  let orderAddress = '';
-                  if (address) {
-                    orderAddress = `${address.city}, ${address.street} ${address.houseNum}, ${address.apartmentNum}, ${address.postalCode}`;
-                  }
-
-                  // Append the order address if available
-                  if (orderAddress) {
-                    accordionBodyContent.append(`<p>כתובת למשלוח - ${orderAddress}</p>`);
-                  }
+                  handleAddressDetails(address);
                 },
                 error: function(error) {
-                  // Handle error fetching address
                   console.error('Error fetching address:', error);
                 },
                 complete: function() {
@@ -641,16 +656,6 @@ function fetchUserOrdersHistory(data) {
 
                   // Append the accordion item to the order history accordion
                   orderHistoryAccordion.append(accordionItem);
-
-                  // Activate the Bootstrap accordion
-                  $('#orderHistoryAccordion').addClass('accordion');
-                  $('.accordion-button').click(function() {
-                    $(this).attr('aria-expanded', function(index, attr) {
-                      return attr === 'true' ? 'false' : 'true';
-                    });
-                    const targetId = $(this).attr('data-bs-target');
-                    $(targetId).collapse('toggle');
-                  });
                 }
               });
             } else {
@@ -662,31 +667,25 @@ function fetchUserOrdersHistory(data) {
 
               // Append the accordion item to the order history accordion
               orderHistoryAccordion.append(accordionItem);
-
-              // Activate the Bootstrap accordion
-              $('#orderHistoryAccordion').addClass('accordion');
-              $('.accordion-button').click(function() {
-                $(this).attr('aria-expanded', function(index, attr) {
-                  return attr === 'true' ? 'false' : 'true';
-                });
-                const targetId = $(this).attr('data-bs-target');
-                $(targetId).collapse('toggle');
-              });
             }
           })
-          .fail(function(error) {
-            // Handle errors fetching order items
-            console.error('Error fetching order items:', error);
+          .catch(error => {
+            console.error('Error fetching item details:', error);
           });
-      },
-      error: function(error) {
-        // Handle error fetching order details
-        console.error('Error fetching order details:', error);
       }
     });
   });
-}
 
+  // Activate the Bootstrap accordion after all orders have been fetched
+  orderHistoryAccordion.addClass('accordion');
+  $('.accordion-button').click(function() {
+    $(this).attr('aria-expanded', function(index, attr) {
+      return attr === 'true' ? 'false' : 'true';
+    });
+    const targetId = $(this).attr('data-bs-target');
+    $(targetId).collapse('toggle');
+  });
+}
 
 
 

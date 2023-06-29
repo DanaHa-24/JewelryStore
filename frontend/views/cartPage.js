@@ -103,8 +103,8 @@ $(document).ready(function () {
 
               const orderButton = $('<button>').addClass('btn btn-primary').text('הזמן עכשיו');
               orderButton.on('click', function () {
-                // Redirect to order page
-                window.location.href = 'orderPage.html';
+                // Redirect to end purchase page
+                window.location.href = `endPurchasePage.html`;
               });
               cartContainer.append(orderButton);
 
