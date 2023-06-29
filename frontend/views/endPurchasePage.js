@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     // Create the card for order summary
     let orderSummaryCard = $('<div class="card"></div>').attr("id","EP-page-card");
-    let orderSummaryCardHeader = $('<div class="card-header"><h2>סיכום ההזמנה</h2></div>').attr("id","EP-page-card-header");
+    let orderSummaryCardHeader = $('<div class="card-header"></div>').attr("id","EP-page-card-header").text("סיכום הזמנה");
     let orderSummaryCardBody = $('<div class="card-body"></div>').attr("id","EP-page-card-body");
     let orderNumber = $('<p><strong>מספר הזמנה:</strong> #123456</p>').attr("id","EP-page-p");
     let orderTotal = $('<p><strong>סכום כולל:</strong> 500.00 ₪</p>').attr("id","EP-page-p");
@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     // Create the card for shipping details
     let shippingDetailsCard = $('<div class="card"></div>').attr("id","EP-page-card");
-    let shippingDetailsCardHeader = $('<div class="card-header"><h2>פרטי משלוח</h2></div>').attr("id","EP-page-card-header");
+    let shippingDetailsCardHeader = $('<div class="card-header"></div>').attr("id","EP-page-card-header").text("פרטי משלוח");
     let shippingDetailsCardBody = $('<div class="card-body"></div>').attr("id","EP-page-card-body");
     let shippingAddress = $('<p><strong>כתובת למשלוח:</strong>, רחוב , עיר, מיקוד</p>').attr("id","EP-page-p");
     let shippingMethod = $('<p><strong>שיטת משלוח:</strong> משלוח רגיל</p>').attr("id","EP-page-p");
@@ -28,7 +28,7 @@ $(document).ready(function() {
 
     // Create the card for payment details
     let paymentDetailsCard = $('<div class="card"></div>').attr("id","EP-page-card");
-    let paymentDetailsCardHeader = $('<div class="card-header"><h2>פרטי תשלום</h2></div>').attr("id","EP-page-card-header");
+    let paymentDetailsCardHeader = $('<div class="card-header"></div>').attr("id","EP-page-card-header").text("פרטי תשלום");
     let paymentDetailsCardBody = $('<div class="card-body"></div>').attr("id","EP-page-card-body");
     let paymentMethod = $('<p><strong>אמצעי תשלום:</strong> כרטיס אשראי</p>').attr("id","EP-page-p");
     paymentDetailsCardBody.append(paymentMethod);

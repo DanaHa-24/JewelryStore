@@ -739,12 +739,16 @@ body {
 #items-page-jewel-name{
     font-size: larger;
     margin: 5px 10px;
+    color: #333;
+    direction: rtl;
 }
 
 #items-page-jewel-price{
     font-weight: bold;
     font-size: larger;
     margin: 5px 10px;
+    color: #333;
+    direction: rtl;
 }
 
 #items-page-page-num-row{
@@ -1148,7 +1152,7 @@ body {
   
 #EP-page-h1 {
     color: #333;
-    font-size: 24px;
+    font-size: 32px;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -1168,7 +1172,7 @@ body {
     background-color: #f8f8f8;
     border-bottom: 1px solid #ccc;
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 24px;
     color: #333;
 }
   

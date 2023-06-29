@@ -16,10 +16,9 @@ $(document).ready(function() {
 
     // Create paragraphs
     const paragraphs = [
-        'אנחנו חברה מובילה בתחום התכשיטים היקרים והאיכותיים. מאז היווסדה בשנת 1990, עסקנו בעיקר בעיצוב, הפקה ושיווק של תכשיטים מותאמים אישית.',
-        'המותג שלנו הפך למוכר ונחשב ברחבי העולם, ואנו שמחים לשתף אתכם בסיפור ההצלחה שלנו.',
-        'במהלך השנים, פרויקטים רבים ומובחנים עשו את חלקם בקידום המותג וביצירת מקום מיוחד בשוק. התכשיטים שלנו מיוצרים בעבודת יד מחומרים איכותיים ומובחנים, מתאימים לכל אירוע ונושא.',
-        'אנו גאים באיכות המוצרים שלנו ובמגוון העיצובים המדהימים שאנו מציעים ללקוחותינו. נסחר את השנים, המותג שלנו מצליח לשמור על האיכות והמראה הייחודיים שהוא מוכר עליהם.'
+        'ברוכים הבאים ל-Be You, ', 'שם תכשיטים הם יותר מסתם קישוט - הם שיקוף של האומץ להיות עצמך.', 'בחרתי בשם "Be You" כי הוא מגלם את מהות המסע שלי בעולם. ',
+        'תמיד העזתי לאמץ את האינדיבידואליות שלי כשאחרים היססו, ואני רוצה שגם אתן.', 'Be You מסמל את הכוח של ביטוי עצמי, ומזכיר לנו שהיופי האמיתי טמון באותנטיות. ',
+        'עם כל פריט מעודן, אני מזמינה אותך לאמץ את הסיפור הייחודי שלך, ללבוש אותו בגאווה כדי שהעולם יראה.'
     ];
 
     paragraphs.forEach((text) => {
@@ -27,14 +26,10 @@ $(document).ready(function() {
         column.append(paragraph);
     });
 
-    // Create images
-    const images = ['https://deih43ym53wif.cloudfront.net/kuta-bali-beach-indonesia-shutterstock_297303287.jpg_9b516347e5.jpg'];
-
-    images.forEach((src) => {
-        const image = $('<img>').attr('src', src).addClass('img-fluid my-4');
-        column.append(image);
-    });
-
+    // Append image
+    const image = $('<img>').attr('src', "https://deih43ym53wif.cloudfront.net/kuta-bali-beach-indonesia-shutterstock_297303287.jpg_9b516347e5.jpg").addClass('img-fluid my-4');
+    column.append(image);
+    
     // Append container to the body
     $('body').append(container);
 });
