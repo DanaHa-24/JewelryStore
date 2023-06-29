@@ -1301,8 +1301,28 @@ body {
   
 /* About Page */
 
-.about-page-container {
+#about-page-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-decoration-line: underline;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+#about-page-container {
     background-color: #f8f9fa;
+}
+
+.about-page-row {
+    justify-content: center;
+}
+
+#about-page-content {
+    text-align: center;
+    direction: rtl;
 }
   
 /* Product Page */
