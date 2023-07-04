@@ -20,9 +20,6 @@ const wishlistRoutes = require('./routes/WishListRoute');
 console.log("hello");
 
 
-
-
-
 // Connect to our MongoDB Atlas
 const uri = `mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority`;
 const options = {
