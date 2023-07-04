@@ -80,11 +80,85 @@ async function searchUsers(filter) {
   }
 }
 
+
+// Get user's order history by ID
+async function getUserOrderHistory(userId) {
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    return user.orderHistory;
+  } catch (error) {
+    console.error('Error fetching order history:', error);
+    throw error;
+  }
+}
+
+
+// Get user's addresses by ID
+async function getUserAddresses(userId) {
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    return user.address;
+  } catch (error) {
+    console.error('Error fetching addresses:', error);
+    throw error;
+  }
+}
+
+
+// Get user's wishlist by ID
+async function getUserWishlist(userId) {
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    return user.myWishList;
+  } catch (error) {
+    console.error('Error fetching my wishlist:', error);
+    throw error;
+  }
+}
+
+
+
+// Get user's cart by ID
+async function getUserMyCart(userId) {
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    return user.MyCart;
+  } catch (error) {
+    console.error('Error fetching order my cart:', error);
+    throw error;
+  }
+}
+
+
 module.exports = {
     getAllUsers,
     createUser,
     updateUser,
     deleteUser,
     getUserById,
-    searchUsers
+    searchUsers,
+    getUserOrderHistory,
+    getUserAddresses,
+    getUserWishlist,
+    getUserMyCart
 };

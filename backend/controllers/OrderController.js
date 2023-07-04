@@ -5,7 +5,7 @@ const CartService = require('../services/CartService');
 // Get all orders
 async function getAllOrders(req, res) {
   try {
-    const orders = await OrderService.listOrders();
+    const orders = await OrderService.getAllOrders();
     res.json(orders);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -103,19 +103,6 @@ async function searchOrders(req, res) {
 }
 
 
-// Get user's order history
-async function getAllUserOrders(req, res) {
-  try {
-    const username = req.params.username;
-
-    const orders = await OrderService.getAllUserOrders(username);
-
-    res.status(200).json(orders);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-}
-
 module.exports = {
   createOrder,
   updateOrder,
@@ -123,6 +110,6 @@ module.exports = {
   getOrderById,
   deleteOrder,
   searchOrders,
-  getAllUserOrders
+  //getAllUserOrders
 };
 

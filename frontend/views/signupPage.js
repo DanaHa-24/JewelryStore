@@ -88,11 +88,11 @@ $(document).ready(function () {
   $('body').append(canvas);
 
   // Create a button to redirect to the sign-up page
-  let signUpButton = $('<button>')
-    .addClass('btn btn-link')
-    .text('נרשמת כבר בעבר? לחץ/י כאן להתחברות')
-    .click(function () {
-      window.location.href = 'loginPage.html'; // Replace "signup.html" with the URL of your sign-up page
+  let signUpButton = $("<button>")
+    .addClass("btn btn-link")
+    .text("נרשמת כבר בעבר? לחץ/י כאן להתחברות")
+    .click(function() {
+      window.location.href = "loginPage.html";
     })
     .attr('id', 'signin-page-button-link');
 
@@ -101,14 +101,14 @@ $(document).ready(function () {
 
   $('#signin-page-button').click(function (event) {
     event.preventDefault();
-    let firstNameSignin = $('#signin-page-input-firstName').val();
-    let lastNameSignin = $('#signin-page-input-lastName').val();
-    let emailSignin = $('#signin-page-input-email').val();
-    let addressSignin = $('#signin-page-input-address').val().split(',');
-    let phoneSignin = $('#signin-page-input-phoneNumber').val();
-    let passwordSignin = $('#signin-page-input-password').val();
-    let confirmPasswordSignin = $('#signin-page-input-confirmPassword').val();
-    console.log(addressSignin);
+    let firstNameSignin = $("#signin-page-input-firstName").val();
+    let lastNameSignin = $("#signin-page-input-lastName").val();
+    let emailSignin = $("#signin-page-input-email").val();
+    let addressSignin = $("#signin-page-input-address").val().split(",");
+    let phoneSignin = $("#signin-page-input-phoneNumber").val();
+    let passwordSignin = $("#signin-page-input-password").val();
+    let confirmPasswordSignin = $("#signin-page-input-confirmPassword").val();
+  
     // Create an object with the address data
     const addressData = {
       city: addressSignin[0],

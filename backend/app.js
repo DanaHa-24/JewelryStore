@@ -1,12 +1,12 @@
+// Import required modules
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser")
+const cors = require('cors');
 
-// For testing User
-const User = require('./models/UserSchema');
-
+// Import routes
 const itemRoutes = require('./routes/ItemRoute');
 const addressRoutes = require('./routes/AddressRoute');
 const cartRoutes = require ('./routes/CartRoute');
@@ -15,9 +15,12 @@ const orderRoutes = require('./routes/OrderRoute');
 const storeBranchesRoute = require('./routes/StoreBranchesRoute');
 const userRoutes = require('./routes/UserRoute');
 const wishlistRoutes = require('./routes/WishListRoute'); 
-const cors = require('cors');
+
+
 console.log("hello");
 
+
+// Connect to our MongoDB Atlas
 const uri = `mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority`;
 const options = {
   useNewUrlParser: true,
@@ -34,60 +37,54 @@ mongoose.connect(uri, options)
     console.error('Error connecting to MongoDB Atlas:', error);
   });
 
+
+// Enable Cross-Origin Resource Sharing (CORS)
 app.use(cors());
+
+// Parse JSON data in request bodies
 app.use(express.json());
 
+// Parse JSON data in request bodies with a limit of 30mb
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
+
+// Parse URL-encoded data in request bodies with a limit of 30mb
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 
 // Serve static files from the "frontend" directory
 app.use(express.static(path.join(__dirname, '../frontend/views')));
-// Serve static files from the "images" directory
+
+// Serve static files from the "../frontend/images" directory
 app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
+// Serve static files from the "../backend/images" directory
+app.use('/backendImages', express.static(path.join(__dirname, './images')));
 
-
-app.use('/api/mycart', cartRoutes);
-app.use('/api/myorders', orderRoutes);
-app.use('/api/mywishlist', wishlistRoutes);
-
-
-// Remove the api
-app.use('/api/item', itemRoutes);
 
 app.use('/map', storeBranchesRoute);
 app.use('/storeBranches', storeBranchesRoute);
 app.use('/users', userRoutes);
 app.use('/config', configRoutes);
 app.use('/addresses', addressRoutes);
+app.use('/wishlist', wishlistRoutes);
+app.use('/cart', cartRoutes);
+app.use('/orders', orderRoutes);
+app.use('/item', itemRoutes);
 
 
+// Default redirect => Home Page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/views/homePage.html'));
 });
 
-
-app.listen(5000, () => {
-  console.log('Backend server is running ');
-});
-
-
-// Test
-// app.get('/test', async (req, res) => {
-//   try {
-//     const users = await User.find({});
-//     res.json(users);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'An error occurred while querying the database' });
-//   }
-// });
-
-
-// For not found page
+// For other URL's => Not Found Page
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/views/pageNotFound.html'));
+});
+
+// Open the server
+app.listen(5000, () => {
+  console.log('Backend server is running ');
 });
 
 module.exports = app;

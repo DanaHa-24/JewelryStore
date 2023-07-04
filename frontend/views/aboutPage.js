@@ -1,40 +1,31 @@
+import { aboutUsText } from './constVars.js';
+
 $(document).ready(function() {
+    
     // Create container
-    const container = $('<div>').attr('id', 'container').addClass('container my-5 about-page-container');
+    const aboutContainer = $('<div>').attr('id', 'about-page-container').addClass('container my-5 about-page-container');
 
     // Create row
-    const row = $('<div>').addClass('row justify-content-center');
-    container.append(row);
+    const aboutRow = $('<div>').addClass('about-page-row d-flex justify-content-center align-items-center');
+    aboutContainer.append(aboutRow);
 
-    // Create column
-    const column = $('<div>').addClass('col-lg-8 text-center');
-    row.append(column);
+    // Create content container about us
+    const aboutContent = $('<div>').addClass('col-lg-8').attr('id', 'about-page-content');
+    aboutRow.append(aboutContent);
 
     // Create heading
-    const heading = $('<h2>').addClass('mb-4').text('הסיפור שלנו');
-    column.append(heading);
+    const aboutHeader = $('<h1>').addClass('mb-4').text('הסיפור שלנו').attr('id', 'about-page-header');
+    aboutContent.append(aboutHeader);  
 
-    // Create paragraphs
-    const paragraphs = [
-        'אנחנו חברה מובילה בתחום התכשיטים היקרים והאיכותיים. מאז היווסדה בשנת 1990, עסקנו בעיקר בעיצוב, הפקה ושיווק של תכשיטים מותאמים אישית.',
-        'המותג שלנו הפך למוכר ונחשב ברחבי העולם, ואנו שמחים לשתף אתכם בסיפור ההצלחה שלנו.',
-        'במהלך השנים, פרויקטים רבים ומובחנים עשו את חלקם בקידום המותג וביצירת מקום מיוחד בשוק. התכשיטים שלנו מיוצרים בעבודת יד מחומרים איכותיים ומובחנים, מתאימים לכל אירוע ונושא.',
-        'אנו גאים באיכות המוצרים שלנו ובמגוון העיצובים המדהימים שאנו מציעים ללקוחותינו. נסחר את השנים, המותג שלנו מצליח לשמור על האיכות והמראה הייחודיים שהוא מוכר עליהם.'
-    ];
-
-    paragraphs.forEach((text) => {
-        const paragraph = $('<p>').text(text);
-        column.append(paragraph);
+    aboutUsText.forEach((text) => {
+        const aboutLine = $('<p>').text(text);
+        aboutContent.append(aboutLine);
     });
 
-    // Create images
-    const images = ['https://deih43ym53wif.cloudfront.net/kuta-bali-beach-indonesia-shutterstock_297303287.jpg_9b516347e5.jpg'];
-
-    images.forEach((src) => {
-        const image = $('<img>').attr('src', src).addClass('img-fluid my-4');
-        column.append(image);
-    });
-
+    // Append image
+    const aboutImage = $('<img>').attr('src', 'https://deih43ym53wif.cloudfront.net/kuta-bali-beach-indonesia-shutterstock_297303287.jpg_9b516347e5.jpg').addClass('img-fluid my-4');
+    aboutContent.append(aboutImage);
+    
     // Append container to the body
-    $('body').append(container);
+    $('body').append(aboutContainer);
 });
