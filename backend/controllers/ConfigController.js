@@ -1,5 +1,5 @@
 const ConfigSchema = require('../models/ConfigSchema');
-const ConfigService = require('../services/ConfigServics');
+const ConfigService = require('../services/ConfigService');
 
 // Get all configs
 async function getAllConfigs(req, res) {
