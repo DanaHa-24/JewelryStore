@@ -140,4 +140,3 @@ module.exports = {
     searchWishlistItems,
     addItem
 };
-                

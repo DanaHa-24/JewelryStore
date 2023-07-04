@@ -107,5 +107,3 @@ module.exports = {
   searchAddresses,
   getUserAddresses
 };
-
-
