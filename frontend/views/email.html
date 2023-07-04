@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Email</title>
+</head>
+<body>
+  <button id="sendEmailBtn">Send Email</button>
+
+  <script>
+    document.getElementById('sendEmailBtn').addEventListener('click', function() {
+      const recipientEmail = 'recipient@example.com'; // Replace with the recipient's email address
+      const subject = 'Hello from the website!'; // Replace with the email subject
+      const body = 'Hi there, \n\nJust wanted to say hello! \n\nBest regards, \nYour Name'; // Replace with the email body
+
+      const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+    });
+  </script>
+</body>
+</html>
