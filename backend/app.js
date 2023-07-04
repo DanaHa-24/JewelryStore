@@ -25,8 +25,17 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }));
 // Parse URL-encoded data in request bodies with a limit of 30mb
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 
+
 // Serve static files from the "frontend" directory
 app.use(express.static(path.join(__dirname, '../frontend/views')));
+
+// Serve static files from the "../frontend/images" directory
+app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
+
+// Serve static files from the "../backend/images" directory
+app.use('/backendImages', express.static(path.join(__dirname, './images')));
+
+
 
 // Use the routes defined in the "routes" directory
 app.use('/', require('./routes'));

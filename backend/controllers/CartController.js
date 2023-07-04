@@ -149,8 +149,8 @@ module.exports = {
     deleteCart,
     removeItem,
     updateCart,
+    updateCartItem,
     getCartById,
     searchCartItems,
-    addItem,
-    updateCartItem
+    addItem
 };
