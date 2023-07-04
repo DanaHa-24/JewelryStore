@@ -96,5 +96,6 @@ module.exports = {
   updateAddress,
   getAddressById,
   searchAddresses,
-  getMyAddresses,
+  getMyAddresses
 };
+                
