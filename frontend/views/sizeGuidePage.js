@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  const sizeGuideHeader= $('<h1>מדריך מידות לטבעת</h1>').addClass("size-guide-header");
+  const sizeGuideHeader= $('<h1>מדריך מידות</h1>').addClass("size-guide-header");
   const sizeGuideContainer = $('<div>').addClass('sizeguide-page-container');
   $('body').append(sizeGuideHeader);
   $('body').append(sizeGuideContainer);
@@ -149,6 +149,4 @@ $(document).ready(function() {
     video[0].pause();
   });
   
-}); 
-
-
+});

@@ -69,4 +69,3 @@ function createAccordion(){
 
 // Call the function to create the accordion
 createAccordion();
-  

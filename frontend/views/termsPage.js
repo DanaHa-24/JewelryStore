@@ -15,7 +15,6 @@ $(document).ready(function() {
  
  
   $('<h2></h2>').addClass('custom-heading terms-page-h2').text(' משלוחים').appendTo(termsContainer);
-  $('<p></p>').addClass('checkpoint terms-page-cp').text('').appendTo(termsContainer);
   $('<p></p>').addClass('checkpoint terms-page-cp').text('הנהלת האתר אינה אחראית לעיכובים באספקת המוצרים כתוצאה מאירועים שאינם בשליטתה, כדוגמת תקלות, עיכובים, שביתות, אסונות טבע, תקלות במערכת המחשוב או במערכות הטלפונים שיפגעו בהשלמת תהליך הרכישה או תקלות בשירות הדואר האלקטרוני.').appendTo(termsContainer);
   $('<p></p>').addClass('checkpoint terms-page-cp').text('על מנת לדאוג שביצוע ההזמנה יבוצע על הצד הטוב ביותר ובלי תקלות יש להקפיד לתת פרטים נכונים ומדויקים. במידה ובעת ביצוע ההזמנה יימסרו פרטים שגויים, הנהלת האתר לא תוכל להבטיח כי התכשיטים יגיעו ליעדם. במידה והתכשיטים יחזרו להנהלת האתר בעקבות פרטים מוטעים, הלקוח/ה יישאו בתשלום בגין המשלוח.').appendTo(termsContainer);
 
