@@ -151,5 +151,6 @@ module.exports = {
     updateCart,
     getCartById,
     searchCartItems,
-    addItem
+    addItem,
+    updateCartItem
 };
