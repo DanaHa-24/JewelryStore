@@ -10,7 +10,7 @@ const authRoutes = require('./AuthRoute');
 
 const router = require('express').Router();
 
-router.use('/api/item', itemRoutes);
+router.use('/item', itemRoutes);
 router.use('/map', storeBranchesRoute);
 router.use('/storeBranches', storeBranchesRoute);
 router.use('/users', userRoutes);
