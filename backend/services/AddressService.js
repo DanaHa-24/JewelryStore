@@ -1,4 +1,5 @@
 const Address = require('../models/AddressSchema');
+const mongoose = require('mongoose');
 
 // Get all addresses
 async function getAllAddresses() {
@@ -11,102 +12,75 @@ async function getAllAddresses() {
   }
 }
 
-
 // Create a new address
 async function createAddress(addressData) {
-    try {
-      const newAddress = await Address.create(addressData);
-      return newAddress;
-    } catch (error) {
-      console.error('Error creating address:', error);
-      throw new Error('Failed to create address');
-    }
-}
-  
-
-// Delete an address by ID
-async function deleteAddress(addressId) {
-    try {
-      const deletedAddress = await Address.findByIdAndDelete(addressId);
-      if (!deletedAddress) {
-        throw new Error('Address not found');
-      }
-      return deletedAddress;
-    } catch (error) {
-      console.error('Error deleting address:', error);
-      throw new Error('Failed to delete address');
-    }
-}
-  
-
-// Update an address by ID
-async function updateAddress(addressId, updatedData) {
-    try {
-      const updatedAddress = await Address.findByIdAndUpdate(addressId, updatedData, { new: true });
-      if (!updatedAddress) {
-        throw new Error('Address not found');
-      }
-      return updatedAddress;
-    } catch (error) {
-      console.error('Error updating address:', error);
-      throw new Error('Failed to update address');
-    }
-}
-
-
-// Get an address by ID
-async function getAddressById(addressId) {
   try {
-    const address = await Address.findById(addressId);
-    if (!address) {
-      throw new Error('Address not found');
-    }
-    return address;
+    const newAddress = await Address.create(addressData);
+    return newAddress;
   } catch (error) {
-    throw new Error('Error fetching address by ID');
+    console.error('Error creating address:', error);
+    throw new Error('Failed to create address');
   }
 }
 
+// Delete an address by ID
+async function deleteAddress(addressId) {
+  const deletedAddress = await Address.findByIdAndDelete(addressId);
+  if (!deletedAddress) {
+    throw new Error('Address not found');
+  }
+  return deletedAddress;
+}
+
+// Update an address by ID
+async function updateAddress(addressId, updatedData) {
+  try {
+    const updatedAddress = await Address.findByIdAndUpdate(addressId, updatedData, { new: true });
+    if (!updatedAddress) {
+      throw new Error('Address not found');
+    }
+    return updatedAddress;
+  } catch (error) {
+    console.error('Error updating address:', error);
+    throw new Error('Failed to update address');
+  }
+}
+
+// Get an address by ID
+async function getAddressById(addressId) {
+  const address = await Address.findById(addressId);
+  if (!address) {
+    throw new Error('Address not found');
+  }
+  return address;
+}
 
 // Search addresses by name, city, or street
 async function searchAddresses(query) {
-    try {
-      const addresses = await Address.find({
-        $or: [
-          { name: { $regex: query, $options: 'i' } },
-          { city: { $regex: query, $options: 'i' } },
-          { street: { $regex: query, $options: 'i' } },
-        ],
-      });
-      return addresses;
-    } catch (error) {
-      console.error('Error searching addresses:', error);
-      throw new Error('Failed to search addresses');
-    }
+  console.log(query);
+  const addresses = await Address.find({
+    $or: [
+      { name: { $regex: query, $options: 'i' } },
+      { city: { $regex: query, $options: 'i' } },
+      { street: { $regex: query, $options: 'i' } },
+    ],
+  });
+  return addresses;
 }
-  
 
 // Get addresses for a specific user
 async function getUserAddresses(userId) {
-    try {
-      const addresses = await Address.find({ user: userId }); // Assuming the user field in the Address model represents the user associated with the address
-      return addresses;
-    } catch (error) {
-      console.error('Error getting user addresses:', error);
-      throw new Error('Failed to get user addresses');
-    }
+  const id = new mongoose.Types.ObjectId(userId);
+  const addresses = await Address.find({ user: id });
+  return addresses;
 }
-  
 
 module.exports = {
-                    createAddress,
-                    deleteAddress,
-                    updateAddress,
-                    getAllAddresses,
-                    getAddressById,
-                    searchAddresses,
-                    getUserAddresses
-                };
-
-
-
+  createAddress,
+  deleteAddress,
+  updateAddress,
+  getAllAddresses,
+  getAddressById,
+  searchAddresses,
+  getUserAddresses,
+};

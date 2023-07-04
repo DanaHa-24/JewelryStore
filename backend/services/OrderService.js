@@ -87,21 +87,21 @@ async function searchOrders(filter) {
 }
 
 
-// // Get all orders for a user
-// async function getAllUserOrders(username) {
-//   const orders = await Order.find({ username })
-//     .populate({
-//       path: 'orderItems.item',
-//       select: 'name price', // Include only the desired fields of the item
-//     })
-//     .populate({
-//       path: 'orderItems',
-//       select: 'quantity',
-//     })
-//     .populate('address');
+// Get all orders for a user
+async function getAllUserOrders(username) {
+  const orders = await Order.find({ username })
+    .populate({
+      path: 'orderItems.item',
+      select: 'name price', // Include only the desired fields of the item
+    })
+    .populate({
+      path: 'orderItems',
+      select: 'quantity',
+    })
+    .populate('address');
 
-//   return orders;
-// }
+  return orders;
+}
 
 module.exports = {
   createOrder,
@@ -110,5 +110,5 @@ module.exports = {
   updateOrder,
   deleteOrder,
   searchOrders,
-  //getAllUserOrders
+  getAllUserOrders
 };

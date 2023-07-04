@@ -1,17 +1,32 @@
 const OrderService = require('../services/OrderService');
-const CartService = require('../services/CartService'); 
-
+const CartService = require('../services/CartService');
+const Order = require('../models/OrderSchema');
 
 // Get all orders
 async function getAllOrders(req, res) {
   try {
-    const orders = await OrderService.getAllOrders();
+    const orders = await Order.find();
     res.json(orders);
+  } catch (error) {
+    res.status(500).json({ error: 'failed get all orders', message: error.message });
+  }
+}
+// Get an order by ID
+async function getOrderById(req, res) {
+  try {
+    const orderId = req.params.id;
+
+    const order = await OrderService.getOrderById(orderId);
+
+    if (order) {
+      res.status(200).json(order);
+    } else {
+      res.status(404).json({ message: 'Order not found' });
+    }
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 }
-
 
 // Create a new order
 async function createOrder(req, res) {
@@ -21,7 +36,7 @@ async function createOrder(req, res) {
 
     // Create the orderData object
     const orderData = {
-      orderItems: cartItems.map(item => ({
+      orderItems: cartItems.map((item) => ({
         item: item.itemId,
         quantity: item.quantity,
       })),
@@ -39,7 +54,6 @@ async function createOrder(req, res) {
   }
 }
 
-
 // Update an order by ID
 async function updateOrder(req, res) {
   try {
@@ -52,7 +66,6 @@ async function updateOrder(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
-
 
 // Delete an order by ID
 async function deleteOrder(req, res) {
@@ -73,23 +86,6 @@ async function deleteOrder(req, res) {
 }
 
 
-// Get an order by ID
-async function getOrderById(req, res) {
-  try {
-    const orderId = req.params.id;
-
-    const order = await OrderService.getOrderById(orderId);
-
-    if (order) {
-      res.status(200).json(order);
-    } else {
-      res.status(404).json({ message: 'Order not found' });
-    }
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-}
-
 
 // Search orders by given filter
 async function searchOrders(req, res) {
@@ -102,6 +98,18 @@ async function searchOrders(req, res) {
   }
 }
 
+// Get user's order history
+async function getAllUserOrders(req, res) {
+  try {
+    const username = req.params.username;
+
+    const orders = await OrderService.getAllUserOrders(username);
+
+    res.status(200).json(orders);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 module.exports = {
   createOrder,
@@ -110,6 +118,5 @@ module.exports = {
   getOrderById,
   deleteOrder,
   searchOrders,
-  //getAllUserOrders
+  getAllUserOrders,
 };
-

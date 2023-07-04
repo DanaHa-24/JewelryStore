@@ -18,12 +18,11 @@ $('body').append(row);
 $(document).ready(function() {
   // Make an AJAX request to retrieve the API key from the backend
   $.ajax({
-    url: 'http://localhost:5000/config/key',
+    url: 'http://localhost:5000/config/api-key',
     method: 'GET',
-    data: { name: 'GOOGLE_MAPS_API_KEY' },
     success: function(response) {
       const apiKey = response.apiKey;
-      loadGoogleMapsScript(apiKey); // Call the function with the retrieved API key
+      loadGoogleMapsScript(apiKey);
     },
     error: function(error) {
       console.error('Error retrieving API key:', error);

@@ -4,22 +4,22 @@
         "username": "noam.cohen@gmail.com",
         "orderItems": [
             {
-                "item": "26000",
+                "item": 26000,
                 "quantity": 2
             },
             {
-                "item": "46000",
+                "item": 46000,
                 "quantity": 1
             },
             {
-                "item": "26002",
+                "item": 26002,
                 "quantity": 1
             }
         ],
         "numOfItems": 4,
         "totalPrice": 566,
         "deliveryMethod": "pickup",
-        "address": "",
+        "address": "64981e4ceaa2cfe2d1aade77",
         "paymentMethod": "Cash",
         "state": "collected by costumer",
         "promoCode": "",
@@ -30,26 +30,26 @@
         "username": "Dana.levi@gmail.com",
         "orderItems": [
             {
-                "item": "26001",
+                "item": 26001,
                 "quantity": 2
             },
             {
-                "item": "46000",
+                "item": 46000,
                 "quantity": 1
             },
             {
-                "item": "26002",
+                "item": 26002,
                 "quantity": 1
             },
             {
-                "item": "26003",
+                "item": 26003,
                 "quantity": 2
             }
         ],
         "numOfItems": 6,
         "totalPrice": 904,
         "deliveryMethod": "pickup",
-        "address": "",
+        "address": "64981e4ceaa2cfe2d1aade78",
         "paymentMethod": "Cash",
         "state": "collected by costumer",
         "promoCode": "",
@@ -60,18 +60,18 @@
         "username": "Doritco@gmail.com",
         "orderItems": [
             {
-                "item": "26004",
+                "item": 26004,
                 "quantity": 1
             },
             {
-                "item": "16000",
+                "item": 16000,
                 "quantity": 1
             }
         ],
         "numOfItems": 2,
         "totalPrice": 318,
         "deliveryMethod": "pickup",
-        "address": "",
+        "address": "64981e4ceaa2cfe2d1aade7a",
         "paymentMethod": "Cash",
         "state": "collected by costumer",
         "promoCode": "",
@@ -82,18 +82,18 @@
         "username": "Doritco@gmail.com",
         "orderItems": [
             {
-                "item": "36000",
+                "item": 36000,
                 "quantity": 1
             },
             {
-                "item": "26005",
+                "item": 26005,
                 "quantity": 1
             }
         ],
         "numOfItems": 2,
         "totalPrice": 398,
         "deliveryMethod": "pickup",
-        "address": "",
+        "address": "64981e4ceaa2cfe2d1aade79",
         "paymentMethod": "Cash",
         "state": "collected by costumer",
         "promoCode": "",
@@ -104,20 +104,20 @@
         "username": "saraMen18@walla.com",
         "orderItems": [
             {
-                "item": "26005",
+                "item": 26005,
                 "quantity": 1
             },
             {
-                "item": "36001",
+                "item": 36001,
                 "quantity": 1
             }
         ],
         "numOfItems": 2,
         "totalPrice": 398,
-        "deliveryMethod": "shipping",
+        "deliveryMethod": "pickup",
         "address": "64981e4ceaa2cfe2d1aade7c",
         "paymentMethod": "Cash",
-        "state": "delivered to costumer",
+        "state": "collected by costumer",
         "promoCode": "",
         "createdAt": "2023-06-19T18:02:56.000Z"
     }

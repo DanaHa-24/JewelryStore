@@ -68,29 +68,6 @@ async function updateCart(cartId, cartData) {
 }
 
 
-// Update quantity for item by it's ID at the cart by it's ID
-async function updateCartItem(cartId, itemId, quantity) {
-  try {
-    const cart = await Cart.findById(cartId);
-    if (!cart) {
-      throw new Error('Cart not found');
-    }
-
-    const item = cart.items.find((item) => item.item.itemId.toString() === itemId);
-    if (!item) {
-      throw new Error('Item not found in cart');
-    }
-
-    item.quantity = quantity;
-    await cart.save();
-    
-    return cart;
-  } catch (error) {
-    throw new Error('Failed to update cart item');
-  }
-}
-
-
 // Get a specific cart by ID
 async function getCartById(cartId) {
   try {
@@ -153,7 +130,6 @@ module.exports = {
     deleteCart,
     removeItem,
     updateCart,
-    updateCartItem,
     getCartById,
     searchCartItems,
     addItem

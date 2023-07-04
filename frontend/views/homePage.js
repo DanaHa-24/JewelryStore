@@ -22,12 +22,6 @@ const categories = [
 ];
 
 const cardsContainer = $("<section>").attr("id", "home-page-categories-section").addClass("container");
-const slideshowContainer = $("<div>").attr("id", "home-page-slideshow-container");
-const slideshowContent = $("<div>").attr("id", "home-page-slideshow-content");
-const dotContainer = $("<div>").attr("id", "home-page-dot-container");
-const favoritesPhrase = $("<h2>").attr("id", "home-page-favorites-phrase").text(":התכשיטים המובילים שלנו");
-let slideIndex = 0;
-let slideshowInterval;
 
 $.each(categories, function(index, category){
     let cardWrapper = $("<a>").attr("href", `itemsPage.html?type=${category.english}`).addClass("home-page-card-wrapper");
@@ -37,23 +31,26 @@ $.each(categories, function(index, category){
     cardsContainer.append(cardWrapper.append(card.append(name)));
 });
 
-$("body").append(cardsContainer, favoritesPhrase);
+$("body").append(cardsContainer);
+
+let slideIndex = 1;
+let slideshowContainer = $("<div>").attr("id", "home-page-slideshow-container");
+let slideshowContent = $("<div>").attr("id", "home-page-slideshow-content");
+let dotContainer = $("<div>").attr("id", "home-page-dot-container");
 
 slideshowContainer.append(slideshowContent, dotContainer);
 
-// getting all items sorted by most to least favorite
-// showing the items in a slider and changing slide every 3.5 seconds
 $.ajax({
-    url: 'item',
+    url: `api/item/allItems`,
     method: 'GET',
     data: {
-        sort: 0 // the service function would refer to it as sorting by favorites
+        sort: 0 // Index of the sorting option in the sortingArray (0 for howManySold: -1)
       },
     success: function(response) {
         const favoriteItems = response.items;
         createSlides(favoriteItems);
         showSlides(slideIndex);
-        slideshowInterval = setInterval(function() {
+        setInterval(function() {
             plusSlides(1);
         }, 3500);
     },
@@ -62,38 +59,16 @@ $.ajax({
     }
 });
 
-// creating a slider with the 20 most favorite items
 function createSlides(favoriteItems){
     for (let i = 0; i < 20; i++) {
         let item = favoriteItems[i];
         let slide = $("<div>").addClass("home-page-slide home-page-fade");
-        let slideImage = $("<img>").attr("src", item.image).addClass("home-page-image");
+        let slideImage = $("<img>").attr("src", "../images/BU.png").addClass("home-page-image");
         slideshowContent.append(slide.append(slideImage));
-        dotContainer.append($("<span>").addClass("home-page-dot").click(function() {
-            clearInterval(slideshowInterval); // Clear the current interval
-            currentSlide(i);
-            slideshowInterval = setInterval(function() {
-                plusSlides(1);
-            }, 3500); // Start a new interval
-        }));
+        dotContainer.append($("<span>").addClass("home-page-dot").click(function(){ currentSlide(i) }));
     }
-    
-    let prev = $("<a>").addClass("home-page-prev-slide fas fa-chevron-left").click(function() {
-        clearInterval(slideshowInterval); // Clear the current interval
-        plusSlides(-1);
-        slideshowInterval = setInterval(function() {
-            plusSlides(1);
-        }, 3500); // Start a new interval
-    });
-
-    let next = $("<a>").addClass("home-page-next-slide fas fa-chevron-right").click(function() {
-        clearInterval(slideshowInterval); // Clear the current interval
-        plusSlides(1);
-        slideshowInterval = setInterval(function() {
-            plusSlides(1);
-        }, 3500); // Start a new interval
-    });
-
+    let prev = $("<a>").addClass("home-page-prev-slide fas fa-chevron-left").click(function(){ plusSlides(-1) });
+    let next = $("<a>").addClass("home-page-next-slide fas fa-chevron-right").click(function(){ plusSlides(1) });
     slideshowContent.append(prev, next);
     $("body").append(slideshowContainer);
 }
@@ -110,11 +85,11 @@ function showSlides(n) {
     let slides = $(".home-page-slide");
     let dots = $(".home-page-dot");
     
-    if (n > slides.length - 1) {
-        slideIndex = 0;
+    if (n > slides.length) {
+        slideIndex = 1;
     }    
-    else if (n < 0) {
-        slideIndex = slides.length - 1;
+    if (n < 1) {
+        slideIndex = slides.length;
     }
 
     // Hide all slides
@@ -122,7 +97,7 @@ function showSlides(n) {
     // Remove "home-page-active" class from all dots
     dots.removeClass("home-page-active");
     // Show the current slide
-    slides.eq(slideIndex).show();
+    slides.eq(slideIndex - 1).show();
     // Add "home-page-active" class to the current dot
-    dots.eq(slideIndex).addClass("home-page-active");
+    dots.eq(slideIndex - 1).addClass("home-page-active");
 }

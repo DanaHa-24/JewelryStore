@@ -1,9 +1,9 @@
 [
     {
-        "id" : "10000",
+        "id" : 10000,
         "name" : "טבעת ג'ייד",
         "price" : 80,
-        "image" : "./backendImages/10000.jpg",
+        "image" : "/images/10000.jpeg",
         "type" : "Ring",
         "color" : ["green","blue"],
         "size" : ["flexible"],
@@ -11,14 +11,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 1 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 1 
     },
     {
-        "id" : "10001",
+        "id" : 10001,
         "name" : "טבעת ויולה",
         "price" : 80,
-        "image" : "./backendImages/10001.jpg",
+        "image" : "/images/10001.jpeg",
         "type" : "Ring",
         "color" : ["purple"],
         "size" : ["flexible"],
@@ -26,14 +25,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "10002",
+        "id" : 10002,
         "name" : "טבעת מידנייט",
         "price" : 80,
-        "image" : "./backendImages/10002.jpg",
+        "image" : "/images/10002.jpeg",
         "type" : "Ring",
         "color" : ["blue","black"],
         "size" : ["flexible"],
@@ -41,14 +39,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 1 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 1 
     },
     {
-        "id" : "10003",
+        "id" : 10003,
         "name" : "טבעת קיארה",
         "price" : 80,
-        "image" : "./backendImages/10003.jpg",
+        "image" : "/images/10003.jpeg",
         "type" : "Ring",
         "color" : ["green"],
         "size" : ["flexible"],
@@ -56,14 +53,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "10004",
+        "id" : 10004,
         "name" : "טבעת אמבר",
         "price" : 80,
-        "image" : "./backendImages/10004.jpg",
+        "image" : "/images/10004.jpeg",
         "type" : "Ring",
         "color" : ["brown"],
         "size" : ["flexible"],
@@ -71,14 +67,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "10005",
+        "id" : 10005,
         "name" : "טבעת הייזל",
         "price" : 80,
-        "image" : "./backendImages/10005.jpg",
+        "image" : "/images/10005.jpeg",
         "type" : "Ring",
         "color" : ["brown"],
         "size" : ["flexible"],
@@ -86,14 +81,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "10006",
+        "id" : 10006,
         "name" : "טבעת לונה",
         "price" : 80,
-        "image" : "./backendImages/10006.jpg",
+        "image" : "/images/10006.jpeg",
         "type" : "Ring",
         "color" : ["white"],
         "size" : ["flexible"],
@@ -101,14 +95,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "10007",
+        "id" : 10007,
         "name" : "טבעת ליליאן",
         "price" : 120,
-        "image" : "./backendImages/10007.jpg",
+        "image" : "/images/10007.jpeg",
         "type" : "Ring",
         "color" : ["white"],
         "size" : ["flexible"],
@@ -116,14 +109,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "11000",
+        "id" : 11000,
         "name" : "טבעת לאב",
         "price" : 70,
-        "image" : "./backendImages/11000.jpg",
+        "image" : "/images/11000.jpeg",
         "type" : "Ring",
         "color" : [],
         "size" : ["5","6","7","8","9"],
@@ -131,14 +123,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "11001",
+        "id" : 11001,
         "name" : "טבעת סופיה",
         "price" : 80,
-        "image" : "./backendImages/11001.jpg",
+        "image" : "/images/11001.jpeg",
         "type" : "Ring",
         "color" : [],
         "size" : ["6","7","8","9","10"],
@@ -146,14 +137,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 1 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 1 
     },
     {
-        "id" : "12000",
+        "id" : 12000,
         "name" : "טבעת לילי",
         "price" : 40,
-        "image" : "./backendImages/12000,12001,12003.jpg",
+        "image" : "/images/12000,12001,12003.jpeg",
         "type" : "Ring",
         "color" : ["blue"],
         "size" : ["5","6","7","8","9","10"],
@@ -161,14 +151,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "12001",
+        "id" : 12001,
         "name" : "טבעת איב",
         "price" : 40,
-        "image" : "./backendImages/12000,12001,12003.jpg",
+        "image" : "/images/12000,12001,12003.jpeg",
         "type" : "Ring",
         "color" : ["green"],
         "size" : ["5","6","7","8","9","10"],
@@ -176,14 +165,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "12002",
+        "id" : 12002,
         "name" : "טבעת קמילה",
         "price" : 40,
-        "image" : "./backendImages/12002,12004.jpg",
+        "image" : "/images/12002,12004.jpeg",
         "type" : "Ring",
         "color" : [],
         "size" : ["5","6","7","8","9","10"],
@@ -191,14 +179,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "12003",
+        "id" : 12003,
         "name" : "טבעת מילאן",
         "price" : 40,
-        "image" : "./backendImages/12000,12001,12003.jpg",
+        "image" : "/images/12000,12001,12003.jpeg",
         "type" : "Ring",
         "color" : ["purple"],
         "size" : ["5","6","7","8","9","10"],
@@ -206,14 +193,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "12004",
+        "id" : 12004,
         "name" : "טבעת סוואן",
         "price" : 40,
-        "image" : "./backendImages/12002,12004.jpg",
+        "image" : "/images/12002,12004.jpeg",
         "type" : "Ring",
         "color" : [],
         "size" : ["5","6","7","8","9","10"],
@@ -221,8 +207,7 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
 	{
 		"id": "16000",
@@ -236,8 +221,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 1,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 1
 	},
 	{
 		"id": "16001",
@@ -251,8 +235,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
     {
 		"id": "16002",
@@ -266,8 +249,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16003",
@@ -281,8 +263,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16004",
@@ -296,8 +277,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16005",
@@ -311,8 +291,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16006",
@@ -326,8 +305,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16007",
@@ -341,8 +319,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16008",
@@ -356,8 +333,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16009",
@@ -371,8 +347,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16010",
@@ -386,8 +361,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16011",
@@ -401,8 +375,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16012",
@@ -416,8 +389,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16013",
@@ -431,8 +403,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16014",
@@ -446,8 +417,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "16015",
@@ -461,14 +431,13 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
     {
-        "id" : "20000",
+        "id" : 20000,
         "name" : "שרשרת סאן-פלאוור",
         "price" : 100,
-        "image" : "./backendImages/20000.jpg",
+        "image" : "/images/20000.jpeg",
         "type" : "Necklace",
         "color" : ["white","yellow"],
         "size" : [],
@@ -476,14 +445,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 1,
-		"createdAt" : "12:16 - 24/6/2023" 
+        "howManySold" : 1 
     },
     {
-        "id" : "20001",
+        "id" : 20001,
         "name" : "שרשרת מגנוליה",
         "price" : 100,
-        "image" : "./backendImages/20001.jpg",
+        "image" : "/images/20001.jpeg",
         "type" : "Necklace",
         "color" : ["white"],
         "size" : [],
@@ -491,14 +459,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 3 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 3 
     },
     {
-        "id" : "20007",
+        "id" : 20007,
         "name" : "שרשרת בל-פלאוור",
         "price" : 100,
-        "image" : "./backendImages/20007.jpg",
+        "image" : "/images/20007.jpeg",
         "type" : "Necklace",
         "color" : ["white","blue"],
         "size" : [],
@@ -506,14 +473,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "21000",
+        "id" : 21000,
         "name" : "שרשרת אנאבל",
         "price" : 120,
-        "image" : "./backendImages/21000.jpg",
+        "image" : "/images/21000.jpeg",
         "type" : "Necklace",
         "color" : ["blue"],
         "size" : [],
@@ -521,14 +487,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 1 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 1 
     },
     {
-        "id" : "21001",
+        "id" : 21001,
         "name" : "שרשרת פנלופי",
         "price" : 120,
-        "image" : "./backendImages/21001.jpg",
+        "image" : "/images/21001.jpeg",
         "type" : "Necklace",
         "color" : ["white","pink"],
         "size" : [],
@@ -536,14 +501,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "21002",
+        "id" : 21002,
         "name" : "שרשרת סלינה",
         "price" : 120,
-        "image" : "./backendImages/21002.jpg",
+        "image" : "/images/21002.jpeg",
         "type" : "Necklace",
         "color" : ["green"],
         "size" : [],
@@ -551,14 +515,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0,
-		"createdAt" : "12:16 - 24/6/2023" 
+        "howManySold" : 0 
     },
     {
-        "id" : "21003",
+        "id" : 21003,
         "name" : "שרשרת זארה",
         "price" : 90,
-        "image" : "./backendImages/21003.jpg",
+        "image" : "/images/21003.jpeg",
         "type" : "Necklace",
         "color" : ["blue","purple","green"],
         "size" : [],
@@ -566,14 +529,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "21004",
+        "id" : 21004,
         "name" : "שרשרת אוליביה",
         "price" : 90,
-        "image" : "./backendImages/22022,21004.jpg",
+        "image" : "/images/22022,21004.jpeg",
         "type" : "Necklace",
         "color" : ["green"],
         "size" : [],
@@ -581,14 +543,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 1 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 1 
     },
     {
-        "id" : "21005",
+        "id" : 21005,
         "name" : "שרשרת לילה",
         "price" : 80,
-        "image" : "./backendImages/22018,21005.jpg",
+        "image" : "/images/22018,21005.jpeg",
         "type" : "Necklace",
         "color" : ["purple"],
         "size" : [],
@@ -596,14 +557,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "21007",
+        "id" : 21007,
         "name" : "שרשרת יסמין",
         "price" : 120,
-        "image" : "./backendImages/21007.jpg",
+        "image" : "/images/21007.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -611,14 +571,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "21008",
+        "id" : 21008,
         "name" : "שרשרת מלודי",
         "price" : 120,
-        "image" : "./backendImages/21008.jpg",
+        "image" : "/images/21008.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -626,14 +585,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 1 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 1 
     },
     {
-        "id" : "21009",
+        "id" : 21009,
         "name" : "שרשרת אמילי",
         "price" : 80,
-        "image" : "./backendImages/21009.jpg",
+        "image" : "/images/21009.jpeg",
         "type" : "Necklace",
         "color" : ["blue"],
         "size" : [],
@@ -641,14 +599,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 1 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 1 
     },
     {
-        "id" : "21010",
+        "id" : 21010,
         "name" : "שרשרת אוליב",
         "price" : 80,
-        "image" : "./backendImages/21010,22019.jpg",
+        "image" : "/images/21010,22019.jpeg",
         "type" : "Necklace",
         "color" : ["green"],
         "size" : [],
@@ -656,14 +613,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "21011",
+        "id" : 21011,
         "name" : "שרשרת איירין",
         "price" : 100,
-        "image" : "./backendImages/21011,22027.jpg",
+        "image" : "/images/21011,22027.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -671,14 +627,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22000",
+        "id" : 22000,
         "name" : "שרשרת ליה",
         "price" : 70,
-        "image" : "./backendImages/22000.jpg",
+        "image" : "/images/22000.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -686,14 +641,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22001",
+        "id" : 22001,
         "name" : "שרשרת סיינה",
         "price" : 80,
-        "image" : "./backendImages/22001.jpg",
+        "image" : "/images/22001.jpeg",
         "type" : "Necklace",
         "color" : ["brown"],
         "size" : [],
@@ -701,14 +655,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22002",
+        "id" : 22002,
         "name" : "שרשרת ויולטה",
         "price" : 80,
-        "image" : "./backendImages/22002,22003.jpg",
+        "image" : "/images/22002,22003.jpeg",
         "type" : "Necklace",
         "color" : ["purple"],
         "size" : [],
@@ -716,14 +669,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22003",
+        "id" : 22003,
         "name" : "שרשרת רייבן",
         "price" : 80,
-        "image" : "./backendImages/22002,22003.jpg",
+        "image" : "/images/22002,22003.jpeg",
         "type" : "Necklace",
         "color" : ["black","blue"],
         "size" : [],
@@ -731,14 +683,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22006",
+        "id" : 22006,
         "name" : "שרשרת איזבל",
         "price" : 120,
-        "image" : "./backendImages/22006.jpg",
+        "image" : "/images/22006.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -746,14 +697,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22008",
+        "id" : 22008,
         "name" : "שרשרת קווין",
         "price" : 70,
-        "image" : "./backendImages/22008.jpg",
+        "image" : "/images/22008.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -761,14 +711,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22009",
+        "id" : 22009,
         "name" : "שרשרת מלאני",
         "price" : 110,
-        "image" : "./backendImages/22009.jpg",
+        "image" : "/images/22009.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -776,14 +725,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22013",
+        "id" : 22013,
         "name" : "שרשרת קוויני",
         "price" : 120,
-        "image" : "./backendImages/22013,22015.jpg",
+        "image" : "/images/22013,22015.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -791,14 +739,13 @@
         "style" : ["long"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22014",
+        "id" : 22014,
         "name" : "שרשרת היילי",
         "price" : 120,
-        "image" : "./backendImages/22014.jpg",
+        "image" : "/images/22014.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -806,14 +753,13 @@
         "style" : ["long"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22015",
+        "id" : 22015,
         "name" : "שרשרת רנה",
         "price" : 80,
-        "image" : "./backendImages/22013,22015.jpg",
+        "image" : "/images/22013,22015.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -821,14 +767,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22016",
+        "id" : 22016,
         "name" : "שרשרת מליסה",
         "price" : 90,
-        "image" : "./backendImages/22016.jpg",
+        "image" : "/images/22016.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -836,14 +781,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22017",
+        "id" : 22017,
         "name" : "שרשרת ויקטוריה",
         "price" : 70,
-        "image" : "./backendImages/22017.jpg",
+        "image" : "/images/22017.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -851,14 +795,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22018",
+        "id" : 22018,
         "name" : "שרשרת נאיה",
         "price" : 70,
-        "image" : "./backendImages/22018,21005.jpg",
+        "image" : "/images/22018,21005.jpeg",
         "type" : "Necklace",
         "color" : ["purple"],
         "size" : [],
@@ -866,29 +809,27 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
 	{
-        "id" : "22019",
+        "id" : 22019,
         "name" : "שרשרת אלין",
         "price" : 70,
-        "image" : "./backendImages/21010,22019.jpg",
-        "type" : "Necklace",
+        "image" : "/images/21010,22019.jpeg",
+        "type" : "necklace",
         "color" : ["green"],
         "size" : [],
-        "material" : ["silver","pearl"],
+        "metirial" : ["silver","pearl"],
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22022",
+        "id" : 22022,
         "name" : "שרשרת ניקול",
         "price" : 80,
-        "image" : "./backendImages/22022,21004.jpg",
+        "image" : "/images/22022,21004.jpeg",
         "type" : "Necklace",
         "color" : ["green"],
         "size" : [],
@@ -896,14 +837,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22023",
+        "id" : 22023,
         "name" : "שרשרת לורן",
         "price" : 80,
-        "image" : "./backendImages/22023.jpg",
+        "image" : "/images/22023.jpeg",
         "type" : "Necklace",
         "color" : ["black"],
         "size" : [],
@@ -911,14 +851,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22026",
+        "id" : 22026,
         "name" : "שרשרת קלואי",
         "price" : 70,
-        "image" : "./backendImages/22026.jpg",
+        "image" : "/images/22026.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -926,14 +865,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "22027",
+        "id" : 22027,
         "name" : "שרשרת אדריאן",
         "price" : 80,
-        "image" : "./backendImages/21011,22027.jpg",
+        "image" : "/images/21011,22027.jpeg",
         "type" : "Necklace",
         "color" : [],
         "size" : [],
@@ -941,14 +879,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "23000",
+        "id" : 23000,
         "name" : "שרשרת ווילו",
         "price" : 170,
-        "image" : "./backendImages/23000.jpg",
+        "image" : "/images/23000.jpeg",
         "type" : "Necklace",
         "color" : ["brown"],
         "size" : [],
@@ -956,14 +893,13 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "23007",
+        "id" : 23007,
         "name" : "שרשרת לוסי",
         "price" : 190,
-        "image" : "./backendImages/23007.jpg",
+        "image" : "/images/23001.jpeg",
         "type" : "Necklace",
         "color" : ["white"],
         "size" : [],
@@ -971,8 +907,7 @@
         "style" : ["choker"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
 	{
 		"id": "26000",
@@ -986,8 +921,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 2,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 2
 	},
 	{
 		"id": "26001",
@@ -1001,29 +935,27 @@
 		"style": ["choker"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 2,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 2
     },
 	{
 		"id": "26002",
-		"name": "שרשרת סיטרין לאב",
-		"price": 139,
-		"image": "https://shoptaostyle.com/wp-content/uploads/2023/02/20230228182231_IMG_0726-01.jpg",
+		"name": "שרשרת סנדי",
+		"price": 129,
+		"image": "https://shoptaostyle.com/wp-content/uploads/2023/05/1970-01-20-014204260-64x96.jpg 64w, https://shoptaostyle.com/wp-content/uploads/2023/05/1970-01-20-014204260.jpg",
 		"type": "Necklace",
-		"color": ["gold","pink"],
+		"color": ["silver"],
 		"size": [],
-		"material": ["gold","stone"],
-		"style": ["regular"],
+		"material": ["silver"],
+		"style": ["set"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 2
 	},
 	{
 		"id": "26003",
 		"name": "שרשרת לאסי",
 		"price": 169,
-		"image": "https://shoptaostyle.com/wp-content/uploads/2023/04/20230422125251_IMG_3485-600x900.jpg",
+		"image": "https://shoptaostyle.com/wp-content/uploads/2023/05/1970-01-20-014204260.jpg",
 		"type": "Necklace",
 		"color": ["black", "white", "blue"],
 		"size": [],
@@ -1031,14 +963,13 @@
 		"style": ["choker"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 2,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 2
 	},
 	{
 		"id": "26004",
 		"name": "שרשרת מייסי",
 		"price": 189,
-		"image": "https://shoptaostyle.com/wp-content/uploads/2023/02/1970-01-20-122126114-600x900.jpg",
+		"image": "https://shoptaostyle.com/wp-content/uploads/2023/05/1970-01-20-014204260.jpg",
 		"type": "Necklace",
 		"color": ["silver"],
 		"size": [],
@@ -1046,8 +977,7 @@
 		"style": ["set"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 1,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 1
 	},
 	{
 		"id": "26005",
@@ -1061,8 +991,7 @@
 		"style": ["set"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 2,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 2
     },
 	{
 		"id": "26006",
@@ -1076,8 +1005,7 @@
 		"style": ["choker"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
     },
 	{
 		"id": "26007",
@@ -1091,8 +1019,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "26008",
@@ -1106,8 +1033,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
     },
 	{
 		"id": "26009",
@@ -1121,14 +1047,27 @@
 		"style": ["choker"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
     },
+	{
+		"id": "26010",
+		"name": "שרשרת סיטרין לאב",
+		"price": 139,
+		"image": "https://shoptaostyle.com/wp-content/uploads/2023/02/20230228182231_IMG_0726-01.jpg",
+		"type": "Necklace",
+		"color": ["gold","pink"],
+		"size": [],
+		"material": ["gold","stone"],
+		"style": ["regular"],
+		"amountInStock": 10,
+		"status": "available",
+		"howManySold": 0
+	},
     {
-        "id" : "31000",
+        "id" : 31000,
         "name" : "צמיד קיילי",
         "price" : 60,
-        "image" : "./backendImages/31000.jpg",
+        "image" : "/images/31000.jpeg",
         "type" : "Bracelet",
         "color" : [],
         "size" : ["14","15","16"],
@@ -1136,14 +1075,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "31001",
+        "id" : 31001,
         "name" : "צמיד בלום",
         "price" : 60,
-        "image" : "./backendImages/31001.jpg",
+        "image" : "/images/31001.jpeg",
         "type" : "Bracelet",
         "color" : [],
         "size" : ["14","15","16"],
@@ -1151,14 +1089,13 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "31002",
+        "id" : 31002,
         "name" : "צמיד אנדי",
         "price" : 60,
-        "image" : "./backendImages/31002.jpg",
+        "image" : "/images/31002.jpeg",
         "type" : "Bracelet",
         "color" : [],
         "size" : ["14","15","16"],
@@ -1166,8 +1103,7 @@
         "style" : ["regular"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
 	{
 		"id": "36000",
@@ -1181,8 +1117,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 1,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 1
 	},
 	{
 		"id": "36001",
@@ -1196,8 +1131,7 @@
 		"style": ["set"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 1,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 1
 	},
 	{
 		"id": "36002",
@@ -1211,8 +1145,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36003",
@@ -1226,8 +1159,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36004",
@@ -1241,8 +1173,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36005",
@@ -1256,8 +1187,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36006",
@@ -1271,8 +1201,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36007",
@@ -1286,8 +1215,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36008",
@@ -1295,14 +1223,13 @@
 		"price": 169,
 		"image": "https://shoptaostyle.com/wp-content/uploads/2022/12/1970-01-20-101035028.jpg",
 		"type": "Bracelet",
-		"color": ["silver", "white"],
+		"color": ["Silver", "white"],
 		"size": ["14","15","16"],
 		"material": ["silver", "pearl"],
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36009",
@@ -1316,8 +1243,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36010",
@@ -1331,8 +1257,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36011",
@@ -1346,8 +1271,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36012",
@@ -1361,8 +1285,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36013",
@@ -1376,8 +1299,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36014",
@@ -1391,8 +1313,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36015",
@@ -1406,8 +1327,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36016",
@@ -1421,8 +1341,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36017",
@@ -1436,8 +1355,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36018",
@@ -1451,8 +1369,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36019",
@@ -1466,8 +1383,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36020",
@@ -1481,8 +1397,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36021",
@@ -1496,8 +1411,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36022",
@@ -1511,8 +1425,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36023",
@@ -1526,8 +1439,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36024",
@@ -1541,8 +1453,7 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "36025",
@@ -1556,14 +1467,13 @@
 		"style": ["regular"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
     {
-        "id" : "40000",
+        "id" : 40000,
         "name" : "עגילי מוניקה",
         "price" : 80,
-        "image" : "./backendImages/40000.jpg",
+        "image" : "/images/40000.jpeg",
         "type" : "Earring",
         "color" : [],
         "size" : [],
@@ -1571,14 +1481,13 @@
         "style" : ["falling"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "40001",
+        "id" : 40001,
         "name" : "עגילי משי",
         "price" : 80,
-        "image" : "./backendImages/40001.jpg",
+        "image" : "/images/40001.jpeg",
         "type" : "Earring",
         "color" : [],
         "size" : [],
@@ -1586,14 +1495,13 @@
         "style" : ["falling"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "40002",
+        "id" : 40002,
         "name" : "עגילי אנסטסיה",
         "price" : 100,
-        "image" : "./backendImages/40002.jpg",
+        "image" : "/images/40002.jpeg",
         "type" : "Earring",
         "color" : [],
         "size" : [],
@@ -1601,14 +1509,13 @@
         "style" : ["falling"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "40003",
+        "id" : 40003,
         "name" : "עגילי דריה",
         "price" : 80,
-        "image" : "./backendImages/40003.jpg",
+        "image" : "/images/40003.jpeg",
         "type" : "Earring",
         "color" : ["green"],
         "size" : [],
@@ -1616,14 +1523,13 @@
         "style" : ["falling"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 1 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 1 
     },
     {
-        "id" : "40005",
+        "id" : 40005,
         "name" : "סט עגילים האמבל",
         "price" : 100,
-        "image" : "./backendImages/40005.jpg",
+        "image" : "/images/40005.jpeg",
         "type" : "Earring",
         "color" : ["green"],
         "size" : [],
@@ -1631,14 +1537,13 @@
         "style" : ["set"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "40006",
+        "id" : 40006,
         "name" : "עגילי לני",
         "price" : 90,
-        "image" : "./backendImages/40006.jpg",
+        "image" : "/images/40006.jpeg",
         "type" : "Earring",
         "color" : ["black"],
         "size" : [],
@@ -1646,14 +1551,13 @@
         "style" : ["hoop"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "40007",
+        "id" : 40007,
         "name" : "סט עגילים אווה",
         "price" : 100,
-        "image" : "./backendImages/40007.jpg",
+        "image" : "/images/40007.jpeg",
         "type" : "Earring",
         "color" : ["gray"],
         "size" : [],
@@ -1661,14 +1565,13 @@
         "style" : ["set"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "40010",
+        "id" : 40010,
         "name" : "עגילי ליאן",
         "price" : 80,
-        "image" : "./backendImages/40010.jpg",
+        "image" : "/images/40010.jpeg",
         "type" : "Earring",
         "color" : [],
         "size" : [],
@@ -1676,14 +1579,13 @@
         "style" : ["falling","tight"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "40013",
+        "id" : 40013,
         "name" : "עגילי אליסה",
         "price" : 90,
-        "image" : "./backendImages/40013.jpg",
+        "image" : "/images/40013.jpeg",
         "type" : "Earring",
         "color" : [],
         "size" : [],
@@ -1691,14 +1593,13 @@
         "style" : ["hoop"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "40015",
+        "id" : 40015,
         "name" : "עגילי סול",
         "price" : 90,
-        "image" : "./backendImages/40015.jpg",
+        "image" : "/images/40015.jpeg",
         "type" : "Earring",
         "color" : [],
         "size" : [],
@@ -1706,14 +1607,13 @@
         "style" : ["hoop"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
     {
-        "id" : "40016",
+        "id" : 40016,
         "name" : "עגילי ג'יין",
         "price" : 80,
-        "image" : "./backendImages/40016.jpg",
+        "image" : "/images/40016.jpeg",
         "type" : "Earring",
         "color" : [],
         "size" : [],
@@ -1721,8 +1621,7 @@
         "style" : ["hoop"],
         "amountInStock" : 1 ,
         "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
+        "howManySold" : 0 
     },
 	{
 		"id": "46000",
@@ -1736,8 +1635,7 @@
 		"style": ["hoop","falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 2,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 2
 	},
 	{
 		"id": "46001",
@@ -1751,8 +1649,7 @@
 		"style": ["tight"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
     },
 	{
 		"id": "46002",
@@ -1766,13 +1663,12 @@
 		"style": ["hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46003",
 		"name": "עגילי הרמוני",
-		"price": 109,
+		"price": null,
 		"image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-1231370781-768x1152.jpg",
 		"type": "Earring",
 		"color": ["silver"],
@@ -1781,8 +1677,7 @@
 		"style": ["tight"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46004",
@@ -1796,10 +1691,36 @@
 		"style": ["hoop","falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
-	
+	{
+		"id": "46039",
+		"name": "עגיל שיינה",
+		"price": 59,
+		"image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-121533421-768x1152.jpg",
+		"type": "Earring",
+		"color": ["gold","white"],
+		"size": [],
+		"material": ["gold","beads"],
+		"style": ["helix"],
+		"amountInStock": 10,
+		"status": "available",
+		"howManySold": 0
+    },
+    { 
+		"id": "46040",
+		"name": "עגיל פיור",
+		"price": 59,
+		"image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-121533456-768x1152.jpg",
+		"type": "Earring",
+		"color": ["gold","white"],
+		"size": [],
+		"material": ["gold","pearl"],
+		"style": ["helix"],
+		"amountInStock": 10,
+		"status": "available",
+		"howManySold": 0
+	},
 	{
 		"id": "46005",
 		"name": "עגילי גרין הול",
@@ -1812,13 +1733,12 @@
 		"style": ["falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46006",
 		"name": "עגילי וילי",
-		"price": 119,
+		"price": null,
 		"image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-122246862-768x1152.jpg",
 		"type": "Earring",
 		"color": ["silver"],
@@ -1827,8 +1747,7 @@
 		"style": ["falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46007",
@@ -1842,8 +1761,7 @@
 		"style": ["falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46008",
@@ -1857,13 +1775,12 @@
 		"style": ["falling","hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
     {
 		"id": "46009",
 		"name": "עגילי הרה",
-		"price": 129,
+		"price": null,
 		"image": "https://shoptaostyle.com/wp-content/uploads/2023/03/1970-01-20-121556873-768x1152.jpg",
 		"type": "Earring",
 		"color": ["silver","blue"],
@@ -1872,8 +1789,7 @@
 		"style": ["falling","hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46010",
@@ -1887,8 +1803,7 @@
 		"style": ["helix"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46011",
@@ -1902,8 +1817,7 @@
 		"style": ["helix"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46012",
@@ -1917,8 +1831,7 @@
 		"style": ["helix"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46013",
@@ -1932,8 +1845,7 @@
 		"style": ["falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46014",
@@ -1947,8 +1859,7 @@
 		"style": ["hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46015",
@@ -1962,8 +1873,7 @@
 		"style": ["hoop","falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46016",
@@ -1977,8 +1887,7 @@
 		"style": ["falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46017",
@@ -1992,8 +1901,7 @@
 		"style": ["falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46018",
@@ -2007,8 +1915,7 @@
 		"style": ["hoop","set"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46019",
@@ -2022,8 +1929,7 @@
 		"style": ["hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46020",
@@ -2037,8 +1943,7 @@
 		"style": ["falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46021",
@@ -2052,8 +1957,7 @@
 		"style": ["helix"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46022",
@@ -2067,8 +1971,7 @@
 		"style": ["falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46023",
@@ -2082,8 +1985,7 @@
 		"style": ["hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46024",
@@ -2097,8 +1999,7 @@
 		"style": ["set","falling","tight"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46025",
@@ -2112,8 +2013,7 @@
 		"style": ["hoop","falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46026",
@@ -2127,8 +2027,7 @@
 		"style": ["hoop","falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46027",
@@ -2142,8 +2041,7 @@
 		"style": ["hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46028",
@@ -2157,8 +2055,7 @@
 		"style": ["tight"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46029",
@@ -2172,8 +2069,7 @@
 		"style": ["hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46030",
@@ -2187,8 +2083,7 @@
 		"style": ["tight"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46031",
@@ -2202,8 +2097,7 @@
 		"style": ["tight"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46032",
@@ -2217,8 +2111,7 @@
 		"style": ["tight"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46033",
@@ -2232,8 +2125,7 @@
 		"style": ["hoop","falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46034",
@@ -2247,8 +2139,7 @@
 		"style": ["falling","hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46035",
@@ -2262,8 +2153,7 @@
 		"style": ["hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46036",
@@ -2277,8 +2167,7 @@
 		"style": ["falling"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46037",
@@ -2292,8 +2181,7 @@
 		"style": ["helix"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 1,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46038",
@@ -2307,8 +2195,7 @@
 		"style": ["helix"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
 	},
 	{
 		"id": "46039",
@@ -2316,14 +2203,13 @@
 		"price": 189,
 		"image": "https://shoptaostyle.com/wp-content/uploads/2022/10/1970-01-20-084827196.jpg",
 		"type": "Earring",
-		"color": ["gold", "silver"],
+		"color": ["gold","silver"],
 		"size": [],
-		"material": ["gold", "silver"],
+		"material": ["gold","silver"],
 		"style": ["hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 1,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
     },
     {
 		"id": "46040",
@@ -2337,7 +2223,6 @@
 		"style": ["hoop"],
 		"amountInStock": 10,
 		"status": "available",
-		"howManySold": 0,
-		"createdAt" : "12:16 - 24/6/2023"
+		"howManySold": 0
     }
 ]
