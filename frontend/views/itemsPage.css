@@ -1,0 +1,123 @@
+/* on 19/6 merged with pages.css file */
+
+#items-page-categories-bar {
+    background-color: #eee;
+    width: 100%;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
+    margin-bottom: 5px;
+    padding: 7px 70px;
+}
+
+#items-page-categories-list {
+    margin: auto 0 auto auto;
+}
+
+#items-page-categories-list li,
+#items-page-sorting-list li{
+    width: 90px;
+    height: 20px;
+}
+
+#items-page-categories-list li button,
+#items-page-sorting-list li button{
+    margin-top: -8px;
+}
+
+#items-page-categories-list .dropdown-menu,
+#items-page-sorting-list .dropdown-menu{
+    display: none;
+    margin-top: 30px;
+    position: absolute;
+    border: 2px solid #555;
+    background-color: white;
+    min-width: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+}
+
+#items-page-categories-list .dropdown-menu a,
+#items-page-sorting-list .dropdown-menu a {
+    padding: 12px 16px;
+    text-align: right;
+}
+
+#items-page-categories-list .dropdown-menu a:hover,
+#items-page-sorting-list .dropdown-menu a:hover{
+    background-color: #eee;
+}
+
+#items-page-categories-list li button,
+#items-page-sorting-list li button {
+    border: none;
+}
+
+#items-page-categories-list button.is-active + .dropdown-menu,
+#items-page-sorting-list button.is-active + .dropdown-menu {
+    display: block;
+}
+
+#items-page-jewelry-cards-container{
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    gap: 40px;
+    justify-content: center;
+    margin-top: 0;
+}
+
+#items-page-jewelry-cards-container .cardWrapper{
+    text-decoration: none;
+}
+
+#items-page-jewelry-cards-container .cardWrapper:link,
+#items-page-jewelry-cards-container .cardWrapper:visited {
+  list-style: none;
+}
+
+#items-page-jewelry-cards-container .cardHollowHeart,
+#items-page-jewelry-cards-container .cardFullHeart{
+    background-color: white;
+    color: red;
+    border: none;
+    padding: 0;
+    position: absolute;
+    margin: 4px;
+}
+
+#items-page-jewelry-cards-container .cardHollowHeart::before,
+#items-page-jewelry-cards-container .cardFullHeart::before{  
+    font-size: 30px;
+}
+
+#items-page-jewelry-cards-container .card-body{
+    background-color: #eee;
+    padding: 0;
+}
+
+#items-page-jewel-name{
+    font-size: larger;
+    margin: 5px 10px;
+}
+
+#items-page-jewel-price{
+    font-weight: bold;
+    font-size: larger;
+    margin: 5px 10px;
+}
+
+#items-page-page-num-row{
+    width: fit-content;
+    margin: auto;
+    font-size: x-large; 
+}
+
+#items-page-num-label{
+    margin: 20px;
+    font-family: sans-serif;
+}
+
+#items-page-previous-page-button,
+#items-page-next-page-button{
+    width: 30px;
+    height: 30px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bar Chart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+      #chart {
+        width: 400px;
+        height: 300px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      .progress {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var data = [5, 10, 15, 7, 20];
+        var maxValue = Math.max.apply(null, data);
+
+        $.each(data, function (index, value) {
+          var barHeight = (value / maxValue) * 100 + '%';
+          var $bar = $('<div class="progress-bar" style="width: 3rem;"></div>');
+          $bar.css('height', barHeight);
+          $('#chart').append($bar);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>Bar Chart</h1>
+      <div id="chart" class="progress"></div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

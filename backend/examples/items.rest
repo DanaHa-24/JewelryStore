@@ -1,0 +1,28 @@
+GET http://localhost:5000/api/item/allItems
+Content-Type: application/json
+###
+GET http://localhost:5000/api/item/649c40d0f8b2964d8b76af77
+###
+POST http://localhost:5000/api/item
+Content-Type: application/json
+
+{
+    "name": "test",
+    "type": "Ring",
+    "price": 10
+}
+###
+PUT http://localhost:5000/api/item/649daae726af6dc5dd08c130
+Content-Type: application/json
+
+{
+    "name": "NEWNAME",
+    "type": "Necklace",
+    "price": 10,
+    "description": "NEWDESCRIPTION"
+}
+###
+DELETE http://localhost:5000/api/item/649daae726af6dc5dd08c130
+Content-Type: application/json
+
+
