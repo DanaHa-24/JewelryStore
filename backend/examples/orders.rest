@@ -1,0 +1,14 @@
+GET http://localhost:5000/orders/
+Content-Type: application/json
+###
+GET http://localhost:5000/orders/649823c2eaa2cfe2d1b254bd
+Content-Type: application/json
+###
+POST http://localhost:5000/orders/
+Content-Type: application/json
+
+{
+    "customer_id": 1,
+    "order_date": "2021-01-01",
+    "order_status": "pending"
+}

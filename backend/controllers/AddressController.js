@@ -90,12 +90,11 @@ async function getMyAddresses(req, res) {
 }
 
 module.exports = {
-                    getAllAddresses,
-                    createAddress,
-                    deleteAddress,
-                    updateAddress,
-                    getAddressById,
-                    searchAddresses,
-                    getMyAddresses
-                };
-                
+  getAllAddresses,
+  createAddress,
+  deleteAddress,
+  updateAddress,
+  getAddressById,
+  searchAddresses,
+  getMyAddresses,
+};

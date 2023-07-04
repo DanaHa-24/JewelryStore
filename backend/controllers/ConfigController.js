@@ -119,4 +119,3 @@ module.exports = {
   searchConfigs,
   getConfigByName
 }
-

@@ -99,14 +99,13 @@ async function getUserAddresses(userId) {
   
 
 module.exports = {
-                    createAddress,
-                    deleteAddress,
-                    updateAddress,
-                    getAllAddresses,
-                    getAddressById,
-                    searchAddresses,
-                    getUserAddresses
-                };
-
+  createAddress,
+  deleteAddress,
+  updateAddress,
+  getAllAddresses,
+  getAddressById,
+  searchAddresses,
+  getUserAddresses
+};
 
 
