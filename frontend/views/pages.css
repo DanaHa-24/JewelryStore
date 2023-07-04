@@ -1071,10 +1071,14 @@ body {
   #signin-page-input-firstName,
   #signin-page-input-lastName,
   #signin-page-input-email,
-  #signin-page-input-address,
   #signin-page-input-phoneNumber,
   #signin-page-input-password,
-  #signin-page-input-confirmPassword{
+  #signin-page-input-confirmPassword,
+  #signin-page-input-city,
+  #signin-page-input-street,
+  #signin-page-input-home-number,
+  #signin-page-input-apartment-number,
+  #signin-page-input-zipcode{
     height: 60px;
     width: 110%;
     border: none;

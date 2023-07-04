@@ -1,12 +1,12 @@
 $(document).ready(function() {
-    // Create the container div
-    let container = $('<div class="container"></div>').attr("id","EP-page-container");
+  // Create the container div
+  let container = $('<div class="container"></div>').attr("id","EP-page-container");
 
-    // Create the h1 element for the heading
-    let heading = $('<h1 class="mt-4">תודה על הרכישה שלך !</h1>').attr("id","EP-page-h1");
+  // Create the h1 element for the heading
+  let heading = $('<h1 class="mt-4">תודה על הרכישה שלך !</h1>').attr("id","EP-page-h1");
 
-    // Create the paragraph for purchase details
-    let purchaseDetails = $('<p>להלן פרטי הרכישה שלך :</p>').attr("id","EP-page-p");
+  // Create the paragraph for purchase details
+  let purchaseDetails = $('<p>להלן פרטי הרכישה שלך :</p>').attr("id","EP-page-p");
 
     // Create the card for order summary
     let orderSummaryCard = $('<div class="card"></div>').attr("id","EP-page-card");
@@ -34,8 +34,8 @@ $(document).ready(function() {
     paymentDetailsCardBody.append(paymentMethod);
     paymentDetailsCard.append(paymentDetailsCardHeader, paymentDetailsCardBody);
 
-    // Create the thank you message
-    let thankYouMessage = $('<p>תודה שקנית אצלנו!</p>').attr("id","EP-page-p");
+  // Create the thank you message
+  let thankYouMessage = $('<p>תודה שקנית אצלנו!</p>').attr("id","EP-page-p");
 
     // Create the "Back to Homepage" and "Share on Facebook" buttons
     const homeButton = $('<div class="text-center mt-4"><a href="homePage.html" class="btn">חזור לדף הבית</a></div>').attr("id","EP-page-btn");
@@ -53,6 +53,6 @@ $(document).ready(function() {
       shareButton
     );
 
-    // Append the container to the body of the document
-    $('body').append(container);
-  });
+  // Append the container to the body of the document
+  $('body').append(container);
+});
