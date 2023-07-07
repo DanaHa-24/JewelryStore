@@ -13,7 +13,17 @@
   <body></body>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../js/homePageHeader.js"></script>
-  <script src="../js/ProductCard.js"></script>
-  <script src="../js/itemsPage.js"></script>
+  <div id="comments-container">
+    <div id="comments-messageContainer">
+      <ul id="comments-messageList"></ul>
+    </div>
+    <div>
+      <button id="send-btn">שלח</button>
+      <input type="text" style="direction: rtl" id="comments-messageInput" placeholder="כתבו לנו ביקורת" />
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+  <script src="../js/comments.js"></script>
+  <script src="../js/homePage.js"></script>
   <script src="../js/homePageFooter.js"></script>
 </html>
