@@ -1,0 +1,4 @@
+GET http://localhost:5000/api/wishlist
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDlkODQwY2ZhYzBjNjNmNDM0MTdkMDIiLCJpYXQiOjE2ODg3NDYwNDN9.9m8ELIS4Q_qf7SCzZLJ-7w18GP1GKZcKgVarNfqm_KY
+Content-Type: application/json
+###
