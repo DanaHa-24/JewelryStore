@@ -1,13 +1,9 @@
 $(document).ready(function () {
   const userId = '64982471eaa2cfe2d1b32d5d';
 
-  // Create cart section
-  const cart = $('<div class="cart-page-header-container"></div>');
-  cart.append($('<h1>סל קניות</h1>').addClass('cart-page-header'));
-  $('body').append(cart);
-
   // Create cart container for data
   const cartContainer = $('<div>').addClass('cart-page-container');
+  cartContainer.append($('<h1>סל קניות</h1>').addClass('cart-page-header'));
   $('body').append(cartContainer);
 
   if (userId === null) {
@@ -33,7 +29,9 @@ $(document).ready(function () {
             } else {
               // Create table
               const table = $('<table>').addClass('table');
-              const tableHeader = $('<thead>').html('<tr><th>שם הפריט</th><th>תמונה</th><th>כמות</th><th>מחיר הפריט</th><th>מחיר כולל</th></tr>');
+              const tableHeader = $('<thead>').html(
+                '<tr><th>שם הפריט</th><th>תמונה</th><th>כמות</th><th>מחיר הפריט</th><th>מחיר כולל</th></tr>'
+              );
               table.append(tableHeader);
               console.log(cartItems);
               const tableBody = $('<tbody>');
@@ -49,7 +47,9 @@ $(document).ready(function () {
                   success: function (itemDetails) {
                     const row = $('<tr>');
                     const itemName = $('<td>').text(itemDetails.name);
-                    const itemImage = $('<td>').append($('<img>').attr('src', itemDetails.image).css('max-width', '100px'));
+                    const itemImage = $('<td>').append(
+                      $('<img>').attr('src', itemDetails.image).css('max-width', '100px')
+                    );
                     const itemQuantity = $('<td>').html(`<div class="input-group">
                                               <button class="minus-btn btn btn-outline-secondary btn-sm" type="button">-</button>
                                               <input type="number" value="${item.quantity}" min="1" class="form-control">
@@ -97,7 +97,9 @@ $(document).ready(function () {
 
               // Total to pay
               const tableFooter = $('<tfoot>');
-              const totalToPayRow = $('<tr>').html(`<td colspan="4" class="text-end"><strong>סך הכל לתשלום:</strong></td><td>${totalToPay}</td>`);
+              const totalToPayRow = $('<tr>').html(
+                `<td colspan="4" class="text-end"><strong>סך הכל לתשלום:</strong></td><td>${totalToPay}</td>`
+              );
               tableFooter.append(totalToPayRow);
               table.append(tableFooter);
 
