@@ -30,7 +30,7 @@ let slideIndex = 0;
 let slideshowInterval;
 
 $.each(categories, function(index, category){
-    let cardWrapper = $("<a>").attr("href", `itemsPage.html?type=${category.english}`).addClass("home-page-card-wrapper");
+    let cardWrapper = $("<a>").attr("href", `items?type=${category.english}`).addClass("home-page-card-wrapper");
     let card = $("<div>").css("background-image", "url(" + category.image + ")").addClass("home-page-category-card");
     let name = $("<div>").addClass("home-page-card-name").text(category.title);    
     
