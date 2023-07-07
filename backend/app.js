@@ -19,23 +19,21 @@ app.use(cors());
 // Parse JSON data in request bodies
 app.use(express.json());
 
+// Serve static files from the "frontend" directory
+app.use(express.static(path.join(__dirname, '../frontend/views')));
+app.use(express.static(path.join(__dirname, '../frontend/js')));
+
 // Parse JSON data in request bodies with a limit of 30mb
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 
 // Parse URL-encoded data in request bodies with a limit of 30mb
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 
-
-// Serve static files from the "frontend" directory
-app.use(express.static(path.join(__dirname, '../frontend/views')));
-
 // Serve static files from the "../frontend/images" directory
 app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
 // Serve static files from the "../backend/images" directory
 app.use('/backendImages', express.static(path.join(__dirname, './images')));
-
-
 
 // Use the routes defined in the "routes" directory
 app.use('/', require('./routes'));
@@ -45,12 +43,12 @@ app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 
 // Default redirect => Home Page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/views/homePage.html'));
+  res.sendFile(path.join(__dirname, '../frontend/views/pages/home.html'));
 });
 
 // For other URL's => Not Found Page
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/views/pageNotFound.html'));
+  res.sendFile(path.join(__dirname, '../frontend/views/pages/pageNotFound.html'));
 });
 
 // Open the server
