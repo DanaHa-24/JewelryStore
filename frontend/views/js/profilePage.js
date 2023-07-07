@@ -1,107 +1,115 @@
-$(document).ready(function() {
-  // Needs to get after loggin  
-  const userId = "64982471eaa2cfe2d1b32d5a";  
+$(document).ready(function () {
+  // Needs to get after loggin
+  const userId = '64982471eaa2cfe2d1b32d5a';
 
-    // Create navbar
-    const navbar = $('<div>').addClass('profile-page-navbar');
-    const tabsList = $('<ul></ul>').addClass('profile-page-options');
-  
-    const tabs = [
-      {
-        text: 'ההזמנות שלי',
-        content: 'הזמנות שלי',
-        action: function() {
-          handleMyOrders(userId);
-        }
+  // Create navbar
+  const navbar = $('<div>').addClass('profile-page-navbar');
+  const tabsList = $('<ul></ul>').addClass('profile-page-options');
+
+  const tabs = [
+    {
+      text: 'ההזמנות שלי',
+      content: 'הזמנות שלי',
+      action: function () {
+        handleMyOrders(userId);
       },
-      {
-        text: 'הכתובות שלי',
-        content: 'כתובות שלי',
-        action: function() {
-          handleMyAddress(userId);
-        }
+    },
+    {
+      text: 'הכתובות שלי',
+      content: 'כתובות שלי',
+      action: function () {
+        handleMyAddress(userId);
       },
-      {
-        text: 'פרטי התחברות',
-        content: 'פרטי התחברות',
-        action: function() {
-          handleMyDetails(userId);
-        }
+    },
+    {
+      text: 'פרטי התחברות',
+      content: 'פרטי התחברות',
+      action: function () {
+        handleMyDetails(userId);
       },
-      {
-        text: 'Wishlist',
-        content: 'Wishlist',
-        action: function() {
-          handleMyWishList(userId);
-        }
-      }
-    ];
-  
-    // Create profile section
-    const profile = $('<div class="profile-header-container"></div>');
-    const infoContainter = $('<div>').addClass('profile-page-subtitle');
-    profile.append(($('<h1>החשבון שלי</h1>').addClass('profile-page-header')), infoContainter);
+    },
+    {
+      text: 'Wishlist',
+      content: 'Wishlist',
+      action: function () {
+        handleMyWishList(userId);
+      },
+    },
+    {
+      text: 'התנתקות',
+      content: 'התנתקות',
+      action: function () {
+        handleSignOut();
+      },
+    },
+  ];
 
+  const handleSignOut = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/';
+  };
 
-    const info = $('<p>שמחים לראות אותך שוב</p>').addClass('profile-page-info');
-    const heart = $('<i class="far fa-heart" style="color: #fe39c9;"></i>').attr('id','profile-page-heart');
-    infoContainter.append(info,heart);
-    profile.append(infoContainter);
-    $('body').append(profile);
-    
-    
-    // Create profile container for data
-    const profileContainer = $('<div>').addClass('profile-page-container');
-    $('body').append(profileContainer);
+  // Create profile section
+  const profile = $('<div class="profile-header-container"></div>');
+  const infoContainter = $('<div>').addClass('profile-page-subtitle');
+  profile.append($('<h1>החשבון שלי</h1>').addClass('profile-page-header'), infoContainter);
 
+  const info = $('<p>שמחים לראות אותך שוב</p>').addClass('profile-page-info');
+  const heart = $('<i class="far fa-heart" style="color: #fe39c9;"></i>').attr('id', 'profile-page-heart');
+  infoContainter.append(info, heart);
+  profile.append(infoContainter);
+  $('body').append(profile);
 
-    // Create profile navbar
-    for (let i = 0; i < tabs.length; i++) {
-      let tab = $('<li class="tab">' + tabs[i].text + '</li>');
-      tab.data('content', tabs[i].content);
-      tab.on('click', tabs[i].action);
-      tabsList.append(tab);
-    }
-  
-    navbar.append(tabsList);
-    const dots = $('<div class="profile-page-dots">&#8230;</div>');
-    navbar.append(dots);
-    $('body').append(navbar);
+  // Create profile container for data
+  const profileContainer = $('<div>').addClass('profile-page-container');
+  $('body').append(profileContainer);
 
-    // Toggle navbar when the window is resized
-    $(window).resize(function() {
-      toggleNavbar();
-    });
-  
-    // Initial toggle when the page loads
+  // Create profile navbar
+  for (let i = 0; i < tabs.length; i++) {
+    let tab = $('<li class="tab">' + tabs[i].text + '</li>');
+    tab.data('content', tabs[i].content);
+    tab.on('click', tabs[i].action);
+    tabsList.append(tab);
+  }
+
+  navbar.append(tabsList);
+  const dots = $('<div class="profile-page-dots">&#8230;</div>');
+  navbar.append(dots);
+  $('body').append(navbar);
+
+  // Toggle navbar when the window is resized
+  $(window).resize(function () {
     toggleNavbar();
-  
-    // Function to toggle the visibility of tabs and dots
-    function toggleNavbar() {
-      let windowWidth = $(window).width();
-  
-      if (windowWidth <= 800) {
-        $('.profile-page-navbar .profile-page-dots').show();
-        $('.profile-page-navbar ul').hide();
-      } else {
-        $('.profile-page-navbar .profile-page-dots').hide();
-        $('.profile-page-navbar ul').show();
-      }
-    }
-  
-    // Toggle the visibility of tabs when dots are clicked
-    $('.profile-page-dots').click(function() {
-      $('.profile-page-navbar ul').toggle();
-    });
-  
-    // Show tab content on tab click
-    $('.profile-page-navbar .tab').click(function() {
-      let content = $(this).data('content');
-      $('.profile-page-info').text(content);
-      $('#heart-profile').detach(); // Detach the heart element by its ID
-    });
-});
+  });
 
+  // Initial toggle when the page loads
+  toggleNavbar();
+
+  // Function to toggle the visibility of tabs and dots
+  function toggleNavbar() {
+    let windowWidth = $(window).width();
+
+    if (windowWidth <= 800) {
+      $('.profile-page-navbar .profile-page-dots').show();
+      $('.profile-page-navbar ul').hide();
+    } else {
+      $('.profile-page-navbar .profile-page-dots').hide();
+      $('.profile-page-navbar ul').show();
+    }
+  }
+
+  // Toggle the visibility of tabs when dots are clicked
+  $('.profile-page-dots').click(function () {
+    $('.profile-page-navbar ul').toggle();
+  });
+
+  // Show tab content on tab click
+  $('.profile-page-navbar .tab').click(function () {
+    let content = $(this).data('content');
+    $('.profile-page-info').text(content);
+    $('#heart-profile').detach(); // Detach the heart element by its ID
+  });
+});
 
 /////////////////////////////////// My Orders Tab ///////////////////////////////////
 
@@ -109,7 +117,7 @@ $(document).ready(function() {
 function handleMyOrders(userId) {
   $('.profile-page-container').empty();
   //console.log(userId);
-  if(!userId) {
+  if (!userId) {
     $('.profile-page-container').text('טרם הזמנת אצלנו / עדיין לא התחברת 🖤');
   }
   // Make an AJAX request to retrieve the user's order history from the backend
@@ -127,52 +135,46 @@ function handleMyOrders(userId) {
       // Handle error
       console.error('Error fetching order history:', error);
       // Display an error message or perform appropriate error handling
-    }
+    },
   });
 }
-
 
 /////////////////////////////////// My Addresses Tab ///////////////////////////////////
 
 // Function to handle "My Addresses" tab
 function handleMyAddress(userId) {
   $('.profile-page-container').empty();
-  if(!userId) {
+  if (!userId) {
     $('.profile-page-container').text('טרם הזמנת אצלנו / עדיין לא התחברת 🖤');
-  }
-  else{
+  } else {
     // Make an AJAX request to retrieve the user's addresses from the backend
     $.ajax({
       url: `/users/${userId}/my-addresses`,
       method: 'GET',
-      success: function(response) {
-        
+      success: function (response) {
         fetchUserAddresses(response);
-        
       },
-      error: function(error) {
+      error: function (error) {
         console.error('Error retrieving addresses:', error);
-      }
+      },
     });
   }
 }
-  
 
 /////////////////////////////////// My Details Tab ///////////////////////////////////
 
 // Function to handle "My Details" tab
 function handleMyDetails(userId) {
   $('.profile-page-container').empty();
-  
-  if(!userId) {
+
+  if (!userId) {
     $('.profile-page-container').text(' עדיין לא התחברת 🖤');
-  }
-  else{
+  } else {
     // Make an AJAX request to retrieve the user's details from the backend
     $.ajax({
       url: `/users/${userId}`,
       method: 'GET',
-      success: function(response) {
+      success: function (response) {
         if (response === null) {
           $('.profile-page-container').text('לא נמצאו פרטי משתמש');
         } else {
@@ -199,7 +201,7 @@ function handleMyDetails(userId) {
             submitButton
           );
 
-          form.on('submit', function(event) {
+          form.on('submit', function (event) {
             event.preventDefault();
 
             // Make an AJAX request to update the user's details in the backend
@@ -208,47 +210,45 @@ function handleMyDetails(userId) {
               lastName: lastNameInput.val(),
               username: usernameInput.val(),
               phoneNumber: phoneNumberInput.val(),
-              password: passwordInput.val()
+              password: passwordInput.val(),
             };
 
             $.ajax({
               url: '/users/${userId}',
               method: 'PUT',
               data: updatedDetails,
-              success: function(response) {
+              success: function (response) {
                 console.log('User details updated successfully');
               },
-              error: function(error) {
+              error: function (error) {
                 console.error('Error updating user details:', error);
-              }
+              },
             });
           });
 
           $('.profile-page-container').empty().append(form);
         }
       },
-      error: function(error) {
+      error: function (error) {
         console.error('Error retrieving user details:', error);
-      }
+      },
     });
   }
 }
-
 
 /////////////////////////////////// My WishList Tab ///////////////////////////////////
 
 function handleMyWishList(userId) {
   $('.profile-page-container').empty();
-  
-  if(!userId) {
+
+  if (!userId) {
     $('.profile-page-container').text(' עדיין לא התחברת 🖤');
-  }
-  else{
+  } else {
     // Make an AJAX request to retrieve the user's wishlist from the backend
     $.ajax({
       url: `/users/${userId}/my-wish`,
       method: 'GET',
-      success: function(response) {
+      success: function (response) {
         if (response.length === 0) {
           $('.profile-page-container').text('ריק פה, בטוח יש דברים יפים שראיתם 🖤');
         } else {
@@ -263,15 +263,17 @@ function handleMyWishList(userId) {
 
           table.append(tableHeader);
 
-          response.forEach(function(item) {
+          response.forEach(function (item) {
             const tableRow = $('<tr>').append(
               $('<td>').text(item.name),
               $('<td>').text(item.price),
               $('<td>').text(item.amount),
               $('<td>').append(
-                $('<button>').text('Add').on('click', function() {
-                  addToCart(item.id);
-                })
+                $('<button>')
+                  .text('Add')
+                  .on('click', function () {
+                    addToCart(item.id);
+                  })
               )
             );
 
@@ -281,17 +283,16 @@ function handleMyWishList(userId) {
           $('.profile-page-container').empty().append(table);
         }
       },
-      error: function(error) {
+      error: function (error) {
         console.error('Error retrieving wishlist:', error);
-      }
+      },
     });
   }
 }
 
-
 /////////////////////////////////// Fetching for User Addresses tab  ////////////////////////////////////
 
-function fetchUserAddresses(data){
+function fetchUserAddresses(data) {
   // Build and display the addresses table
   const table = $('<table>').addClass('table table-striped');
   const tableHeader = $('<tr>').append(
@@ -305,12 +306,12 @@ function fetchUserAddresses(data){
   );
 
   table.append(tableHeader);
-  data.forEach(function(addressId) {
+  data.forEach(function (addressId) {
     // Make an AJAX request to fetch the address details
     $.ajax({
       url: `addresses/${addressId}`,
       method: 'GET',
-      success: function(addressData) {
+      success: function (addressData) {
         const tableRow = $('<tr>').append(
           $('<td>').text(addressData.nickname),
           $('<td>').text(addressData.city),
@@ -323,14 +324,14 @@ function fetchUserAddresses(data){
               .text('עריכה')
               .attr('type', 'button')
               .addClass('btn btn-outline-secondary')
-              .on('click', function() {
+              .on('click', function () {
                 editAddress(addressData);
               }),
             $('<button>')
               .text('מחיקה')
               .attr('type', 'button')
               .addClass('btn btn-outline-danger')
-              .on('click', function() {
+              .on('click', function () {
                 deleteAddress(addressData.id);
               })
           )
@@ -338,9 +339,9 @@ function fetchUserAddresses(data){
 
         table.append(tableRow);
       },
-      error: function(error) {
+      error: function (error) {
         console.error('Error fetching address:', error);
-      }
+      },
     });
 
     // Append a row for adding a new address
@@ -356,18 +357,17 @@ function fetchUserAddresses(data){
           .text('שמירה')
           .attr('type', 'button')
           .addClass('btn btn-success')
-          .on('click', function() {
+          .on('click', function () {
             saveNewAddress();
           })
       )
     );
 
     table.append(addRow);
-  })
+  });
 
   $('.profile-page-container').append(table);
 }
-
 
 /////////////////////////////////// Additional functions for Addresses  ////////////////////////////////////
 
@@ -375,7 +375,7 @@ function editAddress(addressId) {
   const tableRow = $(`tr[data-id='${addressId}']`);
 
   // Convert table cells to inputs for editing
-  tableRow.children().each(function(index) {
+  tableRow.children().each(function (index) {
     const cellText = $(this).text();
     $(this).empty().append($('<input>').attr('type', 'text').addClass('form-control').val(cellText));
   });
@@ -386,7 +386,7 @@ function editAddress(addressId) {
       .text('שמירה')
       .attr('type', 'button')
       .addClass('btn btn-success save-button')
-      .on('click', function() {
+      .on('click', function () {
         saveEditedAddress(addressId);
       })
   );
@@ -413,11 +413,11 @@ function saveEditedAddress(addressId) {
       street: street,
       houseNum: houseNum,
       apartmentNum: apartmentNum,
-      postalCode: postalCode
+      postalCode: postalCode,
     },
-    success: function(response) {
+    success: function (response) {
       // Replace the input fields with the updated values
-      tableRow.children().each(function(index) {
+      tableRow.children().each(function (index) {
         const inputValue = $(this).find('input').val();
         $(this).empty().text(inputValue);
       });
@@ -428,14 +428,14 @@ function saveEditedAddress(addressId) {
           .text('עריכה')
           .attr('type', 'button')
           .addClass('btn btn-outline-secondary edit-button')
-          .on('click', function() {
+          .on('click', function () {
             editAddress(response);
           })
       );
     },
-    error: function(error) {
+    error: function (error) {
       console.error('Error saving edited address:', error);
-    }
+    },
   });
 }
 
@@ -444,13 +444,13 @@ function deleteAddress(addressId) {
   $.ajax({
     url: `addresses/${addressId}`,
     method: 'DELETE',
-    success: function() {
+    success: function () {
       // Remove the table row from the UI
       $(`tr[data-id='${addressId}']`).remove();
     },
-    error: function(error) {
+    error: function (error) {
       console.error('Error deleting address:', error);
-    }
+    },
   });
 }
 
@@ -472,34 +472,36 @@ function saveNewAddress() {
       street: newStreet,
       houseNum: newHouseNum,
       apartmentNum: newApartmentNum,
-      postalCode: newPostalCode
+      postalCode: newPostalCode,
     },
-    success: function(response) {
+    success: function (response) {
       // Create a new table row with the saved address
-      const tableRow = $('<tr>').attr('data-id', response.id).append(
-        $('<td>').text(response.nickname),
-        $('<td>').text(response.city),
-        $('<td>').text(response.street),
-        $('<td>').text(response.houseNum),
-        $('<td>').text(response.apartmentNum),
-        $('<td>').text(response.postalCode),
-        $('<td>').append(
-          $('<button>')
-            .text('עריכה')
-            .attr('type', 'button')
-            .addClass('btn btn-outline-secondary edit-button')
-            .on('click', function() {
-              editAddress(response);
-            }),
-          $('<button>')
-            .text('מחיקה')
-            .attr('type', 'button')
-            .addClass('btn btn-outline-danger')
-            .on('click', function() {
-              deleteAddress(response.id);
-            })
-        )
-      );
+      const tableRow = $('<tr>')
+        .attr('data-id', response.id)
+        .append(
+          $('<td>').text(response.nickname),
+          $('<td>').text(response.city),
+          $('<td>').text(response.street),
+          $('<td>').text(response.houseNum),
+          $('<td>').text(response.apartmentNum),
+          $('<td>').text(response.postalCode),
+          $('<td>').append(
+            $('<button>')
+              .text('עריכה')
+              .attr('type', 'button')
+              .addClass('btn btn-outline-secondary edit-button')
+              .on('click', function () {
+                editAddress(response);
+              }),
+            $('<button>')
+              .text('מחיקה')
+              .attr('type', 'button')
+              .addClass('btn btn-outline-danger')
+              .on('click', function () {
+                deleteAddress(response.id);
+              })
+          )
+        );
 
       // Insert the new table row before the add row
       $('.profile-page-container table tr:last').before(tableRow);
@@ -512,15 +514,13 @@ function saveNewAddress() {
       $('#newApartmentNum').val('');
       $('#newPostalCode').val('');
     },
-    error: function(error) {
+    error: function (error) {
       console.error('Error saving new address:', error);
-    }
+    },
   });
 }
 
-
 /////////////////////////////////// Fetching for User Order History tab ///////////////////////////////////
-
 
 function fetchUserOrdersHistory(data) {
   const orderHistoryAccordion = $('<div>').attr('id', 'orderHistoryAccordion');
@@ -546,11 +546,9 @@ function fetchUserOrdersHistory(data) {
     }
   }
 
-  data.forEach(orderId => {
+  data.forEach((orderId) => {
     const accordionItem = $('<div>').addClass('accordion-item-profile-page');
-    const accordionHeader = $('<h2>')
-      .addClass('pf-oh-accordion-header')
-      .attr('id', `orderHeading_${orderId}`);
+    const accordionHeader = $('<h2>').addClass('pf-oh-accordion-header').attr('id', `orderHeading_${orderId}`);
     const accordionButton = $('<button>')
       .addClass('accordion-button')
       .attr('type', 'button')
@@ -571,7 +569,7 @@ function fetchUserOrdersHistory(data) {
     $.ajax({
       url: `/orders/${orderId}`,
       method: 'GET',
-      success: function(response) {
+      success: function (response) {
         const orderDate = response.createdAt;
         const orderNum = response.orderNumber;
         const orderState = response.state;
@@ -590,12 +588,11 @@ function fetchUserOrdersHistory(data) {
         accordionButton.text(`הזמנה  ${orderNum} 🖤`);
 
         // Create a table for order items
-        const table = $('<table>').addClass('table').attr("id","pf-oh-table");
+        const table = $('<table>').addClass('table').attr('id', 'pf-oh-table');
         const tableBody = $('<tbody>');
 
         // Fetch order items details
-        const itemPromises = orderItems.map(item => {
-
+        const itemPromises = orderItems.map((item) => {
           const itemId = item.item;
           const itemQuantity = item.quantity;
           console.log(itemId);
@@ -604,7 +601,7 @@ function fetchUserOrdersHistory(data) {
           return $.ajax({
             url: `item/${itemId}`,
             method: 'GET',
-            success: function(response) {
+            success: function (response) {
               const itemImage = response.image;
 
               const itemName = response.name;
@@ -615,15 +612,15 @@ function fetchUserOrdersHistory(data) {
                 image: itemImage,
                 name: itemName,
                 quantity: itemQuantity,
-                price: itemPrice
+                price: itemPrice,
               });
 
               // Append the row to the table body
               tableBody.append(row);
             },
-            error: function(error) {
+            error: function (error) {
               console.error('Error fetching item details:', error);
-            }
+            },
           });
         });
 
@@ -641,13 +638,13 @@ function fetchUserOrdersHistory(data) {
               $.ajax({
                 url: `/addresses/${addressId}`,
                 method: 'GET',
-                success: function(address) {
+                success: function (address) {
                   handleAddressDetails(address);
                 },
-                error: function(error) {
+                error: function (error) {
                   console.error('Error fetching address:', error);
                 },
-                complete: function() {
+                complete: function () {
                   // Append the accordion body content to the accordion body
                   accordionBody.append(accordionBodyContent);
 
@@ -656,7 +653,7 @@ function fetchUserOrdersHistory(data) {
 
                   // Append the accordion item to the order history accordion
                   orderHistoryAccordion.append(accordionItem);
-                }
+                },
               });
             } else {
               // Append the accordion body content to the accordion body
@@ -669,24 +666,22 @@ function fetchUserOrdersHistory(data) {
               orderHistoryAccordion.append(accordionItem);
             }
           })
-          .catch(error => {
+          .catch((error) => {
             console.error('Error fetching item details:', error);
           });
-      }
+      },
     });
   });
 
   // Activate the Bootstrap accordion after all orders have been fetched
   orderHistoryAccordion.addClass('accordion');
-  $('.accordion-button').click(function() {
-    $(this).attr('aria-expanded', function(index, attr) {
+  $('.accordion-button').click(function () {
+    $(this).attr('aria-expanded', function (index, attr) {
       return attr === 'true' ? 'false' : 'true';
     });
     const targetId = $(this).attr('data-bs-target');
     $(targetId).collapse('toggle');
   });
 }
-
-
 
 /////////////////////////////////// Fetching for User cart tab ///////////////////////////////////
