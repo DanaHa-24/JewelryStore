@@ -9,21 +9,21 @@ router.get('/:wishlistId', WishlistController.getWishlistById);
 router.get('/search', WishlistController.searchWishlistItems);
 
 // Get all items in the wishlist for the authenticated user (by ID)
-router.get('/:wishlistId/items', WishlistController.getAllWishlistItems);
+router.get('/', WishlistController.getUserWishlist);
 
 // Create a new wishlist the authenticated user (by ID)
-router.post('/:userId', WishlistController.createWishlist);
+// router.post('/:userId', WishlistController.createWishlist);
 
 // Delete the wishlist for the authenticated user (by ID)
-router.delete('/:userId', WishlistController.deleteWishlist);
+// router.delete('/:userId', WishlistController.deleteWishlist);
 
 // Remove an item from the wishlist for the authenticated user (by ID)
-router.delete('/:wishlistId/items/:itemId', WishlistController.removeItem);
+router.delete('/:itemId', WishlistController.removeItem);
 
 // Update the wishlist
 router.put('/:wishlistId/items', WishlistController.updateWishlist);
 
 // Add an item to the wishlist for the authenticated user (by ID)
-router.post('/:wishlistId/items/:itemId', WishlistController.addItem);
+router.post('/:itemId', WishlistController.addItemToWishList);
 
 module.exports = router;

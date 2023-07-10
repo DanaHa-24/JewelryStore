@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const UserController = require('../controllers/UserController');
 
 //views
 router.use('/about', require('./views/about.routes'));
@@ -12,10 +13,13 @@ router.use('/items', require('./views/items.routes'));
 router.use('/product', require('./views/product.routes'));
 router.use('/profile', require('./views/profile.routes'));
 router.use('/qa', require('./views/qa.routes'));
-router.use('/size-guide', require('./views/size-guide.routes'));
+router.use('/size-guide', require('./views/sizeGuide.routes'));
 router.use('/stores', require('./views/stores.routes'));
 router.use('/terms', require('./views/terms.routes'));
 router.use('/wishlist', require('./views/wishlist.routes'));
+router.use('/exchange-return', require('./views/exchangeReturn.routes'));
+
+// Get client user
 
 //routes
 router.use('/item', require('./ItemRoute'));
@@ -24,7 +28,7 @@ router.use('/storeBranches', require('./StoreBranchesRoute'));
 router.use('/users', require('./UserRoute'));
 router.use('/config', require('./ConfigRoute'));
 router.use('/auth', require('./AuthRoute'));
-router.use('/addresses', require('./AddressRoute'));
+router.use('/api/addresses', require('../middleware/auth'), require('./AddressRoute'));
 router.use('/api/wishlist', require('../middleware/auth'), require('../middleware/auth'), require('./WishListRoute'));
 router.use('/cart', require('./CartRoute'));
 router.use('/orders', require('./OrderRoute'));
