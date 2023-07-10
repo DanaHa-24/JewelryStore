@@ -5,7 +5,6 @@ const { updateNumOfOrders } = require('../services/UserService');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-
 // Get all users
 async function getAllUsers(req, res) {
   try {
@@ -16,6 +15,19 @@ async function getAllUsers(req, res) {
   }
 }
 
+async function getClientUser(req, res) {
+  try {
+    const token = req.headers.authorization;
+    if (!token) throw new Error('Auth failed!');
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const user = await UserService.getUserById(decodedToken.userId);
+    if (!user) throw new Error('Auth failed!');
+    res.send(user);
+  } catch (error) {
+    console.log(error);
+    res.status(401).json({ message: 'Auth failed!' });
+  }
+}
 
 // Create a new user
 async function createUser(req, res) {
@@ -29,7 +41,6 @@ async function createUser(req, res) {
   }
 }
 
-
 // Update an user by ID
 async function updateUser(req, res) {
   const { id } = req.params.userId;
@@ -42,7 +53,6 @@ async function updateUser(req, res) {
   }
 }
 
-
 // Delete an user by ID
 async function deleteUser(req, res) {
   const { id } = req.params.userId;
@@ -54,22 +64,22 @@ async function deleteUser(req, res) {
   }
 }
 
-
 // Get an user by ID
 async function getUserById(req, res) {
-  const { id } = req.params.userId;
   try {
-    const user = await UserService.getUserById(id);
+    const { userId } = req.params;
+    if (!userId) throw new Error('User ID is required');
+    const user = await UserService.getUserById(userId);
     if (user) {
       res.json(user);
     } else {
       res.status(404).json({ error: 'User not found' });
     }
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: error.message });
   }
 }
-
 
 // Search users by filter
 async function searchUsers(req, res) {
@@ -82,7 +92,6 @@ async function searchUsers(req, res) {
   }
 }
 
-
 // Get user's order history by ID
 async function getUserOrderHistory(req, res) {
   try {
@@ -93,7 +102,6 @@ async function getUserOrderHistory(req, res) {
     res.status(500).json({ error: 'Failed to fetch order history' });
   }
 }
-
 
 // Get user's addresses by ID
 async function getUserAddresses(req, res) {
@@ -106,7 +114,6 @@ async function getUserAddresses(req, res) {
   }
 }
 
-
 // Get user's wishlist by ID
 async function getUserWishlist(req, res) {
   try {
@@ -118,7 +125,6 @@ async function getUserWishlist(req, res) {
   }
 }
 
-
 // Get user's cart by ID
 async function getUserMyCart(req, res) {
   try {
@@ -129,7 +135,6 @@ async function getUserMyCart(req, res) {
     res.status(500).json({ error: 'Failed to fetch my cart' });
   }
 }
-
 
 // Update num of orders in user
 async function saveUser(req, res) {
@@ -149,7 +154,6 @@ async function saveUser(req, res) {
     res.status(500).json({ error: 'Failed to save user.' });
   }
 }
-
 
 // User logged-in
 async function login(req, res) {
@@ -178,10 +182,9 @@ async function login(req, res) {
   }
 }
 
-
 async function register(req, res, next) {
   try {
-    const { firstName, lastName, emailSignin, password,address,phoneNumber} = req.body;
+    const { firstName, lastName, emailSignin, password, address, phoneNumber } = req.body;
     console.log(emailSignin);
     const salt = await bcrypt.genSalt(12);
     const hash = await bcrypt.hash(password, salt);
@@ -191,17 +194,16 @@ async function register(req, res, next) {
       emailSignin,
       password: hash,
       address,
-      phoneNumber
+      phoneNumber,
     });
-    console.log("3");
-    console.log("4");
+    console.log('3');
+    console.log('4');
     res.redirect('/homePage.html'); // Replace with the desired redirect location
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'An error occurred during registration' });
   }
 }
-
 
 // Get logged-in user details
 async function getMyUser(req, res) {
@@ -213,19 +215,19 @@ async function getMyUser(req, res) {
   }
 }
 
-
-module.exports = { 
-    getAllUsers,
-    createUser,
-    updateUser,
-    deleteUser,
-    getUserById,
-    searchUsers,
-    login,
-    register,
-    getMyUser,
-    getUserOrderHistory,
-    getUserAddresses,
-    getUserWishlist,
-    getUserMyCart
+module.exports = {
+  getAllUsers,
+  createUser,
+  updateUser,
+  deleteUser,
+  getUserById,
+  searchUsers,
+  login,
+  register,
+  getMyUser,
+  getUserOrderHistory,
+  getUserAddresses,
+  getUserWishlist,
+  getUserMyCart,
+  getClientUser,
 };
