@@ -1,14 +1,19 @@
-GET http://localhost:5000/api/wishlist
+GET http://localhost:5000/users/64a97caf6aed7a61175e2a04
+Content-Type: application/json
+###
+GET http://localhost:5000/me/
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE5N2NhZjZhZWQ3YTYxMTc1ZTJhMDQiLCJpYXQiOjE2ODg4MjkxODl9.ZJXodx9gDgt9CIsANhijl67fIDifWHIKnsSi6ak4hfY
 Content-Type: application/json
 ###
-POST http://localhost:5000/api/wishlist/64a31452148896f342568eac
+POST  http://localhost:5000/api/addresses/
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE5N2NhZjZhZWQ3YTYxMTc1ZTJhMDQiLCJpYXQiOjE2ODg4MjkxODl9.ZJXodx9gDgt9CIsANhijl67fIDifWHIKnsSi6ak4hfY
 Content-Type: application/json
-###
-DELETE http://localhost:5000/api/wishlist/64a31452148896f342568eac
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE5N2NhZjZhZWQ3YTYxMTc1ZTJhMDQiLCJpYXQiOjE2ODg4MjkxODl9.ZJXodx9gDgt9CIsANhijl67fIDifWHIKnsSi6ak4hfY
-Content-Type: application/json
-###
-GET http://localhost:5000/item/64a31452148896f342568ef6
 
+{
+    "nickname": "Home",
+    "city": "São Paulo",
+    "street": "Rua dos Bobos",
+    "houseNum" : "18",
+    "apartmentNum": "18",
+    "postalCode": "12345678"
+}

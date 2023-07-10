@@ -10,7 +10,6 @@ async function getAllUsers() {
   }
 }
 
-
 // Create a new user
 async function createUser(userData) {
   try {
@@ -29,7 +28,6 @@ async function createUser(userData) {
   }
 }
 
-
 // Update an user by ID
 async function updateUser(id, updateData) {
   try {
@@ -39,7 +37,6 @@ async function updateUser(id, updateData) {
     throw new Error('Failed to update user');
   }
 }
-
 
 // Delete an user by ID
 async function deleteUser(id) {
@@ -51,17 +48,23 @@ async function deleteUser(id) {
   }
 }
 
-
 // Get an user by ID
 async function getUserById(id) {
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id)
+      .populate({ path: 'myWishList', populate: { path: 'items' } })
+      .populate('MyCart')
+      .populate('orderHistory')
+      .populate('address');
+
+    if (!user) throw new Error('User not found');
+    user.password = undefined;
+
     return user;
   } catch (error) {
     throw new Error('Failed to fetch user');
   }
 }
-
 
 // Search users by filter
 async function searchUsers(filter) {
@@ -71,15 +74,14 @@ async function searchUsers(filter) {
         { firstName: { $regex: filter, $options: 'i' } },
         { lastName: { $regex: filter, $options: 'i' } },
         { username: { $regex: filter, $options: 'i' } },
-        { phoneNumber: { $regex: filter, $options: 'i' } }
-      ]
+        { phoneNumber: { $regex: filter, $options: 'i' } },
+      ],
     });
     return users;
   } catch (error) {
     throw new Error('Failed to search users');
   }
 }
-
 
 // Get user's order history by ID
 async function getUserOrderHistory(userId) {
@@ -97,7 +99,6 @@ async function getUserOrderHistory(userId) {
   }
 }
 
-
 // Get user's addresses by ID
 async function getUserAddresses(userId) {
   try {
@@ -113,7 +114,6 @@ async function getUserAddresses(userId) {
     throw error;
   }
 }
-
 
 // Get user's wishlist by ID
 async function getUserWishlist(userId) {
@@ -131,8 +131,6 @@ async function getUserWishlist(userId) {
   }
 }
 
-
-
 // Get user's cart by ID
 async function getUserMyCart(userId) {
   try {
@@ -149,16 +147,15 @@ async function getUserMyCart(userId) {
   }
 }
 
-
 module.exports = {
-    getAllUsers,
-    createUser,
-    updateUser,
-    deleteUser,
-    getUserById,
-    searchUsers,
-    getUserOrderHistory,
-    getUserAddresses,
-    getUserWishlist,
-    getUserMyCart
+  getAllUsers,
+  createUser,
+  updateUser,
+  deleteUser,
+  getUserById,
+  searchUsers,
+  getUserOrderHistory,
+  getUserAddresses,
+  getUserWishlist,
+  getUserMyCart,
 };

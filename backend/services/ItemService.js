@@ -2,12 +2,12 @@ const Item = require('../models/ItemSchema');
 
 // Generate Id for new Item
 const generateItemId = async (type) => {
-    const ItemType = {
-        Ring: '1',
-        Necklace: '2',
-        Bracelet: '3',
-        Earring: '4',
-    };
+  const ItemType = {
+    Ring: '1',
+    Necklace: '2',
+    Bracelet: '3',
+    Earring: '4',
+  };
 
   const itemTypePrefix = ItemType[type];
   const lastItem = await Item.findOne({ type }, 'id', { sort: { createdAt: -1 } });
@@ -16,7 +16,6 @@ const generateItemId = async (type) => {
 
   return itemTypePrefix + newId;
 };
-
 
 // Update an item by ID
 async function updateItem(itemId, updatedItem) {
@@ -39,17 +38,15 @@ async function deleteItem(itemId) {
   }
 }
 
-
 // Get an item by ID
 async function getItemById(itemId) {
   try {
-    const item = await Item.findOne({ id: itemId });
+    const item = await Item.findById(itemId);
     return item;
   } catch (error) {
     throw new Error('Failed to retrieve item by ID');
   }
 }
-
 
 // Search items by name
 async function searchItemsByName(searchQuery) {
@@ -62,11 +59,10 @@ async function searchItemsByName(searchQuery) {
   }
 }
 
-
 module.exports = {
   generateItemId,
   updateItem,
   deleteItem,
   getItemById,
-  searchItemsByName
+  searchItemsByName,
 };

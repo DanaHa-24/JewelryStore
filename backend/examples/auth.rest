@@ -9,7 +9,6 @@ Content-Type: application/json
   "lastName": "test"
 }
 ###
-חולון,אהרון גלעדי, 23,0000
 POST http://localhost:5000/auth/login
 Content-Type: application/json
 

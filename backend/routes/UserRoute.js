@@ -3,7 +3,7 @@ const router = express.Router();
 const UserController = require('../controllers/UserController');
 
 // Get user's cart by ID
-router.get('/:userId/my-cart', UserController.getUserMyCart)
+router.get('/:userId/my-cart', UserController.getUserMyCart);
 
 // Get user's order history by ID
 router.get('/:userId/order-history', UserController.getUserOrderHistory);
@@ -36,6 +36,6 @@ router.get('/search/:filter', UserController.searchUsers);
 router.post('/login', UserController.login);
 
 // User register
-router.post('/register',UserController.register);
+router.post('/register', UserController.register);
 
 module.exports = router;
