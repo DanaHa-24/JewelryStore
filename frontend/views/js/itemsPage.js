@@ -219,13 +219,19 @@ function appendUniqueItems(uniqueItems, containerSelector, appliedFilters, categ
   });
 }
 
-function createItemCards(items) {
+async function createItemCards(items) {
   // clear screen
   $(cardsContainer).empty();
   localStorage.setItem('wishlist', JSON.stringify([]));
 
+  const wishlist = await ajaxRequest('/api/wishlist', 'GET');
+
+  items = items.sort((a, b) => {
+    return b.amountInStock - a.amountInStock;
+  });
+
   items.forEach(function (item) {
-    const productCard = ProductCard(item);
+    const productCard = ProductCard(item, wishlist);
     cardsContainer.append(productCard);
   });
 

@@ -1,10 +1,12 @@
-$(document).ready(function () {
+$(document).ready(async function () {
   // Needs to get after loggin
-  const userId = '64982471eaa2cfe2d1b32d5a';
 
   // Create navbar
   const navbar = $('<div>').addClass('profile-page-navbar');
   const tabsList = $('<ul></ul>').addClass('profile-page-options');
+
+  const clientUser = await ajaxRequest(`/me`, 'GET');
+  const userId = clientUser._id;
 
   const tabs = [
     {
@@ -185,7 +187,11 @@ function handleMyDetails(userId) {
           const usernameInput = $('<input>').attr('type', 'email').val(response.username);
           const phoneNumberInput = $('<input>').attr('type', 'tel').val(response.phoneNumber);
           const passwordInput = $('<input>').attr('type', 'password').val(response.password);
-          const submitButton = $('<button>').attr('type', 'submit').text('שמור');
+          const submitButton = $('<button>')
+            .addClass('btn btn-primary')
+            .attr('id', 'login-page-button')
+            .attr('type', 'submit')
+            .text('שמור');
 
           form.append(
             $('<label>').text('שם פרטי: ').append(firstNameInput),
@@ -225,7 +231,6 @@ function handleMyDetails(userId) {
               },
             });
           });
-
           $('.profile-page-container').empty().append(form);
         }
       },
@@ -246,8 +251,11 @@ function handleMyWishList(userId) {
   } else {
     // Make an AJAX request to retrieve the user's wishlist from the backend
     $.ajax({
-      url: `/users/${userId}/my-wish`,
+      url: `/api/wishlist`,
       method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
       success: function (response) {
         if (response.length === 0) {
           $('.profile-page-container').text('ריק פה, בטוח יש דברים יפים שראיתם 🖤');
