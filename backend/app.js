@@ -7,6 +7,7 @@ const cors = require('cors');
 const http = require('http');
 require('dotenv').config({ path: __dirname + '/.env' });
 const monogoConnect = require('./config/mongoConnect');
+const UserController = require('./controllers/UserController');
 
 const server = http.createServer(app);
 require('./socket').init(server);
@@ -45,6 +46,8 @@ app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/views/pages/home.html'));
 });
+
+app.get('/me', UserController.getClientUser);
 
 // For other URL's => Not Found Page
 app.get('*', (req, res) => {

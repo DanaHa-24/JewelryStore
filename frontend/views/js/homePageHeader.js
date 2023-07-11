@@ -21,25 +21,25 @@ const navIcons = [
   {
     name: 'cart',
     class: 'fas fa-shopping-cart',
-    page: 'cart',
+    page: '/cart',
   },
   {
     name: 'wishlist',
     class: 'fas fa-heart',
-    page: 'wishlist',
+    page: '/wishlist',
   },
   {
     name: 'profile',
     class: 'fas fa-user',
-    page: 'profile',
+    page: '/profile',
   },
 ];
 
-const header = $('<header>').attr('id', 'home-page-header').addClass('sticky-top');
+const header = $('#home-page-header');
 const nav = $('<nav>').attr('id', 'home-page-navbar').addClass('navbar navbar-expand-lg');
 const navbarDiv = $('<div>').addClass('collapse navbar-collapse');
 
-$('body').append(header.append(nav.append(navbarDiv)));
+header.append(nav.append(navbarDiv));
 
 const headerLinks = $('<ul>').attr('id', 'home-page-header-links').addClass('navbar-nav');
 const searchInput = $('<input>')
@@ -67,7 +67,7 @@ $.each(navIcons, function (index, link) {
   let iconLink;
   let icon;
   if (link.name == 'profile' && localStorage.getItem('token') == null) {
-    iconLink = $('<a>').attr('href', 'login').addClass('nav-link');
+    iconLink = $('<a>').attr('href', '/login').addClass('nav-link');
     icon = $('<i>').addClass(link.class);
   } else {
     iconLink = $('<a>').attr('href', link.page).addClass('nav-link');
