@@ -1,7 +1,11 @@
 # BU Jewelry
 
 <p>
-BU Jewelry is a a progressive eCommerce application for a boutique jewelry business aimed at a modern audience with an inclusive brand. A application is able to search the API for items, allow users to send the vendor inquiries for custom jewelry, connect to a Stripe API to collect card information, and track user's actions through Google Analytics.
+Welcome to the BU Store! 
+This is a web application developed as part of the final project for the Web Application Development course. 
+BU is an online jewelry boutique store that offers necklaces, earings, rings and bracelets aimed at a modern audience.
+BU means that everyone should be who they are.
+Jewelry allows you to express yourself.
 </p>
 
 
