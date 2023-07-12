@@ -12,6 +12,17 @@ Jewelry allows you to express yourself.
 
 ---
 
+## Collaborators
+[Dana Hafif](https://github.com/DanaHa-24)
+
+[Bar Rachmany](https://github.com/barrachmany)
+
+[Omer Or](https://github.com/OmerOr1)
+
+[Eldar Halavia](https://github.com/EldarHalavia)
+
+---
+
 ## Libraries used
 
 * [lodash.debounce](https://github.com/lodash/lodash) v4.0.8
