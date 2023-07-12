@@ -6,7 +6,7 @@ const ProductCard = (item, wishlist) => {
   const name = $('<h3>').attr('id', 'items-page-jewel-name').text(item.name);
   const price = $('<p>').attr('id', 'items-page-jewel-price').text(`₪${item.price}`);
 
-  const isItemInWishlist = wishlist?.items.find((wishlistItem) => wishlistItem._id === item._id);
+  const isItemInWishlist = wishlist.items.find((wishlistItem) => wishlistItem._id === item._id);
   const heartClass = isItemInWishlist ? 'fas fa-heart cardFullHeart' : 'far fa-heart cardHollowHeart';
   const heart = $('<button>').addClass(heartClass).css('background-color', 'transparent');
 

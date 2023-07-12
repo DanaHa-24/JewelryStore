@@ -99,7 +99,7 @@ $.each(dropdownArray, function (label, items) {
   let dropdownLabel = $('<button>')
     .text(items.title)
     .click(function () {
-      window.location.href = `items?type=${label}`;
+      window.location.href = `/items?type=${label}`;
     });
 
   let dropdownContent = $('<div>').addClass('dropdown-content container');

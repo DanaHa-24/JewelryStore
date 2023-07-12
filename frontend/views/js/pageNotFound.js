@@ -9,7 +9,7 @@ const contentA = $('<p>').addClass('page-not-found-contentB').text('The page you
 const contentB = $('<p>').addClass('page-not-found-contentA').text('We are working on it :)');
 const homepageButton = $('<button>').addClass('btn btn-primary').attr('id','page-not-found-home-btn').text('Go to Homepage');
 homepageButton.on('click', function() {
-  window.location.href = '/';
+  window.location.href = '/'; // Replace with the actual URL of your homepage
 });
 
 $(errorText).append(titleText, contentA, contentB, homepageButton);
