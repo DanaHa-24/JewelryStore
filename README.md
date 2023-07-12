@@ -1,10 +1,10 @@
 # BU Jewelry
 
 <p>
-Welcome to the BU Store! 
-This is a web application developed as part of the final project for the Web Application Development course. 
-BU is an online jewelry boutique store that offers necklaces, earings, rings and bracelets aimed at a modern audience.
-BU means that everyone should be who they are.
+Welcome to the BU Store! <br>
+This is a web application developed as part of the final project for the Web Application Development course. <br>
+BU is an online jewelry boutique store that offers necklaces, earings, rings and bracelets aimed at a modern audience. <br>
+BU means that everyone should be who they are. <br>
 Jewelry allows you to express yourself.
 </p>
 
