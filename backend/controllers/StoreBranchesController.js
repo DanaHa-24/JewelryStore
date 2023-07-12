@@ -10,7 +10,6 @@ async function getAllStoreBranches(req, res) {
   }
 }
 
-
 // Create a new store branch
 async function createStoreBranch(req, res) {
   const branchData = req.body;
@@ -18,15 +17,16 @@ async function createStoreBranch(req, res) {
     const newBranch = await StoreBranchesService.createStoreBranch(branchData);
     res.status(201).json(newBranch);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: error.message });
   }
 }
-  
 
 // Update a store branch by ID
 async function updateStoreBranch(req, res) {
   const { id } = req.params;
   const updateData = req.body;
+  console.log(updateData);
   try {
     const updatedBranch = await StoreBranchesService.updateStoreBranch(id, updateData);
     res.json(updatedBranch);
@@ -34,7 +34,6 @@ async function updateStoreBranch(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
-  
 
 // Delete a store branch by ID
 async function deleteStoreBranch(req, res) {
@@ -46,7 +45,6 @@ async function deleteStoreBranch(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
-  
 
 // Get a store branch by ID
 async function getStoreBranchById(req, res) {
@@ -63,7 +61,6 @@ async function getStoreBranchById(req, res) {
   }
 }
 
-
 // Search store branches by filter
 async function searchStoreBranches(req, res) {
   const { filter } = req.params;
@@ -75,13 +72,11 @@ async function searchStoreBranches(req, res) {
   }
 }
 
-  
-
 module.exports = {
-    getAllStoreBranches,
-    createStoreBranch,
-    deleteStoreBranch,
-    updateStoreBranch,
-    searchStoreBranches,
-    getStoreBranchById
+  getAllStoreBranches,
+  createStoreBranch,
+  deleteStoreBranch,
+  updateStoreBranch,
+  searchStoreBranches,
+  getStoreBranchById,
 };

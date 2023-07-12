@@ -19,8 +19,6 @@ router.use('/terms', require('./views/terms.routes'));
 router.use('/wishlist', require('./views/wishlist.routes'));
 router.use('/exchange-return', require('./views/exchangeReturn.routes'));
 
-// Get client user
-
 //routes
 router.use('/item', require('./ItemRoute'));
 router.use('/map', require('./StoreBranchesRoute'));
@@ -31,6 +29,6 @@ router.use('/auth', require('./AuthRoute'));
 router.use('/api/addresses', require('../middleware/auth'), require('./AddressRoute'));
 router.use('/api/wishlist', require('../middleware/auth'), require('../middleware/auth'), require('./WishListRoute'));
 router.use('/cart', require('./CartRoute'));
-router.use('/orders', require('./OrderRoute'));
+router.use('/api/orders', require('../middleware/auth'), require('./OrderRoute'));
 
 module.exports = router;

@@ -3,10 +3,10 @@ const router = express.Router();
 const OrderController = require('../controllers/OrderController');
 
 // Get an order by ID
-router.get('/:id',OrderController.getOrderById);
+router.get('/:id', OrderController.getOrderById);
 
-// Get all orders 
-router.get('/',OrderController.getAllOrders);
+// Get all orders
+router.get('/', require('../middleware/adminAuth'), OrderController.getAllOrders);
 
 // Create a new order
 router.post('/', OrderController.createOrder);

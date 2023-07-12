@@ -55,7 +55,7 @@ async function getAllItems(req, res) {
       sortBy = sortingArray[req.query.sort].filter;
     }
     const items = await Item.find(filterBy).sort(sortBy);
-    res.status(200).json({ items });
+    res.status(200).json(items);
   } catch (error) {
     res.status(500).json({ error: 'Failed to retrieve schema data from Item' });
   }
