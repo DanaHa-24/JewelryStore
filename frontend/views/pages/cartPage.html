@@ -27,63 +27,22 @@
             <th>מחיר כולל</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Item 1</td>
-            <td>$10</td>
-            <td>
-              <div class="input-group">
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-outline-secondary minus-btn">-</button>
-                </span>
-                <input type="number" class="form-control" value="1" />
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-outline-secondary plus-btn">+</button>
-                </span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Item 2</td>
-            <td>$20</td>
-            <td>
-              <div class="input-group">
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-outline-secondary minus-btn">-</button>
-                </span>
-                <input type="number" class="form-control" value="1" />
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-outline-secondary plus-btn">+</button>
-                </span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Item 3</td>
-            <td>$30</td>
-            <td>
-              <div class="input-group">
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-outline-secondary minus-btn">-</button>
-                </span>
-                <input type="number" class="form-control" value="1" />
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-outline-secondary plus-btn">+</button>
-                </span>
-              </div>
-            </td>
-          </tr>
+        <tbody id="cart-tbody">
           <tr>
             <td colspan="2" class="text-right"><strong>סך הכל לתשלום</strong></td>
-            <td id="total-to-pay">$0</td>
+            <td></td>
+            <td></td>
+            <td id="total-to-pay"></td>
           </tr>
         </tbody>
       </table>
-      <button type="submit" class="btn btn-primary">הזמן עכשיו</button>
+      <button type="submit" class="btn btn-primary" id="checkout-btn">הזמן עכשיו</button>
     </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../js/homePageHeader.js"></script>
   <script src="../js/cartPage.js"></script>
+  <script src="../js/ajax.js"></script>
+  <script src="../js/CartItem.js"></script>
   <script src="../js/homePageFooter.js"></script>
 </html>
