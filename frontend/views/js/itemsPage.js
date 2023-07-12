@@ -222,9 +222,8 @@ function appendUniqueItems(uniqueItems, containerSelector, appliedFilters, categ
 async function createItemCards(items) {
   // clear screen
   $(cardsContainer).empty();
-  localStorage.setItem('wishlist', JSON.stringify([]));
-
-  const wishlist = await ajaxRequest('/api/wishlist', 'GET');
+  const isLogged = localStorage.getItem('token');
+  const wishlist = isLogged ? await ajaxRequest('/api/wishlist', 'GET') : { items: [] };
 
   items = items.sort((a, b) => {
     return b.amountInStock - a.amountInStock;
@@ -301,7 +300,7 @@ $.ajax({
   url: `item/${serializeFilters(filters)}`,
   method: 'GET',
   success: function (response) {
-    const items = response.items;
+    const items = response;
     createSortingBar(sortingArray);
     createCategoryBar(items, filters);
     createItemCards(items);

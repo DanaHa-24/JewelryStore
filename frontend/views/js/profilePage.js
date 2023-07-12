@@ -31,13 +31,6 @@ $(document).ready(async function () {
       },
     },
     {
-      text: 'Wishlist',
-      content: 'Wishlist',
-      action: function () {
-        handleMyWishList(userId);
-      },
-    },
-    {
       text: 'התנתקות',
       content: 'התנתקות',
       action: function () {
@@ -236,63 +229,6 @@ function handleMyDetails(userId) {
       },
       error: function (error) {
         console.error('Error retrieving user details:', error);
-      },
-    });
-  }
-}
-
-/////////////////////////////////// My WishList Tab ///////////////////////////////////
-
-function handleMyWishList(userId) {
-  $('.profile-page-container').empty();
-
-  if (!userId) {
-    $('.profile-page-container').text(' עדיין לא התחברת 🖤');
-  } else {
-    // Make an AJAX request to retrieve the user's wishlist from the backend
-    $.ajax({
-      url: `/api/wishlist`,
-      method: 'GET',
-      headers: {
-        Authorization: localStorage.getItem('token'),
-      },
-      success: function (response) {
-        if (response.length === 0) {
-          $('.profile-page-container').text('ריק פה, בטוח יש דברים יפים שראיתם 🖤');
-        } else {
-          // Build and display the wishlist table
-          const table = $('<table>').addClass('wishlist-table');
-          const tableHeader = $('<tr>').append(
-            $('<th>').text('Item Name'),
-            $('<th>').text('Price'),
-            $('<th>').text('Quantity'),
-            $('<th>').text('Add to Cart')
-          );
-
-          table.append(tableHeader);
-
-          response.forEach(function (item) {
-            const tableRow = $('<tr>').append(
-              $('<td>').text(item.name),
-              $('<td>').text(item.price),
-              $('<td>').text(item.amount),
-              $('<td>').append(
-                $('<button>')
-                  .text('Add')
-                  .on('click', function () {
-                    addToCart(item.id);
-                  })
-              )
-            );
-
-            table.append(tableRow);
-          });
-
-          $('.profile-page-container').empty().append(table);
-        }
-      },
-      error: function (error) {
-        console.error('Error retrieving wishlist:', error);
       },
     });
   }
