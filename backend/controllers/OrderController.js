@@ -1,6 +1,5 @@
 const OrderService = require('../services/OrderService');
-const CartService = require('../services/CartService'); 
-
+const CartService = require('../services/CartService');
 
 // Get all orders
 async function getAllOrders(req, res) {
@@ -12,33 +11,19 @@ async function getAllOrders(req, res) {
   }
 }
 
-
 // Create a new order
 async function createOrder(req, res) {
   try {
-    // Get the cart items
-    const cartItems = await CartService.getCartItems(req.userId);
+    const userId = req.user._id;
+    const orderData = req.body;
 
-    // Create the orderData object
-    const orderData = {
-      orderItems: cartItems.map(item => ({
-        item: item.itemId,
-        quantity: item.quantity,
-      })),
-      deliveryMethod: req.body.deliveryMethod,
-      address: req.body.address,
-      paymentMethod: req.body.paymentMethod,
-      promoCode: req.body.promoCode,
-      username: req.user ? req.user.username : req.body.email,
-    };
+    const newOrder = await OrderService.createOrder(userId, orderData);
 
-    const order = await OrderService.createOrder(orderData);
-    res.status(201).json(order);
+    res.status(201).json(newOrder);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 }
-
 
 // Update an order by ID
 async function updateOrder(req, res) {
@@ -52,7 +37,6 @@ async function updateOrder(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
-
 
 // Delete an order by ID
 async function deleteOrder(req, res) {
@@ -72,7 +56,6 @@ async function deleteOrder(req, res) {
   }
 }
 
-
 // Get an order by ID
 async function getOrderById(req, res) {
   try {
@@ -90,7 +73,6 @@ async function getOrderById(req, res) {
   }
 }
 
-
 // Search orders by given filter
 async function searchOrders(req, res) {
   try {
@@ -102,7 +84,6 @@ async function searchOrders(req, res) {
   }
 }
 
-
 module.exports = {
   createOrder,
   updateOrder,
@@ -112,4 +93,3 @@ module.exports = {
   searchOrders,
   //getAllUserOrders
 };
-

@@ -9,7 +9,7 @@ router.get('/:id', StoreBranchesController.getStoreBranchById);
 router.get('/search/:filter', StoreBranchesController.searchStoreBranches);
 
 // Get all Store's branches
-router.get('/', StoreBranchesController.getAllStoreBranches);
+router.get('/',  StoreBranchesController.getAllStoreBranches);
 
 // Create a new store branch
 router.post('/', StoreBranchesController.createStoreBranch);

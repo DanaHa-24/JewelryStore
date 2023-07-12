@@ -1,7 +1,6 @@
 const Order = require('../models/OrderSchema');
 const Item = require('../models/ItemSchema');
 
-
 // Get all orders
 async function getAllOrders() {
   try {
@@ -12,37 +11,26 @@ async function getAllOrders() {
   }
 }
 
-
 // Create a new order
-async function createOrder(orderData) {
-  // Generate a 10-digit order ID (in ascending order)
-  const lastOrder = await Order.findOne().sort({ orderNumber: -1 }).limit(1);
-  let orderNumber = 1;
-  if (lastOrder) {
-    orderNumber = parseInt(lastOrder.orderNumber) + 1;
-  }
-  orderData.orderNumber = orderNumber.toString().padStart(10, '0');
+async function createOrder(userId, orderData) {
+  const lastOrder = await Order.find().sort({ orderNumber: -1 }).limit(1);
+  lastOrder.length === 0 ? (orderData.orderNumber = 1) : (orderData.orderNumber = lastOrder[0].orderNumber + 1);
 
-  // Calculate total price and number of items
-  let totalPrice = 0;
-  let numOfItems = 0;
-
-  orderData.orderItems.forEach(item => {
-    totalPrice += item.item.price * item.quantity;
-    numOfItems += item.quantity;
+  // Update the stock of the items in the order
+  orderData.orderItems.forEach(async (item) => {
+    const itemToUpdate = await Item.findById(item.item);
+    console.log(itemToUpdate.amountInStock);
+    itemToUpdate.amountInStock -= item.quantity;
+    console.log(itemToUpdate.amountInStock);
+    await itemToUpdate.save();
   });
 
-  orderData.totalPrice = totalPrice;
-  orderData.numOfItems = numOfItems;
-
-  // Update delivery method, address, payment method, state, and other fields as required
-  // based on the orderData object
-
   const order = new Order(orderData);
+  order.numOfItems = orderData.orderItems.length;
+  order.username = userId;
   await order.save();
   return order;
 }
-
 
 // Update an order by order ID
 async function updateOrder(orderId, updateData) {
@@ -62,30 +50,26 @@ async function updateOrder(orderId, updateData) {
   return order;
 }
 
-
 // Delete an order by ID
 async function deleteOrder(orderId) {
   const result = await Order.findByIdAndDelete(orderId);
   return result !== null;
 }
 
-
 // Get an order by ID
 async function getOrderById(orderId) {
   const order = await Order.findById(orderId);
   if (!order) {
-      console.log(`Order with ID ${orderId} not found.`);
+    console.log(`Order with ID ${orderId} not found.`);
   }
   return order;
 }
-
 
 // Search orders by given filter
 async function searchOrders(filter) {
   const orders = await Order.find(filter);
   return orders;
 }
-
 
 // // Get all orders for a user
 // async function getAllUserOrders(username) {

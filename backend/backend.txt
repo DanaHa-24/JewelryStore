@@ -1,8 +1,0 @@
-C:\Users\user\JewelryStore\backend\services\AddressService.js
-לא מבין מה הכוונה פה
-
-
-
-
-טיפים:
-- try catch
