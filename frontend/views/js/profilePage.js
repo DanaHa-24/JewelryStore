@@ -109,50 +109,14 @@ $(document).ready(async function () {
 /////////////////////////////////// My Orders Tab ///////////////////////////////////
 
 // Function to handle "My Orders" tab
-function handleMyOrders(userId) {
+async function handleMyOrders() {
   $('.profile-page-container').empty();
-  //console.log(userId);
-  if (!userId) {
-    $('.profile-page-container').text('טרם הזמנת אצלנו / עדיין לא התחברת 🖤');
-  }
-  // Make an AJAX request to retrieve the user's order history from the backend
-  $.ajax({
-    url: `/users/${userId}/order-history`,
-    method: 'GET',
-    dataType: 'json',
-    success: function (response) {
-      // Handle successful response (order history data)
-      //console.log(response);
-      // Populate the user's order history accordion
-      fetchUserOrdersHistory(response);
-    },
-    error: function (error) {
-      // Handle error
-      console.error('Error fetching order history:', error);
-      // Display an error message or perform appropriate error handling
-    },
-  });
-}
 
-/////////////////////////////////// My Addresses Tab ///////////////////////////////////
+  const orders = await ajaxRequest(`/api/orders`, 'GET');
+  fetchUserOrdersHistory(orders);
 
-// Function to handle "My Addresses" tab
-function handleMyAddress(userId) {
-  $('.profile-page-container').empty();
-  if (!userId) {
+  if (orders.length === 0) {
     $('.profile-page-container').text('טרם הזמנת אצלנו / עדיין לא התחברת 🖤');
-  } else {
-    // Make an AJAX request to retrieve the user's addresses from the backend
-    $.ajax({
-      url: `/users/${userId}/my-addresses`,
-      method: 'GET',
-      success: function (response) {
-        fetchUserAddresses(response);
-      },
-      error: function (error) {
-        console.error('Error retrieving addresses:', error);
-      },
-    });
   }
 }
 
@@ -235,233 +199,24 @@ function handleMyDetails(userId) {
 }
 
 /////////////////////////////////// Fetching for User Addresses tab  ////////////////////////////////////
+async function handleMyAddress() {
+  const options = {
+    id: 'addressesTable',
+    url: '/api/addresses',
+    columnsId: 'addresses-columns',
+    rowsId: 'addresses-rows',
+  };
+  $('.profile-page-container').empty();
+  const addressesTable = $('<table>').attr('id', options.id).addClass('table');
+  const tableHead = $('<thead>');
+  const tableHeadRow = $('<tr>').attr('id', options.columnsId);
+  const tableBody = $('<tbody>').attr('id', options.rowsId);
 
-function fetchUserAddresses(data) {
-  // Build and display the addresses table
-  const table = $('<table>').addClass('table table-striped');
-  const tableHeader = $('<tr>').append(
-    $('<th>').text('שם'),
-    $('<th>').text('עיר'),
-    $('<th>').text('רחוב'),
-    $('<th>').text('מספר בית'),
-    $('<th>').text('מספר דירה'),
-    $('<th>').text('מיקוד'),
-    $('<th>').text('פעולות')
-  );
+  addressesTable.append(tableHead.append(tableHeadRow), tableBody);
+  $('.profile-page-container').append(addressesTable);
 
-  table.append(tableHeader);
-  data.forEach(function (addressId) {
-    // Make an AJAX request to fetch the address details
-    $.ajax({
-      url: `addresses/${addressId}`,
-      method: 'GET',
-      success: function (addressData) {
-        const tableRow = $('<tr>').append(
-          $('<td>').text(addressData.nickname),
-          $('<td>').text(addressData.city),
-          $('<td>').text(addressData.street),
-          $('<td>').text(addressData.houseNum),
-          $('<td>').text(addressData.apartmentNum),
-          $('<td>').text(addressData.postalCode),
-          $('<td>').append(
-            $('<button>')
-              .text('עריכה')
-              .attr('type', 'button')
-              .addClass('btn btn-outline-secondary')
-              .on('click', function () {
-                editAddress(addressData);
-              }),
-            $('<button>')
-              .text('מחיקה')
-              .attr('type', 'button')
-              .addClass('btn btn-outline-danger')
-              .on('click', function () {
-                deleteAddress(addressData.id);
-              })
-          )
-        );
-
-        table.append(tableRow);
-      },
-      error: function (error) {
-        console.error('Error fetching address:', error);
-      },
-    });
-
-    // Append a row for adding a new address
-    const addRow = $('<tr>').append(
-      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newName')),
-      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newCity')),
-      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newStreet')),
-      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newHouseNum')),
-      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newApartmentNum')),
-      $('<td>').append($('<input>').attr('type', 'text').addClass('form-control').attr('id', 'newPostalCode')),
-      $('<td>').append(
-        $('<button>')
-          .text('שמירה')
-          .attr('type', 'button')
-          .addClass('btn btn-success')
-          .on('click', function () {
-            saveNewAddress();
-          })
-      )
-    );
-
-    table.append(addRow);
-  });
-
-  $('.profile-page-container').append(table);
-}
-
-/////////////////////////////////// Additional functions for Addresses  ////////////////////////////////////
-
-function editAddress(addressId) {
-  const tableRow = $(`tr[data-id='${addressId}']`);
-
-  // Convert table cells to inputs for editing
-  tableRow.children().each(function (index) {
-    const cellText = $(this).text();
-    $(this).empty().append($('<input>').attr('type', 'text').addClass('form-control').val(cellText));
-  });
-
-  // Replace the "Edit" button with a "Save" button
-  tableRow.find('.edit-button').replaceWith(
-    $('<button>')
-      .text('שמירה')
-      .attr('type', 'button')
-      .addClass('btn btn-success save-button')
-      .on('click', function () {
-        saveEditedAddress(addressId);
-      })
-  );
-}
-
-function saveEditedAddress(addressId) {
-  const tableRow = $(`tr[data-id='${addressId}']`);
-
-  // Get the edited values from the input fields
-  const nickname = tableRow.find('input:eq(0)').val();
-  const city = tableRow.find('input:eq(1)').val();
-  const street = tableRow.find('input:eq(2)').val();
-  const houseNum = tableRow.find('input:eq(3)').val();
-  const apartmentNum = tableRow.find('input:eq(4)').val();
-  const postalCode = tableRow.find('input:eq(5)').val();
-
-  // Make an AJAX request to update the address in the backend
-  $.ajax({
-    url: `addresses/${addressId}`,
-    method: 'PUT',
-    data: {
-      nickname: nickname,
-      city: city,
-      street: street,
-      houseNum: houseNum,
-      apartmentNum: apartmentNum,
-      postalCode: postalCode,
-    },
-    success: function (response) {
-      // Replace the input fields with the updated values
-      tableRow.children().each(function (index) {
-        const inputValue = $(this).find('input').val();
-        $(this).empty().text(inputValue);
-      });
-
-      // Replace the "Save" button with an "Edit" button
-      tableRow.find('.save-button').replaceWith(
-        $('<button>')
-          .text('עריכה')
-          .attr('type', 'button')
-          .addClass('btn btn-outline-secondary edit-button')
-          .on('click', function () {
-            editAddress(response);
-          })
-      );
-    },
-    error: function (error) {
-      console.error('Error saving edited address:', error);
-    },
-  });
-}
-
-function deleteAddress(addressId) {
-  // Make an AJAX request to delete the address from the backend
-  $.ajax({
-    url: `addresses/${addressId}`,
-    method: 'DELETE',
-    success: function () {
-      // Remove the table row from the UI
-      $(`tr[data-id='${addressId}']`).remove();
-    },
-    error: function (error) {
-      console.error('Error deleting address:', error);
-    },
-  });
-}
-
-function saveNewAddress() {
-  const newName = $('#newName').val();
-  const newCity = $('#newCity').val();
-  const newStreet = $('#newStreet').val();
-  const newHouseNum = $('#newHouseNum').val();
-  const newApartmentNum = $('#newApartmentNum').val();
-  const newPostalCode = $('#newPostalCode').val();
-
-  // Make an AJAX request to create a new address in the backend
-  $.ajax({
-    url: 'addresses/',
-    method: 'POST',
-    data: {
-      nickname: newName,
-      city: newCity,
-      street: newStreet,
-      houseNum: newHouseNum,
-      apartmentNum: newApartmentNum,
-      postalCode: newPostalCode,
-    },
-    success: function (response) {
-      // Create a new table row with the saved address
-      const tableRow = $('<tr>')
-        .attr('data-id', response.id)
-        .append(
-          $('<td>').text(response.nickname),
-          $('<td>').text(response.city),
-          $('<td>').text(response.street),
-          $('<td>').text(response.houseNum),
-          $('<td>').text(response.apartmentNum),
-          $('<td>').text(response.postalCode),
-          $('<td>').append(
-            $('<button>')
-              .text('עריכה')
-              .attr('type', 'button')
-              .addClass('btn btn-outline-secondary edit-button')
-              .on('click', function () {
-                editAddress(response);
-              }),
-            $('<button>')
-              .text('מחיקה')
-              .attr('type', 'button')
-              .addClass('btn btn-outline-danger')
-              .on('click', function () {
-                deleteAddress(response.id);
-              })
-          )
-        );
-
-      // Insert the new table row before the add row
-      $('.profile-page-container table tr:last').before(tableRow);
-
-      // Clear the input fields
-      $('#newName').val('');
-      $('#newCity').val('');
-      $('#newStreet').val('');
-      $('#newHouseNum').val('');
-      $('#newApartmentNum').val('');
-      $('#newPostalCode').val('');
-    },
-    error: function (error) {
-      console.error('Error saving new address:', error);
-    },
-  });
+  const addresses = await ajaxRequest(options.url, 'GET');
+  ManageTable(addresses, options);
 }
 
 /////////////////////////////////// Fetching for User Order History tab ///////////////////////////////////
