@@ -14,7 +14,8 @@ $(document).ready(function () {
     FB.ui(
       {
         method: 'share',
-        href: 'https://www.example.com', // Replace with the URL you want to share
+        href: 'https://developers.facebook.com/docs/reference/dialogs/',
+        picture: 'http://fbrell.com/f8.jpg',
       },
       function (response) {
         // Callback function after the user shares the content
