@@ -50,7 +50,7 @@ $.ajax({
         sort: 0 // the service function would refer to it as sorting by favorites
       },
     success: function(response) {
-        const favoriteItems = response.items;
+        const favoriteItems = response;
         createSlides(favoriteItems);
         showSlides(slideIndex);
         slideshowInterval = setInterval(function() {
