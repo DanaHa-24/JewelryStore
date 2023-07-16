@@ -1,5 +1,6 @@
 const OrderService = require('../services/OrderService');
 const CartService = require('../services/CartService');
+const Order = require('../models/OrderSchema');
 
 // Get all orders
 async function getAllOrders(req, res) {

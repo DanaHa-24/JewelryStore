@@ -3,7 +3,8 @@ const AddressService = require('../services/AddressService');
 // Get all addresses
 async function getAllAddresses(req, res) {
   try {
-    const addresses = await AddressService.getAllAddresses();
+    const userId = req.user._id;
+    const addresses = await AddressService.getAllAddresses(userId);
     res.json(addresses);
   } catch (error) {
     console.error('Error getting addresses:', error);
