@@ -89,17 +89,28 @@ $(document).on('click', '.save-btn', async function () {
 
   if (!res) return alert('העדכון נכשל');
 
-  delete res.__v;
+  // change all the input to text and add to the first cell the _id of the res
+  $(this)
+    .closest('tr')
+    .find('td:not(:last-child)')
+    .each(function () {
+      const text = $(this).find('input').val();
+      $(this).html(text);
+    });
 
-  const actionCell = `
-              <button class="btn btn-danger delete-btn">מחק</button>
-              <button class="btn btn-primary update-btn">עדכן</button>`;
-  $(this).closest('tr').html(`
-        ${Object.values(res)
-          .map((value) => `<td class="text-center">${value}</td>`)
-          .join('')}
-        <td class="text-center">${actionCell}</td>
-        `);
+  if (isNewItem) {
+    $(this).closest('tr').find('td:first-child').html(res._id);
+  }
+
+  // change the button to update button and add delete button
+  $(this)
+    .closest('td')
+    .html(
+      `
+      <button class="btn btn-danger delete-btn">מחק</button>
+      <button class="btn btn-primary update-btn">עדכן</button>
+    `
+    );
 
   alert('המוצר נוסף בהצלחה');
 });

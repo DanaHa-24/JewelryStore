@@ -27,7 +27,7 @@ $(document).ready(function () {
     const alertMessage = resOrder ? 'Order created successfully' : 'Order creation failed';
     alert(alertMessage);
     localStorage.removeItem('cartItems');
-    window.location.href = `/checkout/end/${resOrder._id}`;
+    window.location.href = `/end/${resOrder._id}`;
 
     $('#myForm')[0].reset();
   });

@@ -53,6 +53,10 @@ $(document).ready(async function () {
   });
   $('#total-price').text(() => cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0) + '₪');
   $('#checkout-btn').on('click', function (event) {
+    if (cartItems.length === 0) {
+      alert('העגלה ריקה!');
+      return;
+    }
     window.location.href = '/checkout';
   });
 });

@@ -31,74 +31,92 @@
         </li>
       </ul>
       <!-- Tab Content -->
-      <div class="tab-content mt-3">
+      <div class="tab-content mt-3" style="width: 100%">
         <!-- Stock Tab -->
         <div class="tab-pane fade show active" id="stock">
           <h4>מלאי</h4>
-          <button class="btn btn-primary mb-3" onclick="addRow('stockTable')">הוסף</button>
-          <table class="table" id="stockTable">
-            <thead>
-              <tr id="items-columns">
-                <!-- Table columns will be dynamically added here -->
-              </tr>
-            </thead>
-            <tbody id="items-rows">
-              <!-- Table rows will be dynamically added here -->
-            </tbody>
-          </table>
+          <div
+            id="stockTable-buttons"
+            style="display: flex; gap: 2rem; justify-content: center; align-items: center; padding: 1rem"
+          ></div>
+          <div style="overflow: auto; height: 65vh">
+            <table class="table" id="stockTable">
+              <thead>
+                <tr id="items-columns" style="width: 15px">
+                  <!-- Table columns will be dynamically added here -->
+                </tr>
+              </thead>
+              <tbody id="items-rows">
+                <!-- Table rows will be dynamically added here -->
+              </tbody>
+            </table>
+          </div>
         </div>
         <!-- Users Tab -->
         <div class="tab-pane fade" id="users">
           <h4>משתמשים</h4>
-          <button class="btn btn-primary mb-3" onclick="addRow('usersTable')">הוסף</button>
-          <table class="table" id="usersTable">
-            <thead>
-              <tr id="users-columns"></tr>
-            </thead>
-            <tbody id="users-rows">
-              <!-- Table rows will be dynamically added here -->
-            </tbody>
-          </table>
+          <div
+            id="usersTable-buttons"
+            style="display: flex; gap: 2rem; justify-content: center; align-items: center; padding: 1rem"
+          ></div>
+          <div style="overflow: auto; height: 65vh">
+            <table class="table" id="usersTable">
+              <thead>
+                <tr id="users-columns"></tr>
+              </thead>
+              <tbody id="users-rows">
+                <!-- Table rows will be dynamically added here -->
+              </tbody>
+            </table>
+          </div>
         </div>
         <!-- Orders Tab -->
         <div class="tab-pane fade" id="orders">
           <h4>הזמנות</h4>
-          <button class="btn btn-primary mb-3" onclick="addRow('ordersTable')">הוסף</button>
-          <table class="table" id="ordersTable">
-            <thead>
-              <tr id="orders-columns"></tr>
-            </thead>
-            <tbody id="orders-rows">
-              <!-- Table rows will be dynamically added here -->
-            </tbody>
-          </table>
+          <div
+            id="ordersTable-buttons"
+            style="display: flex; gap: 2rem; justify-content: center; align-items: center; padding: 1rem"
+          ></div>
+          <div style="overflow: auto; height: 65vh">
+            <table class="table" id="ordersTable">
+              <thead>
+                <tr id="orders-columns"></tr>
+              </thead>
+              <tbody id="orders-rows">
+                <!-- Table rows will be dynamically added here -->
+              </tbody>
+            </table>
+          </div>
         </div>
         <!-- Branches Tab -->
         <div class="tab-pane fade" id="branches">
           <h4>סניפים</h4>
-          <button class="btn btn-primary mb-3" id="branchesTable-add-btn" onclick="addRow('branchesTable')">
-            הוסף
-          </button>
-          <table class="table" id="branchesTable">
-            <thead>
-              <tr id="branches-columns">
-                <!-- Table columns will be dynamically added here -->
-              </tr>
-            </thead>
-            <tbody id="branches-rows">
-              <!-- Table rows will be dynamically added here -->
-            </tbody>
-          </table>
+          <div
+            id="branchesTable-buttons"
+            style="display: flex; gap: 2rem; justify-content: center; align-items: center; padding: 1rem"
+          ></div>
+          <div style="overflow: auto; height: 65vh">
+            <table class="table" id="branchesTable">
+              <thead>
+                <tr id="branches-columns">
+                  <!-- Table columns will be dynamically added here -->
+                </tr>
+              </thead>
+              <tbody id="branches-rows">
+                <!-- Table rows will be dynamically added here -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="../js/homePageHeader.js"></script>
+  <script src="../components/homePageHeader.js"></script>
   <script src="../js/ajax.js"></script>
-  <!-- <script src="../js/branchesManage.js"></script> -->
-  <!-- <script src="../js/itemsManage.js"></script> -->
+  <script src="../components/ManageTable.js"></script>
+  <script src="../components/TableBar.js"></script>
   <script src="../js/adminPage.js"></script>
-  <script src="../js/homePageFooter.js"></script>
+  <script src="../components/homePageFooter.js"></script>
 </html>
