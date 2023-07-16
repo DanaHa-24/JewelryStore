@@ -1,0 +1,6 @@
+GET http://localhost:5000/statistics/orders-gb-months
+Content-Type: application/json
+###
+GET http://localhost:5000/statistics/items-gb-types
+Content-Type: application/json
+###

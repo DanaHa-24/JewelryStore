@@ -20,7 +20,7 @@ const orderSchema = new mongoose.Schema({
     default: 'התקבלה',
   },
   promoCode: { type: String },
-  createdAt: { type: String, default: Date.now },
+  createdAt: { type: Date, default: Date.now },
 });
 
 // Mongoose middleware to format the createdAt field before saving

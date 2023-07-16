@@ -18,14 +18,6 @@ Content-Type: application/json
 }
 ###
 
-GET http://localhost:5000/auth/refresh
+GET http://localhost:5000/auth/check
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDNlZTZmNzk2YzRiYmNlNTAxOTUyMCIsImlhdCI6MTY4MjE3NDY3OCwiZXhwIjoxNjgyMTc0Njg4fQ.DLPMi65qPj2H9vmA3M4EwFcOHSRZZR_b110U1EnBRIg
-
-###
-
-GET http://localhost:5000/auth/verify
-Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDNlZTZmNzk2YzRiYmNlNTAxOTUyMCIsImlhdCI6MTY4MjE3NDY3OCwiZXhwIjoxNjgyMTc0Njg4fQ.DLPMi65qPj2H9vmA3M4EwFcOHSRZZR_b110U1EnBRIg
-
-###
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGFlOTAzNjliODI2MjUzNjUyODIxNGYiLCJpYXQiOjE2ODkzNDczMTd9.9XltIwv2rgJn9TycsN-mPq0lt2xlOf2j5S5QucZhjUQ

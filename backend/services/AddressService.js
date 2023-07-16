@@ -2,10 +2,11 @@ const Address = require('../models/AddressSchema');
 const User = require('../models/UserSchema');
 
 // Get all addresses
-async function getAllAddresses() {
+async function getAllAddresses(userId) {
   try {
-    const addresses = await Address.find();
-    return addresses;
+    const user = await User.findById(userId).populate('address');
+    if (!user) throw new Error('User not found');
+    return user.address;
   } catch (error) {
     console.error('Error getting addresses:', error);
     throw new Error('Failed to get addresses');
@@ -18,7 +19,7 @@ async function createAddress(userId, addressData) {
     const user = await User.findById(userId);
     if (!user) throw new Error('User not found');
     const newAddress = await Address.create(addressData);
-    newAddress.user = user;
+    newAddress.user = user._id;
     await newAddress.save();
 
     user.address.push(newAddress._id);
