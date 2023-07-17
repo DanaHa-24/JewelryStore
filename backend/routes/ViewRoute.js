@@ -22,7 +22,7 @@ router.get('/checkout', (req, res) => {
 });
 
 router.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/pages/contact.html'));
+  res.sendFile(path.join(__dirname, '../../frontend/views/pages/contactPage.html'));
 });
 
 router.get('/exchange-return', (req, res) => {
