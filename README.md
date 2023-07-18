@@ -63,18 +63,6 @@ The variables are as follows:
 * Most images are BU's original jewels
 * Few images come from [TAO Jewelry](https://shoptaostyle.com/)
 
-
-Every other image else (not jewelry)  comes from Nappy.co
-
-**Inquiry List credits**
-
-* Repair Inquiry Photo by <a href="https://burst.shopify.com/@matthew_henry?utm_campaign=photo_credit&amp;utm_content=Browse+Free+HD+Images+of+Using+a+Rotary+Tool+On+Jewelry&amp;utm_medium=referral&amp;utm_source=credit">Matthew Henry</a> from <a href="https://burst.shopify.com/tools?utm_campaign=photo_credit&amp;utm_content=Browse+Free+HD+Images+of+Using+a+Rotary+Tool+On+Jewelry&amp;utm_medium=referral&amp;utm_source=credit">Burst</a>
-
-Every other image else (not jewelry)  comes from Nappy.co
-
-
-<img src='./screenshots/jewelry_3.gif' alt="Animated view of the homepage">
-
 ---
 
 # Getting Started
