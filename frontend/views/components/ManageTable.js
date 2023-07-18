@@ -3,13 +3,22 @@ const ManageTable = async (data, options) => {
     delete item.__v;
   });
 
+
   const columns = Object.keys(data[0]);
   options.columns = columns;
   columns.forEach((column, index) => {
-    $(`#${options.columnsId}`).append(`
-    <th scope="col" onclick="sortTable(this, ${index})" class="text-center" style="white-space: nowrap;">${column} ▼</th>
-    `);
+    const header = document.createElement('th');
+    header.setAttribute('scope', 'col');
+    header.classList.add('text-center');
+    header.style.whiteSpace = 'nowrap';
+    header.innerHTML = `${column} <span class="sort-icon" data-sorting="asc">▼</span>`;
+    header.addEventListener('click', function() {
+      sortTable(this, index);
+    });
+  
+    $(`#${options.columnsId}`).append(header);
   });
+  
 
   $(`#${options.columnsId}`).append(`<th>פעולות</th>`);
 

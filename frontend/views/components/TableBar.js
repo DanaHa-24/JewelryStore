@@ -18,16 +18,23 @@ const TableBar = (tableId, options, url) => {
 };
 
 const search = async (tableId, url) => {
-  const data = await ajaxRequest(url, 'GET');
-  // get the value from the searchBy
-  const searchBy = $(`#${tableId}-searchBy`).val();
-  const searchInput = $(`#${tableId}-searchInput`).val();
-  const res = data.filter((item) => item[searchBy].includes(searchInput));
-  const table = tables.find((table) => table.id === tableId);
-  $(`#${tableId} tbody`).empty();
-  $(`#${table.columnsId}`).empty();
-  ManageTable(res, table);
+  try {
+    const data = await ajaxRequest(url, 'GET');
+    const searchBy = $(`#${tableId}-searchBy`).val();
+    const searchInput = String($(`#${tableId}-searchInput`).val());
+    const res = data.filter((item) => String(item[searchBy]).includes(searchInput));
+    const table = tables.find((table) => table.id === tableId);
+    $(`#${tableId} tbody`).empty();
+    $(`#${table.columnsId}`).empty();
+    if (res.length === 0) {
+      throw new Error('No matching results found.');
+    }
+    ManageTable(res, table);
+  } catch (error) {
+    alert(error.message);
+  }
 };
+
 
 function addRow(tableId) {
   // add a new row to the table with empty inputs for each cell except the last one which contains the buttons for update and delete

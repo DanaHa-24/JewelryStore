@@ -12,7 +12,6 @@ body {
   font-family: 'Segoe UI';
   src: url('/surface/Assets/css/fonts/all/normal/segoeui.eot');
   src: url('/surface/Assets/css/fonts/all/normal/segoeui.eot?#iefix') format('embedded-opentype'),
-    url('/surface/Assets/css/fonts/all/normal/segoeui.woff') format('woff'),
     url('/surface/Assets/css/fonts/all/normal/segoeui.svg#SegoeUI') format('svg');
   font-weight: normal;
   font-style: normal;
