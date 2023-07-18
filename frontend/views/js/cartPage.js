@@ -16,16 +16,13 @@ $(document).ready(async function () {
           $('#cart-item-' + item._id).remove();
           cartItems.splice(itemIndex, 1);
           updateTotalPrice();
+        } else {
+          updateQuantityDisplay(item, updatedQuantity);
         }
+
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        updateTotalPrice();
       }
-
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-      if (itemIndex > -1) {
-        updateQuantityDisplay(item, cartItems[itemIndex].quantity);
-      }
-
-      updateTotalPrice();
     });
 
     $('#plus-btn-' + item._id).on('click', function (event) {
@@ -33,12 +30,10 @@ $(document).ready(async function () {
 
       if (itemIndex > -1) {
         cartItems[itemIndex].quantity++;
+        updateQuantityDisplay(item, cartItems[itemIndex].quantity);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        updateTotalPrice();
       }
-
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-      updateQuantityDisplay(item, cartItems[itemIndex].quantity);
-      updateTotalPrice();
     });
   });
 

@@ -105,8 +105,6 @@ function serializeFilters(filters) {
   if (query.length > 0) {
     query = '?' + query.substring(0, query.length - 1);
   }
-
-  console.log(query);
   return query;
 }
 

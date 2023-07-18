@@ -113,7 +113,6 @@ $(document).ready(function () {
       alert('הסיסמאות אינן תואמות');
       return;
     }
-    console.log(addressSignin);
     // Create an object with the address data
     const addressData = {
       city: addressSignin[0],

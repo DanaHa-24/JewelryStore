@@ -155,9 +155,9 @@ $(document).on('click', 'th', function () {
     var cell2 = $(row2).find('td').eq(columnIndex).text().trim();
 
     if (sortingOrder === 'asc') {
-      return cell1.localeCompare(cell2);
+      return compare(cell1, cell2);
     } else {
-      return cell2.localeCompare(cell1);
+      return compare(cell2, cell1);
     }
   });
 
@@ -169,3 +169,17 @@ $(document).on('click', 'th', function () {
     $table.find('tbody').append(row);
   });
 });
+
+// Custom compare function for number sorting
+function compare(a, b) {
+  var numA = parseFloat(a);
+  var numB = parseFloat(b);
+
+  // If the values are valid numbers, compare them
+  if (!isNaN(numA) && !isNaN(numB)) {
+    return numA - numB;
+  }
+
+  // Fallback to string comparison if the values are not valid numbers
+  return a.localeCompare(b);
+}

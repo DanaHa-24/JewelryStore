@@ -36,19 +36,11 @@ $(document).ready(function () {
     .text('לא נרשמת עדיין? לחץ/י כאן להרשמה')
     .attr('id', 'login-page-button-link')
     .click(function () {
-      window.location.href = 'signup'; // Replace "signup.html" with the URL of your sign-up page
-    });
-
-  const forgotPasswordButton = $('<button>')
-    .addClass('btn btn-link')
-    .text('שכחתי סיסמה')
-    .attr('id', 'login-page-button-link')
-    .click(function () {
-      window.location.href = 'forgotPassword'; // Replace "signup.html" with the URL of your sign-up page
+      window.location.href = 'signup';
     });
 
   // Append the sign-up button to the body
-  $('body').append(signUpButton, forgotPasswordButton);
+  $('body').append(signUpButton);
 
   // Make an AJAX request to the server
   $('#login-page-button').click(function (event) {

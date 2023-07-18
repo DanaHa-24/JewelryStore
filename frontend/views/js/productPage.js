@@ -18,7 +18,6 @@ $(document).ready(async function () {
     } else {
       price = (priceInILS * rates[selectedCurrency]).toFixed(2);
     }
-    console.log(price);
     const currencySign = selectedCurrency === 'USD' ? '$' : selectedCurrency === 'EUR' ? '€' : '₪';
     $('#product-price').text(`מחיר: ${price} ${currencySign}`);
   }

@@ -27,7 +27,6 @@ async function createStoreBranch(req, res) {
 async function updateStoreBranch(req, res) {
   const { id } = req.params;
   const updateData = req.body;
-  console.log(updateData);
   try {
     const updatedBranch = await StoreBranchesService.updateStoreBranch(id, updateData);
     res.json(updatedBranch);

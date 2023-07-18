@@ -115,7 +115,6 @@ async function addItemToWishList(req, res) {
   try {
     const userId = req.user._id;
     const { itemId } = req.params;
-    console.log(userId, itemId);
     if (!itemId) {
       res.status(400).json({ error: 'Missing item ID' });
       return;

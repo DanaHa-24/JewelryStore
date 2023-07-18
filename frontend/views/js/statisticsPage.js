@@ -4,9 +4,6 @@ $(document).ready(async function () {
   const ordersByMonths = await ajaxRequest(`/statistics/orders-gb-months`, 'GET');
   const salesByType = await ajaxRequest(`/statistics/items-gb-types`, 'GET');
 
-  console.log(items);
-  console.log(users);
-
   BarChart(salesByType);
   MonthsChart(ordersByMonths);
   TopChart(users, 'numOfOrders', 'username', '#topUsersChart');

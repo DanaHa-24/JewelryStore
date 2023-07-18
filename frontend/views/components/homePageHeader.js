@@ -1,7 +1,7 @@
 const dropdownArray = {
   Bracelet: {
     title: 'צמידים',
-    materials: [{ beads: 'חרוזים' }, { pearl: 'פנינים' }, { silver: 'כסף' }, { macrame: 'מקרמה' }],
+    materials: [{ beads: 'חרוזים' }, { pearl: 'פנינים' }, { silver: 'כסף' }],
   },
   Ring: {
     title: 'טבעות',
@@ -9,11 +9,11 @@ const dropdownArray = {
   },
   Earring: {
     title: 'עגילים',
-    materials: [{ silver: 'כסף' }],
+    materials: [{ pearl: 'פנינים' }, { silver: 'כסף' }, { stone: 'אבן' }],
   },
   Necklace: {
     title: 'שרשראות',
-    materials: [{ beads: 'חרוזים' }, { pearl: 'פנינים' }, { silver: 'כסף' }, { macrame: 'מקרמה' }],
+    materials: [{ pearl: 'פנינים' }, { silver: 'כסף' }, { macrame: 'מקרמה' }],
   },
 };
 
@@ -135,7 +135,7 @@ $(document).ready(async function () {
   navbarDiv.append(headerCategories);
 
   const imageLink = $('<a>').attr('href', '/').attr('id', 'home-page-image-container').addClass('navbar-brand');
-  const canvas = $('<canvas>').attr('id', 'myCanvas').attr('width', '80').attr('height', '80');
+  const canvas = $('<canvas>').attr('id', 'home-page-header-myCanvas').attr('width', '80').attr('height', '80');
 
   const ctx = canvas[0].getContext('2d');
   const img = new Image();
