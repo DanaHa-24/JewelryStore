@@ -555,21 +555,6 @@
 		"createdAt" : "12:16 - 24/6/2023" 
     },
     {
-        "id" : "21003",
-        "name" : "שרשרת זארה",
-        "price" : 90,
-        "image" : "../backendImages/21003.jpg",
-        "type" : "Necklace",
-        "color" : ["blue","purple","green"],
-        "size" : [],
-        "material" : ["pearl"],
-        "style" : ["choker"],
-        "amountInStock" : 12 ,
-        "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
-    },
-    {
         "id" : "21004",
         "name" : "שרשרת אוליביה",
         "price" : 90,
@@ -835,21 +820,6 @@
         "material" : ["silver","pearl"],
         "style" : ["regular"],
         "amountInStock" : 12 ,
-        "status" : "available",
-        "howManySold" : 0 ,
-		"createdAt" : "12:16 - 24/6/2023"
-    },
-    {
-        "id" : "22017",
-        "name" : "שרשרת ויקטוריה",
-        "price" : 70,
-        "image" : "../backendImages/22017.jpg",
-        "type" : "Necklace",
-        "color" : [],
-        "size" : [],
-        "material" : ["silver"],
-        "style" : ["regular"],
-        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
