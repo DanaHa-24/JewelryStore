@@ -17,9 +17,6 @@ router.get('/:userId/my-wish', UserController.getUserWishlist);
 // Get all users
 router.get('/', require('../middleware/adminAuth'), UserController.getAllUsers);
 
-// Create a new user
-router.post('/', UserController.createUser);
-
 // Update an user by ID
 router.put('/:userId', UserController.updateUser);
 

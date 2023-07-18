@@ -63,7 +63,7 @@ async function searchAddresses(query) {
 
 // Get addresses for a specific user
 async function getUserAddresses(userId) {
-  const addresses = await Address.find({ user: userId }); // Assuming the user field in the Address model represents the user associated with the address
+  const addresses = await Address.find({ user: userId });
   return addresses;
 }
 

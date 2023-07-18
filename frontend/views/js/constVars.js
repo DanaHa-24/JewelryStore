@@ -1,3 +1,4 @@
+// Const vars for all pages
 // Q & A Page
 
 export const accordionDataOrders = [
@@ -221,3 +222,5 @@ export const aboutUsText = [
   'Be You מסמל את הכוח של ביטוי עצמי, ומזכיר לנו שהיופי האמיתי טמון באותנטיות. ',
   'עם כל פריט מעודן, אני מזמינה אותך לאמץ את הסיפור הייחודי שלך, ללבוש אותו בגאווה כדי שהעולם יראה.',
 ];
+
+

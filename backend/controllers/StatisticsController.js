@@ -1,5 +1,6 @@
 const StatisticsService = require('../services/StatisticsService');
 
+// Group by - group all orders by months
 async function groupByOrdersByMonths(req, res) {
   try {
     const result = await StatisticsService.groupByOrdersByMonths();
@@ -10,6 +11,7 @@ async function groupByOrdersByMonths(req, res) {
   }
 }
 
+// Group by - group all items by types
 async function groupByItemsByTypes(req, res) {
   try {
     const result = await StatisticsService.groupByItemsByTypes();

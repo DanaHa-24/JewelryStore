@@ -1,6 +1,7 @@
 const path = require('path');
 const router = require('express').Router();
 
+// Mapping routes between url's to html pages
 router.get('/about', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/views/pages/about.html'));
 });

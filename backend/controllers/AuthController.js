@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const WishlistService = require('../services/WishListService');
 const Address = require('../models/AddressSchema');
 
+// Handle registration - create wishlist for new user and save his data
 const handleRegister = async (req, res) => {
   try {
     const address = new Address(req.body.address);
@@ -22,6 +23,7 @@ const handleRegister = async (req, res) => {
   }
 };
 
+// Handle login - verify user's input to his information at DB
 const handleLogin = async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -41,6 +43,7 @@ const handleLogin = async (req, res) => {
   }
 };
 
+// Check if the user is an admin
 const isAdmin = async (req, res, next) => {
   try {
     const token = req.headers.authorization;
@@ -58,4 +61,8 @@ const isAdmin = async (req, res, next) => {
   }
 };
 
-module.exports = { handleRegister, handleLogin, isAdmin };
+module.exports = { 
+  handleRegister, 
+  handleLogin, 
+  isAdmin
+};

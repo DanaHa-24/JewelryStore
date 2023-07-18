@@ -1,5 +1,6 @@
 const Order = require('../models/OrderSchema');
 
+// Group by - group all orders by months
 async function groupByOrdersByMonths() {
   const result = await Order.aggregate([
     {
@@ -37,6 +38,7 @@ async function groupByOrdersByMonths() {
   return result;
 }
 
+// Group by - group all items by types
 async function groupByItemsByTypes() {
   const result = await Order.aggregate([
     {

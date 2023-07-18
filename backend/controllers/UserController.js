@@ -15,6 +15,7 @@ async function getAllUsers(req, res) {
   }
 }
 
+// Get user by token validation
 async function getClientUser(req, res) {
   try {
     const token = req.headers.authorization;
@@ -29,24 +30,12 @@ async function getClientUser(req, res) {
   }
 }
 
-// Create a new user
-async function createUser(req, res) {
-  const userData = req.body;
-  try {
-    const newUser = await UserService.createUser(userData);
-    // Redirect to the homepage
-    res.redirect('/homepage.html');
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-}
-
 // Update an user by ID
 async function updateUser(req, res) {
-  const { id } = req.params.userId;
+  const { userId } = req.params;
   const updateData = req.body;
   try {
-    const updatedUser = await UserService.updateUser(id, updateData);
+    const updatedUser = await UserService.updateUser(userId, updateData);
     res.json(updatedUser);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -55,9 +44,9 @@ async function updateUser(req, res) {
 
 // Delete an user by ID
 async function deleteUser(req, res) {
-  const { id } = req.params.userId;
+  const { userId } = req.params;
   try {
-    const message = await UserService.deleteUser(id);
+    const message = await UserService.deleteUser(userId);
     res.json({ message });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -182,6 +171,7 @@ async function login(req, res) {
   }
 }
 
+// Create a new user encrypt his password (salt) and save him
 async function register(req, res, next) {
   try {
     const { firstName, lastName, emailSignin, password, address, phoneNumber } = req.body;
@@ -196,9 +186,7 @@ async function register(req, res, next) {
       address,
       phoneNumber,
     });
-    console.log('3');
-    console.log('4');
-    res.redirect('/homePage.html'); // Replace with the desired redirect location
+    res.redirect('/homePage.html');
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'An error occurred during registration' });
@@ -217,7 +205,6 @@ async function getMyUser(req, res) {
 
 module.exports = {
   getAllUsers,
-  createUser,
   updateUser,
   deleteUser,
   getUserById,
