@@ -43,21 +43,6 @@ This project is built using the following technologies and libraries:
 
 ---
 
-## Environment Variables
-<p>
-This build uses a few environment variables that you nee dto make sure you set up. For your development environment, I recommend you create a .env.development file and insert the variables in this file.
-
-The variables are as follows:
-
-| **Variable**   | **Purpose** |
-|----------------|-------------|
-| REACT_APP_API_URL | This is the URL for the backend API. (ie. `https://example.com/` )     |
-| REACT_APP_TITLE        | The name of the eCommerce Business. This will be sprinkled throughout the application including document title, menu, etc.      |
-| REACT_APP_STRIPE_KEY          | the public key for your Stripe API account     |
-| REACT_APP_GA_TRACKING_ID          | The tracking ID for Google Analytics (ie `UA-XXXXXXXXX-X`)     |
-
----
-
 **Jewelry Credits**
 
 * Most images are BU's original jewels
