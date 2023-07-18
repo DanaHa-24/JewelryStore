@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
-// Connect to our MongoDB Atlas
-const uri = `mongodb+srv://admin:rachmany12345@cluster0.cpyytx0.mongodb.net/BU-db?retryWrites=true&w=majority`;
+const username = process.env.USERANME;
+const password = process.env.PASSWORD;
+const dbName = process.env.ATLAS_DB_NAME;
+
+const uri = `mongodb+srv://${username}:${password}@cluster0.cpyytx0.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,

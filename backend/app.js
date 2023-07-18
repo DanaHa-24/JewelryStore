@@ -13,6 +13,7 @@ const server = http.createServer(app);
 require('./socket').init(server);
 // Connect to MongoDB Atlas
 monogoConnect();
+require('./config/currencyCrone')();
 
 // Enable Cross-Origin Resource Sharing (CORS)
 app.use(cors());

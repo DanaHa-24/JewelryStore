@@ -1,9 +1,14 @@
 const User = require('../models/UserSchema');
 const jwt = require('jsonwebtoken');
 const WishlistService = require('../services/WishListService');
+const Address = require('../models/AddressSchema');
 
 const handleRegister = async (req, res) => {
   try {
+    const address = new Address(req.body.address);
+    await address.validate();
+    await address.save();
+    req.body.address = address._id;
     const user = new User(req.body);
     await user.validate();
     const wishList = await WishlistService.createWishlist(user._id);

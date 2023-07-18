@@ -8,7 +8,7 @@ async function getAllAddresses(req, res) {
     res.json(addresses);
   } catch (error) {
     console.error('Error getting addresses:', error);
-    res.status(500).json({ error: 'Failed to get addresses' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -21,7 +21,7 @@ async function createAddress(req, res) {
     res.status(201).json(newAddress);
   } catch (error) {
     console.error('Error creating address:', error);
-    res.status(500).json({ error: 'Failed to create address' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -34,7 +34,7 @@ async function updateAddress(req, res) {
     res.json(updatedAddress);
   } catch (error) {
     console.error('Error updating address:', error);
-    res.status(500).json({ error: 'Failed to update address' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -46,7 +46,7 @@ async function deleteAddress(req, res) {
     res.json(deletedAddress);
   } catch (error) {
     console.error('Error deleting address:', error);
-    res.status(500).json({ error: 'Failed to delete address' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -58,7 +58,7 @@ async function getAddressById(req, res) {
     res.status(200).json(address);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -70,7 +70,7 @@ async function searchAddresses(req, res) {
     res.json(addresses);
   } catch (error) {
     console.error('Error searching addresses:', error);
-    res.status(500).json({ error: 'Failed to search addresses' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -82,7 +82,7 @@ async function getMyAddresses(req, res) {
     res.json(addresses);
   } catch (error) {
     console.error('Error getting user addresses:', error);
-    res.status(500).json({ error: 'Failed to get user addresses' });
+    res.status(500).json({ error: error.message });
   }
 }
 

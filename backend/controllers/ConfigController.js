@@ -8,7 +8,7 @@ async function getAllConfigs(req, res) {
     res.json(configs);
   } catch (error) {
     console.error('Error getting all configs:', error);
-    res.status(500).json({ error: 'Failed to get all configs' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -20,7 +20,7 @@ async function createConfig(req, res) {
     res.json(config);
   } catch (error) {
     console.error('Error creating config:', error);
-    res.status(500).json({ error: 'Failed to create config' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -33,7 +33,7 @@ async function updateConfig(req, res) {
     res.json(updatedConfig);
   } catch (error) {
     console.error('Error updating config:', error);
-    res.status(500).json({ error: 'Failed to update config' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -45,7 +45,7 @@ async function deleteConfig(req, res) {
     res.json({ message: 'Config deleted successfully' });
   } catch (error) {
     console.error('Error deleting config:', error);
-    res.status(500).json({ error: 'Failed to delete config' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -61,10 +61,9 @@ async function getConfigById(req, res) {
     }
   } catch (error) {
     console.error('Error getting config by ID:', error);
-    res.status(500).json({ error: 'Failed to get config' });
+    res.status(500).json({ error: error.message });
   }
 }
-
 
 // Search configs by filter
 async function searchConfigs(req, res) {
@@ -74,11 +73,11 @@ async function searchConfigs(req, res) {
     res.json(configs);
   } catch (error) {
     console.error('Error searching configs:', error);
-    res.status(500).json({ error: 'Failed to search configs' });
+    res.status(500).json({ error: error.message });
   }
 }
 
-async function getApiKey(req, res){
+async function getApiKey(req, res) {
   try {
     const config = await ConfigSchema.findOne({ name: 'GOOGLE_MAPS_API_KEY' });
     if (config) {
@@ -88,10 +87,9 @@ async function getApiKey(req, res){
       res.status(404).json({ message: 'Google Maps API key not found' });
     }
   } catch (error) {
-    res.status(500).json({ message: 'Error retrieving API key', error });
+    res.status(500).json({ error: error.message });
   }
 }
-
 
 // Get API key by name
 async function getConfigByName(req, res) {
@@ -105,10 +103,9 @@ async function getConfigByName(req, res) {
     }
   } catch (error) {
     console.error('Error retrieving API key:', error);
-    res.status(500).json({ error: 'Failed to retrieve API key' });
+    res.status(500).json({ error: error.message });
   }
 }
-
 
 module.exports = {
   getAllConfigs,
@@ -117,6 +114,5 @@ module.exports = {
   deleteConfig,
   getConfigById,
   searchConfigs,
-  getConfigByName
-}
-
+  getConfigByName,
+};
