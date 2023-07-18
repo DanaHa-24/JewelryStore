@@ -21,7 +21,7 @@ const content = [
 
 const socialLinks = {
   "Facebook" : "https://www.facebook.com/people/B-U-jewelry/100092493216985",
-  "Instagram" : "https://instagram.com/bujewelry_?igshid=MjEwN2IyYWYwYw"
+  "Instagram" : "https://instagram.com/beyoujewelry__?igshid=MjEwN2IyYWYwYw=="
 }
 
 const footerDiv = $("<div>").attr("id", "home-page-footer-div");
