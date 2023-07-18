@@ -1,6 +1,7 @@
 const User = require('../models/UserSchema');
 const jwt = require('jsonwebtoken');
 
+// Validate if the logged user is an admin
 const adminAuthValidation = async (req, res, next) => {
   try {
     const token = req.headers.authorization;

@@ -1,3 +1,4 @@
+// Template for AJAX request
 const ajaxRequest = (url, method, data) => {
   return new Promise((resolve, reject) => {
     $.ajax({

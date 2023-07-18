@@ -1,7 +1,9 @@
+// Socket.io 
 const socket = io('http://localhost:5000');
 
 $('#send-btn').on('click', sendMessage);
 
+// Send the message 
 function sendMessage() {
   const input = $('#comments-messageInput');
   const message = input.val().trim();
@@ -12,6 +14,7 @@ function sendMessage() {
   }
 }
 
+// Add the new comment to the list
 function displayMessage(message) {
   const messageList = $('#comments-messageList');
   const listItem = $('<li></li>').attr('id', 'comments-message').text(message);

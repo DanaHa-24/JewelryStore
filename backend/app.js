@@ -9,8 +9,13 @@ require('dotenv').config({ path: __dirname + '/.env' });
 const monogoConnect = require('./config/mongoConnect');
 const UserController = require('./controllers/UserController');
 
+// Create an HTTP server using the http module, with the app object as the request listener
 const server = http.createServer(app);
+
+// Initialize a socket.io server by invoking the init function from the socket.js module,
+// and passing the created server as an argument
 require('./socket').init(server);
+
 // Connect to MongoDB Atlas
 monogoConnect();
 require('./config/currencyCron')();

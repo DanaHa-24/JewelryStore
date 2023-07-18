@@ -1,6 +1,4 @@
 $(document).ready(async function () {
-  // Needs to get after loggin
-
   // Create navbar
   const navbar = $('<div>').addClass('profile-page-navbar');
   const tabsList = $('<ul></ul>').addClass('profile-page-options');

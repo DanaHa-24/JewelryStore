@@ -20,8 +20,4 @@ router.delete('/:id', OrderController.deleteOrder);
 // Search orders by given filter
 router.post('/search/:filter', OrderController.searchOrders);
 
-// Maybe not neccessary
-// Get all orders for a user
-//router.get('/user/:username', OrderController.getAllUserOrders);
-
 module.exports = router;

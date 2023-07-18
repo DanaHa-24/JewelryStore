@@ -8,7 +8,6 @@ const sortingArray = [
   { filter: { price: -1 } },
 ];
 
-// Needs to seperate to Controller and Service
 // Create a new item
 async function createItem(req, res) {
   try {
@@ -26,7 +25,6 @@ async function createItem(req, res) {
   }
 }
 
-// Needs to seperate to Controller and Service
 // Get all items
 async function getAllItems(req, res) {
   let sortBy = {};
