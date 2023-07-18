@@ -9,7 +9,7 @@
         "size" : ["flexible"],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 54 ,
         "status" : "available",
         "howManySold" : 1 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -24,7 +24,7 @@
         "size" : ["flexible"],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 52 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -39,7 +39,7 @@
         "size" : ["flexible"],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 19 ,
         "status" : "available",
         "howManySold" : 1 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -54,7 +54,7 @@
         "size" : ["flexible"],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 21 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -69,7 +69,7 @@
         "size" : ["flexible"],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 20 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -84,7 +84,7 @@
         "size" : ["flexible"],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 14 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -99,7 +99,7 @@
         "size" : ["flexible"],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 13 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -114,7 +114,7 @@
         "size" : ["flexible"],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 18 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -129,7 +129,7 @@
         "size" : ["5","6","7","8","9"],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 20 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -144,7 +144,7 @@
         "size" : ["6","7","8","9","10"],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 13 ,
         "status" : "available",
         "howManySold" : 1 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -159,7 +159,7 @@
         "size" : ["5","6","7","8","9","10"],
         "material" : ["pearl"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -174,7 +174,7 @@
         "size" : ["5","6","7","8","9","10"],
         "material" : ["pearl"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 5 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -189,7 +189,7 @@
         "size" : ["5","6","7","8","9","10"],
         "material" : ["pearl"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 9 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -204,7 +204,7 @@
         "size" : ["5","6","7","8","9","10"],
         "material" : ["pearl"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 16 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -219,7 +219,7 @@
         "size" : ["5","6","7","8","9","10"],
         "material" : ["pearl"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 30 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -249,7 +249,7 @@
 		"size": ["5","6","7","8"],
 		"material": ["gold"],
 		"style": ["regular"],
-		"amountInStock": 10,
+		"amountInStock": 50,
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -264,7 +264,7 @@
 		"size": ["5","6","7","8"],
 		"material": ["silver"],
 		"style": ["regular"],
-		"amountInStock": 10,
+		"amountInStock": 30,
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -279,7 +279,7 @@
 		"size": ["5","6","7","8"],
 		"material": ["silver"],
 		"style": ["regular"],
-		"amountInStock": 10,
+		"amountInStock": 16,
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -309,7 +309,7 @@
 		"size": ["5","6","7","8"],
 		"material": ["silver"],
 		"style": ["regular"],
-		"amountInStock": 10,
+		"amountInStock": 18,
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -324,7 +324,7 @@
 		"size": ["5","6","7","8"],
 		"material": ["silver"],
 		"style": ["regular"],
-		"amountInStock": 10,
+		"amountInStock": 70,
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -339,7 +339,7 @@
 		"size": ["5","6","7","8"],
 		"material": ["silver"],
 		"style": ["regular"],
-		"amountInStock": 10,
+		"amountInStock": 20,
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -474,7 +474,7 @@
         "size" : [],
         "material" : ["beads"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 1,
 		"createdAt" : "12:16 - 24/6/2023" 
@@ -489,7 +489,7 @@
         "size" : [],
         "material" : ["beads"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 15 ,
         "status" : "available",
         "howManySold" : 3 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -504,7 +504,7 @@
         "size" : [],
         "material" : ["beads"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 13 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -519,7 +519,7 @@
         "size" : [],
         "material" : ["pearl"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 9 ,
         "status" : "available",
         "howManySold" : 1 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -534,7 +534,7 @@
         "size" : [],
         "material" : ["pearl"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 23 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -549,7 +549,7 @@
         "size" : [],
         "material" : ["pearl"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 0,
 		"createdAt" : "12:16 - 24/6/2023" 
@@ -564,7 +564,7 @@
         "size" : [],
         "material" : ["pearl"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 12 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -579,7 +579,7 @@
         "size" : [],
         "material" : ["pearl"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 15 ,
         "status" : "available",
         "howManySold" : 1 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -594,7 +594,7 @@
         "size" : [],
         "material" : ["pearl"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 18 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -609,7 +609,7 @@
         "size" : [],
         "material" : ["pearl"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 24 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -624,7 +624,7 @@
         "size" : [],
         "material" : ["pearl"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 13 ,
         "status" : "available",
         "howManySold" : 1 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -639,7 +639,7 @@
         "size" : [],
         "material" : ["pearl"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 12 ,
         "status" : "available",
         "howManySold" : 1 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -654,7 +654,7 @@
         "size" : [],
         "material" : ["pearl"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -669,7 +669,7 @@
         "size" : [],
         "material" : ["pearl"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 17 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -684,7 +684,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 13 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -699,7 +699,7 @@
         "size" : [],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -714,7 +714,7 @@
         "size" : [],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 10 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -729,7 +729,7 @@
         "size" : [],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 12 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -744,7 +744,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -759,7 +759,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -774,7 +774,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 14 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -789,7 +789,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["long"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 15 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -804,7 +804,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["long"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 13 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -819,7 +819,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 13 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -834,7 +834,7 @@
         "size" : [],
         "material" : ["silver","pearl"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 12 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -849,7 +849,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -864,7 +864,7 @@
         "size" : [],
         "material" : ["silver","pearl"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 15 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -879,7 +879,7 @@
         "size" : [],
         "material" : ["silver","pearl"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 13 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -894,7 +894,7 @@
         "size" : [],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 14 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -909,7 +909,7 @@
         "size" : [],
         "material" : ["silver","stone"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 12 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -924,7 +924,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 15 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -939,7 +939,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 17 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -954,7 +954,7 @@
         "size" : [],
         "material" : ["macrame"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 14 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -969,7 +969,7 @@
         "size" : [],
         "material" : ["macrame"],
         "style" : ["choker"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 13 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1134,7 +1134,7 @@
         "size" : ["14","15","16"],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 16 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1149,7 +1149,7 @@
         "size" : ["14","15","16"],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 17 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1164,7 +1164,7 @@
         "size" : ["14","15","16"],
         "material" : ["silver"],
         "style" : ["regular"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 21 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1194,7 +1194,7 @@
 		"size": ["14","15","16"],
 		"material": ["silver", "beads"],
 		"style": ["set"],
-		"amountInStock": 10,
+		"amountInStock": 20,
 		"status": "available",
 		"howManySold": 1,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1554,7 +1554,7 @@
 		"size": ["14","15","16"],
 		"material": ["silver","stone"],
 		"style": ["regular"],
-		"amountInStock": 10,
+		"amountInStock": 20,
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1569,7 +1569,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["falling"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 6 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1584,7 +1584,7 @@
         "size" : [],
         "material" : ["silver","pearl"],
         "style" : ["falling"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 8 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1599,7 +1599,7 @@
         "size" : [],
         "material" : ["silver","pearl"],
         "style" : ["falling"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 9 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1614,7 +1614,7 @@
         "size" : [],
         "material" : ["silver","beads"],
         "style" : ["falling"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 12 ,
         "status" : "available",
         "howManySold" : 1 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1629,7 +1629,7 @@
         "size" : [],
         "material" : ["silver","pearl"],
         "style" : ["set"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 21 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1644,7 +1644,7 @@
         "size" : [],
         "material" : ["silver","pearl"],
         "style" : ["hoop"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 18 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1659,7 +1659,7 @@
         "size" : [],
         "material" : ["silver","pearl"],
         "style" : ["set"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1674,7 +1674,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["falling","tight"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 12 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1689,7 +1689,7 @@
         "size" : [],
         "material" : ["silver","pearl"],
         "style" : ["hoop"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1704,7 +1704,7 @@
         "size" : [],
         "material" : ["silver","beads"],
         "style" : ["hoop"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 11 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -1719,7 +1719,7 @@
         "size" : [],
         "material" : ["silver"],
         "style" : ["hoop"],
-        "amountInStock" : 1 ,
+        "amountInStock" : 12 ,
         "status" : "available",
         "howManySold" : 0 ,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -2170,7 +2170,7 @@
 		"size": [],
 		"material": ["beads","pearl","silver"],
 		"style": ["hoop"],
-		"amountInStock": 10,
+		"amountInStock": 60,
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -2230,7 +2230,7 @@
 		"size": [],
 		"material": ["gold","stone"],
 		"style": ["hoop","falling"],
-		"amountInStock": 10,
+		"amountInStock": 40,
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -2260,7 +2260,7 @@
 		"size": [],
 		"material": ["gold","pearl"],
 		"style": ["hoop"],
-		"amountInStock": 10,
+		"amountInStock": 52,
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -2320,7 +2320,7 @@
 		"size": [],
 		"material": ["gold", "silver"],
 		"style": ["hoop"],
-		"amountInStock": 10,
+		"amountInStock": 32,
 		"status": "available",
 		"howManySold": 1,
 		"createdAt" : "12:16 - 24/6/2023"
@@ -2335,7 +2335,7 @@
 		"size": [],
 		"material": ["gold"],
 		"style": ["hoop"],
-		"amountInStock": 10,
+		"amountInStock": 100,
 		"status": "available",
 		"howManySold": 0,
 		"createdAt" : "12:16 - 24/6/2023"
