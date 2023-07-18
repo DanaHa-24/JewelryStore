@@ -7,10 +7,6 @@ $(document).ready(function () {
   let $nameInput = $('<input type="name" placeholder="שם" class="input" id="contact-page-name-input">');
   $nameInputField.append($nameInput);
 
-  let $emailInputField = $('<div class="field input-field"></div>').attr('id', 'contact-page-field');
-  let $emailInput = $('<input type="email" placeholder="אימייל" class="input" id="contact-page-email-input">');
-  $emailInputField.append($emailInput);
-
   let $textareaField = $('<div class="field input-field textarea-field"></div>').attr('id', 'contact-page-field');
   let $textarea = $('<textarea placeholder="הודעה" class="input textarea" id="contact-page-textarea"></textarea>');
   $textareaField.append($textarea);
@@ -19,16 +15,15 @@ $(document).ready(function () {
   let $submitButton = $('<button id="submitBtn">שליחה</button>').attr('id', 'contact-page-button');
   $buttonField.append($submitButton);
 
-  $form.append($header, $nameInputField, $emailInputField, $textareaField, $buttonField);
+  $form.append($header, $nameInputField, $textareaField, $buttonField);
   $container.append($form);
   $('body').append($container);
 
   $('#contact-page-button').on('click', function () {
-    const recipientEmail = $('#contact-page-email-input').val();
     const subject = $('#contact-page-name-input').val();
     const body = $('#contact-page-textarea').val();
 
-    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:rachmanybar@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
       body
     )}`;
     window.location.href = mailtoLink;

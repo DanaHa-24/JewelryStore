@@ -19,11 +19,19 @@
         </div>
         <div class="col-md-6 text-right" style="direction: rtl">
           <h1 class="display-4" id="product-name">טוען ...</h1>
-          <p class="lead mb-3" id="product-price">טוען ...</p>
+          <div style="display: flex; gap: 1rem; align-items: center">
+            <label class="lead" id="product-price">טוען ...</label>
+            <label class="lead" for="currency-select">בחר מטבע:</label>
+            <select id="currency-select">
+              <option value="ILS">ILS</option>
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
           <p class="text-muted" id="product-amount">טוען ...</p>
           <hr />
           <h2 class="h4">תיאור המוצר:</h2>
-          <div class="text-muted">
+          <div class="text-muted" style="column-count: 2; padding: 2rem 0">
             <div style="display: flex; gap: 1rem">
               <label for="product-type"> סוג: </label>
               <p id="product-type">טוען ...</p>

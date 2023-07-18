@@ -36,6 +36,10 @@ $(document).ready(async function () {
   });
 });
 
+$(document).on('click', '#clean-btn', function () {
+  window.location.reload();
+});
+
 // Function to delete the row containing the clicked button
 $(document).on('click', '.delete-btn', async function () {
   // get the table name and the _id of the row, the _id is the text of input in the first cell
@@ -80,6 +84,13 @@ $(document).on('click', '.save-btn', async function () {
       data[key] = value;
     });
 
+  for (const key in data) {
+    if (data[key] === '' && key !== '_id') {
+      alert(`השדה ${key} ריק`);
+      return;
+    }
+  }
+
   delete data._id;
 
   const isNewItem = _id === '';
@@ -111,6 +122,8 @@ $(document).on('click', '.save-btn', async function () {
       <button class="btn btn-primary update-btn">עדכן</button>
     `
     );
+
+  $(`#${tableName}-add-btn`).css('display', 'block');
 
   alert('המוצר נוסף בהצלחה');
 });

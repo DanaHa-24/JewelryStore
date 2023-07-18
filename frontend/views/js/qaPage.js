@@ -1,6 +1,8 @@
 import {accordionDataOrders, accordionDataShipments, accordionDataReturns, accordionDataPayments, accordionDataMaterials} from './constVars.js';
-
+// Need to seperate between data and functions 
 // import data for Q&A page
+
+// Neccessary part
 
 const qaArraay = [accordionDataOrders, accordionDataShipments, accordionDataReturns, accordionDataPayments, accordionDataMaterials];
 const qaSections = ['הזמנות מהאתר', 'משלוחים', 'החזרות וזיכויים', 'תשלומים', 'חומרים ואחריות'];

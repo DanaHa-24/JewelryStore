@@ -1,21 +1,21 @@
 const content = [
     {   content: 'החלפות והחזרות',
-        page: 'exchange-return'
+        page: '/exchange-return'
     },
     {   content: 'שאלות ותשובות',
-        page: 'qa'
+        page: '/qa'
     },
     {   content: 'תקנון האתר',
-        page: 'terms'
+        page: '/terms'
     },
     {   content: 'מדריך מידות',
-        page: 'size-guide'
+        page: '/size-guide'
     },
     {   content: 'רשימת סניפים',
-        page: 'stores'
+        page: '/stores'
     },
     {   content: 'About us',
-        page: 'about'
+        page: '/about'
     }
 ];
 

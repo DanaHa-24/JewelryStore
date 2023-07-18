@@ -200,7 +200,6 @@ function handleMyDetails(userId) {
 }
 
 /////////////////////////////////// Fetching for User Addresses tab  ////////////////////////////////////
-
 async function handleMyAddress() {
   const options = {
     id: 'addressesTable',
@@ -220,15 +219,14 @@ async function handleMyAddress() {
   const addresses = await ajaxRequest(options.url, 'GET');
   ManageTable(addresses, options);
 }
-
 /////////////////////////////////// Fetching for User Order History tab ///////////////////////////////////
 
 function fetchUserOrdersHistory(data) {
-  const orderHistoryAccordion = $('<div>').attr('id', 'orderHistoryAccordion');
+  const orderHistoryAccordion = $('<div>').attr('id', 'orderHistoryAccordion').attr('style', 'width: 40vw;');
   $('.profile-page-container').append(orderHistoryAccordion);
 
   // Create an accordion body content element with width of 40%
-  const accordionBodyContent = $('<div>').addClass('accordion-body')
+  const accordionBodyContent = $('<div>').addClass('accordion-body');
 
   // Helper function to create table rows for order items
   function createTableRow(item) {

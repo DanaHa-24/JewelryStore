@@ -135,6 +135,19 @@ $(document).ready(async function () {
   navbarDiv.append(headerCategories);
 
   const imageLink = $('<a>').attr('href', '/').attr('id', 'home-page-image-container').addClass('navbar-brand');
-  const image = $('<img>').attr('src', '../images/BU.png');
-  navbarDiv.append(imageLink.append(image));
+  const canvas = $('<canvas>').attr('id', 'myCanvas').attr('width', '80').attr('height', '80');
+
+  const ctx = canvas[0].getContext('2d');
+  const img = new Image();
+  img.src = '../images/BU.png';
+  img.onload = function () {
+    //ctx.drawImage(img, 0, 0, 80, 80);
+    ctx.font = "40px Arial";
+    ctx.fillStyle = "black";
+    ctx.fillText("B", 20, 50);
+    ctx.fillText("U", 50, 50);
+  };
+
+  imageLink.append(canvas);
+  navbarDiv.append(imageLink);
 });

@@ -23,6 +23,8 @@ $(document).ready(async function () {
       if (itemIndex > -1) {
         updateQuantityDisplay(item._id, cartItems[itemIndex].quantity);
       }
+
+      updateTotalPrice();
     });
 
     function updateQuantityDisplay(itemId, quantity) {

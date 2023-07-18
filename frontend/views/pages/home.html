@@ -11,20 +11,22 @@
     <title>BU</title>
   </head>
   <header id="home-page-header" class="sticky-top"></header>
-  <body></body>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="../components/homePageHeader.js"></script>
-  <div id="comments-container">
-    <div id="comments-messageContainer">
-      <ul id="comments-messageList"></ul>
+  <body>
+    <div id="home-content"></div>
+    <div id="comments-container">
+      <div id="comments-messageContainer">
+        <ul id="comments-messageList"></ul>
+      </div>
+      <div>
+        <button id="send-btn">שלח</button>
+        <input type="text" style="direction: rtl" id="comments-messageInput" placeholder="כתבו לנו ביקורת" />
+      </div>
     </div>
-    <div>
-      <button id="send-btn">שלח</button>
-      <input type="text" style="direction: rtl" id="comments-messageInput" placeholder="כתבו לנו ביקורת" />
-    </div>
-  </div>
+  </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../js/comments.js"></script>
+  <script src="../components/homePageHeader.js"></script>
   <script src="../js/homePage.js"></script>
   <script src="../js/ajax.js"></script>
   <script src="../components/homePageFooter.js"></script>

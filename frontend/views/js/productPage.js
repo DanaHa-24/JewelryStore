@@ -3,9 +3,33 @@ $(document).ready(async function () {
   const isLogged = localStorage.getItem('token');
   const wishlist = isLogged ? await ajaxRequest('/api/wishlist', 'GET') : { items: [] };
 
+  const currencySelect = $('#currency-select');
+  async function fetchCurrencyRates() {
+    const rates = await ajaxRequest('/currency', 'GET');
+    updatePrice(rates);
+  }
+
+  function updatePrice(rates) {
+    const selectedCurrency = currencySelect.val();
+    const priceInILS = product.price;
+    let price;
+    if (selectedCurrency === 'ILS') {
+      price = priceInILS.toFixed(2);
+    } else {
+      price = (priceInILS * rates[selectedCurrency]).toFixed(2);
+    }
+    console.log(price);
+    const currencySign = selectedCurrency === 'USD' ? '$' : selectedCurrency === 'EUR' ? '€' : '₪';
+    $('#product-price').text(`מחיר: ${price} ${currencySign}`);
+  }
+  // add event listener to the select element
+  $('#currency-select').change(function () {
+    fetchCurrencyRates();
+  });
+  fetchCurrencyRates();
+
   $('#product-img').attr('src', product.image);
   $('#product-name').text(product.name);
-  $('#product-price').text(`מחיר: ₪${product.price}`);
   $('#product-amount').text(`יחידות במלאי: ${product.amountInStock}`);
   $('#product-type').text(product.type);
   $('#product-color').text(() => product.color.map((color) => `${color}`));

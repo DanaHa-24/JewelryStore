@@ -3,14 +3,23 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-}
-
-body {
   min-height: 100vh;
   flex-direction: column;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('/surface/Assets/css/fonts/all/normal/segoeui.eot');
+  src: url('/surface/Assets/css/fonts/all/normal/segoeui.eot?#iefix') format('embedded-opentype'),
+    url('/surface/Assets/css/fonts/all/normal/segoeui.woff') format('woff'),
+    url('/surface/Assets/css/fonts/all/normal/segoeui.svg#SegoeUI') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+thead {
+  position: sticky;
+  top: 0;
+  background-color: #f8f9fa;
 }
 /* Statistics Page */
 .chart {
@@ -24,7 +33,6 @@ body {
   fill: orange;
 }
 .bar-label {
-  font-family: sans-serif;
   font-size: 14px;
   fill: white;
   text-anchor: middle;
@@ -46,6 +54,7 @@ body {
 .order-form {
   display: flex;
   flex-direction: column;
+  width: 50%;
   gap: 1rem;
   direction: rtl;
 }
@@ -84,7 +93,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   text-decoration-line: underline;
   margin-top: 60px;
@@ -176,7 +184,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   text-decoration-line: underline;
   margin-top: 60px;
@@ -218,7 +225,6 @@ body {
   position: relative;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   text-decoration-line: underline;
   margin-top: 60px;
@@ -228,18 +234,6 @@ body {
 #stores-page-container {
   margin-top: 80px;
 }
-
-/* @media (max-width: 1200px) {
-  #stores-page-container {
-  }
-}
-
-@media (max-width: 900px) {
-  #stores-page-container {
-    display: flex;
-    flex-direction: column;
-  }
-} */
 
 .stores-page-marker-label {
   text-align: center;
@@ -325,7 +319,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
 }
 
@@ -346,7 +339,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   text-decoration-line: underline;
   margin-top: 60px;
@@ -371,7 +363,6 @@ body {
 }
 
 .profile-page-container {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   display: flex;
   direction: rtl;
@@ -484,6 +475,7 @@ body {
   width: fit-content;
   height: fit-content;
   position: relative;
+  padding: 2rem 0;
   margin: auto;
 }
 
@@ -564,11 +556,6 @@ body {
 
 #home-page-navbar {
   padding: 0;
-}
-
-#home-page-image-container,
-#home-page-image-container img {
-  width: 100px;
 }
 
 #home-page-header-categories {
@@ -901,7 +888,6 @@ body {
 
 #items-page-page-num-label {
   margin: 20px;
-  font-family: sans-serif;
 }
 
 #items-page-previous-page-button,
@@ -920,7 +906,6 @@ body {
 }
 
 .cart-page-header {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   text-decoration-line: underline;
 }
@@ -928,7 +913,6 @@ body {
 .cart-page-container {
   display: flex;
   background-color: #fffefc;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   padding: 0 20%;
   margin: 20px auto;
@@ -961,7 +945,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   text-decoration-line: underline;
   margin-top: 60px;
@@ -1097,7 +1080,6 @@ body {
 
 #login-page-container {
   direction: rtl;
-  font-family: Arial, Helvetica, sans-serif;
   max-width: 400px;
 }
 
@@ -1178,7 +1160,6 @@ body {
 /* Signin Page */
 #signin-page-container {
   direction: rtl;
-  font-family: Arial, Helvetica, sans-serif;
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -1342,7 +1323,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   text-decoration-line: underline;
   margin-top: 60px;
@@ -1415,7 +1395,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   text-decoration-line: underline;
   margin-top: 40px;

@@ -11,6 +11,11 @@ const ProductCard = (item, wishlist) => {
   const heart = $('<button>').addClass(heartClass).css('background-color', 'transparent');
 
   heart.click(async function (event) {
+    const isUserLoggedIn = localStorage.getItem('token') !== null;
+    if (!isUserLoggedIn) {
+      alert('עליך להתחבר כדי להוסיף פריטים לרשימת המשאלות');
+      return;
+    }
     const isHollowHeart = $(event.target).hasClass('cardHollowHeart');
     $(event.target)
       .removeClass(isHollowHeart ? 'far cardHollowHeart' : 'fas cardFullHeart')

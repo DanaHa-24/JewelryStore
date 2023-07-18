@@ -5,6 +5,14 @@ $(document).ready(function () {
   }, 0);
   $('#total-price').text(`${totalPrice} ₪ `);
 
+  let isDelivery = $('#delivery').val() === 'משלוח';
+  $('#address-field').css('display', isDelivery ? 'block' : 'none');
+
+  $('#delivery').change(function () {
+    isDelivery = $('#delivery').val() === 'משלוח';
+    $('#address-field').css('display', isDelivery ? 'block' : 'none');
+  });
+
   const orderItems = cartItems.map((item) => {
     return {
       item: item._id,
@@ -20,7 +28,7 @@ $(document).ready(function () {
       totalPrice,
       deliveryMethod: $('#delivery').val(),
       paymentMethod: $('#paymentMethod').val(),
-      address: $('#address').val(),
+      address: isDelivery ? $('#address').val() : '',
     };
 
     const resOrder = await ajaxRequest('/api/orders', 'POST', newOrder);
