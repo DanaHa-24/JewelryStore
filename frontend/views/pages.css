@@ -719,6 +719,15 @@ thead {
   margin: 0.5rem;
   text-align: right;
 }
+.comments-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  text-decoration-line: underline;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
 
 /* Orders Page */
 
