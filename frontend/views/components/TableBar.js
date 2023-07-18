@@ -1,5 +1,5 @@
-const TableBar = (tableId, params, table, url) => {
-  const buttonsDiv = `
+const TableBar = (tableId, options, url) => {
+  return `
     <button id="${tableId}-add-btn" class="btn btn-primary" onclick="addRow('${tableId}')">הוסף</button>
     <div style="display: flex; gap: 1rem">
       <input type="text" class="form-control" id="${tableId}-searchInput" placeholder="חיפוש" />
@@ -8,20 +8,18 @@ const TableBar = (tableId, params, table, url) => {
     <div style="display: flex; gap: 1rem; align-items: center">
       <label for="searchBy" style="white-space: nowrap; margin: 0">חיפוש לפי</label>
       <select class="form-control" id="${tableId}-searchBy" name="searchBy">
-        ${params.map((opt) => {
+        ${options.map((opt) => {
           return ` <option value="${opt}">${opt}</option> `;
         })}
       </select>
     </div>
     <button id="clean-btn" class="btn btn-primary"> ניקוי</button>
   `;
-
-  $(`#${tableId}-buttons`).append(buttonsDiv);
 };
 
 const search = async (tableId, url) => {
   const data = await ajaxRequest(url, 'GET');
-  // get the value form the searchBy
+  // get the value from the searchBy
   const searchBy = $(`#${tableId}-searchBy`).val();
   const searchInput = $(`#${tableId}-searchInput`).val();
   const res = data.filter((item) => item[searchBy].includes(searchInput));
