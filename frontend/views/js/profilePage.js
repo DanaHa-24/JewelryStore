@@ -200,6 +200,7 @@ function handleMyDetails(userId) {
 }
 
 /////////////////////////////////// Fetching for User Addresses tab  ////////////////////////////////////
+
 async function handleMyAddress() {
   const options = {
     id: 'addressesTable',
@@ -219,6 +220,7 @@ async function handleMyAddress() {
   const addresses = await ajaxRequest(options.url, 'GET');
   ManageTable(addresses, options);
 }
+
 /////////////////////////////////// Fetching for User Order History tab ///////////////////////////////////
 
 function fetchUserOrdersHistory(data) {
@@ -379,5 +381,3 @@ function fetchUserOrdersHistory(data) {
     $(targetId).collapse('toggle');
   });
 }
-
-/////////////////////////////////// Fetching for User cart tab ///////////////////////////////////
