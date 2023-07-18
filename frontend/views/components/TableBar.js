@@ -1,5 +1,5 @@
-const TableBar = (tableId, options, url) => {
-  return `
+const TableBar = (tableId, params, table, url) => {
+  const buttonsDiv = `
     <button id="${tableId}-add-btn" class="btn btn-primary" onclick="addRow('${tableId}')">הוסף</button>
     <div style="display: flex; gap: 1rem">
       <input type="text" class="form-control" id="${tableId}-searchInput" placeholder="חיפוש" />
@@ -8,13 +8,15 @@ const TableBar = (tableId, options, url) => {
     <div style="display: flex; gap: 1rem; align-items: center">
       <label for="searchBy" style="white-space: nowrap; margin: 0">חיפוש לפי</label>
       <select class="form-control" id="${tableId}-searchBy" name="searchBy">
-        ${options.map((opt) => {
+        ${params.map((opt) => {
           return ` <option value="${opt}">${opt}</option> `;
         })}
       </select>
     </div>
     <button id="clean-btn" class="btn btn-primary"> ניקוי</button>
   `;
+
+  $(`#${tableId}-buttons`).append(buttonsDiv);
 };
 
 const search = async (tableId, url) => {

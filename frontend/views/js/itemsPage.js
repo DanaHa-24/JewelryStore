@@ -132,7 +132,7 @@ function queryItems(event) {
       const items = response;
       currentPage = 1;
       createCategoryBar(items, filters);
-      createItemCards(items);
+      createItemCards(items, filters);
     },
     error: function (error) {
       console.error('Error retrieving all items:', error);
@@ -219,15 +219,16 @@ function appendUniqueItems(uniqueItems, containerSelector, appliedFilters, categ
   });
 }
 
-async function createItemCards(items) {
+async function createItemCards(items, filters) {
   // clear screen
   $(cardsContainer).empty();
   const isLogged = localStorage.getItem('token');
   const wishlist = isLogged ? await ajaxRequest('/api/wishlist', 'GET') : { items: [] };
-
-  items = items.sort((a, b) => {
-    return b.amountInStock - a.amountInStock;
-  });
+  if (!filters) {
+    items = items.sort((a, b) => {
+      return b.amountInStock - a.amountInStock;
+    });
+  }
 
   items.forEach(function (item) {
     const productCard = ProductCard(item, wishlist);

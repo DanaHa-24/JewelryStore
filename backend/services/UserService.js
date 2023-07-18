@@ -2,7 +2,11 @@ const User = require('../models/UserSchema');
 
 // Get all users
 async function getAllUsers() {
-  const users = await User.find();
+  const users = await User.find()
+    .populate('myWishList')
+    .populate('MyCart')
+    .populate('orderHistory')
+    .populate('address');
   return users;
 }
 
@@ -25,6 +29,7 @@ async function updateUser(id, updateData) {
 
 // Delete an user by ID
 async function deleteUser(id) {
+  console.log(id);
   await User.findByIdAndDelete(id);
   return 'User deleted successfully';
 }

@@ -1,6 +1,7 @@
 $(document).ready(async function () {
   const cartTable = $('#cart-tbody');
   const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
   cartItems.forEach(async (item) => {
     cartTable.prepend(await CartItem(item));
 
@@ -21,24 +22,11 @@ $(document).ready(async function () {
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
       if (itemIndex > -1) {
-        updateQuantityDisplay(item._id, cartItems[itemIndex].quantity);
+        updateQuantityDisplay(item, cartItems[itemIndex].quantity);
       }
 
       updateTotalPrice();
     });
-
-    function updateQuantityDisplay(itemId, quantity) {
-      $('#quantity-' + itemId).val(quantity);
-      $('#total-to-pay-' + itemId).text(calculateTotalPrice(cartItems) + '₪');
-    }
-
-    function updateTotalPrice() {
-      $('#total-price').text(calculateTotalPrice(cartItems) + '₪');
-    }
-
-    function calculateTotalPrice(cartItems) {
-      return cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
-    }
 
     $('#plus-btn-' + item._id).on('click', function (event) {
       const itemIndex = cartItems.findIndex((cartItem) => cartItem._id === item._id);
@@ -49,11 +37,13 @@ $(document).ready(async function () {
 
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-      updateQuantityDisplay(item._id, cartItems[itemIndex].quantity);
+      updateQuantityDisplay(item, cartItems[itemIndex].quantity);
       updateTotalPrice();
     });
   });
-  $('#total-price').text(() => cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0) + '₪');
+
+  $('#total-price').text(() => calculateTotalPrice(cartItems) + '₪');
+
   $('#checkout-btn').on('click', function (event) {
     if (cartItems.length === 0) {
       alert('העגלה ריקה!');
@@ -61,4 +51,17 @@ $(document).ready(async function () {
     }
     window.location.href = '/checkout';
   });
+
+  function updateQuantityDisplay(item, quantity) {
+    $('#quantity-' + item._id).val(quantity);
+    $('#total-to-pay-' + item._id).text(item.price * quantity + '₪');
+  }
+
+  function updateTotalPrice() {
+    $('#total-price').text(calculateTotalPrice(cartItems) + '₪');
+  }
+
+  function calculateTotalPrice(cartItems) {
+    return cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
+  }
 });

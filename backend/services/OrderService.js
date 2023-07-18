@@ -19,6 +19,7 @@ async function createOrder(userId, orderData) {
     console.log(itemToUpdate.amountInStock);
     itemToUpdate.amountInStock -= item.quantity;
     console.log(itemToUpdate.amountInStock);
+    itemToUpdate.howManySold += item.quantity;
     await itemToUpdate.save();
   });
 

@@ -15,7 +15,6 @@ async function getAllUsers(req, res) {
   }
 }
 
-// Get user by token validation
 async function getClientUser(req, res) {
   try {
     const token = req.headers.authorization;
@@ -171,7 +170,6 @@ async function login(req, res) {
   }
 }
 
-// Create a new user encrypt his password (salt) and save him
 async function register(req, res, next) {
   try {
     const { firstName, lastName, emailSignin, password, address, phoneNumber } = req.body;
@@ -186,7 +184,9 @@ async function register(req, res, next) {
       address,
       phoneNumber,
     });
-    res.redirect('/homePage.html');
+    console.log('3');
+    console.log('4');
+    res.redirect('/homePage.html'); // Replace with the desired redirect location
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'An error occurred during registration' });

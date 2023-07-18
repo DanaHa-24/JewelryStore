@@ -3,6 +3,8 @@ const ManageTable = async (data, options) => {
     delete item.__v;
   });
 
+  console.log(data);
+
   const columns = Object.keys(data[0]);
   options.columns = columns;
   columns.forEach((column, index) => {
@@ -14,7 +16,6 @@ const ManageTable = async (data, options) => {
   $(`#${options.columnsId}`).append(`<th>פעולות</th>`);
 
   data.forEach((item) => {
-    console.log(item);
     const actionCell = `
     <button id="del-btn-${item._id}" class="btn btn-danger delete-btn">מחק</button>
     <button id="update-btn-${item._id}" class="btn btn-primary update-btn">עדכן</button>`;
@@ -23,8 +24,8 @@ const ManageTable = async (data, options) => {
     $(`#${options.rowsId}`).append(`
     <tr id="row-${item._id}">
         ${columns.map((key) => `<td ><p class="tr-p">${item[key]}</p></td>`).join('')}
-        <td class="text-center" style="white-space: nowrap;">${actionCell}</td>
-    </tr>
+            <td class="text-center" style="white-space: nowrap;">${actionCell}</td>
+          </tr>
         `);
   });
 };
