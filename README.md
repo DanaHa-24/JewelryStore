@@ -23,13 +23,23 @@ Jewelry allows you to express yourself.
 
 ---
 
-## Libraries used
+## Libraries & Technologies used
 
-* [lodash.debounce](https://github.com/lodash/lodash) v4.0.8
-* [react-cookie-consent](https://github.com/Mastermindzh/react-cookie-consent) v6.2.3
-* [react-ga](https://github.com/react-ga/react-ga) v3.3.0
-* [semantic-ui](https://github.com/Semantic-Org/Semantic-UI) "^2.0.3"
-* [react-stripe-elements](https://github.com/stripe/react-stripe-elements) v6.1.2
+This project is built using the following technologies and libraries:
+
+* MongoDB
+* JavaScript
+* Bootstrap
+* jQuery
+* CSS
+* HTML
+* Express
+* Node.js
+* AJAX requests
+* Socket.io
+* Web services
+* Integration with Google Maps
+* Integration with Facebook API
 
 ---
 
@@ -50,10 +60,8 @@ The variables are as follows:
 
 **Jewelry Credits**
 
-* All images of grills come from [King Johnny (Johnnys Custom Jewelry)](https://johnnyscustomjewelry.com/grillz/)
-* Most images of rings come from [My Trio Rings](https://www.mytriorings.com/)
-* Most images of necklaces come from [King Ice](https://www.kingice.com/)
-* Most images of earrings come from [Ross-Simmons](https://www.ross-simons.com/)
+* Most images are BU's original jewels
+* Few images come from [TAO Jewelry](https://shoptaostyle.com/)
 
 
 Every other image else (not jewelry)  comes from Nappy.co
