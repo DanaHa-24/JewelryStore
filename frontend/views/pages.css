@@ -14,15 +14,21 @@ body {
   src: url('/surface/Assets/css/fonts/all/normal/segoeui.eot?#iefix') format('embedded-opentype'),
     url('/surface/Assets/css/fonts/all/normal/segoeui.woff') format('woff'),
     url('/surface/Assets/css/fonts/all/normal/segoeui.svg#SegoeUI') format('svg');
-  font-weight:normal;
+  font-weight: normal;
   font-style: normal;
+}
+.buttons-div {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 thead {
   position: sticky;
   top: 0;
   background-color: #f8f9fa;
 }
-
 /* Statistics Page */
 .chart {
   width: 500px;
@@ -369,6 +375,8 @@ thead {
   display: flex;
   direction: rtl;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile-page-container table {
@@ -466,7 +474,7 @@ thead {
 .home-page-image {
   display: block;
   margin: auto;
-  max-height: 600px;
+  max-height: 750px;
   max-width: 1000px;
   width: auto;
   height: auto;

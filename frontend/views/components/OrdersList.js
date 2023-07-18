@@ -5,7 +5,7 @@ function OrdersList(orders) {
     const card = $('<div>').addClass('card col-md-6');
 
     const header = $('<div>').addClass('card-header').text(`Order Number: ${order.orderNumber}`);
-    card.append(header);
+    card.append($header);
 
     const infoContainer = $('<div>').addClass('card-info p-3');
 
@@ -38,8 +38,6 @@ function OrdersList(orders) {
     const createdAtValue = $('<div>').addClass('col-8 card-value').text(order.createdAt);
     createdAt.append(createdAtLabel, createdAtValue);
     infoContainer.append(createdAt);
-
-    // Add more order details as needed...
 
     card.append(infoContainer);
 

@@ -17,7 +17,7 @@ $(document).ready(function () {
 
   form.append(header, nameInputField, textareaField, buttonField);
   container.append(form);
-  $('body').append(container);
+  ('body').append(container);
 
   $('#contact-page-button').on('click', function () {
     const subject = $('#contact-page-name-input').val();

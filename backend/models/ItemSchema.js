@@ -18,7 +18,7 @@ const itemSchema = new mongoose.Schema({
   type: { type: String, required: true, enum: ['Ring', 'Necklace', 'Bracelet', 'Earring'] },
   color: [{ type: String }],
   size: [{ type: String, enum: ['S', 'M', 'L', 'flexible', '5', '6', '7', '8', '9', '10', '14', '15', '16'] }],
-  material: [{ type: String, enum: ['beads', 'silver', 'pearl', 'stone', 'macrame','gold'] }],
+  material: [{ type: String, enum: ['beads', 'silver', 'pearl', 'stone', 'macrame'] }],
   style: [{ type: String, enum: ['choker', 'falling', 'regular', 'tight', 'set', 'hoop'] }],
   createdAt: { type: String, default: Date.now },
   amountInStock: { type: Number },

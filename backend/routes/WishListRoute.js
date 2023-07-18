@@ -11,12 +11,6 @@ router.get('/search', WishlistController.searchWishlistItems);
 // Get all items in the wishlist for the authenticated user (by ID)
 router.get('/', WishlistController.getUserWishlist);
 
-// Create a new wishlist the authenticated user (by ID)
-// router.post('/:userId', WishlistController.createWishlist);
-
-// Delete the wishlist for the authenticated user (by ID)
-// router.delete('/:userId', WishlistController.deleteWishlist);
-
 // Remove an item from the wishlist for the authenticated user (by ID)
 router.delete('/:itemId', WishlistController.removeItem);
 

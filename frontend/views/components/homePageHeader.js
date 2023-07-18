@@ -120,9 +120,9 @@ $(document).ready(async function () {
   });
 
   if (localStorage.getItem('token') != null) {
-    const isAdmin = await ajaxRequest('/auth/check', 'GET');
+    const userRole = await ajaxRequest('/auth/check', 'GET');
 
-    if (isAdmin) {
+    if (userRole === 'admin') {
       $.each(adminNavIcons, function (index, link) {
         let iconLink = $('<a>').attr('href', link.page).addClass('nav-link');
         let icon = $('<i>').addClass(link.class);

@@ -36,7 +36,7 @@ $(document).ready(function () {
     .text('לא נרשמת עדיין? לחץ/י כאן להרשמה')
     .attr('id', 'login-page-button-link')
     .click(function () {
-      window.location.href = 'signup';
+      window.location.href = 'signup'; // Replace "signup.html" with the URL of your sign-up page
     });
 
   const forgotPasswordButton = $('<button>')
@@ -44,7 +44,7 @@ $(document).ready(function () {
     .text('שכחתי סיסמה')
     .attr('id', 'login-page-button-link')
     .click(function () {
-      window.location.href = 'forgotPassword';
+      window.location.href = 'forgotPassword'; // Replace "signup.html" with the URL of your sign-up page
     });
 
   // Append the sign-up button to the body

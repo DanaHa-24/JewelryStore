@@ -52,9 +52,7 @@ const isAdmin = async (req, res, next) => {
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
     const user = await User.findById(decodedToken.userId);
     if (!user) throw new Error('Auth failed!');
-    if (user.role !== 'admin') throw new Error('You are not an admin!');
-    req.user = user;
-    res.send({ message: 'User is admin' });
+    res.send(user.role);
   } catch (error) {
     console.log(error);
     res.status(401).json({ message: 'Auth failed!' });
