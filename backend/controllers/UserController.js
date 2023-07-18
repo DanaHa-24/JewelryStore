@@ -43,10 +43,10 @@ async function createUser(req, res) {
 
 // Update an user by ID
 async function updateUser(req, res) {
-  const { id } = req.params.userId;
+  const { userId } = req.params;
   const updateData = req.body;
   try {
-    const updatedUser = await UserService.updateUser(id, updateData);
+    const updatedUser = await UserService.updateUser(userId, updateData);
     res.json(updatedUser);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -55,9 +55,9 @@ async function updateUser(req, res) {
 
 // Delete an user by ID
 async function deleteUser(req, res) {
-  const { id } = req.params.userId;
+  const { userId } = req.params;
   try {
-    const message = await UserService.deleteUser(id);
+    const message = await UserService.deleteUser(userId);
     res.json({ message });
   } catch (error) {
     res.status(500).json({ error: error.message });
