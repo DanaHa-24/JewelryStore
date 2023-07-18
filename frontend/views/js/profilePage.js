@@ -122,7 +122,6 @@ async function handleMyOrders() {
   $('.profile-page-container').empty();
 
   const orders = await ajaxRequest(`/api/orders`, 'GET');
-  console.log(orders);
   fetchUserOrdersHistory(orders);
 
   if (orders.length === 0) {

@@ -6,7 +6,6 @@ $(document).ready(async function () {
 
   const wishlistContainer = $('<div>').addClass('container').attr('id', 'items-page-jewelry-cards-container');
   const wishlistArray = await ajaxRequest('/api/wishlist', 'GET');
-  console.log(wishlistArray);
 
   if (wishlistArray.items.length === 0) {
     $('body').append('<p style="text-align: center;"> ריק פה, בטוח יש דברים יפים שראיתם 🖤</p>');

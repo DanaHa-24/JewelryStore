@@ -24,7 +24,6 @@ const search = async (tableId, url) => {
   // get the value form the searchBy
   const searchBy = $(`#${tableId}-searchBy`).val();
   const searchInput = $(`#${tableId}-searchInput`).val();
-  console.log(searchInput, searchBy);
   const res = data.filter((item) => item[searchBy].includes(searchInput));
   const table = tables.find((table) => table.id === tableId);
   $(`#${tableId} tbody`).empty();

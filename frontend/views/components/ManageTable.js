@@ -3,8 +3,6 @@ const ManageTable = async (data, options) => {
     delete item.__v;
   });
 
-  console.log(data);
-
   const columns = Object.keys(data[0]);
   options.columns = columns;
   columns.forEach((column, index) => {

@@ -13,7 +13,6 @@ const handleRegister = async (req, res) => {
     const user = new User(req.body);
     await user.validate();
     const wishList = await WishlistService.createWishlist(user._id);
-    console.log(wishList);
     user.myWishList = wishList._id;
     await user.save();
     res.send({ message: 'User registered successfully' });
@@ -33,7 +32,6 @@ const handleLogin = async (req, res) => {
     const isMatch = await user.comparePassword(password);
     if (!isMatch) throw new Error('Incorrect password');
     const secretKey = process.env.JWT_SECRET_KEY;
-    console.log(secretKey);
     const token = jwt.sign({ userId: user._id }, secretKey);
     console.log(`User ${user.username} logged in successfully`);
     res.send({ token });
