@@ -129,7 +129,7 @@ function queryItems(event) {
     url: `item/${query}`,
     method: 'GET',
     success: function (response) {
-      const items = response.items;
+      const items = response;
       currentPage = 1;
       createCategoryBar(items, filters);
       createItemCards(items);
@@ -346,17 +346,3 @@ $(document).on('click', function (event) {
     $('.dropdownMenuButton').removeClass('is-active');
   }
 });
-
-// $(document).on('click', '.cardHollowHeart', function (event) {
-//   event.stopPropagation();
-//   event.preventDefault();
-//   $(event.target).removeClass('far cardHollowHeart').addClass('fas cardFullHeart');
-// });
-
-// $(document).on('click', '.cardFullHeart', function (event) {
-//   event.stopPropagation();
-//   event.preventDefault();
-//   $(event.target).removeClass('fas cardFullHeart').addClass('far cardHollowHeart');
-// });
-
-// ------------------------------------------------------------- onClick Events

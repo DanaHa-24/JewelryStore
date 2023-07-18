@@ -92,14 +92,14 @@ $(document).ready(function () {
     .addClass('btn btn-link')
     .text('נרשמת כבר בעבר? לחץ/י כאן להתחברות')
     .click(function () {
-      window.location.href = 'login';
+      window.location.href = '/login';
     })
     .attr('id', 'signin-page-button-link');
 
   // Append the sign-up button to the body
   $('body').append(signUpButton);
 
-  $('#signin-page-button').click(function (event) {
+  $('#signin-page-button').click(async function (event) {
     event.preventDefault();
     let firstNameSignin = $('#signin-page-input-firstName').val();
     let lastNameSignin = $('#signin-page-input-lastName').val();
@@ -108,6 +108,11 @@ $(document).ready(function () {
     let phoneSignin = $('#signin-page-input-phoneNumber').val();
     let passwordSignin = $('#signin-page-input-password').val();
     let confirmPasswordSignin = $('#signin-page-input-confirmPassword').val();
+
+    if (passwordSignin !== confirmPasswordSignin) {
+      alert('הסיסמאות אינן תואמות');
+      return;
+    }
     console.log(addressSignin);
     // Create an object with the address data
     const addressData = {
@@ -118,45 +123,19 @@ $(document).ready(function () {
       postalCode: parseInt(addressSignin[4]),
     };
 
-    // Send a POST request to create the address
-    $.ajax({
-      url: '/addresses',
-      type: 'POST',
-      data: addressData,
-      success: function (addressResponse) {
-        // Create an object with the form data including the address ID
-        const formData = {
-          firstName: firstNameSignin,
-          lastName: lastNameSignin,
-          username: emailSignin,
-          password: passwordSignin,
-          address: [addressResponse._id],
-          phoneNumber: phoneSignin,
-        };
+    const formData = {
+      firstName: firstNameSignin,
+      lastName: lastNameSignin,
+      username: emailSignin,
+      password: passwordSignin,
+      address: addressData,
+      phoneNumber: phoneSignin,
+    };
 
-        // Send a POST request to create the user with the updated address
-        $.ajax({
-          type: 'POST',
-          url: '/auth/register',
-          data: formData,
-          success: function (userResponse) {
-            // Handle the success response
-            console.log(userResponse);
-            // Redirect to a success page or perform any other actions
-            window.location.href = `/login`;
-          },
-          error: function (userError) {
-            // Handle the error response for user creation
-            console.log(userError);
-            // Display an error message or perform any other actions
-          },
-        });
-      },
-      error: function (addressError) {
-        // Handle the error response for address creation
-        console.log(addressError);
-        // Display an error message or perform any other actions
-      },
-    });
+    // Send a POST request to create the user with the updated address
+    const res = await ajaxRequest('/auth/register', 'POST', formData);
+    if (res) {
+      window.location.href = `/login`;
+    }
   });
 });

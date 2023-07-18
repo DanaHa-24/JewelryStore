@@ -21,7 +21,8 @@ async function createItem(req, res) {
     await item.save();
     res.status(200).json({ message: 'Item created successfully', item });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to create item' });
+    console.error('Error creating item:', error);
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -57,7 +58,8 @@ async function getAllItems(req, res) {
     const items = await Item.find(filterBy).sort(sortBy);
     res.status(200).json(items);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to retrieve schema data from Item' });
+    console.error('Error getting all items:', error);
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -69,7 +71,8 @@ async function updateItem(req, res) {
     const item = await ItemService.updateItem(itemId, updatedItem);
     res.json(item);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to update item' });
+    console.error('Error updating item:', error);
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -80,7 +83,8 @@ async function deleteItem(req, res) {
     await ItemService.deleteItem(itemId);
     res.json({ message: 'Item deleted successfully' });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to delete item' });
+    console.error('Error deleting item:', error);
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -96,7 +100,7 @@ async function getItemById(req, res) {
     }
   } catch (error) {
     console.error('Error getting item by ID:', error);
-    res.status(500).json({ error: 'Failed to get item' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -107,7 +111,8 @@ async function searchItemsByName(req, res) {
     const items = await ItemService.searchItemsByName(searchQuery);
     res.json(items);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to search items' });
+    console.error('Error searching items by name:', error);
+    res.status(500).json({ error: error.message });
   }
 }
 

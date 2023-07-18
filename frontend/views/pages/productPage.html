@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="/images/smallBU.PNG" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="/pages.css" />
+    <title>BU</title>
+  </head>
+  <body>
+    <header id="home-page-header" class="sticky-top"></header>
+    <div class="container" style="margin-top: 2rem">
+      <div class="row">
+        <div class="col-md-6">
+          <img class="img-fluid rounded" alt="Product Image" id="product-img" />
+        </div>
+        <div class="col-md-6 text-right" style="direction: rtl">
+          <h1 class="display-4" id="product-name">טוען ...</h1>
+          <div style="display: flex; gap: 1rem; align-items: center">
+            <label class="lead" id="product-price">טוען ...</label>
+            <label class="lead" for="currency-select">בחר מטבע:</label>
+            <select id="currency-select">
+              <option value="ILS">ILS</option>
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
+          <p class="text-muted" id="product-amount">טוען ...</p>
+          <hr />
+          <h2 class="h4">תיאור המוצר:</h2>
+          <div class="text-muted" style="column-count: 2; padding: 2rem 0">
+            <div style="display: flex; gap: 1rem">
+              <label for="product-type"> סוג: </label>
+              <p id="product-type">טוען ...</p>
+            </div>
+            <div style="display: flex; gap: 1rem">
+              <label for="product-color"> צבע: </label>
+              <p id="product-color">טוען ...</p>
+            </div>
+            <div style="display: flex; gap: 1rem">
+              <label for="product-size"> מידה: </label>
+              <p id="product-size">טוען ...</p>
+            </div>
+            <div style="display: flex; gap: 1rem">
+              <label for="product-material"> חומר: </label>
+              <p id="product-material">טוען ...</p>
+            </div>
+            <div style="display: flex; gap: 1rem">
+              <label for="product-style"> סגנון: </label>
+              <p id="product-style">טוען ...</p>
+            </div>
+          </div>
+          <button class="btn btn-secondary btn-lg custom-button" id="product-wishlist-btn">הוסף לרשימת המשאלות</button>
+          <button class="btn btn-primary btn-lg ml-4 custom-button" id="product-cart-btn">הוסף לעגלת הקניות</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../../components/homePageHeader.js"></script>
+  <script src="../../js/ajax.js"></script>
+  <script src="../../js/productPage.js"></script>
+  <script src="../../components/homePageFooter.js"></script>
+</html>

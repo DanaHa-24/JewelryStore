@@ -8,7 +8,7 @@ async function getAllWishlistItems(req, res) {
     res.json(items);
   } catch (error) {
     console.error('Error getting wishlist items:', error);
-    res.status(500).json({ error: 'Failed to get wishlist items' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -20,7 +20,7 @@ async function getUserWishlist(req, res) {
     res.send(wishlist);
   } catch (error) {
     console.error('Error getting wishlist items:', error);
-    res.status(500).json({ error: 'Failed to get wishlist items' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -32,7 +32,7 @@ async function createWishlist(req, res) {
     res.json(wishList);
   } catch (error) {
     console.error('Error creating wishlist:', error);
-    res.status(500).json({ error: 'Failed to create wishlist' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -44,7 +44,7 @@ async function deleteWishlist(req, res) {
     res.json({ message: 'Wishlist deleted successfully' });
   } catch (error) {
     console.error('Error deleting wish list:', error);
-    res.status(500).json({ error: 'Failed to delete wishlist' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -60,7 +60,7 @@ async function removeItem(req, res) {
     res.json(wishList);
   } catch (error) {
     console.error('Error removing item from wishlist:', error);
-    res.status(500).json({ error: 'Failed to remove item from wishlist' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -74,7 +74,7 @@ async function updateWishlist(req, res) {
     res.json(updatedWishlist);
   } catch (error) {
     console.error('Error updating wishlist:', error);
-    res.status(500).json({ error: 'Failed to update wishlist' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -87,7 +87,7 @@ async function getWishlistById(req, res) {
     res.json(wishlist);
   } catch (error) {
     console.error('Error retrieving wishlist:', error);
-    res.status(500).json({ error: 'Failed to retrieve wishlist' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -106,7 +106,7 @@ async function searchWishlistItems(req, res) {
     res.json(items);
   } catch (error) {
     console.error('Error searching wishlist items:', error);
-    res.status(500).json({ error: 'Failed to search wishlist items' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -125,7 +125,7 @@ async function addItemToWishList(req, res) {
     res.json(wishList);
   } catch (error) {
     console.error('Error adding item to wishlist:', error);
-    res.status(500).json({ error: 'Failed to add item to wishlist' });
+    res.status(500).json({ error: error.message });
   }
 }
 

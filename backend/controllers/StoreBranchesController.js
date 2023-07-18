@@ -6,6 +6,7 @@ async function getAllStoreBranches(req, res) {
     const branches = await StoreBranchesService.getAllStoreBranches();
     res.json(branches);
   } catch (error) {
+    console.error('Error getting all store branches:', error);
     res.status(500).json({ error: error.message });
   }
 }
@@ -17,7 +18,7 @@ async function createStoreBranch(req, res) {
     const newBranch = await StoreBranchesService.createStoreBranch(branchData);
     res.status(201).json(newBranch);
   } catch (error) {
-    console.log(error);
+    console.error('Error creating store branch:', error);
     res.status(500).json({ error: error.message });
   }
 }
@@ -31,6 +32,7 @@ async function updateStoreBranch(req, res) {
     const updatedBranch = await StoreBranchesService.updateStoreBranch(id, updateData);
     res.json(updatedBranch);
   } catch (error) {
+    console.error('Error updating store branch:', error);
     res.status(500).json({ error: error.message });
   }
 }
@@ -42,6 +44,7 @@ async function deleteStoreBranch(req, res) {
     const message = await StoreBranchesService.deleteStoreBranch(id);
     res.json({ message });
   } catch (error) {
+    console.error('Error deleting store branch:', error);
     res.status(500).json({ error: error.message });
   }
 }
@@ -57,6 +60,7 @@ async function getStoreBranchById(req, res) {
       res.status(404).json({ error: 'Store branch not found' });
     }
   } catch (error) {
+    console.error('Error getting store branch by ID:', error);
     res.status(500).json({ error: error.message });
   }
 }

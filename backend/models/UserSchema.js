@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema(
     password: { type: String, required: true },
     address: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Address' }],
     orderHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }],
-    numOfOrders: { type: Number },
+    numOfOrders: { type: Number, default: 0 },
     myWishList: { type: mongoose.Schema.Types.ObjectId, ref: 'WishList' },
     MyCart: { type: mongoose.Schema.Types.ObjectId, ref: 'Cart' },
     phoneNumber: { type: String, required: true },

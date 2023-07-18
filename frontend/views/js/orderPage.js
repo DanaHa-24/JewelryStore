@@ -5,6 +5,14 @@ $(document).ready(function () {
   }, 0);
   $('#total-price').text(`${totalPrice} ₪ `);
 
+  let isDelivery = $('#delivery').val() === 'משלוח';
+  $('#address-field').css('display', isDelivery ? 'block' : 'none');
+
+  $('#delivery').change(function () {
+    isDelivery = $('#delivery').val() === 'משלוח';
+    $('#address-field').css('display', isDelivery ? 'block' : 'none');
+  });
+
   const orderItems = cartItems.map((item) => {
     return {
       item: item._id,
@@ -20,14 +28,14 @@ $(document).ready(function () {
       totalPrice,
       deliveryMethod: $('#delivery').val(),
       paymentMethod: $('#paymentMethod').val(),
-      address: $('#address').val(),
+      address: isDelivery ? $('#address').val() : '',
     };
 
     const resOrder = await ajaxRequest('/api/orders', 'POST', newOrder);
     const alertMessage = resOrder ? 'Order created successfully' : 'Order creation failed';
     alert(alertMessage);
     localStorage.removeItem('cartItems');
-    window.location.href = `/checkout/end/${resOrder._id}`;
+    window.location.href = `/end/${resOrder._id}`;
 
     $('#myForm')[0].reset();
   });

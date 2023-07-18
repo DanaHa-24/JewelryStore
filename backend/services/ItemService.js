@@ -19,44 +19,25 @@ const generateItemId = async (type) => {
 
 // Update an item by ID
 async function updateItem(itemId, updatedItem) {
-  try {
-    const item = await Item.findByIdAndUpdate(itemId, updatedItem, { new: true });
-    return item;
-  } catch (error) {
-    console.error('Error updating item:', error);
-    throw new Error('Failed to update item');
-  }
+  const item = await Item.findByIdAndUpdate(itemId, updatedItem, { new: true });
+  return item;
 }
 
 // Delete an item by ID
 async function deleteItem(itemId) {
-  try {
-    await Item.findByIdAndDelete(itemId);
-  } catch (error) {
-    console.error('Error deleting item:', error);
-    throw new Error('Failed to delete item');
-  }
+  await Item.findByIdAndDelete(itemId);
 }
 
 // Get an item by ID
 async function getItemById(itemId) {
-  try {
-    const item = await Item.findById(itemId);
-    return item;
-  } catch (error) {
-    throw new Error('Failed to retrieve item by ID');
-  }
+  const item = await Item.findById(itemId);
+  return item;
 }
 
 // Search items by name
 async function searchItemsByName(searchQuery) {
-  try {
-    const items = await Item.find({ name: { $regex: searchQuery, $options: 'i' } });
-    return items;
-  } catch (error) {
-    console.error('Error searching items:', error);
-    throw new Error('Failed to search items');
-  }
+  const items = await Item.find({ name: { $regex: searchQuery, $options: 'i' } });
+  return items;
 }
 
 module.exports = {

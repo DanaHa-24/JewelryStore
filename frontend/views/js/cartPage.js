@@ -23,6 +23,8 @@ $(document).ready(async function () {
       if (itemIndex > -1) {
         updateQuantityDisplay(item._id, cartItems[itemIndex].quantity);
       }
+
+      updateTotalPrice();
     });
 
     function updateQuantityDisplay(itemId, quantity) {
@@ -53,6 +55,10 @@ $(document).ready(async function () {
   });
   $('#total-price').text(() => cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0) + '₪');
   $('#checkout-btn').on('click', function (event) {
+    if (cartItems.length === 0) {
+      alert('העגלה ריקה!');
+      return;
+    }
     window.location.href = '/checkout';
   });
 });

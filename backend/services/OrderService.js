@@ -1,20 +1,17 @@
 const Order = require('../models/OrderSchema');
 const Item = require('../models/ItemSchema');
+const User = require('../models/UserSchema');
 
 // Get all orders
 async function getAllOrders() {
-  try {
-    const orders = await Order.find();
-    return orders;
-  } catch (error) {
-    throw new Error('Failed to fetch store branches');
-  }
+  const orders = await Order.find();
+  return orders;
 }
 
 // Create a new order
 async function createOrder(userId, orderData) {
-  const lastOrder = await Order.find().sort({ orderNumber: -1 }).limit(1);
-  lastOrder.length === 0 ? (orderData.orderNumber = 1) : (orderData.orderNumber = lastOrder[0].orderNumber + 1);
+  const orderNumber = (await Order.countDocuments()) + 1;
+  orderData.orderNumber = orderNumber.toString().padStart(10, '0');
 
   // Update the stock of the items in the order
   orderData.orderItems.forEach(async (item) => {
@@ -29,23 +26,24 @@ async function createOrder(userId, orderData) {
   order.numOfItems = orderData.orderItems.length;
   order.username = userId;
   await order.save();
+  const user = await User.findById(userId);
+  user.orderHistory.push(order._id);
+  user.numOfOrders++;
+  await user.save();
   return order;
 }
 
 // Update an order by order ID
 async function updateOrder(orderId, updateData) {
   const order = await Order.findById(orderId);
-
   if (!order) {
     throw new Error('Order not found');
   }
-
   // Update specific fields based on the updateData
   if (updateData.state) {
     order.state = updateData.state;
   }
   // Add more fields to update here as needed
-
   await order.save();
   return order;
 }
@@ -71,22 +69,6 @@ async function searchOrders(filter) {
   return orders;
 }
 
-// // Get all orders for a user
-// async function getAllUserOrders(username) {
-//   const orders = await Order.find({ username })
-//     .populate({
-//       path: 'orderItems.item',
-//       select: 'name price', // Include only the desired fields of the item
-//     })
-//     .populate({
-//       path: 'orderItems',
-//       select: 'quantity',
-//     })
-//     .populate('address');
-
-//   return orders;
-// }
-
 module.exports = {
   createOrder,
   getAllOrders,
@@ -94,5 +76,4 @@ module.exports = {
   updateOrder,
   deleteOrder,
   searchOrders,
-  //getAllUserOrders
 };

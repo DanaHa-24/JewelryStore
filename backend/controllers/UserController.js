@@ -1,4 +1,3 @@
-const Address = require('../models/AddressSchema');
 const User = require('../models/UserSchema');
 const UserService = require('../services/UserService');
 const { updateNumOfOrders } = require('../services/UserService');
@@ -11,6 +10,7 @@ async function getAllUsers(req, res) {
     const users = await UserService.getAllUsers();
     res.json(users);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: error.message });
   }
 }

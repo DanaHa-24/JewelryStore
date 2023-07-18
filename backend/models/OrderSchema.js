@@ -12,7 +12,7 @@ const orderSchema = new mongoose.Schema({
   numOfItems: { type: Number, required: true },
   totalPrice: { type: Number, required: true },
   deliveryMethod: { type: String, enum: ['משלוח', 'איסוף עצמי'], required: true },
-  address: { type: String, required: true },
+  address: { type: String },
   paymentMethod: { type: String, enum: ['אשראי', 'מזומן', 'ביט'], required: true },
   state: {
     type: String,
@@ -20,7 +20,7 @@ const orderSchema = new mongoose.Schema({
     default: 'התקבלה',
   },
   promoCode: { type: String },
-  createdAt: { type: String, default: Date.now },
+  createdAt: { type: Date, default: Date.now },
 });
 
 // Mongoose middleware to format the createdAt field before saving
