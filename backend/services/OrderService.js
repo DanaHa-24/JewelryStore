@@ -36,16 +36,14 @@ async function createOrder(userId, orderData) {
 
 // Update an order by order ID
 async function updateOrder(orderId, updateData) {
-  const order = await Order.findById(orderId);
+  console.log(orderId);
+  console.log(updateData);
+  const order = await Order.findByIdAndUpdate(orderId, updateData, { new: true });
   if (!order) {
     throw new Error('Order not found');
   }
-  // Update specific fields based on the updateData
-  if (updateData.state) {
-    order.state = updateData.state;
-  }
-  // Add more fields to update here as needed
-  await order.save();
+  //
+
   return order;
 }
 
@@ -57,7 +55,7 @@ async function deleteOrder(orderId) {
 
 // Get an order by ID
 async function getOrderById(orderId) {
-  const order = await Order.findById(orderId);
+  const order = await Order.findById(orderId).populate('orderItems.item');
   if (!order) {
     console.log(`Order with ID ${orderId} not found.`);
   }

@@ -4,6 +4,7 @@ $(document).ready(async function () {
 
   cartItems.forEach(async (item) => {
     cartTable.prepend(await CartItem(item));
+    console.log(item);
 
     $('#minus-btn-' + item._id).on('click', function (event) {
       const itemIndex = cartItems.findIndex((cartItem) => cartItem._id === item._id);
@@ -27,6 +28,11 @@ $(document).ready(async function () {
 
     $('#plus-btn-' + item._id).on('click', function (event) {
       const itemIndex = cartItems.findIndex((cartItem) => cartItem._id === item._id);
+
+      if (item.amountInStock < cartItems[itemIndex].quantity + 1) {
+        alert('אין מספיק מלאי מהפריט הנבחר');
+        return;
+      }
 
       if (itemIndex > -1) {
         cartItems[itemIndex].quantity++;

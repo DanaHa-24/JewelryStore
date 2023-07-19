@@ -4,7 +4,21 @@ let tables = [
     url: '/item',
     columnsId: 'items-columns',
     rowsId: 'items-rows',
-    visibleColumns: ['_id', 'id', 'name', 'price', 'type', 'color', 'size', 'material', 'style', 'amountInStock', 'status', 'howManySold', 'createdAt',],
+    visibleColumns: [
+      '_id',
+      'id',
+      'name',
+      'price',
+      'type',
+      'color',
+      'size',
+      'material',
+      'style',
+      'amountInStock',
+      'status',
+      'howManySold',
+      'createdAt',
+    ],
     pageButton: false,
   },
   {
@@ -21,9 +35,9 @@ let tables = [
     url: '/api/orders',
     columnsId: 'orders-columns',
     rowsId: 'orders-rows',
-    visibleColumns: ['orderNumber', 'numOfItems', 'totalPrice', 'deliveryMethod', 'state'],
+    visibleColumns: ['_id', 'orderNumber', 'numOfItems', 'totalPrice', 'deliveryMethod', 'state'],
     pageButton: true,
-    managePage: '/order-manage-page'
+    managePage: '/order-manage-page',
   },
   {
     id: 'branchesTable',
@@ -138,32 +152,32 @@ $(document).on('click', '.save-btn', async function () {
   alert('המוצר נוסף בהצלחה');
 });
 
-// Function to sort the table based on the selected column
+// Function to 1` the table based on the selected column
 $(document).on('click', 'th', function () {
-  var $header = $(this);
-  var $table = $header.closest('table');
-  var columnIndex = $header.index();
-  var sortingOrder = $header.data('sorting') || 'asc';
+  if ($(this).text() === '_id') return;
+  var header = $(this);
+  var table = header.closest('table');
+  var columnIndex = header.index();
+  var sortingOrder = header.data('sorting') || 'asc';
 
   // Toggle the sorting order
   if (sortingOrder === 'asc') {
     sortingOrder = 'desc';
-    $header.html($header.html().replace('▼', '▲'));
+    header.html(header.html().replace('▼', '▲'));
   } else {
     sortingOrder = 'asc';
-    $header.html($header.html().replace('▲', '▼'));
+    header.html(header.html().replace('▲', '▼'));
   }
 
-  $header.data('sorting', sortingOrder);
+  header.data('sorting', sortingOrder);
 
   // Get the rows except the header
-  var $rows = $table.find('tbody tr').get();
+  var rows = table.find('tbody tr').get();
 
   // Sort the rows based on the column values
-  $rows.sort(function (row1, row2) {
+  rows.sort(function (row1, row2) {
     var cell1 = $(row1).find('td').eq(columnIndex).text().trim();
     var cell2 = $(row2).find('td').eq(columnIndex).text().trim();
-
     if (sortingOrder === 'asc') {
       return compare(cell1, cell2);
     } else {
@@ -172,11 +186,11 @@ $(document).on('click', 'th', function () {
   });
 
   // Remove existing rows from the table body
-  $table.find('tbody tr').remove();
+  table.find('tbody tr').remove();
 
   // Append the sorted rows back to the table body
-  $.each($rows, function (index, row) {
-    $table.find('tbody').append(row);
+  $.each(rows, function (index, row) {
+    table.find('tbody').append(row);
   });
 });
 

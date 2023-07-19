@@ -37,6 +37,7 @@ async function updateUser(req, res) {
     const updatedUser = await UserService.updateUser(userId, updateData);
     res.json(updatedUser);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: error.message });
   }
 }
@@ -48,6 +49,7 @@ async function deleteUser(req, res) {
     const message = await UserService.deleteUser(userId);
     res.json({ message });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: error.message });
   }
 }

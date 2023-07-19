@@ -1,4 +1,5 @@
 const CartItem = async (item) => {
+  const amountInStock = item.amountInStock;
   return `
     <tr id="cart-item-${item._id}">
       <td>${item.name}</td>
@@ -13,7 +14,9 @@ const CartItem = async (item) => {
           </span>
           <input type="text" class="form-control" value=${item.quantity} id="quantity-${item._id}"/>
           <span class="input-group-btn">
-            <button type="button" id="plus-btn-${item._id}" class="btn btn-outline-secondary plus-btn">+</button>
+            <button type="button" id="plus-btn-${item._id}" class="btn btn-outline-secondary plus-btn" ${
+    amountInStock <= item.quantity ? 'disabled' : ''
+  }>+</button>
           </span>
         </div>
       </td>

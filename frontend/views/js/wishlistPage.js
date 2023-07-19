@@ -5,6 +5,10 @@ $(document).ready(async function () {
   $('body').append(wishlist);
 
   const wishlistContainer = $('<div>').addClass('container').attr('id', 'items-page-jewelry-cards-container');
+  if (!localStorage.getItem('token')) {
+    $('body').append('<p style="text-align: center;"> עליך להתחבר כדי ליצור whishlist</p>');
+    return;
+  }
   const wishlistArray = await ajaxRequest('/api/wishlist', 'GET');
 
   if (wishlistArray.items.length === 0) {

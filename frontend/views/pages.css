@@ -21,6 +21,12 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
+  flex-wrap: wrap;
+}
+.order-manage-box {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5rem;
 }
 .manage-box {
   display: flex;
@@ -578,7 +584,7 @@ thead {
   padding: 0;
 }
 
-#home-page-header-myCanvas{
+#home-page-header-myCanvas {
   position: absolute;
   padding: 5px 5px;
   top: -14px;

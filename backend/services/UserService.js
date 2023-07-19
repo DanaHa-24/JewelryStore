@@ -42,6 +42,7 @@ async function getUserById(id) {
     .populate('myWishList')
     .populate({ path: 'myWishList', populate: { path: 'items' } })
     .populate('orderHistory')
+    .populate({ path: 'orderHistory', populate: { path: 'orderItems.item' } })
     .populate('address');
   if (!user) throw new Error('User not found');
   user.password = undefined;
