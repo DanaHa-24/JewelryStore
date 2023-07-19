@@ -4,24 +4,28 @@ let tables = [
     url: '/item',
     columnsId: 'items-columns',
     rowsId: 'items-rows',
+    visibleColumns: ['_id', 'id', 'name', 'price', 'type', 'color', 'size', 'material', 'style', 'amountInStock', 'status', 'howManySold', 'createdAt'],
   },
   {
     id: 'usersTable',
     url: '/users',
     columnsId: 'users-columns',
     rowsId: 'users-rows',
+    visibleColumns: ['_id', 'firstName', 'lastName', 'username', 'password', 'role', 'numOfOrders', 'phoneNumber', 'createdAt'],
   },
   {
     id: 'ordersTable',
     url: '/api/orders',
     columnsId: 'orders-columns',
     rowsId: 'orders-rows',
+    visibleColumns: ['_id', 'orderNumber', 'username', 'orderItems', 'numOfItems', 'totalPrice', 'deliveryMethod', 'adddress', 'paymentMethod', 'state', 'createdAt'],
   },
   {
     id: 'branchesTable',
     url: '/storeBranches',
     columnsId: 'branches-columns',
     rowsId: 'branches-rows',
+    visibleColumns: ['_id', 'name', 'city', 'street', 'latitude', 'longitude'],
   },
 ];
 
@@ -52,7 +56,7 @@ $(document).on('click', '.delete-btn', async function () {
     return;
   }
   $(this).closest('tr').remove();
-  alert('המוצר נמחק בהצלחה');
+  alert('המחיקה בוצעה בהצלחה');
 });
 
 // Function to update the row containing the clicked button
@@ -125,7 +129,7 @@ $(document).on('click', '.save-btn', async function () {
 
   $(`#${tableName}-add-btn`).css('display', 'block');
 
-  alert('המוצר נוסף בהצלחה');
+  alert('המידע נשמר בהצלחה');
 });
 
 // Function to sort the table based on the selected column

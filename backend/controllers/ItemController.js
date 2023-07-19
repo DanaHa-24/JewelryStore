@@ -64,7 +64,7 @@ async function getAllItems(req, res) {
 // Update an item by ID
 async function updateItem(req, res) {
   try {
-    const itemId = req.params.id;
+    const itemId = req.params.itemId;
     const updatedItem = req.body;
     const item = await ItemService.updateItem(itemId, updatedItem);
     res.json(item);
