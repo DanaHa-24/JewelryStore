@@ -9,7 +9,6 @@ Jewelry allows you to express yourself.
 </p>
 
 
-
 ---
 
 ## Collaborators
@@ -23,17 +22,39 @@ Jewelry allows you to express yourself.
 
 ---
 
+## Table of Contents
+
+- [Features](#features)
+- [Libraries & Technologies used](#Libraries-&-Technologies-used)
+- [Jewelry Credits](#Jewelry-Credits)
+- [Getting Started](#Getting-Started)
+
+---
+
+## Features
+
+BU store provides the following features to our customers:
+1) Jewelry store - Browse and purchase jewels.
+2) Shop cart - Add items to your cart, view it and proceed to checkout.
+3) Wishlist - Add all your wishes for next purchase.
+4) Exchange currency - See the prices in ILS, EUR, USD.
+5) Facebook API - Share with your friends purchases.
+6) Chat Web Socket - Chat with other users on the website in real-time.
+7) Login - Create an account, log in, and manage all your profile.
+
 ## Libraries & Technologies used
 
 This project is built using the following technologies and libraries:
 
 * MongoDB
+* mongoose
 * JavaScript
 * Bootstrap
 * jQuery
 * CSS
 * HTML
 * Express
+* nodemon
 * Node.js
 * AJAX requests
 * Socket.io
@@ -52,17 +73,37 @@ This project is built using the following technologies and libraries:
 
 # Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To set up BU Store project on your local machine, follow these steps:
 
-## Available Scripts
+1. Clone the repository:
 
-In the project directory, you can run:
+   ```bash
+   git clone https://github.com/DanaHa-24/JewelryStore.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd JewelryStore
+   ```
+   
+3. Refer to `.env.local` file in the `backend\` directory and provide the necessary environment variables.
+
+4. Start the development server:
+
+   ```bash
+   cd ../backend
+   npm start
+   ```
+   This will start the back-end development server.
+
+5. Open your browser and visit `http://localhost:5000` to access BU Store.
+
+---
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
