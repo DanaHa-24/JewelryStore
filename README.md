@@ -31,6 +31,10 @@ Jewelry allows you to express yourself.
 
 ---
 
+![BU-website](https://github.com/DanaHa-24/JewelryStore/assets/117688436/beffb087-fadc-4c3a-a0d6-53de94fe93cd)
+
+---
+
 ## Features
 
 BU store provides the following features to our customers:
