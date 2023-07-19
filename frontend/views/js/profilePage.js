@@ -192,6 +192,7 @@ function handleMyDetails(user) {
 }
 
 /////////////////////////////////// Fetching for User Addresses tab  ////////////////////////////////////
+
 async function handleMyAddress() {
   const options = {
     id: 'addressesTable',
@@ -211,12 +212,19 @@ async function handleMyAddress() {
   $('.profile-page-container').append(addressesTable);
 
   const addresses = await ajaxRequest(options.url, 'GET');
+
+  if (addresses.length === 0) {
+    $('.profile-page-container').text('אין לנו כתובת שלך 🖤');
+    return;
+  }
+
   const params = Object.keys(addresses[0]);
   params.pop();
 
   buttonsDiv.append(TableBar(options.id, params, options.url));
   ManageTable(addresses, options);
 }
+
 
 /////////////////////////////////// Fetching for User Order History tab ///////////////////////////////////
 
@@ -382,14 +390,19 @@ function fetchUserOrdersHistory(data) {
 /////////////////////////////////// Fetching & Updating User Addresses tab ///////////////////////////////////
 
 $(document).ready(async function () {
-  tables.forEach(async (table) => {
-    const res = await ajaxRequest(table.url, 'GET');
-    //clean the searchBy select button
+  try {
+    for (const table of tables) {
+      const res = await ajaxRequest(table.url, 'GET');
 
-    const options = Object.keys(res[0]);
-    $(`#${table.id}-buttons`).append(TableBar(table.id, options, table.url));
-    ManageTable(res, table);
-  });
+      if (res.length > 0) {
+        const options = Object.keys(res[0]);
+        $(`#${table.id}-buttons`).append(TableBar(table.id, options, table.url));
+        ManageTable(res, table);
+      }
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
 });
 
 $(document).on('click', '#clean-btn', function () {
