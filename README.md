@@ -64,14 +64,14 @@ This project is built using the following technologies and libraries:
 
 ---
 
-**Jewelry Credits**
+## Jewelry Credits
 
 * Most images are BU's original jewels
 * Few images come from [TAO Jewelry](https://shoptaostyle.com/)
 
 ---
 
-# Getting Started
+## Getting Started
 
 To set up BU Store project on your local machine, follow these steps:
 
