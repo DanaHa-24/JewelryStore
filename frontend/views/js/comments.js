@@ -1,6 +1,7 @@
 // Socket.io 
 const socket = io('http://localhost:5000');
 
+$('#send-btn').addClass("btn btn-primary");
 $('#send-btn').on('click', sendMessage);
 
 // Send the message 
