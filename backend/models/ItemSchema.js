@@ -19,7 +19,7 @@ const itemSchema = new mongoose.Schema({
   color: [{ type: String }],
   size: [{ type: String, enum: ['S', 'M', 'L', 'flexible', '5', '6', '7', '8', '9', '10', '14', '15', '16'] }],
   material: [{ type: String, enum: ['beads', 'silver', 'pearl', 'stone', 'macrame','gold'] }],
-  style: [{ type: String, enum: ['choker', 'falling', 'regular', 'tight', 'set', 'hoop'] }],
+  style: [{ type: String, enum: ['choker', 'falling', 'regular', 'tight', 'set', 'hoop', 'long'] }],
   createdAt: { type: String, default: Date.now },
   amountInStock: { type: Number },
   status: { type: String, enum: ['available', 'almost out of stock', 'out of stock'] },
