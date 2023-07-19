@@ -100,10 +100,3 @@ To set up BU Store project on your local machine, follow these steps:
 5. Open your browser and visit `http://localhost:5000` to access BU Store.
 
 ---
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
-
-
