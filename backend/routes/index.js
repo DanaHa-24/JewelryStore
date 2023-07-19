@@ -7,7 +7,6 @@ router.use('/item', require('./ItemRoute'));
 router.use('/map', require('./StoreBranchesRoute'));
 router.use('/storeBranches', require('./StoreBranchesRoute'));
 router.use('/users', require('./UserRoute'));
-router.use('/config', require('./ConfigRoute'));
 router.use('/auth', require('./AuthRoute'));
 router.use('/api/addresses', require('../middleware/auth'), require('./AddressRoute'));
 router.use('/api/wishlist', require('../middleware/auth'), require('./WishListRoute'));
