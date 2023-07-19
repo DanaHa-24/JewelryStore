@@ -4,7 +4,7 @@ const ManageTable = async (data, options) => {
   });
 
 
-  const columns = Object.keys(data[0]);
+  const columns = options.visibleColumns || Object.keys(data[0]);
   options.columns = columns;
   columns.forEach((column, index) => {
     const header = document.createElement('th');
