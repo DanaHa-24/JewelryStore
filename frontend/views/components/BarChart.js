@@ -16,7 +16,7 @@ const BarChart = (data) => {
 
   const y = d3
     .scaleLinear()
-    .domain([0, d3.max(data, (d) => d.totalSales)])
+    .domain([0, d3.max(data, (d) => d.count)])
     .range([chartHeight, 0]);
 
   const chart = svg.append('g').attr('transform', `translate(${margin.left}, ${margin.top})`);
@@ -32,13 +32,13 @@ const BarChart = (data) => {
     .append('rect')
     .attr('class', 'bar')
     .attr('x', (d) => x(d._id))
-    .attr('y', (d) => y(d.totalSales))
+    .attr('y', (d) => y(d.count))
     .attr('width', x.bandwidth())
-    .attr('height', (d) => chartHeight - y(d.totalSales))
+    .attr('height', (d) => chartHeight - y(d.count))
     .append('text')
     .text((d) => d.count)
     .attr('x', (d) => x(d._id) + x.bandwidth() / 2)
-    .attr('y', (d) => y(d.totalSales) - 5)
+    .attr('y', (d) => y(d.count) - 5)
     .attr('text-anchor', 'middle')
     .attr('fill', 'white');
 };
