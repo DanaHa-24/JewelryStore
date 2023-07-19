@@ -43,7 +43,7 @@ BU store provides the following features to our customers:
 7) Login - Create an account, log in, and manage all your profile.
 
 
-## Libraries & Technologies used
+## Libraries and Technologies used
 
 This project is built using the following technologies and libraries:
 
