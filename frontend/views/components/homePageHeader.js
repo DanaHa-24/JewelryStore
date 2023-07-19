@@ -111,7 +111,7 @@ $(document).ready(async function () {
 
     $.each(items.materials, function (index, item) {
       $.each(item, function (key, value) {
-        let itemLink = $('<a>').attr('href', `items?type=${label}&material=${key}`).text(value);
+        let itemLink = $('<a>').attr('href', `/items?type=${label}&material=${key}`).text(value);
         dropdownContent.append(itemLink);
       });
     });
@@ -139,10 +139,10 @@ $(document).ready(async function () {
 
   const ctx = canvas[0].getContext('2d');
 
-  ctx.font = "40px Arial";
-  ctx.fillStyle = "black";
-  ctx.fillText("B", 20, 50);
-  ctx.fillText("U", 50, 50);
+  ctx.font = '40px Arial';
+  ctx.fillStyle = 'black';
+  ctx.fillText('B', 20, 50);
+  ctx.fillText('U', 50, 50);
 
   imageLink.append(canvas);
   navbarDiv.append(imageLink);
