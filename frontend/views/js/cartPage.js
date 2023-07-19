@@ -4,10 +4,13 @@ $(document).ready(async function () {
 
   cartItems.forEach(async (item) => {
     cartTable.prepend(await CartItem(item));
-    console.log(item);
 
     $('#minus-btn-' + item._id).on('click', function (event) {
       const itemIndex = cartItems.findIndex((cartItem) => cartItem._id === item._id);
+
+      if (item.amountInStock > cartItems[itemIndex].quantity + 1) {
+        $('#plus-btn-' + item._id).attr('disabled', false);
+      }
 
       if (itemIndex > -1) {
         const updatedQuantity = cartItems[itemIndex].quantity - 1;

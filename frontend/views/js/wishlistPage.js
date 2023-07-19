@@ -6,7 +6,7 @@ $(document).ready(async function () {
 
   const wishlistContainer = $('<div>').addClass('container').attr('id', 'items-page-jewelry-cards-container');
   if (!localStorage.getItem('token')) {
-    $('body').append('<p style="text-align: center;"> עליך להתחבר כדי ליצור whishlist</p>');
+    $('body').append('<p style="text-align: center;"> 🖤 כדי להוסיף משאלות עלייך להתחבר קודם</p>');
     return;
   }
   const wishlistArray = await ajaxRequest('/api/wishlist', 'GET');
@@ -20,3 +20,4 @@ $(document).ready(async function () {
     });
   }
 });
+

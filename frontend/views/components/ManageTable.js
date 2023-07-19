@@ -29,9 +29,28 @@ const ManageTable = async (data, options) => {
     }
     <button id="del-btn-${item._id}" class="btn btn-danger delete-btn">מחק</button>
     `;
+
     $(`#${options.rowsId}`).append(`
     <tr id="row-${item._id}">
-        ${columns.map((key) => `<td ><p class="tr-p">${item[key]}</p></td>`).join('')}
+    ${columns
+      .map((key) => {
+        // if key is in dropdownColumns make it a dropdown menu
+        if (options.dropdownColumns) {
+          const dropdownColumn = options.dropdownColumns.find((column) => column.name === key);
+          if (dropdownColumn) {
+            return `<td class="text-center" style="white-space: nowrap;">
+            <select class="form-control" id="${key}-${item._id}" name="${key}">
+            ${dropdownColumn.options.map((option) => {
+              return `<option value="${option}" ${item[key] === option ? 'selected' : ''}>${option}</option>`;
+            })}
+            </select>
+            </td>`;
+          }
+        }
+
+        return `<td ><p class="tr-p">${item[key]}</p></td>`;
+      })
+      .join('')}
             <td class="text-center" style="white-space: nowrap;">${actionCell}</td>
           </tr>
         `);

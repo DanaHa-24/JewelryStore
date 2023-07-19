@@ -1,7 +1,6 @@
 $(document).ready(async function () {
   const userId = window.location.pathname.split('/')[2];
   const user = await ajaxRequest('/users/' + userId, 'GET');
-  console.log(JSON.stringify(user));
   // Populate User Details
   $('#user-id').val(user._id);
   $('#first-name').val(user.firstName);
@@ -15,40 +14,42 @@ $(document).ready(async function () {
   const addressContainer = $('#address-container');
   user.address.forEach((address, index) => {
     addressContainer.append(`
-              <form id="address-form-${address._id}" class="manage-form">
+              <div class="manage-card">
               <h4>Address ${index + 1}</h4>
+              <form id="address-form-${address._id}" class="manage-form">
               <div>
-                <label for="address-id">Address ID:</label>
-                <input class="form-control" type="text" id="address-id-${address._id}" name="address-id" value="${
+              <label for="address-id">Address ID:</label>
+              <input class="form-control" type="text" id="address-id-${address._id}" name="address-id" value="${
       address._id
     }" disabled>
               </div>
               <div>
-                <label for="city">City:</label>
-                <input class="form-control" type="text" id="city-${address._id}" name="city" value="${address.city}" >
+              <label for="city">City:</label>
+              <input class="form-control" type="text" id="city-${address._id}" name="city" value="${address.city}" >
               </div>
               <div>
-                <label for="street">Street:</label>
-                <input class="form-control" type="text" id="street-${address._id}" name="street" value="${
+              <label for="street">Street:</label>
+              <input class="form-control" type="text" id="street-${address._id}" name="street" value="${
       address.street
     }" >
               </div>
               <div>
-                <label for="house-number">House Number:</label>
-                <input class="form-control" type="number" id="house-number-${address._id}" name="house-number" value="${
+              <label for="house-number">House Number:</label>
+              <input class="form-control" type="number" id="house-number-${address._id}" name="house-number" value="${
       address.houseNum
     }" >
               </div>
               <div>
-                <label for="postal-code">Postal Code:</label>
-                <input class="form-control" type="number" id="postal-code-${address._id}" name="postal-code" value="${
+              <label for="postal-code">Postal Code:</label>
+              <input class="form-control" type="number" id="postal-code-${address._id}" name="postal-code" value="${
       address.postalCode
     }" >
               </div>
-              <button type="submit">Save Changes</button>
+              <button type="submit" class="manage-btn">שמור</button>
               </form>
-            <hr>
-          `);
+              <hr>
+              </div>
+              `);
     $(`#address-form-${address._id}`).submit(function (e) {
       e.preventDefault();
       // Handle address form submission

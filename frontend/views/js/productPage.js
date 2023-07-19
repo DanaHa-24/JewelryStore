@@ -31,8 +31,13 @@ $(document).ready(async function () {
   $('#product-name').text(product.name);
   $('#product-amount').text(`יחידות במלאי: ${product.amountInStock}`);
   $('#product-type').text(product.type);
-  $('#product-color').text(() => product.color.map((color) => `${color}`));
-  $('#product-size').text(() => product.size.map((size) => `${size}`));
+  // add options to the select element
+  product.color.forEach((color) => {
+    $('#product-color').append(`<option value="${color}">${color}</option>`);
+  });
+  product.size.forEach((size) => {
+    $('#product-size').append(`<option value="${size}">${size}</option>`);
+  });
   $('#product-material').text(() => product.material.map((material) => `${material}`));
   $('#product-style').text(() => product.style.map((style) => `${style}`));
 
