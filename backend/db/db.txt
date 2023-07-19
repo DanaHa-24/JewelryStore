@@ -1,7 +1,11 @@
 addressSeed.json - uploaded to MongoDB Atlas at 23/6
+                   deleted at 19/7/2023
 usersSeed.json - uploaded to MongoDB Atlas at 25/6
+                 deleted at 19/7/2023
 ordersSeed.json - uploaded to MongoDB Atlas at 25/6
+                  deleted at 19/7/2023
 itemsSeed.json - uploaded to MongoDB Atlas at
+                 last update - 19/7/2023
 
 scrape.js - file for scraping more data (items) from Tao website.
 taoItems.js - file that created by the scrape.js
