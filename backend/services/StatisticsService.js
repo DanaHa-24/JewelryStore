@@ -1,3 +1,4 @@
+const Item = require('../models/ItemSchema');
 const Order = require('../models/OrderSchema');
 
 // Group by - group all orders by months
@@ -40,12 +41,12 @@ async function groupByOrdersByMonths() {
 
 // Group by - group all items by types
 async function groupByItemsByTypes() {
-  const result = await Order.aggregate([
+  // count all items by type and multiply by price
+  const result = await Item.aggregate([
     {
       $group: {
         _id: '$type',
-        count: { $sum: 1 },
-        totalSales: { $sum: { $multiply: ['$price', '$howManySold'] } },
+        count: { $sum: { $multiply: ['$price', '$howManySold'] } },
       },
     },
     {
