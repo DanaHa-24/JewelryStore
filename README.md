@@ -25,7 +25,7 @@ Jewelry allows you to express yourself.
 ## Table of Contents
 
 - [Features](#features)
-- [Libraries & Technologies used](#Libraries-&-Technologies-used)
+- [Libraries & Technologies used](#Libraries-and-Technologies-used)
 - [Jewelry Credits](#Jewelry-Credits)
 - [Getting Started](#Getting-Started)
 
@@ -41,6 +41,7 @@ BU store provides the following features to our customers:
 5) Facebook API - Share with your friends purchases.
 6) Chat Web Socket - Chat with other users on the website in real-time.
 7) Login - Create an account, log in, and manage all your profile.
+
 
 ## Libraries & Technologies used
 
@@ -62,14 +63,12 @@ This project is built using the following technologies and libraries:
 * Integration with Google Maps
 * Integration with Facebook API
 
----
 
 ## Jewelry Credits
 
 * Most images are BU's original jewels
 * Few images come from [TAO Jewelry](https://shoptaostyle.com/)
 
----
 
 ## Getting Started
 
