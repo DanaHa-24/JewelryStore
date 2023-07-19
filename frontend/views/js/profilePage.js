@@ -217,6 +217,7 @@ async function handleMyAddress() {
   buttonsDiv.append(TableBar(options.id, params, options.url));
   ManageTable(addresses, options);
 }
+
 /////////////////////////////////// Fetching for User Order History tab ///////////////////////////////////
 
 function fetchUserOrdersHistory(data) {
@@ -378,6 +379,8 @@ function fetchUserOrdersHistory(data) {
   });
 }
 
+/////////////////////////////////// Fetching & Updating User Addresses tab ///////////////////////////////////
+
 $(document).ready(async function () {
   tables.forEach(async (table) => {
     const res = await ajaxRequest(table.url, 'GET');
@@ -405,7 +408,7 @@ $(document).on('click', '.delete-btn', async function () {
     return;
   }
   $(this).closest('tr').remove();
-  alert('המוצר נמחק בהצלחה');
+  alert('הכתובת נמחקה בהצלחה');
 });
 
 // Function to update the row containing the clicked button
@@ -478,7 +481,7 @@ $(document).on('click', '.save-btn', async function () {
 
   $(`#${tableName}-add-btn`).css('display', 'block');
 
-  alert('המוצר נוסף בהצלחה');
+  alert('הכתובת נוספה בהצלחה');
 });
 
 // Function to sort the table based on the selected column

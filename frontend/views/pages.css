@@ -578,9 +578,10 @@ thead {
   padding: 0;
 }
 
-#home-page-header-myCanvas {
+#home-page-header-myCanvas{
   position: absolute;
-  top: -10px;
+  padding: 5px 5px;
+  top: -14px;
   right: 10px;
 }
 
