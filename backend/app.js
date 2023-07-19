@@ -8,6 +8,7 @@ const http = require('http');
 require('dotenv').config({ path: __dirname + '/.env' });
 const monogoConnect = require('./config/mongoConnect');
 const UserController = require('./controllers/UserController');
+const apiKey = process.env.GOOGLE_MAP_API_KEY;
 
 // Create an HTTP server using the http module, with the app object as the request listener
 const server = http.createServer(app);
@@ -47,6 +48,10 @@ app.use('/', require('./routes'));
 
 // Serve static files from the "images" directory
 app.use('/images', express.static(path.join(__dirname, '../frontend/images')));
+
+app.get('/mapg', (req, res) => {
+  res.send(apiKey);
+});
 
 // Default redirect => Home Page
 app.get('/', (req, res) => {

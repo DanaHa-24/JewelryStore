@@ -18,18 +18,17 @@ $('body').append(row);
 $(document).ready(function() {
   // Make an AJAX request to retrieve the API key from the backend
   $.ajax({
-    url: 'http://localhost:5000/config/key',
+    url: 'http://localhost:5000/mapg',
     method: 'GET',
-    data: { name: 'GOOGLE_MAPS_API_KEY' },
-    success: function(response) {
-      const apiKey = response.apiKey;
-      loadGoogleMapsScript(apiKey); 
+    success: function (response) {
+      const apiKey = response;
+      loadGoogleMapsScript(apiKey);
     },
-    error: function(error) {
-      console.error('Error retrieving API key:', error);
+    error: function (error) {
+      console.error('Error retrieving API key:', error.responseText); // Log the error response text
     }
   });
-
+  
   function loadGoogleMapsScript(apiKey) {
     // Construct the script element with the API key
     const script = document.createElement('script');

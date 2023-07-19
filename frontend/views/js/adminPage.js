@@ -19,6 +19,8 @@ let tables = [
       'howManySold',
       'createdAt',
     ],
+    notEditableColumns: ['_id', 'createdAt', 'amountInStock', 'howManySold'],
+    dropdownColumns: [{ name: 'status', options: ['available', 'almost out of stock', 'out of stock'] }],
     pageButton: false,
   },
   {
@@ -54,7 +56,7 @@ $(document).ready(async function () {
     const res = await ajaxRequest(table.url, 'GET');
     //clean the searchBy select button
 
-    const options = Object.keys(res[0]);
+    const options = table.visibleColumns;
     $(`#${table.id}-buttons`).append(TableBar(table.id, options, table.url));
     ManageTable(res, table);
   });
@@ -81,13 +83,28 @@ $(document).on('click', '.delete-btn', async function () {
 
 // Function to update the row containing the clicked button
 $(document).on('click', '.update-btn', function () {
-  // change all the text to input
+  // const the table id
+  const tableName = $(this).closest('table').attr('id');
+  const isEditable = tables.find((table) => table.id === tableName).notEditableColumns;
+  // change all the text to input except the isEditable columns
+
   $(this)
     .closest('tr')
     .find('td:not(:last-child)')
     .each(function () {
-      const text = $(this).text();
-      $(this).html(`<input type="text" class="form-control" value="${text}">`);
+      const text = $(this).find('p').text();
+      const key = $(this).closest('table').find('th').eq($(this).index()).text().slice(0, -2);
+      // if the column is in dropdownColumns return
+      const dropdownColumn = tables.find((table) => table.id === tableName).dropdownColumns;
+      if (dropdownColumn) {
+        const dropdown = dropdownColumn.find((column) => column.name === key);
+        if (dropdown) return;
+      }
+      if (isEditable.includes(key)) {
+        $(this).html(`<input class="form-control" type="text" value="${text}" disabled>`);
+      } else {
+        $(this).html(`<input class="form-control" type="text" value="${text}">`);
+      }
     });
 
   // change the button to save button
@@ -104,8 +121,18 @@ $(document).on('click', '.save-btn', async function () {
     .find('td:not(:last-child)')
     .each(function () {
       const key = $(this).closest('table').find('th').eq($(this).index()).text().slice(0, -2);
+      const dropdownColumn = tables.find((table) => table.id === tableName).dropdownColumns;
+      if (dropdownColumn) {
+        const dropdown = dropdownColumn.find((column) => column.name === key);
+        if (dropdown) {
+          data[key] = $(this).find('select').val();
+          return;
+        }
+      }
       const value = $(this).find('input').val();
-      data[key] = value;
+      if (value.includes(',')) {
+        data[key] = value.split(',');
+      } else data[key] = value;
     });
 
   for (const key in data) {
@@ -129,8 +156,15 @@ $(document).on('click', '.save-btn', async function () {
     .closest('tr')
     .find('td:not(:last-child)')
     .each(function () {
+      // if the column is in dropdownColumns return
+      const key = $(this).closest('table').find('th').eq($(this).index()).text().slice(0, -2);
+      const dropdownColumn = tables.find((table) => table.id === tableName).dropdownColumns;
+      if (dropdownColumn) {
+        const dropdown = dropdownColumn.find((column) => column.name === key);
+        if (dropdown) return;
+      }
       const text = $(this).find('input').val();
-      $(this).html(text);
+      $(this).html(`<p class="tr-p">${text}</p>`);
     });
 
   if (isNewItem) {
@@ -142,8 +176,8 @@ $(document).on('click', '.save-btn', async function () {
     .closest('td')
     .html(
       `
-      <button class="btn btn-danger delete-btn">מחק</button>
       <button class="btn btn-primary update-btn">עדכן</button>
+      <button class="btn btn-danger delete-btn">מחק</button>
     `
     );
 

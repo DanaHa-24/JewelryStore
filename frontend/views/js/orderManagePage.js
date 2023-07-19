@@ -3,7 +3,7 @@ $(document).ready(async function () {
   const order = await ajaxRequest('/api/orders/' + orderId, 'GET');
   const orderHistoryContainer = $('#order-container');
   orderHistoryContainer.append(`
-              <div class="order-manage-box">
+              <div class="manage-card">
               <form id="order-form-${order._id}" class="manage-form" >
               <div>
               <label for="order-number">Order Number:</label>
@@ -70,10 +70,12 @@ $(document).ready(async function () {
                     order._id
                   }" name="num-of-items" value="${order.numOfItems}" >
                   </div>
-                  <button type="submit">Save Changes</button>
+                  <button type="submit" class="manage-btn">שמור</button>
                   </form>
+                  </div>
+                  <hr/>
                   <div style="margin-top: 3rem;">
-                  <h4>Order Items</h4>
+                  <h4 class="manage-title">Order Items</h4>
                   <table class="table table-striped">
                   <thead>
                   <tr>
@@ -98,7 +100,6 @@ $(document).ready(async function () {
                     .join('')}
                       </tbody>
                       </table>
-                      </div>
                       </div>
                       <hr>
                       `);

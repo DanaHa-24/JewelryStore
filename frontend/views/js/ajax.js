@@ -12,7 +12,6 @@ const ajaxRequest = (url, method, data) => {
         resolve(response);
       },
       error: function (error) {
-        console.log(error.responseJSON);
         alert(error.responseJSON.error);
         reject(error.responseJSON);
       },
