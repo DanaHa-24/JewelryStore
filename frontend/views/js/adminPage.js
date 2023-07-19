@@ -4,21 +4,26 @@ let tables = [
     url: '/item',
     columnsId: 'items-columns',
     rowsId: 'items-rows',
-    visibleColumns: ['_id', 'id', 'name', 'price', 'type', 'color', 'size', 'material', 'style', 'amountInStock', 'status', 'howManySold', 'createdAt'],
+    visibleColumns: ['_id', 'id', 'name', 'price', 'type', 'color', 'size', 'material', 'style', 'amountInStock', 'status', 'howManySold', 'createdAt',],
+    pageButton: false,
   },
   {
     id: 'usersTable',
     url: '/users',
     columnsId: 'users-columns',
     rowsId: 'users-rows',
-    visibleColumns: ['_id', 'firstName', 'lastName', 'username', 'password', 'role', 'numOfOrders', 'phoneNumber', 'createdAt'],
+    visibleColumns: ['_id', 'firstName', 'lastName', 'username', 'role'],
+    pageButton: true,
+    managePage: '/user-manage-page',
   },
   {
     id: 'ordersTable',
     url: '/api/orders',
     columnsId: 'orders-columns',
     rowsId: 'orders-rows',
-    visibleColumns: ['_id', 'orderNumber', 'username', 'orderItems', 'numOfItems', 'totalPrice', 'deliveryMethod', 'adddress', 'paymentMethod', 'state', 'createdAt'],
+    visibleColumns: ['orderNumber', 'numOfItems', 'totalPrice', 'deliveryMethod', 'state'],
+    pageButton: true,
+    managePage: '/order-manage-page'
   },
   {
     id: 'branchesTable',
@@ -26,6 +31,7 @@ let tables = [
     columnsId: 'branches-columns',
     rowsId: 'branches-rows',
     visibleColumns: ['_id', 'name', 'city', 'street', 'latitude', 'longitude'],
+    pageButton: false,
   },
 ];
 
@@ -56,7 +62,7 @@ $(document).on('click', '.delete-btn', async function () {
     return;
   }
   $(this).closest('tr').remove();
-  alert('המחיקה בוצעה בהצלחה');
+  alert('המוצר נמחק בהצלחה');
 });
 
 // Function to update the row containing the clicked button
@@ -129,7 +135,7 @@ $(document).on('click', '.save-btn', async function () {
 
   $(`#${tableName}-add-btn`).css('display', 'block');
 
-  alert('המידע נשמר בהצלחה');
+  alert('המוצר נוסף בהצלחה');
 });
 
 // Function to sort the table based on the selected column

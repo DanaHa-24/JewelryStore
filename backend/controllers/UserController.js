@@ -83,44 +83,48 @@ async function searchUsers(req, res) {
 // Get user's order history by ID
 async function getUserOrderHistory(req, res) {
   try {
-    const userId = req.params.userId;
+    const userId = req.user._id;
     const orderHistory = await UserService.getUserOrderHistory(userId);
     res.json(orderHistory);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch order history' });
+    console.log(error);
+    res.status(500).json({ error: error.message });
   }
 }
 
 // Get user's addresses by ID
 async function getUserAddresses(req, res) {
   try {
-    const userId = req.params.userId;
+    const userId = req.user._id;
     const myAddresses = await UserService.getUserAddresses(userId);
     res.json(myAddresses);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch order history' });
+    console.log(error);
+    res.status(500).json({ error: error.message });
   }
 }
 
 // Get user's wishlist by ID
 async function getUserWishlist(req, res) {
   try {
-    const userId = req.params.userId;
+    const userId = req.user._id;
     const myWishlist = await UserService.getUserWishlist(userId);
     res.json(myWishlist);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch order history' });
+    console.log(error);
+    res.status(500).json({ error: error.message });
   }
 }
 
 // Get user's cart by ID
 async function getUserMyCart(req, res) {
   try {
-    const userId = req.params.userId;
+    const userId = req.user._id;
     const MyCart = await UserService.getUserMyCart(userId);
     res.json(MyCart);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch my cart' });
+    console.log(error);
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -193,16 +197,6 @@ async function register(req, res, next) {
   }
 }
 
-// Get logged-in user details
-async function getMyUser(req, res) {
-  try {
-    const user = await UserService.getUser(req.userId);
-    res.json(user);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to get user details' });
-  }
-}
-
 module.exports = {
   getAllUsers,
   updateUser,
@@ -211,7 +205,6 @@ module.exports = {
   searchUsers,
   login,
   register,
-  getMyUser,
   getUserOrderHistory,
   getUserAddresses,
   getUserWishlist,
