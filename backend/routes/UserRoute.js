@@ -3,16 +3,16 @@ const router = express.Router();
 const UserController = require('../controllers/UserController');
 
 // Get user's cart by ID
-router.get('/:userId/my-cart', UserController.getUserMyCart);
+router.get('/my-cart', UserController.getUserMyCart);
 
 // Get user's order history by ID
-router.get('/:userId/order-history', UserController.getUserOrderHistory);
+router.get('/order-history', require('../middleware/auth'), UserController.getUserOrderHistory);
 
 // Get user's addresses by ID
-router.get('/:userId/my-addresses', UserController.getUserAddresses);
+router.get('/my-addresses', require('../middleware/auth'), UserController.getUserAddresses);
 
 // Get user's wishlist by ID
-router.get('/:userId/my-wish', UserController.getUserWishlist);
+router.get('/my-wish', require('../middleware/auth'), UserController.getUserWishlist);
 
 // Get all users
 router.get('/', UserController.getAllUsers);

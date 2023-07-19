@@ -35,7 +35,6 @@ const search = async (tableId, url) => {
   }
 };
 
-
 function addRow(tableId) {
   // add a new row to the table with empty inputs for each cell except the last one which contains the buttons for update and delete
   const columns = tables.find((table) => table.id === tableId).columns;

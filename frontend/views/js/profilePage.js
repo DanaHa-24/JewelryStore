@@ -36,7 +36,7 @@ $(document).ready(async function () {
       text: 'פרטי התחברות',
       content: 'פרטי התחברות',
       action: function () {
-        handleMyDetails(userId);
+        handleMyDetails(clientUser);
       },
     },
     {
@@ -121,7 +121,7 @@ $(document).ready(async function () {
 async function handleMyOrders() {
   $('.profile-page-container').empty();
 
-  const orders = await ajaxRequest(`/api/orders`, 'GET');
+  const orders = await ajaxRequest(`/users/order-history`, 'GET');
   fetchUserOrdersHistory(orders);
 
   if (orders.length === 0) {
@@ -132,86 +132,70 @@ async function handleMyOrders() {
 /////////////////////////////////// My Details Tab ///////////////////////////////////
 
 // Function to handle "My Details" tab
-function handleMyDetails(userId) {
+function handleMyDetails(user) {
   $('.profile-page-container').empty();
 
-  if (!userId) {
-    $('.profile-page-container').text(' עדיין לא התחברת 🖤');
-  } else {
-    // Make an AJAX request to retrieve the user's details from the backend
+  if (user === null) $('.profile-page-container').text('לא נמצאו פרטי משתמש');
+
+  // Build and display the details form
+  const form = $('<form>').addClass('details-form');
+  const firstNameInput = $('<input>').attr('type', 'text').val(user.firstName);
+  const lastNameInput = $('<input>').attr('type', 'text').val(user.lastName);
+  const usernameInput = $('<input>').attr('type', 'email').val(user.username);
+  const phoneNumberInput = $('<input>').attr('type', 'tel').val(user.phoneNumber);
+  const passwordInput = $('<input>').attr('type', 'password').val(user.password);
+  const submitButton = $('<button>')
+    .addClass('btn btn-primary')
+    .attr('id', 'login-page-button')
+    .attr('type', 'submit')
+    .text('שמור');
+
+  form.append(
+    $('<label>').text('שם פרטי: ').append(firstNameInput),
+    $('<br>'),
+    $('<label>').text('שם משפחה: ').append(lastNameInput),
+    $('<br>'),
+    $('<label>').text('שם משתמש: ').append(usernameInput),
+    $('<br>'),
+    $('<label>').text('מספר טלפון: ').append(phoneNumberInput),
+    $('<br>'),
+    $('<label>').text('סיסמה: ').append(passwordInput),
+    $('<br>'),
+    submitButton
+  );
+
+  form.on('submit', function (event) {
+    event.preventDefault();
+
+    // Make an AJAX request to update the user's details in the backend
+    const updatedDetails = {
+      firstName: firstNameInput.val(),
+      lastName: lastNameInput.val(),
+      username: usernameInput.val(),
+      phoneNumber: phoneNumberInput.val(),
+      password: passwordInput.val() ? passwordInput.val() : user.password,
+    };
+
     $.ajax({
-      url: `/users/${userId}`,
-      method: 'GET',
+      url: `/users/${user._id}`,
+      method: 'PUT',
+      data: updatedDetails,
       success: function (response) {
-        if (response === null) {
-          $('.profile-page-container').text('לא נמצאו פרטי משתמש');
-        } else {
-          // Build and display the details form
-          const form = $('<form>').addClass('details-form');
-          const firstNameInput = $('<input>').attr('type', 'text').val(response.firstName);
-          const lastNameInput = $('<input>').attr('type', 'text').val(response.lastName);
-          const usernameInput = $('<input>').attr('type', 'email').val(response.username);
-          const phoneNumberInput = $('<input>').attr('type', 'tel').val(response.phoneNumber);
-          const passwordInput = $('<input>').attr('type', 'password').val(response.password);
-          const submitButton = $('<button>')
-            .addClass('btn btn-primary')
-            .attr('id', 'login-page-button')
-            .attr('type', 'submit')
-            .text('שמור');
-
-          form.append(
-            $('<label>').text('שם פרטי: ').append(firstNameInput),
-            $('<br>'),
-            $('<label>').text('שם משפחה: ').append(lastNameInput),
-            $('<br>'),
-            $('<label>').text('שם משתמש: ').append(usernameInput),
-            $('<br>'),
-            $('<label>').text('מספר טלפון: ').append(phoneNumberInput),
-            $('<br>'),
-            $('<label>').text('סיסמה: ').append(passwordInput),
-            $('<br>'),
-            submitButton
-          );
-
-          form.on('submit', function (event) {
-            event.preventDefault();
-
-            // Make an AJAX request to update the user's details in the backend
-            const updatedDetails = {
-              firstName: firstNameInput.val(),
-              lastName: lastNameInput.val(),
-              username: usernameInput.val(),
-              phoneNumber: phoneNumberInput.val(),
-              password: passwordInput.val(),
-            };
-
-            $.ajax({
-              url: '/users/${userId}',
-              method: 'PUT',
-              data: updatedDetails,
-              success: function (response) {
-                console.log('User details updated successfully');
-              },
-              error: function (error) {
-                console.error('Error updating user details:', error);
-              },
-            });
-          });
-          $('.profile-page-container').empty().append(form);
-        }
+        console.log('User details updated successfully');
       },
       error: function (error) {
-        console.error('Error retrieving user details:', error);
+        console.error('Error updating user details:', error);
       },
     });
-  }
+  });
+  $('.profile-page-container').empty().append(form);
 }
 
 /////////////////////////////////// Fetching for User Addresses tab  ////////////////////////////////////
 async function handleMyAddress() {
   const options = {
     id: 'addressesTable',
-    url: '/api/addresses',
+    url: '/users/my-addresses',
     columnsId: 'addresses-columns',
     rowsId: 'addresses-rows',
   };
@@ -230,7 +214,7 @@ async function handleMyAddress() {
   const params = Object.keys(addresses[0]);
   params.pop();
 
-  TableBar(options.id, params, options.url);
+  buttonsDiv.append(TableBar(options.id, params, options.url));
   ManageTable(addresses, options);
 }
 /////////////////////////////////// Fetching for User Order History tab ///////////////////////////////////

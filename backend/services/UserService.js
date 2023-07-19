@@ -2,11 +2,13 @@ const User = require('../models/UserSchema');
 
 // Get all users
 async function getAllUsers() {
+  //populate myWishList, orderHistory, address, myWishList items array
   const users = await User.find()
     .populate('myWishList')
-    .populate('MyCart')
+    .populate({ path: 'myWishList', populate: { path: 'items' } })
     .populate('orderHistory')
     .populate('address');
+
   return users;
 }
 
@@ -37,8 +39,8 @@ async function deleteUser(id) {
 // Get an user by ID
 async function getUserById(id) {
   const user = await User.findById(id)
+    .populate('myWishList')
     .populate({ path: 'myWishList', populate: { path: 'items' } })
-    .populate('MyCart')
     .populate('orderHistory')
     .populate('address');
   if (!user) throw new Error('User not found');
@@ -61,30 +63,23 @@ async function searchUsers(filter) {
 
 // Get user's order history by ID
 async function getUserOrderHistory(userId) {
-  const user = await User.findById(userId);
+  const user = await User.findById(userId).populate('orderHistory');
   if (!user) throw new Error('User not found');
   return user.orderHistory;
 }
 
 // Get user's addresses by ID
 async function getUserAddresses(userId) {
-  const user = await User.findById(userId);
+  const user = await User.findById(userId).populate('address');
   if (!user) throw new Error('User not found');
   return user.address;
 }
 
 // Get user's wishlist by ID
 async function getUserWishlist(userId) {
-  const user = await User.findById(userId);
+  const user = await User.findById(userId).populate('myWishList');
   if (!user) throw new Error('User not found');
   return user.myWishList;
-}
-
-// Get user's cart by ID
-async function getUserMyCart(userId) {
-  const user = await User.findById(userId);
-  if (!user) throw new Error('User not found');
-  return user.MyCart;
 }
 
 module.exports = {
@@ -97,5 +92,4 @@ module.exports = {
   getUserOrderHistory,
   getUserAddresses,
   getUserWishlist,
-  getUserMyCart,
 };

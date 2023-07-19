@@ -43,6 +43,11 @@ router.get('/product/:id', async (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/views/pages/productPage.html'));
 });
 
+router.get('/user-manage-page/:id', async (req, res) => {
+  const { id } = req.params;
+  res.sendFile(path.join(__dirname, '../../frontend/views/pages/userManagePage.html'));
+});
+
 router.get('/statistics', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/views/pages/statisticsPage.html'));
 });
