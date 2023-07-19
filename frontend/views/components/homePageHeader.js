@@ -5,7 +5,7 @@ const dropdownArray = {
   },
   Ring: {
     title: 'טבעות',
-    materials: [{ beads: 'חרוזים' }, { pearl: 'פנינים' }, { silver: 'כסף' }, { stone: 'אבן' }],
+    materials: [{ pearl: 'פנינים' }, { silver: 'כסף' }, { stone: 'אבן' }],
   },
   Earring: {
     title: 'עגילים',
